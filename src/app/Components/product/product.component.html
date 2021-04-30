@@ -1,0 +1,123 @@
+
+                              
+                              <!-- INTERFACE D'ADMINSITRATEUR -->
+
+                              <h3>Department Manager Home </h3>
+<button type="button" (click)="ViewProducts()"  class="btn btn-primary">SHOW PRODUCTS </button>
+<button type="button" (click)="AddProdShowDiv()" class="btn btn-primary">ADD NEW PRODUCT</button>
+<button type="button"   class="btn btn-primary">VERIFY STOCK </button>
+
+
+
+
+                         <!-- FORMULAIRE D'AJOUT D'UN NOUVEAU PRODUITS -->
+
+<div *ngIf="showIntAddProd" class="container" style="padding-top: 100;">
+<h1>ADD NEW PRODUCTS INTERFACE</h1> 
+
+<form  #F="ngForm">
+  <div class="form-group"></div>
+  <label> Title Product</label>
+  <input type="text" required placeholder="Title Of Product" #t="ngModel" id="titleProduct" name="titleProduct" [(ngModel)]="product.titleProduct">
+  <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+    <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+    <div *ngIf="t.errors.minlength">Invalid Title</div>
+</div>
+  
+
+
+<div class="form-group"></div>
+  <label></label>
+  <input type="text" required placeholder="descriptionProduct"  #d="ngModel"  id="descriptionProduct" name="descriptionProduct" [(ngModel)]="product.descriptionProduct">
+  <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+    <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+    <div *ngIf="d.errors.minlength">Invalid Description</div>
+</div>
+
+
+
+  <div class="form-group"></div>
+  <label></label>
+  <input type="number" required placeholder="quantityProduct" #q="ngModel" pattern="[1-9][0-9]" name="quantityProduct"[(ngModel)]="product.quantityProduct">
+  <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+    <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
+    <div *ngIf="q.errors.minlength">Invalid Quantity</div>
+</div>
+
+
+
+
+  <div class="form-group"></div>
+  <label></label>
+  <input type="number" required placeholder="priceProduct" #pp="ngModel" pattern="[1-9][0-9]" name="priceProduct"[(ngModel)]="product.priceProduct">
+  <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched" >
+    <div *ngIf="pp.errors.required">Price Is Obilgatory</div>
+    <div *ngIf="pp.errors.pattern">Invalid Price</div>
+</div>
+
+
+
+
+  <div class="form-group"></div>
+  <label></label>
+  <input type="number" required placeholder="weightProduct"#wp="ngModel" name="weightProduct"pattern="[1-9][0-9][0-9]" [(ngModel)]="product.weightProduct">
+  <div class="alert alert-danger" *ngIf="wp.invalid && wp.touched" >
+    <div *ngIf="wp.errors.required">Weight Is Obilgatory</div>
+    <div *ngIf="wp.errors.pattern">Invalid Weight</div>
+</div>
+
+
+
+
+  <div class="form-group"></div>
+  <label></label>
+  <input type="number" required placeholder="buyingPriceProduct" #bp="ngModel" pattern="[1-9][0-9]" name="buyingPriceProduct"[(ngModel)]="product.buyingPriceProduct">
+  <div class="alert alert-danger" *ngIf="bp.invalid && bp.touched" >
+    <div *ngIf="bp.errors.required">Buying Price Is Obilgatory</div>
+    <div *ngIf="bp.errors.pattern">Invalid Buying Price</div>
+  </div>
+
+
+
+
+  <div class="form-group"></div>
+  <label></label>
+  <input type="number" required placeholder="maxQuantityProduct"#mqp="ngModel" name="maxQuantityProduct"[(ngModel)]="product.maxQuantityProduct">
+  <div class="alert alert-danger" *ngIf="mqp.invalid && mqp.touched" >
+    <div *ngIf="mqp.errors.required">Max Quantity Product Is Obilgatory</div>
+    <div *ngIf="mqp.errors.pattern">Invalid Max Quantity Product</div>
+  </div>
+
+
+
+</form>
+<br>
+<button type="button" [disabled]="F.invalid" id="addProductToDatabase" (click)="addProduct()" class="btn btn-success">ADD TO DATABASE</button>
+
+  
+</div>
+
+
+
+
+
+
+                                        <!-- AFFICHAGE DES PRODUITS AVEC OPTION DELETE-->
+<div *ngIf="show" class="card-deck" >
+  <div   *ngFor="let p of ListProducts">
+  <div class="card">
+    <img src="http://placehold.it/400x300" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{p.idProduct}}</h5>
+      <h5 class="card-title">{{p.titleProduct}}</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{p.descriptionProduct}}</small>
+    </div>
+    <button type="button" class="btn-primary"> Details </button>
+    <button type="button" class="btn-primary"> Update  </button>
+    <button (click)="deleteProduct(p.idProduct)" type="button" class="btn btn-danger"> DELETE </button>
+  </div>
+  
+</div>
+</div>

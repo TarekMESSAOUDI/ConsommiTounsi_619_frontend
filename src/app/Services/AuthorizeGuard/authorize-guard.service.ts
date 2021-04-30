@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { AuthenticationService } from '../Authenticate/authentication.service';
+import { TokenstorageService } from '../TokenStorage/tokenstorage.service';
+import { UserService } from '../User/user.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthorizeGuardService implements CanActivate{
+
+  constructor(private authservice: AuthenticationService,
+    private router: Router) { }
+
+  canActivate() {
+    if (!this.authservice.authenticate) {
+      this.router.navigate(['/authentificate']);
+      return false;
+    }
+    return true;
+  }
+
+}

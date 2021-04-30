@@ -1,0 +1,27 @@
+
+<p>stock works!</p>
+<!--
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>quantity</th>
+        <th>Date</th>
+        
+    </tr>
+    <tr *ngFor="let p of liststock">
+        <th>{{p.idStock}}</th>
+        <th>{{p.namestock}}</th>
+        <th>{{p.capacityStock}}</th>
+        <th>{{p.validityStock}}</th>
+
+    
+       
+    </tr>
+    </table>
+
+-->
+
+<ul>
+    <li *ngFor="let u of liststock">{{ u|json }} </li>
+    </ul>

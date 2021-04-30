@@ -1,0 +1,102 @@
+
+<div class="container login-container">
+  <br>
+  <br />
+  <div class="raw">
+
+    <div class="col-md-16 login-form-1">
+      <h3 class="col-5 mx-auto">CREATE NEW ACCOUNT</h3>
+
+      <form name="form" #u="ngForm" (ngSubmit)="addUser()">
+
+        <div class="form-group">
+          <label>First Name :</label>
+          <input type="text" name="firstname" class="form-control" placeholder="Your First Name *"
+                 ngModel required #fn="ngModel" [(ngModel)]="form.username" />
+        </div>
+        <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+          First Name is a Required Field !
+        </div>
+
+        <div class="form-group">
+          <label>Last Name :</label>
+          <input type="text" name="lastname" class="form-control" placeholder="Your Last Name"
+                 ngModele [(ngModel)]="form.lastNameUser" />
+        </div>
+
+        <div class="form-group">
+          <label>Email :</label>
+          <input type="text" name="email" class="form-control" placeholder="Your Email *"
+                 ngModel [(ngModel)]="form.emailUser"
+                 required #email="ngModel"
+                 pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]{2,4}" />
+          <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+            <div *ngIf="email.errors.required"> Email is a Required Field ! </div>
+            <div *ngIf="email.errors.pattern"> Email Invalid </div>
+          </div>
+
+          <div class="form-group">
+            <label>CIN :</label>
+            <input type="text" name="cin" class="form-control" placeholder="Your CIN *"
+                   ngModel required #cin="ngModel" [(ngModel)]="form.cinUser" />
+          </div>
+          <div class="alert alert-danger" *ngIf="cin.invalid && cin.touched">
+            CIN is a Required Field !
+          </div>
+
+          <div class="form-group">
+            <label>Password :</label>
+            <input type="password" name="password" class="form-control" placeholder="Your Password *"
+                   ngModel required #password="ngModel" [(ngModel)]="form.password" />
+          </div>
+          <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+            Password is a Required Field !
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password :</label>
+            <input type="password" name="confirmpassword" class="form-control" placeholder="Your Confirm Password *"
+                   ngModel required #cpassword="ngModel" [(ngModel)]="form.confirmPasswordUser" />
+          </div>
+          <div class="alert alert-danger" *ngIf="cpassword.invalid && cpassword.touched">
+            Confirm Your password !
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number :</label>
+            <input type="text" name="phonenumber" class="form-control" placeholder="Your Phone Number *" value=""
+                   ngModel [(ngModel)]="form.phoneNumberUser" />
+          </div>
+
+          <div class="form-group">
+            <label>Address :</label>
+            <input type="text" name="address" class="form-control" placeholder="Your Address *" value=""
+                   ngModel [(ngModel)]="form.adressUser" />
+          </div>
+
+          <div class="form-group">
+            <label>Birth Date :</label>
+            <input type="date" name="birthdate" class="form-control" placeholder="Your Birth Date *"
+                   ngModel required #birthdate="ngModel" [(ngModel)]="form.birthDateUser" />
+          </div>
+          <div class="alert alert-danger" *ngIf="birthdate.invalid && birthdate.touched">
+            Birth Date is a Required Field !
+          </div>
+
+          <div class="form-group">
+            <label>Sexe :</label>
+            <input type="text" name="sexe" class="form-control" placeholder="Men/Women *"
+                   ngModel [(ngModel)]="form.sexeUser" />
+          </div>
+
+          <div class="d-grid gap-5 col-3 mx-auto">
+            <button [disabled]="u.invalid" (click)="addUser()" type="button" class="btn btn-success btn-lg"> Create Account </button>
+          </div>
+          <br>
+          <br />
+          <div class="alert alert-primary">{{msg}}</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

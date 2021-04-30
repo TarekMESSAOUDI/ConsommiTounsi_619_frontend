@@ -1,0 +1,37 @@
+
+
+<div class="wrapper fadeInDown">
+
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h3 class="col-5 mx-auto">SIGN IN</h3>
+      <!-- Login Form -->
+      <form name="form" #auth="ngForm" (ngSubmit)="authenticat()">
+
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login (First Name)" ngModel
+               required #fn="ngModel" [(ngModel)]="form.username">
+        <a class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+          Username is a Required Field !
+        </a>
+
+        <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password"
+               ngModel required #p="ngModel" [(ngModel)]="form.password">
+        <a class="alert alert-danger" *ngIf="p.invalid && p.touched">
+          Password is a Required Field !
+        </a>
+
+        <input type="submit" [disabled]="auth.invalid"  class="fadeIn fourth" value="Log In" (click)="authenticat()">
+      </form>
+
+      <div class="alert alert-primary">{{msg}}</div>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="createaccount">Dont have an account yet ?</a>
+      </div>
+    </div>
+  </div>
+
+</div>

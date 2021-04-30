@@ -1,0 +1,6 @@
+export enum Role {
+    ADMINISTRATOR,
+    CLIENT,
+    DEPARTMENTMANAGER,
+    DELIVERYPERSON
+  }

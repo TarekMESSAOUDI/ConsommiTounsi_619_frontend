@@ -11,8 +11,10 @@ export class DepartmentService {
   DepartmentsRetrieveallUrl ="http://localhost:9091/SpringMVC/servlet/retrieve-all-Departments";
   DepartmentaddUrl="http://localhost:9091/SpringMVC/servlet/add-department";
   DepartmentDeleteUrl="http://localhost:9091/SpringMVC/servlet/remove-department/";
-  DepartmentRetrieveById="http://localhost:9090/SpringMVC/servlet/retrieve-department/{department-id}";
-  affectProductURL="http://localhost:9090/SpringMVC/servlet/alteProductToDepartment/{idd}/{idp}"
+  DepartmentRetrieveById="http://localhost:9091/SpringMVC/servlet/retrieve-department";
+  DepartmentRetreiveByName=" http://localhost:9091/SpringMVC/servlet/retrieve-Department-By-Name"
+  affectProductURL="http://localhost:9091/SpringMVC/servlet/alteProductToDepartment";
+  affectfileURL="http://localhost:9091/SpringMVC/servlet/alteFileToDepartment"
 
 
 
@@ -41,4 +43,16 @@ getDepartmentById():Observable<Department[]>{
 affectProductToDepartment(department: Department): Observable<any> {
   return this.Departmenthttp.post(this.affectProductURL, Department);
 }
+
+affectFileToDepartment(department: Department): Observable<any> {
+  return this.Departmenthttp.post(this.affectfileURL, Department);
+}
+
+
+
+getDepartmentByName():Observable<Department[]>{
+  return this.Departmenthttp.get<Department[]>(this.DepartmentRetreiveByName);
+}
+
+
 }

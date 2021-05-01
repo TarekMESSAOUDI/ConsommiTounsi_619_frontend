@@ -43,6 +43,7 @@ import { ProductComponent } from './Components/product/product.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthorizeGuardService] },
         { path: 'home/category', component: CategoryComponent },
+        { path: 'home/basket', component: BasketClientComponent },
         { path: 'home/publicity', component: PublicityHomeComponent },
         { path: 'home/forum', component: ForumHomeComponent },
         { path: 'home/event', component: EventHomeComponent },
@@ -65,7 +66,6 @@ const routes: Routes = [
               { path: 'client', component: EsapaceClientComponent },
                     { path: 'client/home', component: HomeClientComponent },
                     { path: 'client/profile', component: ProfileClientComponent },
-                    { path: 'client/basket', component: BasketClientComponent },
                     { path: 'client/claim', component: ClaimClientComponent },
                     { path: 'client/cagnotte', component: CagnotteClientComponent },
                     { path: 'client/event', component: EventClientComponent },

@@ -41,7 +41,7 @@ import { ProductComponent } from './Components/product/product.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthorizeGuardService] },
+  { path: 'home', component: HomeComponent },
         { path: 'home/category', component: CategoryComponent },
         { path: 'home/basket', component: BasketClientComponent },
         { path: 'home/publicity', component: PublicityHomeComponent },
@@ -50,7 +50,7 @@ const routes: Routes = [
           { path: 'home/authentificate', component: AuthentificateComponent },
           { path: 'home/createaccount', component: CreateaccountComponent },
               { path: 'administrator', component: EsapaceAdministratorComponent },
-                    { path: 'administrator/user', component: UserComponent },
+                    { path: 'administrator/user', component: UserComponent,  canActivate: [AuthorizeGuardService] },
                     { path: 'administrator/delivery', component: DeliveryAdministratorComponent },
                     { path: 'administrator/product', component: ProductAdministratorComponent },
                     { path: 'administrator/publicity', component: PublicityAdministratorComponent },

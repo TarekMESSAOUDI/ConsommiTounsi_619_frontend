@@ -51,6 +51,7 @@ import { StockDepartmentMangerComponent } from './Components/stock-department-ma
 import { SalesDepartmentManagerComponent } from './Components/sales-department-manager/sales-department-manager.component';
 import { EventHomeComponent } from './Components/event-home/event-home.component';
 import { BillComponent } from './Components/bill/bill.component';
+import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { BillComponent } from './Components/bill/bill.component';
     SalesDepartmentManagerComponent,
     EventHomeComponent,
     BillComponent,
+    DepartmentClientComponent,
     
     
   ],

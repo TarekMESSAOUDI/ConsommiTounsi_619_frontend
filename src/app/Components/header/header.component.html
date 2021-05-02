@@ -3,21 +3,27 @@
   <!-- MAIN HEADER -->
   <div id="header">
     <!-- container -->
+
+
+    <div class="col-sm-4 col-md-1 order-first">
+      <div class="header-logo">
+        <a class="navbar-brand" href="">
+          <div class="logo-image">
+            <ul class="header-links ">
+              <img src="assets/img/logodark.png" class="img-fluid">
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
     <div class="container">
       <!-- row -->
       <div class="row">
         <!-- LOGO de consomi tounsi -->
-        <div class="col-sm-6 col-md-1 order-first">
-          <div class="header-logo">
-            <a class="navbar-brand" href="/">
-              <div class="logo-image">
-                <ul class="header-links pull-right">
-                  <img src="assets/img/logodark.png" class="img-fluid">
-                </ul>
-              </div>
-            </a>
-          </div>
-        </div>
+        
         <!-- /LOGO de consomi tounsi-->
         <!-- SEARCH BAR -->
         <div class="col-md-6">
@@ -36,9 +42,26 @@
         <!-- /SEARCH BAR -->
 
 
+        
         <!-- Froum -->
         <div class="col-md-4 clearfix">
           <div class="header-ctn">
+
+<!--Event -->
+<div class="col-md-2 clearfix">
+  <a href="home/event">
+    <i class="fa fa-user"></i>
+    <span routerLink="home/event">Event</span>
+    <div class="qty">0</div>
+    
+  </a>
+</div>
+<!--Event-->
+
+
+
+
+
             <div>
               <a href="/home/forum">
                 <i class="fa fa-heart"></i>
@@ -48,45 +71,12 @@
             </div>
             <!-- /Forum -->
 
-            <!--Event -->
-            <div>
-              <a href="home/event">
-                <i class="fa fa-user"></i>
-                <span routerLink="home/event">Event</span>
-                <div class="qty">0</div>
-                <div class="mega-box">
-                  <div class="content">
-                    <div class="row">
-                      <!-- <img src="img.jpg" alt=""> -->
-                      <ul class="mega-links">
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!--Event-->
+            
 
-            <!--Sign in-->
-            <div>
-              <a href="home/authentificate">
-                <i class="fa fa-user"></i>
-                <span routerLink="/authentificate">Sign In</span>
-                <div class="mega-box">
-                  <div class="content">
-                    <div class="row">
-                      <!-- <img src="img.jpg" alt=""> -->
-                      <ul class="mega-links">
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!--Sign in-->
+            
 
             <!--Basket-->
-            <div>
+            <div class="col-md-2 clearfix">
               <a href="/home/basket">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Your Basket</span>
@@ -95,8 +85,24 @@
             </div>
             <!--Basket-->
 
+
+            <!--Sign in-->
+            <div class="col-md-2 ">
+              <a href="home/authentificate">
+                <i class="fa fa-user"></i>
+                <span routerLink="/authentificate">Sign In</span>
+                  
+              </a>
+            </div>
+            <!--Sign in-->
+
           </div>
             </div>
+
+
+
+
+
           </div>
       <!-- row -->
     </div>

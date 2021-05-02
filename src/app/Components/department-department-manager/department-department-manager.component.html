@@ -93,9 +93,13 @@ ADD a  new shelf</div>
 <div *ngIf="showdepartments">
 
 
+
+    
+
+
 <!-- AFFICHAGE DES PRODUITS AVEC OPTION DELETE-->
 
-<div   *ngFor="let d of listDepartment">
+<div   >
 
 
 
@@ -106,30 +110,29 @@ ADD a  new shelf</div>
 <th>Department Id</th>
 <th>Name</th>
 <th>Type</th>
+<th>Edit</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr *ngFor="let d of listDepartment">
 <td><h6 class="card-title">{{d.idDepartment}}</h6></td>
 <td><h6 class="card-title">{{d.nameDepartment}}</h6></td>
 <td><h6 class="cartd-title">{{d.typeDepartment}}</h6></td>
 
 <td>
+    <div class="field">
 
+        <button type="button" class="button button2" id="crudbutton"> Update  </button>
+        
+        <button (click)="deleteDepartment(d.idDepartment)" type="button" id="crudbutton"> DELETE </button>
+        
+        </div>
 </td>
+
+
 </tr>
 
-<div class="field">
 
-
-<button type="button" class="button button1" id="crudbutton"> Details </button>
-<button type="button" class="button button2" id="crudbutton"> Update  </button>
-
-<button (click)="deleteDepartment(d.idDepartment)" type="button" id="crudbutton"> DELETE </button>
-
-
-
-</div>
 </tbody>
 </table>
 

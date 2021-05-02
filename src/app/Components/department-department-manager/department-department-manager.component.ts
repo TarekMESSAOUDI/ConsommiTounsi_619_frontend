@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Department } from 'src/app/Models/Department';
 import { DepartmentService } from 'src/app/Services/Department/department.service';
 
@@ -47,6 +48,16 @@ deleteDepartment(id:number){
 
 
 
+ 
+
+
+
+
+
+
+
+
+  //show different pages 
   AddDepatmentshowdiv(){
     this.show=true;
     this.showdepartments=false;

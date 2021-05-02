@@ -8,12 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: -webkit-linear-gradient(136deg, rgb(224,195,252) 0%, rgb(142,197,252) 100%);
+    background: -webkit-linear-gradient(136deg, rgb(224,195,252) 0%, rgb(212, 30, 30) 100%);
   }
   .wrapper{
     position: relative;
-    width: 1300px;
-    height: 500px;
+    width: auto;
+    height: 550px;
   }
   .wrapper .img{
     position: absolute;
@@ -76,10 +76,10 @@
   #five:checked ~ .sliders label.five{
     width: 35px;
     border-radius: 14px;
-    background: rgb(142,197,252);
+    background: rgb(209, 5, 5);
   }
   .sliders label:hover{
-    background: rgb(142,197,252);
+    background: rgb(7, 7, 7);
   }
   input[type="radio"]{
     display: none;

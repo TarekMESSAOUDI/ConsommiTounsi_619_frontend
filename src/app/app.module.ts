@@ -50,10 +50,13 @@ import { DepartmentDepartmentManagerComponent } from './Components/department-de
 import { StockDepartmentMangerComponent } from './Components/stock-department-manger/stock-department-manger.component';
 import { SalesDepartmentManagerComponent } from './Components/sales-department-manager/sales-department-manager.component';
 import { EventHomeComponent } from './Components/event-home/event-home.component';
-import { BillComponent } from './Components/bill/bill.component';
 import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
 import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderAdministratorComponent } from './Components/order-administrator/order-administrator.component';
+import { OrderClientComponent } from './Components/order-client/order-client.component';
+import { BillClientComponent } from './Components/bill-client/bill-client.component';
+
 
 
 @NgModule({
@@ -103,9 +106,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StockDepartmentMangerComponent,
     SalesDepartmentManagerComponent,
     EventHomeComponent,
-    BillComponent,
     UpdateproductComponent,
     DepartmentClientComponent,
+    OrderAdministratorComponent,
+    OrderClientComponent,
+    BillClientComponent,
+    
 
     
     

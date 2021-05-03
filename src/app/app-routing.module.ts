@@ -38,6 +38,9 @@ import { SalesDepartmentManagerComponent } from './Components/sales-department-m
 import { EventHomeComponent } from './Components/event-home/event-home.component';
 import { ProductComponent } from './Components/product/product.component';
 import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
+import { OrderAdministratorComponent } from './Components/order-administrator/order-administrator.component';
+import { OrderClientComponent } from './Components/order-client/order-client.component';
+
 
 
 
@@ -64,6 +67,7 @@ const routes: Routes = [
                     { path: 'administrator/comptability', component: ComptabilityAdministratorComponent },
                     { path: 'administrator/cagnotte', component: CagnotteAdministratorComponent },
                     { path: 'administrator/event', component: EventAdministratorComponent },
+                    { path: 'administrator/order', component: OrderAdministratorComponent },
               { path: 'client', component: EsapaceClientComponent },
                     { path: 'client/home', component: HomeClientComponent },
                     { path: 'client/profile', component: ProfileClientComponent },
@@ -71,6 +75,7 @@ const routes: Routes = [
                     { path: 'client/cagnotte', component: CagnotteClientComponent },
                     { path: 'client/event', component: EventClientComponent },
                     {path:  'client/product',component:ProductComponent},
+                    { path: 'client/order', component: OrderClientComponent },
                     {path:'Client/departments',component: DepartmentClientComponent},
               { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent },
                     { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent },

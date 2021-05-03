@@ -11,31 +11,35 @@ export class OrderService {
 
   addOrderURL:"localhost:9091/SpringMVC/servlet/add-order";
   modifyOrderURL:"localhost:9091/SpringMVC/servlet/modify-order";
-  deleteOrderURL:"localhost:9091/SpringMVC/servlet/delete-order"
-  getAllOrderURL:"localhost:9091/SpringMVC/servlet/getAllOrder"
+  //deleteOrderURL:"localhost:9091/SpringMVC/servlet/delete-order/"
+  //getAllOrderURL:"localhost:9091/SpringMVC/servlet/getAllOrder"
   getOrderByTypeURL:"localhost:9091/SpringMVC/servlet/getOrder_by_Type"
   
 
   constructor (private orderhttp: HttpClient, private router: Router) { }
 
-  addorder(Order:Order){
-    return this.orderhttp.post<Order>(this.addOrderURL,Order);
+  addOrder(o:Order){
+    return this.orderhttp.post(this.addOrderURL,o);
   }
 
-  getAllOrder():Observable<Order[]>{
-    return this.orderhttp.get<Order[]>(this.getAllOrderURL);
+
+  public getAllOrder(){
+    return this.orderhttp.get("http://localhost:9091/SpringMVC/servlet/getAllOrder");
   }
 
-  deletetOrderById(id:number){
-    return this.orderhttp.delete(this.deleteOrderURL+id);
+  public deleteOrder(idOrder: number) {
+    return this.orderhttp.delete("http://localhost:9091/SpringMVC/servlet/delete-order/" + idOrder);
   }
 
-  updateOrder(id: number, value: any): Observable<any> {
+ 
+
+  updateOrder(_id: number, value: any): Observable<any> {
     return this.orderhttp.put(this.modifyOrderURL, value);
   }
 
-  getOrderByType(paymentType: string): Observable<any> {
+  getOrderByType(_paymentType: string): Observable<any> {
     return this.orderhttp.get(this.getOrderByTypeURL);
   }
   
 }
+

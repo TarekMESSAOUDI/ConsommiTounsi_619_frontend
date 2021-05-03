@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClient, HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -51,6 +51,7 @@ import { StockDepartmentMangerComponent } from './Components/stock-department-ma
 import { SalesDepartmentManagerComponent } from './Components/sales-department-manager/sales-department-manager.component';
 import { EventHomeComponent } from './Components/event-home/event-home.component';
 import { BillComponent } from './Components/bill/bill.component';
+import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
 
 @NgModule({
   declarations: [
@@ -100,12 +101,14 @@ import { BillComponent } from './Components/bill/bill.component';
     SalesDepartmentManagerComponent,
     EventHomeComponent,
     BillComponent,
+    UpdateproductComponent,
     
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' })

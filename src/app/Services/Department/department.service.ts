@@ -56,9 +56,19 @@ getDepartmentByName():Observable<Department[]>{
 }
 
 
-updateDep(department:Department): Observable<any>{
-  return this.Departmenthttp.put(this.DepartmentEditURL, department);
+updateDep(department:Department): Observable<Department>{
+  return this.Departmenthttp.put<Department>(this.DepartmentEditURL, department);
 }
+
+
+/*
+//update department
+updateDep(id: number, value: any): Observable<Object> {
+  return this.Departmenthttp.put(`${this.DepartmentEditURL}/${id}`, value);
+}
+*/
+
+
 
 
 }

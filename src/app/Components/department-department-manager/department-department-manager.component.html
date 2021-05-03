@@ -130,10 +130,10 @@
 <td>
     <div class="field">
 
-        <button n
-        type="button" class="button button2" id="crudbutton"> Update  </button>
+      
+        <button (click)="updateDep(department.idDepartment)" class="btn btn-info" style="margin-left: 10px">Update</button>
         
-        <button (click)="deleteDepartment(d.idDepartment)" type="button" id="crudbutton"> DELETE </button>
+        <button (click)="deleteDepartment(d.idDepartment)" class="btn btn-info" style="margin-left: 10px"   type="button" > DELETE </button>
         
         </div>
 </td>
@@ -155,4 +155,3 @@
 
 
 </body>
-

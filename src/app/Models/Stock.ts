@@ -1,7 +1,8 @@
 export class Stock{
     idStock :number;
-    namestock : string ;
+    nameStock : string ;
     capacityStock : number;
     validityStock : Date ;
+    costStock:number;
     
 }

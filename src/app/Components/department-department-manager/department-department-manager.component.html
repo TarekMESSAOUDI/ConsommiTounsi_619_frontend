@@ -1,91 +1,99 @@
  <!-- INTERFACE D'ADMINSITRATEUR -->
-
- <h3>department manager shelf </h3>
-
- <div class="field">
- <button type="button" (click)="Viewdepartment()" id="submitButton" class="btn btn-primary">SHOW department </button>
- <button type="button" (click)="AddDepatmentshowdiv()"  id="submitButton" class="btn btn-primary">ADD NEW department</button>
- </div>
-<!-- adding a new department-->
-<html>
-<body>
-
-
-
-<div *ngIf="show">
-<div class="wrapper">
-<div class="title">
-
-ADD a  new shelf</div>
- <!--adding a department with success notification-->
-<div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
-<strong></strong> department added with success !
-<button (click)="closealert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
+<div class="titre">
+    <h3>Welcome to department manager shelf </h3>
 </div>
-                   <!--end notification-->
+ 
 
-<form  #F="ngForm"  action="#">
-<div class="field">
+    <body>
+
+        <div class="field">
+            <button type="button" (click)="Viewdepartment()" id="submitButton" class="btn btn-primary">SHOW department </button>
+            <button type="button" (click)="AddDepatmentshowdiv()"  id="submitButton" class="btn btn-primary">ADD NEW department</button>
+            </div>
+           <!-- adding a new department-->
+           
+           
+        
+        
+           
+           <div *ngIf="show">
+           <div class="wrapper">
+           <div class="title">
+           
+           ADD a  new shelf</div>
+            <!--adding a department with success notification-->
+           <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+           <strong></strong> department added with success !
+           <button (click)="closealert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+           </div>
+                              <!--end notification-->
+           
+           <form  #F="ngForm"  action="#">
+           <div class="field">
+           
+           
+           <input type="text" required placeholder="Title Of Department" #t="ngModel" id="titleDepartment" name="titleDepartment" [(ngModel)]="department.nameDepartment">
+           <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+           <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+           <div *ngIf="t.errors.minlength">Invalid Title</div>
+           </div>
+           
+           </div>
+           
+           
+           
+           
+           <div class="field">
+           
+           <label></label>
+           <input type="text" required placeholder="typeDepartment"  #d="ngModel"  id="typeDepartment" name="typeDepartment" [(ngModel)]="department.typeDepartment">
+           <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+           <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+           <div *ngIf="d.errors.minlength">Invalid Description</div>
+           </div>
+           </div>
+           
+           
+           
+           
+           <div class="field">
+           
+           <label></label>
+           <input type="number" required placeholder="capacityDepartment" #q="ngModel" pattern="[1-9][0-9]" name="capacityDepartment"[(ngModel)]="department.capacityDepartment">
+           <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+           <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
+           <div *ngIf="q.errors.minlength">Invalid Quantity</div>
+           </div>
+           
+           </div>
+           
+           
+           
+           
+           
+           
+           <div class="field">
+           <button type="button" [disabled]="F.invalid" id="adddepartment" (click)="adddepartment()" class="btn btn-success">Add new Department</button>
+           
+           </div>
+           
+           
+           </form>
+       
+           </div>
+           
+           
+           </div>
+    
+
+ 
 
 
-<input type="text" required placeholder="Title Of Department" #t="ngModel" id="titleDepartment" name="titleDepartment" [(ngModel)]="department.nameDepartment">
-<div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
-<div *ngIf="t.errors.required">Title Is Obilgatory</div>
-<div *ngIf="t.errors.minlength">Invalid Title</div>
-</div>
-
-</div>
+        
 
 
-
-
-<div class="field">
-
-<label></label>
-<input type="text" required placeholder="typeDepartment"  #d="ngModel"  id="typeDepartment" name="typeDepartment" [(ngModel)]="department.typeDepartment">
-<div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
-<div *ngIf="d.errors.required">Description Is Obilgatory</div>
-<div *ngIf="d.errors.minlength">Invalid Description</div>
-</div>
-</div>
-
-
-
-
-<div class="field">
-
-<label></label>
-<input type="number" required placeholder="capacityDepartment" #q="ngModel" pattern="[1-9][0-9]" name="capacityDepartment"[(ngModel)]="department.capacityDepartment">
-<div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
-<div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
-<div *ngIf="q.errors.minlength">Invalid Quantity</div>
-</div>
-
-</div>
-
-
-
-
-
-
-<div class="field">
-<button type="button" [disabled]="F.invalid" id="adddepartment" (click)="adddepartment()" class="btn btn-success">Add new Department</button>
-
-</div>
-
-
-</form>
-
-</div>
-
-</div>
-
-
-
-</body>
-</html>
 
 
 
@@ -93,9 +101,13 @@ ADD a  new shelf</div>
 <div *ngIf="showdepartments">
 
 
+
+    
+
+
 <!-- AFFICHAGE DES PRODUITS AVEC OPTION DELETE-->
 
-<div   *ngFor="let d of listDepartment">
+<div   >
 
 
 
@@ -106,36 +118,40 @@ ADD a  new shelf</div>
 <th>Department Id</th>
 <th>Name</th>
 <th>Type</th>
+<th>Edit</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr *ngFor="let d of listDepartment">
 <td><h6 class="card-title">{{d.idDepartment}}</h6></td>
 <td><h6 class="card-title">{{d.nameDepartment}}</h6></td>
 <td><h6 class="cartd-title">{{d.typeDepartment}}</h6></td>
 
 <td>
+    <div class="field">
 
+      
+        <button (click)="updateDep(department.idDepartment)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        
+        <button (click)="deleteDepartment(d.idDepartment)" class="btn btn-info" style="margin-left: 10px"   type="button" > DELETE </button>
+        
+        </div>
 </td>
+
+
 </tr>
 
-<div class="field">
 
-
-<button type="button" class="button button1" id="crudbutton"> Details </button>
-<button type="button" class="button button2" id="crudbutton"> Update  </button>
-
-<button (click)="deleteDepartment(d.idDepartment)" type="button" id="crudbutton"> DELETE </button>
-
-
-
-</div>
 </tbody>
 </table>
 
 
 
 
+
 </div>
 
 </div>
+
+
+</body>

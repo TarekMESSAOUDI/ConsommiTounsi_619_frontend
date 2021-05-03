@@ -1,1 +1,45 @@
-<p>product-administrator works!</p>
+<h3>Department Manager Products Home </h3>
+<button type="button" (click)="ViewProducts()"  class="btn btn-primary">SHOW PRODUCTS </button>
+<button type="button" (click)="AddProdShowDiv()" class="btn btn-primary">ADD NEW PRODUCT</button>
+
+
+
+<!-- AFFICHAGE DES PRODUITS AVEC OPTION DELETE-->
+
+ <div *ngIf="show" class="card-deck" >
+<table class="table caption-top">
+  
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title </th>
+      <th scope="col">Description</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Max Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Buying Price</th>
+      <th>Profit Margin</th>
+      <th scope="col">Image</th>
+    </tr>
+
+    <tr *ngFor="let p of ListProducts">
+      <td>{{p.idProduct}}</td>
+      <td>{{p.titleProduct}}</td>
+      <td>{{p.descriptionProduct}}</td>
+      <td>{{p.quantityProduct}}</td>
+      <td>{{p.weightProduct}}</td>
+      <td>{{p.maxQuantityProduct}}</td>
+      <td>{{p.priceProduct}} DT</td>
+      <td>{{p.buyingPriceProduct}} DT </td>
+      <td>{{p.buyingPriceProduct-p.priceProduct}}</td>
+      <div >
+      <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="100" height="150"  class="card-img-top" alt="...">
+      </div>
+      <button type="button" class="btn-primary"> Update  </button>
+      <button (click)="deleteProduct(p.idProduct)" type="button" class="btn-danger"> DELETE </button>
+    </tr> 
+</table>
+ </div>
+
+
+

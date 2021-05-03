@@ -1,1 +1,167 @@
-<p>stock-department-manger works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color:white;">Department Manager : Stock</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <button   class="btn success" id="buty">             <a class="nav-link"  (click)="onOpenModal(null, 'add')">Add Stock <span class="sr-only">(current)</span></a>
+              </button>
+
+          </li>
+       </ul>
+       <form class="form-inline my-2 my-lg-0">
+          <input type="search" (ngModelChange)="searchStocks(key.value)" #key="ngModel" ngModel
+           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search stock..." required>
+       </form>
+    </div>
+  </nav>
+  <div class="container" id="main-container">
+  <div class="row">
+    <div *ngFor="let stock of stocks" class="col-md-6 col-xl-3">
+       <div class="card m-b-30">
+          <div class="card-body row">
+             <div class="col-6">
+                <a href=""><img src="" alt="" class="img-fluid rounded-circle w-60"></a>
+             </div>
+             <div class="col-6 card-title align-self-center mb-0">
+                <h5>{{stock?.nameStock}}</h5>
+                <p class="m-0">{{stock?. capacityStock}}</p>
+             </div>
+          </div>
+          <ul class="list-group list-group-flush">
+             <li class="list-group-item"><i class="fa fa-calendar float-right"></i>{{stock?.validityStock }}</li>
+             <li class="list-group-item"><i class="fa fa-usd float-right"></i>Phone : {{stock?.costStock}}</li>
+          </ul>
+          <div class="card-body">
+             <div class="float-right btn-group btn-group-sm">
+                <a (click)="onOpenModal(stock, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                <a (click)="onOpenModal(stock, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  
+  <!-- Add Stock Modal -->
+  <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addEmployeeModalLabel">Add Stock</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddStock(addForm)">
+            <div class="form-group">
+               <label for="nameStock">Name stock</label>
+               <input type="text" ngModel name="nameStock" class="form-control" id="nameStock" placeholder="Name Stock" required>
+            </div>
+            <div class="form-group">
+               <label for="capacityStock">Capacity Stock</label>
+               <input type="capacityStock" ngModel name="capacityStock" class="form-control" id="capacityStock" placeholder="Capacity stock" required>
+            </div>
+            <div class="form-group">
+               <label for="phone"> validity Stock</label>
+               <input type="text" ngModel name=" validityStock" class="form-control" id=" validityStock" placeholder="  Validity date" required>
+            </div>
+            <div class="form-group">
+               <label for="costStock">cost Stock</label>
+               <input type="text" ngModel name="costStock" class="form-control" id="costStock" placeholder="Cost" required>
+            </div>
+            
+            <div class="modal-footer">
+               <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            </div>
+            </form>
+         </div>
+      </div>
+    </div>
+    </div>
+  
+
+
+
+    <!-- Edit Modal -->
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Stock {{editStock?.nameStock}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <form #editForm="ngForm">
+                <div class="form-group">
+                   <label for="nameStock">name Stock</label>
+                   <input type="text" ngModel="{{editStock?.nameStock}}" name="nameStock" class="form-control" id="nameStock" aria-describedby="emailHelp" placeholder="name Stock">
+                </div>
+
+                <input type="hidden" ngModel="{{editStock?.idStock}}" name="idStock" class="form-control" id="idStock" placeholder="Email">
+                <div class="form-group">
+                   <label for="capacityStock">capacity Stock</label>\-
+                   <input type="capacityStock" ngModel="{{editStock?.capacityStock}}" name="capacityStock" class="form-control" id="capacityStock" placeholder="capacity Stock">
+                </div>
+                <div class="form-group">-
+                   <label for="validityStock">validity Stock</label>
+                   <input type="text" ngModel="{{editStock?.validityStock}}" name="validityStock" class="form-control" id="validityStock" placeholder="validity Stock">
+                </div>
+                <div class="form-group">
+                   <label for="costStock">costStock</label>
+                   <input type="text" ngModel="{{editStock?.costStock}}" name="costStock" class="form-control" id="costStock" name="costStock" placeholder="cost Stock">
+                </div>
+                
+                <div class="modal-footer">
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                   <button (click)="onUpdateStock(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+  </div>
+
+
+  <!-- Delete Modal -->
+<div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteModelLabel">Delete Stock</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <p>Are you sure you want to delete the stock {{deleteStock?.nameStock}}?</p>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button (click)="onDeleteStock(deleteStock?.idStock)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  
+  <!-- Notification for no employees -->
+  <div *ngIf="stocks?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO Stocks!</h4>
+    <p>No Stocks were found.</p>
+  </div>
+  </div>
+
+
+
+
+
+

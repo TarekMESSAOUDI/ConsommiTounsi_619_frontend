@@ -47,19 +47,34 @@
           <div class="form-group">
             <label>Password :</label>
             <input type="password" name="password" class="form-control" placeholder="Your Password *"
-                   ngModel required #password="ngModel" [(ngModel)]="form.password" />
+                   ngModel required #password="ngModel" [(ngModel)]="form.password"
+                   maxlength="20"
+                   minlength="8" />
           </div>
+
+          <small id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </small>
+
           <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
-            Password is a Required Field !
+            <div *ngIf="password.errors.required"> Password is a Required Field ! </div>
+            <div *ngIf="password.errors.minlength"> Password must be more than 8 charactere </div>
           </div>
 
           <div class="form-group">
             <label>Confirm Password :</label>
             <input type="password" name="confirmpassword" class="form-control" placeholder="Your Confirm Password *"
-                   ngModel required #cpassword="ngModel" [(ngModel)]="form.confirmPasswordUser" />
+                   ngModel required #cpassword="ngModel" [(ngModel)]="form.confirmPasswordUser"
+                   maxlength="20"
+                   minlength="8" />
           </div>
+          <small id="passwordHelpBlock" class="form-text">
+            Your Confirm password must be equals to password
+          </small>
+
           <div class="alert alert-danger" *ngIf="cpassword.invalid && cpassword.touched">
-            Confirm Your password !
+            <div *ngIf="cpassword.errors.required"> Confirm Your Password ! </div>
+            <div *ngIf="cpassword.errors.minlength"> Password must be equals to password </div>
           </div>
 
           <div class="form-group">
@@ -85,8 +100,19 @@
 
           <div class="form-group">
             <label>Sexe :</label>
-            <input type="text" name="sexe" class="form-control" placeholder="Men/Women *"
-                   ngModel [(ngModel)]="form.sexeUser" />
+            <select class="form-control" aria-label="Default select example" placeholder="Choose Your Sexe" type="text" name="sexe"
+                    ngModel [(ngModel)]="form.sexeUser">
+              <option value="1">MEN</option>
+              <option value="2">WOMEN</option>
+            </select>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="formFile" class="form-label">Image</label>
+            <input class="form-control" type="file" name="image" placeholder="Your Image"
+                   ngModel [(ngModel)]="form.imageUser">
           </div>
 
           <div class="d-grid gap-5 col-3 mx-auto">

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +52,9 @@ import { SalesDepartmentManagerComponent } from './Components/sales-department-m
 import { EventHomeComponent } from './Components/event-home/event-home.component';
 import { BillComponent } from './Components/bill/bill.component';
 import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
+import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -102,6 +105,8 @@ import { UpdateproductComponent } from './Components/updateproduct/updateproduct
     EventHomeComponent,
     BillComponent,
     UpdateproductComponent,
+    DepartmentClientComponent,
+
     
     
   ],
@@ -111,7 +116,8 @@ import { UpdateproductComponent } from './Components/updateproduct/updateproduct
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' })
+    HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' }),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },

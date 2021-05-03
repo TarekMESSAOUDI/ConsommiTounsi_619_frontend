@@ -37,11 +37,12 @@ import { StockDepartmentMangerComponent } from './Components/stock-department-ma
 import { SalesDepartmentManagerComponent } from './Components/sales-department-manager/sales-department-manager.component';
 import { EventHomeComponent } from './Components/event-home/event-home.component';
 import { ProductComponent } from './Components/product/product.component';
+import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
 
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthorizeGuardService] },
+  { path: 'home', component: HomeComponent },
         { path: 'home/category', component: CategoryComponent },
         { path: 'home/basket', component: BasketClientComponent },
         { path: 'home/publicity', component: PublicityHomeComponent },
@@ -50,7 +51,7 @@ const routes: Routes = [
           { path: 'home/authentificate', component: AuthentificateComponent },
           { path: 'home/createaccount', component: CreateaccountComponent },
               { path: 'administrator', component: EsapaceAdministratorComponent },
-                    { path: 'administrator/user', component: UserComponent },
+                    { path: 'administrator/user', component: UserComponent,  canActivate: [AuthorizeGuardService] },
                     { path: 'administrator/delivery', component: DeliveryAdministratorComponent },
                     { path: 'administrator/product', component: ProductAdministratorComponent },
                     { path: 'administrator/publicity', component: PublicityAdministratorComponent },
@@ -70,6 +71,7 @@ const routes: Routes = [
                     { path: 'client/cagnotte', component: CagnotteClientComponent },
                     { path: 'client/event', component: EventClientComponent },
                     {path:  'client/product',component:ProductComponent},
+                    {path:'Client/departments',component: DepartmentClientComponent},
               { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent },
                     { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent },
               { path: 'departmentmanager', component: EspaceDepartmentManagerComponent },

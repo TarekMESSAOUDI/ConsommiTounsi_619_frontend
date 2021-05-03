@@ -4,7 +4,7 @@ import { ZoneMap } from "./ZoneMap";
 
 
 export class User {
- idUser: number;
+  idUser: string;
   username: string;
   lastNameUser: string;
   cinUser: string;
@@ -17,7 +17,6 @@ export class User {
   emailUser: string;
   sexeUser: SexeType;
   accountNonLocked: boolean;
-  failedAttempt: number;
   lockTime: Date;
   resettoken: string;
   isBlocked: boolean;
@@ -30,13 +29,12 @@ export class User {
   zone: ZoneMap;
   role: Role;
 
-/*  constructor(idUser: number, username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
+  constructor( username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
     stateUser: boolean, phoneNumberUser: string, adressUser: string, birthDateUser: Date, emailUser: string, sexeUser: SexeType,
-    accountNonLocked: boolean, failedAttempt: number, lockTime: Date, resettoken: string, isBlocked: boolean, blockDate: Date,
-    unBlockDate: Date, isPrivate: boolean, salaire: number, pointnumber: number, avilaibility: boolean, zone: ZoneMap,
-    role: Role) {
+    accountNonLocked: boolean, lockTime: Date, resettoken: string, isBlocked: boolean, blockDate: Date,
+    unBlockDate: Date, isPrivate: boolean, salaire: number, pointnumber: number, avilaibility: boolean, /*zone: ZoneMap,
+    role: Role*/) {
 
-    this.idUser = idUser;
     this.username = username;
     this.lastNameUser = lastNameUser;
     this.cinUser = cinUser;
@@ -49,7 +47,6 @@ export class User {
     this.emailUser = emailUser;
     this.sexeUser = sexeUser;
     this.accountNonLocked = accountNonLocked;
-    this.failedAttempt = failedAttempt;
     this.lockTime = lockTime;
     this.resettoken = resettoken;
     this.isBlocked = isBlocked;
@@ -59,8 +56,8 @@ export class User {
     this.salaire= salaire;
     this.pointnumber= pointnumber;
     this.avilaibility= avilaibility;
-    this.zone= zone;
-    this. role= role;
-  }*/
+    //this.zone= zone;
+    //this. role= role;
+  }
 
 }

@@ -1,0 +1,68 @@
+.sign {
+    position:absolute;
+
+    left: 145%;
+
+
+}
+.basketo {
+    position:absolute;
+
+    left: 125%;
+
+
+}
+
+.froumo {
+    position:absolute;
+
+  right: 80%;
+
+
+}
+
+
+.evento {
+    position:absolute;
+
+  right: 60%;
+
+
+}
+
+.depo {
+    position:absolute;
+
+  right: 40%;
+
+
+}
+
+
+.depo  :hover{
+    color: red;
+}
+
+
+.evento  :hover{
+    color: red;
+}
+
+
+.froumo  :hover{
+    color: red;
+}
+
+
+.basketo  :hover{
+    color: red;
+}
+
+
+
+
+.sign  :hover{
+    color: red;
+}
+
+

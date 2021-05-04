@@ -1,0 +1,55 @@
+<div class="field">
+    <button type="button" (click)="AddOrderShow()" id="submitButton" class="btn btn-primary">Add Order </button>
+</div>
+
+<div *ngIf="show">
+   
+  
+    <form name="Order" #u="ngForm" (ngSubmit)="addOrder()">
+    
+      
+  
+     
+      <div class="form-group">
+        <label>Amount :</label>
+        <input type="text" name="amountOrder" class="form-control" placeholder="amount Order"
+               ngModele [(ngModel)]="Order.amountOrder" />
+      </div>
+  
+      
+  
+        <div class="form-group">
+          <label>Product Number</label>
+          <input type="text" name="productNumberOrder" class="form-control" placeholder="product Number Order"
+                 ngModel required #productNumberOrder="ngModel" [(ngModel)]="Order.productNumberOrder" />
+        </div>
+        
+  
+        <div class="form-group">
+          <label>Payment Type</label>
+          <input type="text" name="paymentType" class="form-control" placeholder="payment Type"
+                 ngModele [(ngModel)]="Order.paymentType" />
+        </div>
+  
+        
+  
+        <div class="form-group">
+          <label>Date :</label>
+          <input type="date" name="dateOrder" class="form-control" placeholder="Date"
+                 ngModel required #dateOrder="ngModel" [(ngModel)]="Order.date" />
+        </div>
+       
+  
+       
+  
+        <div class="d-grid gap-5 col-3 mx-auto">
+          <button  [disabled]="o.invalid" (click)="addOrder()" type="button" class="btn btn-success btn-lg"> Add Order </button>
+        </div>
+        <br>
+        <br />
+        <div class="alert alert-primary">{{msg}}</div>
+    
+      
+  </form>
+  </div>
+

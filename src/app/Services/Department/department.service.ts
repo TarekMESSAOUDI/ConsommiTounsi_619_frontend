@@ -11,6 +11,7 @@ export class DepartmentService {
   DepartmentsRetrieveallUrl ="http://localhost:9091/SpringMVC/servlet/retrieve-all-Departments";
   DepartmentaddUrl="http://localhost:9091/SpringMVC/servlet/add-department";
   DepartmentDeleteUrl="http://localhost:9091/SpringMVC/servlet/remove-department/";
+  DepartmentEditURL="http://localhost:9091/SpringMVC/servlet/update-Department"
   DepartmentRetrieveById="http://localhost:9091/SpringMVC/servlet/retrieve-department";
   DepartmentRetreiveByName=" http://localhost:9091/SpringMVC/servlet/retrieve-Department-By-Name"
   affectProductURL="http://localhost:9091/SpringMVC/servlet/alteProductToDepartment";
@@ -41,11 +42,11 @@ getDepartmentById():Observable<Department[]>{
 }
 
 affectProductToDepartment(department: Department): Observable<any> {
-  return this.Departmenthttp.post(this.affectProductURL, Department);
+  return this.Departmenthttp.post(this.affectProductURL, department);
 }
 
 affectFileToDepartment(department: Department): Observable<any> {
-  return this.Departmenthttp.post(this.affectfileURL, Department);
+  return this.Departmenthttp.post(this.affectfileURL, department);
 }
 
 
@@ -53,6 +54,21 @@ affectFileToDepartment(department: Department): Observable<any> {
 getDepartmentByName():Observable<Department[]>{
   return this.Departmenthttp.get<Department[]>(this.DepartmentRetreiveByName);
 }
+
+
+updateDep(department:Department): Observable<Department>{
+  return this.Departmenthttp.put<Department>(this.DepartmentEditURL, department);
+}
+
+
+/*
+//update department
+updateDep(id: number, value: any): Observable<Object> {
+  return this.Departmenthttp.put(`${this.DepartmentEditURL}/${id}`, value);
+}
+*/
+
+
 
 
 }

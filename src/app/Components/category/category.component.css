@@ -10,7 +10,7 @@ nav{
   z-index: 99;
   width: 100%;
   
-  background: #242526;
+  background: #131212;
 }
 nav .wrapper{
   position: relative;
@@ -35,7 +35,7 @@ nav .wrapper{
 .nav-links li{
   list-style: none;
 }
-.nav-links li a{
+.nav-links li a {
   color: #f2f2f2;
   text-decoration: none;
   font-size: 18px;
@@ -45,14 +45,14 @@ nav .wrapper{
   transition: all 0.3s ease;
 }
 .nav-links li a:hover{
-  background: #3A3B3C;
+  background:rgb(20, 175, 202);
 }
 .nav-links .mobile-item{
   display: none;
 }
 .nav-links .drop-menu{
   position: absolute;
-  background: #242526;
+  background: #3c3d38;
   width: 180px;
   line-height: 45px;
   top: 85px;
@@ -107,7 +107,7 @@ nav .wrapper{
 }
 .content .row .mega-links{
   margin-left: -40px;
-  border-left: 1px solid rgba(255,255,255,0.09);
+  border-left: 1px solid rgba(143, 33, 110, 0.09);
 }
 .row .mega-links li{
   padding: 0 20px;
@@ -145,7 +145,7 @@ nav .wrapper{
     max-width: 350px;
     top: 0;
     left: -100%;
-    background: #242526;
+    background: #185ea5;
     display: block;
     padding: 50px 10px;
     line-height: 50px;
@@ -161,7 +161,7 @@ nav .wrapper{
     background: #242526;
   }
   ::-webkit-scrollbar-thumb {
-    background: #3A3B3C;
+    background: #145597;
   }
   #menu-btn:checked ~ .nav-links{
     left: 0%;
@@ -210,7 +210,7 @@ nav .wrapper{
     transition: all 0.3s ease;
   }
   .nav-links .mobile-item:hover{
-    background: #3A3B3C;
+    background: #0e3358;
   }
   .drop-menu li{
     margin: 0;
@@ -237,7 +237,7 @@ nav .wrapper{
   .mega-box .content .row{
     width: 100%;
     margin-bottom: 15px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(143, 18, 18, 0.08);
   }
   .mega-box .content .row:nth-child(1),
   .mega-box .content .row:nth-child(2){

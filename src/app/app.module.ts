@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClient, HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -50,7 +50,14 @@ import { DepartmentDepartmentManagerComponent } from './Components/department-de
 import { StockDepartmentMangerComponent } from './Components/stock-department-manger/stock-department-manger.component';
 import { SalesDepartmentManagerComponent } from './Components/sales-department-manager/sales-department-manager.component';
 import { EventHomeComponent } from './Components/event-home/event-home.component';
-import { BillComponent } from './Components/bill/bill.component';
+import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
+import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderAdministratorComponent } from './Components/order-administrator/order-administrator.component';
+import { OrderClientComponent } from './Components/order-client/order-client.component';
+import { BillClientComponent } from './Components/bill-client/bill-client.component';
+
+
 
 @NgModule({
   declarations: [
@@ -99,16 +106,24 @@ import { BillComponent } from './Components/bill/bill.component';
     StockDepartmentMangerComponent,
     SalesDepartmentManagerComponent,
     EventHomeComponent,
-    BillComponent,
+    UpdateproductComponent,
+    DepartmentClientComponent,
+    OrderAdministratorComponent,
+    OrderClientComponent,
+    BillClientComponent,
+    
+
     
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' })
+    HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' }),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },

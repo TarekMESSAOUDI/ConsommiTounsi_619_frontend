@@ -7,7 +7,7 @@
 }
 html,body{
   display: grid;
-  height: 100%;
+  height:auto;
   width: 100%;
   place-items: center;
   background: #f2f2f2;
@@ -31,7 +31,7 @@ html,body{
   color: #fff;
   user-select: none;
   border-radius: 15px 15px 0 0;
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #22b691, #22b691);
 }
 .wrapper form{
   padding: 10px 30px 50px 30px;
@@ -113,11 +113,11 @@ form .content .pass-link{
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #13af42);
   transition: all 0.3s ease;
 }
 
-
+  
 #submitButton{
     color: #fff;
   border:#262626;
@@ -132,7 +132,7 @@ form .content .pass-link{
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  background: linear-gradient(-135deg, #080808, #4158d0);
+  background: linear-gradient(-135deg, #e40606, #da0012);
   transition: all 0.3s ease;
 
 }
@@ -231,9 +231,15 @@ form {
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+  size: 20px;
 }
 
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    size: 30px;
+}
+
+.titre{
+  position:relative;
 }

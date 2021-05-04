@@ -1,0 +1,68 @@
+
+<div class="field">
+  <button type="button" (click)="ViewOrder()" id="submitButton" class="btn btn-primary">SHOW Order List </button>
+  <button type="button" (click)="AddOrderShow()" id="submitButton" class="btn btn-primary">Add Order </button>
+  </div>
+ 
+ <html>
+ <body>
+ 
+ <div *ngIf="showOrder">
+ 
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+ <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ <!------ Include the above in your HEAD tag ---------->
+ <div class="container">
+     <div class="container">
+         <div class="row col-md-6 col-md-offset-2 custyle">
+         <table class="table table-striped custab">
+         <thead>
+             <tr>
+                 <th>Id</th>
+                 <th>Date</th>
+                 <th>Product Number</th>
+                 <th>State Order</th>
+                 <th>Amount Order</th>
+                 <th>Payment Type</th>
+                 <th>Action</th>
+                 <th>Action</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let o of ListOrder">
+                 <td>{{o.idOrder}}</td>
+                 <td>{{o.dateOrde}}</td>
+                 <td>{{o.productNumberOrder}}</td>
+                 <td>{{o.stateOrder}}</td>
+                 <td>{{o.amountOrder}}</td>
+                 <td>{{o.paymentType}}</td>
+                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteOrder(o.idOrder)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Bill</button></td>
+               </tr>
+         
+         </tbody>
+         </table>
+ </div>
+ </div>
+ 
+ </div>
+ </div>
+ </body>
+ </html>
+
+ <html>
+   <body>
+    <div *ngIf="show">
+
+      <form>
+        <div class="form-group">
+          <label>id</label>
+          <input type="number" name="idOrder" class="form-control" [(ngModel)]="order.pro">
+        </div>
+        
+        <button class="btn btn-succes" (click)="save()">save</button>
+      </form>
+
+
+    </div>

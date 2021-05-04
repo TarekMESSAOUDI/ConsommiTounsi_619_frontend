@@ -54,6 +54,7 @@ import { BillComponent } from './Components/bill/bill.component';
 import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
 import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 
 
 @NgModule({
@@ -106,6 +107,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BillComponent,
     UpdateproductComponent,
     DepartmentClientComponent,
+    DetailsproductsComponent,
 
     
     

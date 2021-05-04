@@ -38,55 +38,84 @@ import { SalesDepartmentManagerComponent } from './Components/sales-department-m
 import { EventHomeComponent } from './Components/event-home/event-home.component';
 import { ProductComponent } from './Components/product/product.component';
 import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
-
-
+import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-        { path: 'home/category', component: CategoryComponent },
-        { path: 'home/basket', component: BasketClientComponent },
-        { path: 'home/publicity', component: PublicityHomeComponent },
-        { path: 'home/forum', component: ForumHomeComponent },
-        { path: 'home/event', component: EventHomeComponent },
-          { path: 'home/authentificate', component: AuthentificateComponent },
-          { path: 'home/createaccount', component: CreateaccountComponent },
-              { path: 'administrator', component: EsapaceAdministratorComponent },
-                    { path: 'administrator/user', component: UserComponent,  canActivate: [AuthorizeGuardService] },
-                    { path: 'administrator/delivery', component: DeliveryAdministratorComponent },
-                    { path: 'administrator/product', component: ProductAdministratorComponent },
-                    { path: 'administrator/publicity', component: PublicityAdministratorComponent },
-                    { path: 'administrator/sales', component: SalesAdministratorComponent },
-                    { path: 'administrator/claims', component: ClaimAdministratorComponent },
-                    { path: 'administrator/forum', component: ForumAdministratorComponent },
-                    { path: 'administrator/department', component: DepartmentAdministratorComponent },
-                    { path: 'administrator/stock', component: StockAdministratorComponent },
-                    { path: 'administrator/statistic', component: StatisticAdministratorComponent },
-                    { path: 'administrator/comptability', component: ComptabilityAdministratorComponent },
-                    { path: 'administrator/cagnotte', component: CagnotteAdministratorComponent },
-                    { path: 'administrator/event', component: EventAdministratorComponent },
-              { path: 'client', component: EsapaceClientComponent },
-                    { path: 'client/home', component: HomeClientComponent },
-                    { path: 'client/profile', component: ProfileClientComponent },
-                    { path: 'client/claim', component: ClaimClientComponent },
-                    { path: 'client/cagnotte', component: CagnotteClientComponent },
-                    { path: 'client/event', component: EventClientComponent },
-                    {path:  'client/product',component:ProductComponent},
-                    {path:'Client/departments',component: DepartmentClientComponent},
-              { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent },
-                    { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent },
-              { path: 'departmentmanager', component: EspaceDepartmentManagerComponent },
-                    { path: 'departmentmanager/product', component: ProductDepartmentManagerComponent },
-                    { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent },
-                    { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent },
-                    { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent },
- 
-  {path:'**',component:HomeComponent}
-  
+  { path: 'home/category', component: CategoryComponent },
+  { path: 'home/basket', component: BasketClientComponent },
+  { path: 'home/publicity', component: PublicityHomeComponent },
+  { path: 'home/forum', component: ForumHomeComponent },
+  { path: 'home/event', component: EventHomeComponent },
+  { path: 'home/authentificate', component: AuthentificateComponent },
+  { path: 'home/createaccount', component: CreateaccountComponent },
+  { path: 'administrator', component: EsapaceAdministratorComponent },
+  {
+    path: 'administrator/user',
+    component: UserComponent,
+    canActivate: [AuthorizeGuardService],
+  },
+  { path: 'administrator/delivery', component: DeliveryAdministratorComponent },
+  { path: 'administrator/product', component: ProductAdministratorComponent },
+  {
+    path: 'administrator/publicity',
+    component: PublicityAdministratorComponent,
+  },
+  { path: 'administrator/sales', component: SalesAdministratorComponent },
+  { path: 'administrator/claims', component: ClaimAdministratorComponent },
+  { path: 'administrator/forum', component: ForumAdministratorComponent },
+  {
+    path: 'administrator/department',
+    component: DepartmentAdministratorComponent,
+  },
+  { path: 'administrator/stock', component: StockAdministratorComponent },
+  {
+    path: 'administrator/statistic',
+    component: StatisticAdministratorComponent,
+  },
+  {
+    path: 'administrator/comptability',
+    component: ComptabilityAdministratorComponent,
+  },
+  { path: 'administrator/cagnotte', component: CagnotteAdministratorComponent },
+  { path: 'administrator/event', component: EventAdministratorComponent },
+  { path: 'client', component: EsapaceClientComponent },
+  { path: 'client/home', component: HomeClientComponent },
+  { path: 'client/profile', component: ProfileClientComponent },
+  { path: 'client/claim', component: ClaimClientComponent },
+  { path: 'client/cagnotte', component: CagnotteClientComponent },
+  { path: 'client/event', component: EventClientComponent },
+  { path: 'client/product', component: ProductComponent },
+  { path: 'Client/departments', component: DepartmentClientComponent },
+  { path: 'client/product/:id', component: DetailsproductsComponent },
+  { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent },
+  {
+    path: 'deliveryperson/delivery',
+    component: DeliveryDeliveryPersonComponent,
+  },
+  { path: 'departmentmanager', component: EspaceDepartmentManagerComponent },
+  {
+    path: 'departmentmanager/product',
+    component: ProductDepartmentManagerComponent,
+  },
+  {
+    path: 'departmentmanager/department',
+    component: DepartmentDepartmentManagerComponent,
+  },
+  {
+    path: 'departmentmanager/stock',
+    component: StockDepartmentMangerComponent,
+  },
+  {
+    path: 'departmentmanager/Sales',
+    component: SalesDepartmentManagerComponent,
+  },
 
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

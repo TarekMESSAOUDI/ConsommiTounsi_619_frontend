@@ -12,8 +12,10 @@ import { ProductService } from 'src/app/Services/product/product.service';
 })
 export class ProductAdministratorComponent implements OnInit {
   ListProducts:Product[];
-  userFile;
+  productToUpdate:any;
+  userFile:null;
   show:boolean;
+  updateProductInt:boolean;
   showIntAddProd:boolean;
   showIntUpdateProd:boolean;
   public message: string;
@@ -25,18 +27,21 @@ export class ProductAdministratorComponent implements OnInit {
   constructor(public prodSerivce:ProductService,private router: Router,public fb: FormBuilder) { }
   
   get f() {
-    return this.prodSerivce.formData.controls;
+    console.log("get",this.prodSerivce.dataForm.controls)
+    return this.prodSerivce.dataForm.controls;
 }
   ngOnInit(): void {
-
+    
     this.prodSerivce.getAllProducts().subscribe(res=>{console.log(res);
       this.ListProducts=res});
 
 
     
     }
+
+
   infoForm(){
-    this.prodSerivce.formData=this.fb.group({
+    this.prodSerivce.dataForm=this.fb.group({
       id:[''],
       titleProduct:[''],
       priceProduct:[''],
@@ -65,6 +70,13 @@ export class ProductAdministratorComponent implements OnInit {
     }
   
     addProduct(){
+      console.log(this.product)
+      var startIndex = (this.product.fileName.indexOf('\\') >= 0 ? this.product.fileName.lastIndexOf('\\') : this.product.fileName.lastIndexOf('/'));
+    var filename = this.product.fileName.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);}
+        this.product.fileName = filename;
+        console.log(this.product)
       this.prodSerivce.addProduct(this.product).subscribe(()=>this.prodSerivce.getAllProducts().subscribe(res=>{this.ListProducts=res}));
     }
   
@@ -74,9 +86,18 @@ export class ProductAdministratorComponent implements OnInit {
       this.show=false;
     }
    
-  updateProduct(){
-    this.prodSerivce.updateproduct(this.id,this.product);
-    this.redirectTo();
+  updateProduct(id:number,product:Product){
+    
+    this.prodSerivce.updateproduct(id,product);
+    this.updateProductInt=false;
+    this.show=true;
+  }
+  updateProductInterface(id:number,product:Product){
+    this.updateProductInt=true;
+    this.show=false;
+console.log(id,product)
+this.productToUpdate=product;
+console.log('hhh',this.productToUpdate)
   }
 
 
@@ -98,10 +119,12 @@ export class ProductAdministratorComponent implements OnInit {
   }
 
   addData() {
-    const formData = new  FormData();
-    const article = this.prodSerivce.formData.value;
+   const formData = new  FormData();
+    const article = this.prodSerivce.dataForm;
+    console.log("art",article);
     formData.append('article',JSON.stringify(article));
     formData.append('file',this.userFile);
+    console.log('fd',formData);
     this.prodSerivce.createData(formData).subscribe( data => {
     
       this.router.navigate(['/administrator/product']); 
@@ -143,9 +166,8 @@ export class ProductAdministratorComponent implements OnInit {
 
   
     onSubmit(){
-      console.log(this.prodSerivce.formData.value);
+      console.log(this.prodSerivce.dataForm.value);
        this.addData();}
-
 
 
 

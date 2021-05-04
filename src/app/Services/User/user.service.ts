@@ -18,10 +18,10 @@ export class UserService {
 
   addUserURL = "http://localhost:9091/SpringMVC/servlet/add-user";
   ajoutUserURL = "http://localhost:9091/SpringMVC/servlet/ajouter-user";
-  deleteUserURL = "http://localhost:9091/SpringMVC/servlet/delete-user/{user-id}";
-  updateUserURL = "http://localhost:9091/SpringMVC/servlet/update-user";
+  deleteUserURL = "http://localhost:9091/SpringMVC/servlet";
+  updateUserURL = "http://localhost:9091/SpringMVC/servlet";
   getAllUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-all-user";
-  getByIdUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-id";
+  getByIdUserURL = "http://localhost:9091/SpringMVC/servlet";
   getByPointUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-point";
   getByUsernameUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-username";
   getByStateUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-state";
@@ -60,20 +60,20 @@ export class UserService {
     })
   }
 
-  deleteUser(idUser: number): Observable<any> {
-    return this.userhttp.delete(this.deleteUserURL, { responseType: 'text' });
+  deleteUser(idUser: any): Observable<any> {
+    return this.userhttp.delete(`${this.deleteUserURL}/delete-user/${idUser}`, { responseType: 'text' });
   }
 
-  updateUser(id: number, value: any): Observable<any> {
-    return this.userhttp.put(this.updateUserURL, value);
+  updateUser(idUser: any, value: any): Observable<any> {
+    return this.userhttp.put(`${this.updateUserURL}/update-user`, value);
   }
 
   getAllUser(): Observable<any> {
     return this.userhttp.get(this.getAllUserURL);
   }
 
-  getByIdUser(id: number): Observable<any> {
-    return this.userhttp.get(this.getByIdUserURL);
+  getByIdUser(idUser: any): Observable<any> {
+    return this.userhttp.get(`${this.getByIdUserURL}/retrieve-user-by-id/${idUser}`);
   }
 
   getByPointUser(point: number): Observable<any> {

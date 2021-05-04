@@ -1,62 +1,41 @@
-.p-card {
-    border: 1px solid #eee
-}
-
-.p-details {
-    padding: 10px;
-    border-radius: 0px;
-    background: #000;
-    color: #fff;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px
-}
-
 body {
     background: #eee
 }
 
-.spec span {
-    font-size: 13px
-}
-
-.spec h6 {
+.ratings i {
     font-size: 16px;
-    font-weight: 500
+    color: red
 }
 
-.carousel-indicators li {
-    box-sizing: content-box;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    width: 12px;
-    height: 12px;
-    margin-right: 3px;
-    margin-left: 3px;
-    text-indent: -999px;
-    cursor: pointer;
-    background-color: #fff;
-    background-clip: padding-box;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    opacity: .5;
-    transition: opacity .6s ease
+.strike-text {
+    color: red;
+    text-decoration: line-through
 }
 
-.line {
-    background-color: #fff;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    height: 0.2px
+.product-image {
+    width: 100%
 }
-Form {
-    
-    left:50%;
-    width:215px; /* A toi de donner la bonne largeur */
-    background:rgb(221, 202, 202);
- }
- 
- button{
-     padding: 20px 30px;
-     margin: 10px 10px;
 
- }
+.dot {
+    height: 7px;
+    width: 7px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 3px;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.spec-1 {
+    color: #938787;
+    font-size: 15px
+}
+
+h5 {
+    font-weight: 400
+}
+
+.para {
+    font-size: 16px
+}

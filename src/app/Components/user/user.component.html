@@ -1,1 +1,313 @@
-<h1>Users</h1>
+<button routerLink="/administrator">Return</button>
+<button (click)="addUser()">Add User</button>
+<button (click)="showAllUsers()">Show All Users</button>
+
+<div *ngIf="ShowAllUsers">Show All Users</div>
+
+<div *ngIf="UpdateUser">Update User</div>
+
+<div *ngIf="DeleteUser">Delet User</div>
+
+
+
+
+<!--> Add User</!-->
+
+<div class="container login-container" *ngIf="AddUsers">
+  <br>
+  <br />
+  <div class="raw">
+
+    <div class="col-md-16 login-form-1">
+      <h3 class="col-5 mx-auto">CREATE NEW ACCOUNT</h3>
+
+      <form name="form" #u="ngForm" (ngSubmit)="addUser()">
+
+        <div class="form-group">
+          <label>First Name :</label>
+          <input type="text" name="firstname" class="form-control" placeholder="Your First Name *"
+                 ngModel required #fn="ngModel" [(ngModel)]="form.username" />
+        </div>
+        <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+          First Name is a Required Field !
+        </div>
+
+        <div class="form-group">
+          <label>Last Name :</label>
+          <input type="text" name="lastname" class="form-control" placeholder="Your Last Name"
+                 ngModele [(ngModel)]="form.lastNameUser" />
+        </div>
+
+        <div class="form-group">
+          <label>Email :</label>
+          <input type="text" name="email" class="form-control" placeholder="Your Email *"
+                 ngModel [(ngModel)]="form.emailUser"
+                 required #email="ngModel"
+                 pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z0-9]{2,4}" />
+          <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+            <div *ngIf="email.errors.required"> Email is a Required Field ! </div>
+            <div *ngIf="email.errors.pattern"> Email Invalid </div>
+          </div>
+
+          <div class="form-group">
+            <label>CIN :</label>
+            <input type="text" name="cin" class="form-control" placeholder="Your CIN *"
+                   ngModel required #cin="ngModel" [(ngModel)]="form.cinUser" />
+          </div>
+          <div class="alert alert-danger" *ngIf="cin.invalid && cin.touched">
+            CIN is a Required Field !
+          </div>
+
+          <div class="form-group">
+            <label>Password :</label>
+            <input type="password" name="password" class="form-control" placeholder="Your Password *"
+                   ngModel required #password="ngModel" [(ngModel)]="form.password"
+                   maxlength="20"
+                   minlength="8" />
+          </div>
+
+          <small id="passwordHelpBlock" class="form-text">
+            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </small>
+
+          <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+            <div *ngIf="password.errors.required"> Password is a Required Field ! </div>
+            <div *ngIf="password.errors.minlength"> Password must be more than 8 charactere </div>
+          </div>
+
+          <div class="form-group">
+            <label>Confirm Password :</label>
+            <input type="password" name="confirmpassword" class="form-control" placeholder="Your Confirm Password *"
+                   ngModel required #cpassword="ngModel" [(ngModel)]="form.confirmPasswordUser"
+                   maxlength="20"
+                   minlength="8" />
+          </div>
+          <small id="passwordHelpBlock" class="form-text">
+            Your Confirm password must be equals to password
+          </small>
+
+          <div class="alert alert-danger" *ngIf="cpassword.invalid && cpassword.touched">
+            <div *ngIf="cpassword.errors.required"> Confirm Your Password ! </div>
+            <div *ngIf="cpassword.errors.minlength"> Password must be equals to password </div>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number :</label>
+            <input type="text" name="phonenumber" class="form-control" placeholder="Your Phone Number *" value=""
+                   ngModel [(ngModel)]="form.phoneNumberUser" />
+          </div>
+
+          <div class="form-group">
+            <label>Address :</label>
+            <input type="text" name="address" class="form-control" placeholder="Your Address *" value=""
+                   ngModel [(ngModel)]="form.adressUser" />
+          </div>
+
+          <div class="form-group">
+            <label>Salary :</label>
+            <input type="number" name="salary" class="form-control" placeholder="Salary " value=""
+                   ngModel [(ngModel)]="form.salaire" />
+          </div>
+
+          <div class="form-group">
+            <label>Point Number :</label>
+            <input type="number" name="pointNumber" class="form-control" placeholder="Point Number " value=""
+                   ngModel [(ngModel)]="form.pointNumber" />
+          </div>
+
+          <div class="form-group">
+            <label>Birth Date :</label>
+            <input type="date" name="birthdate" class="form-control" placeholder="Your Birth Date *"
+                   ngModel required #birthdate="ngModel" [(ngModel)]="form.birthDateUser" />
+          </div>
+          <div class="alert alert-danger" *ngIf="birthdate.invalid && birthdate.touched">
+            Birth Date is a Required Field !
+          </div>
+
+          <div class="form-group">
+            <label>Lock Time :</label>
+            <input type="date" name="locktime" class="form-control" placeholder="Lock Time *"
+                   ngModel [(ngModel)]="form.lockTime" />
+          </div>
+
+          <div class="form-group">
+            <label>Block Date :</label>
+            <input type="date" name="blockdate" class="form-control" placeholder="Block Date *"
+                   #blockDate="ngModel" ngModel [(ngModel)]="form.blockDate" />
+          </div>
+
+          <div class="form-group">
+            <label>Unblock Date :</label>
+            <input type="date" name="unblockdate" class="form-control" placeholder="Unblock Date *"
+                   #unBlockDate="ngModel" ngModel [(ngModel)]="form.unBlockDate" />
+          </div>
+
+          <div class="form-group">
+            <label>Reset Token :</label>
+            <input type="text" name="locktime" class="form-control" placeholder="Reset Token"
+                   #resettoken="ngModel" ngModel [(ngModel)]="form.resettoken" />
+          </div>
+
+          <div class="form-group">
+            <label>Sexe :</label>
+            <select class="form-control" aria-label="Default select example" placeholder="Choose Your Sexe" type="text" name="sexe"
+                    ngModel [(ngModel)]="form.sexeUser">
+              <option *ngFor="let s of SexeUser">{{s.SexeUser}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Zone :</label>
+            <select class="form-control" aria-label="Default select example" placeholder="Zone Map" type="text" name="zone"
+                    ngModel [(ngModel)]="form.zone">
+              <option value="1">TUNIS</option>
+              <option value="2">ARIANA</option>
+              <option value="1">BEN AROUS</option>
+              <option value="2">MANOUBA</option>
+              <option value="1">TOUZEUR</option>
+              <option value="2">ZAGHOUANE</option>
+              <option value="1">GASERINE</option>
+              <option value="2">SFAX</option>
+              <option value="1">GAFSA</option>
+              <option value="2">TATAOUIN</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Role :</label>
+            <select class="form-control" aria-label="Default select example" placeholder="Role" type="text" name="role"
+                    ngModel [(ngModel)]="form.role">
+              <option value="1">CLIENT</option>
+              <option value="2">ADMINISTRATOR</option>
+              <option value="1">DEPARTMENTMANAGER</option>
+              <option value="2">DELIVERYPERSON</option>
+            </select>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked [(ngModel)]="form.stateUser">
+            <label>State User :</label>
+            <label class="form-check-label" for="flexCheckChecked">
+              Actif
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked [(ngModel)]="form.isPrivate">
+            <label>Is Private ! :</label>
+            <label class="form-check-label" for="flexCheckChecked">
+              Yes
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" ngModel [(ngModel)]="form.isBlocked">
+            <label>Is Blocked ! :</label>
+            <label class="form-check-label" for="flexCheckChecked">
+              Yes
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked ngModel [(ngModel)]="form.accountNonLocked">
+            <label>Account Non Locked :</label>
+            <label class="form-check-label" for="flexCheckChecked">
+              Yes
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" ngModel [(ngModel)]="form.availaibility">
+            <label>Availaibility :</label>
+            <label class="form-check-label" for="flexCheckChecked">
+              Available
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="formFile" class="form-label">Image</label>
+            <input class="form-control" type="file" name="image" placeholder="Your Image"
+                   ngModel [(ngModel)]="form.imageUser">
+          </div>
+
+          <div class="d-grid gap-5 col-3 mx-auto">
+            <button href="client" [disabled]="u.invalid" (click)="addUser()" type="button" class="btn btn-success btn-lg"> Create Account </button>
+          </div>
+          <br>
+          <br />
+          <div class="alert alert-primary">{{msg}}</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Show All Users-->
+<div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
+  <h3>LIST USERS</h3>
+  <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">CIN</th>
+          <th scope="col">State</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Adress</th>
+          <th scope="col">Birth Date</th>
+          <th scope="col">Email</th>
+          <th scope="col">Sexe</th>
+          <th scope="col">Account Non Locked</th>
+          <th scope="col">Lock Time</th>
+          <th scope="col">Reset Token</th>
+          <th scope="col">Is Blocked</th>
+          <th scope="col">Block Date</th>
+          <th scope="col">UnBlock Date</th>
+          <th scope="col">Is Private</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Point Number</th>
+          <th scope="col">Avilaibility</th>
+          <th scope="col">Zone</th>
+          <th scope="col">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of ListUsers">
+          <th scope="row">{{u.idUser}}</th>
+          <td>{{u.username}}</td>
+          <td>{{u.lastNameUser}}</td>
+          <td>{{u.cinUser}}</td>
+          <td>{{u.stateUser}}</td>
+          <td>{{u.phoneNumberUser}}</td>
+          <td>{{u.adressUser}}</td>
+          <td>{{u.birthDateUser}}</td>
+          <td>{{u.emailUser}}</td>
+          <td>{{u.sexeUser}}</td>
+          <td>{{u.accountNonLocked}}</td>
+          <td>{{u.lockTime}}</td>
+          <td>{{u.resettoken}}</td>
+          <td>{{u.isBlocked}}</td>
+          <td>{{u.blockDate}}</td>
+          <td>{{u.unBlockDate}}</td>
+          <td>{{u.isPrivate}}</td>
+          <td>{{u.salaire}}</td>
+          <td>{{u.pointnumber}}</td>
+          <td>{{u.avilaibility}}</td>
+          <td>{{u.zone}}</td>
+          <td>{{u.role}}</td>
+          <td class="text-center"><a class='btn btn-info btn-xs' (click)="updateUser()"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a (click)="deleteUser()" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Order } from 'src/app/Models/Order';
 import { OrderService } from 'src/app/Services/Order/order.service';
 
@@ -12,19 +13,26 @@ export class OrderAdministratorComponent implements OnInit {
   ListOrder : any;
   show:boolean;
   showOrder:boolean;
-  o:Order;
   val:string;
   message:any;
+  order : Order;
+  submitted = false;
 
 
-  constructor( private orderService : OrderService) { }
+  constructor( private orderService : OrderService, private router: Router) { }
 
   
 
   ngOnInit(): void {
+    this.order=new Order();
   
     
     let resp=this.orderService.getAllOrder();
+    resp.subscribe((data)=>this.ListOrder=data);
+  }
+
+  showpdf(idOrder){
+    let resp=this.orderService.showPdf(idOrder);
     resp.subscribe((data)=>this.ListOrder=data);
   }
   
@@ -48,15 +56,14 @@ export class OrderAdministratorComponent implements OnInit {
   );
   }
 
-
-   
+save(){
+  this.orderService.addOrder(this.order).subscribe();
+}
   
 
-  addOrder() {
-    this.orderService.addOrder(this.o).subscribe(res=>{console.log(res)}
-    );
-    
-  }
+  
+
+  
   
     
     

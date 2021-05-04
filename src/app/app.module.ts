@@ -56,6 +56,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderAdministratorComponent } from './Components/order-administrator/order-administrator.component';
 import { OrderClientComponent } from './Components/order-client/order-client.component';
 import { BillClientComponent } from './Components/bill-client/bill-client.component';
+import { ListaArticuloComponent } from './Stripe/articulo/lista-articulo/lista-articulo.component';
+
+import { MenuComponent } from './Stripe/menu/menu.component';
+import { ModalComponent } from './Stripe/modal/modal.component';
+import { PaymentComponent } from './Stripe/payment/payment.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxStripeModule } from 'ngx-stripe';
+import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
+
+
 
 
 
@@ -111,6 +122,11 @@ import { BillClientComponent } from './Components/bill-client/bill-client.compon
     OrderAdministratorComponent,
     OrderClientComponent,
     BillClientComponent,
+    ListaArticuloComponent,
+    MenuComponent,
+    ModalComponent,
+    PaymentComponent,
+    DetalleArticuloComponent,
     
 
     
@@ -123,8 +139,15 @@ import { BillClientComponent } from './Components/bill-client/bill-client.compon
     FormsModule,
     HttpClientModule,
     HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgxStripeModule.forRoot('pk_test_51IbUTJD3cB2Kf1acSTRdQkoc23ugIGKZmwUzNAMdXA0r8u8NsnT5wc1RU8GZJ91NkKZoRaxpnzczQONGWpNEzAwR009imHTIjb'),
+    
+
   ],
+  entryComponents: [ModalComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     //{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }

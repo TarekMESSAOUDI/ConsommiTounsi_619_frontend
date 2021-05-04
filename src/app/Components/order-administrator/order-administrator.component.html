@@ -26,6 +26,7 @@
                  <th>Amount Order</th>
                  <th>Payment Type</th>
                  <th>Action</th>
+                 <th>Action</th>
              </tr>
          </thead>
          <tbody>
@@ -37,7 +38,7 @@
                  <td>{{o.amountOrder}}</td>
                  <td>{{o.paymentType}}</td>
                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteOrder(o.idOrder)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
- 
+                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Bill</button></td>
                </tr>
          
          </tbody>
@@ -54,24 +55,14 @@
    <body>
     <div *ngIf="show">
 
-      <div class="wrapper">
-        <form  #F="ngForm"  action="#">
-          <div class="field">
-          
-          
-          <input type="text" required placeholder="Title Of Department"  id="titleClaim" name="titleClaim" [(ngModel)]="o.amountOrder">
-         
-          
-          </div>
+      <form>
+        <div class="form-group">
+          <label>id</label>
+          <input type="number" name="idOrder" class="form-control" [(ngModel)]="order.pro">
+        </div>
         
-        
-          <div class="field">
-            <button type="button" [disabled]="o.invalid" id="adddepartment" (click)="addOrder()" class="btn btn-success">Add new Department</button>
-            
-            </div>
-            
-            
-            </form>
-        
-            </div>
-    </div> 
+        <button class="btn btn-succes" (click)="save()">save</button>
+      </form>
+
+
+    </div>

@@ -7,6 +7,7 @@ export class Product{
     priceProduct:number;
     weightProduct:number;
     maxQuantityProduct:number;
+    fileName:string;
     
 }
 

@@ -8,7 +8,7 @@ import { Product } from '../../Models/Product';
   providedIn: 'root'
 })                                                                            
 export class ProductService {
-  public formData:  FormGroup;
+  public dataForm:  FormGroup;
   listData:Product[];
 
   productsURL="http://localhost:9091/SpringMVC/servlet/show-all-products";
@@ -28,6 +28,8 @@ export class ProductService {
   PostProdcutUrl="http://localhost:9091/SpringMVC/servlet/Productss";
   
   deleteAvance="http://localhost:9091/SpringMVC/servlet/products";
+
+  addProdToBasketUrl="http://localhost:9091/SpringMVC/servlet/AffectProdToBasket/";
 
 
   constructor(private prodhttp:HttpClient ) { }
@@ -102,5 +104,9 @@ deleteData(id: number): Observable<any> {
    
   return this.prodhttp.delete(`${this.deleteAvance}/${id}`, { responseType: 'text' });
 }
+addProdToBasket(idBask:number,idProd:number){
+//   return this.prodhttp.post(`${this.addProdToBasketUrl}/${idBask}/${idProd}`,{});
+return this.prodhttp.post("http://localhost:9091/SpringMVC/servlet/AffectProdToBasket/"+idBask+"/"+idProd,{});
+ }
 
 }

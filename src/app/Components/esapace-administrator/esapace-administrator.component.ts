@@ -11,5 +11,10 @@ export class EsapaceAdministratorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logOut() {
+    localStorage.removeItem('Token');
+    localStorage.removeItem('Type');
+    localStorage.removeItem('Username');
+    localStorage.removeItem('Authorities');
+  }
 }

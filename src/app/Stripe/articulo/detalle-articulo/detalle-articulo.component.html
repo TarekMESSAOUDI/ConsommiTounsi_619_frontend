@@ -1,0 +1,18 @@
+<div class="container mt-3">
+    <div class="card p-3" style="width: 28rem;" *ngIf="articulo">
+        <img src="{{articulo.imagenURL}}" alt=""
+        class="card-img-top mx-auto" style="max-height: 200px; width: auto">
+        <div class="card-body mx-auto">
+          <h5 class="card-title">{{articulo.nombre}}</h5>
+          <p class="card-text">{{articulo.descripcion}}</p>
+          <p><b>Prix: </b>{{articulo.precio / 100}}€</p>
+        </div>
+        <div class="card-body">
+            <app-payment
+            nombre="{{articulo.nombre}}"
+            precio="{{articulo.precio}}"
+            descripcion="{{articulo.descripcion}}">
+            </app-payment>
+        </div>
+      </div>
+</div>

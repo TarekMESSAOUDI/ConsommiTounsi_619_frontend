@@ -1,13 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" style="color:white;">Department Manager : Stock</a>
+    <a class="navbar-brand" style="color:rgb(255, 255, 255);">Department Manager : Stock</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor02">
        <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-              <button   class="btn success" id="buty">             <a class="nav-link"  (click)="onOpenModal(null, 'add')">Add Stock <span class="sr-only">(current)</span></a>
+              <button   class="button1"   (click)="onOpenModal(null, 'add')"  >  Add Stock <span class="sr-only">(current)</span>           
               </button>
+              <div style="font-size:1.5em">
+ 
+</div>
 
           </li>
        </ul>
@@ -16,14 +19,23 @@
            name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search stock..." required>
        </form>
     </div>
+
+    
+
+   
   </nav>
+
+  
+
+
+  <!--  list des stock  --> 
   <div class="container" id="main-container">
   <div class="row">
     <div *ngFor="let stock of stocks" class="col-md-6 col-xl-3">
        <div class="card m-b-30">
           <div class="card-body row">
              <div class="col-6">
-                <a href=""><img src="" alt="" class="img-fluid rounded-circle w-60"></a>
+                <a href=""><img src="https://www.erplain.com/sites/default/files/styles/erplain_scale_1440/public/uploaded_images/Wholesalers_0.png?itok=IlrlozQZ" alt="" class="img-fluid rounded-circle w-60"></a>
              </div>
              <div class="col-6 card-title align-self-center mb-0">
                 <h5>{{stock?.nameStock}}</h5>
@@ -36,8 +48,8 @@
           </ul>
           <div class="card-body">
              <div class="float-right btn-group btn-group-sm">
-                <a (click)="onOpenModal(stock, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                <a (click)="onOpenModal(stock, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                <a (click)="onOpenModal(stock, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> </a>
+                <a (click)="onOpenModal(stock, 'delete')" class="btn btn-danger" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
              </div>
           </div>
        </div>
@@ -152,7 +164,7 @@
   
   
   
-  <!-- Notification for no employees -->
+  <!-- Notification for no stocks-->
   <div *ngIf="stocks?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
   <div class="alert alert-info" role="alert">
     <h4 class="alert-heading">NO Stocks!</h4>

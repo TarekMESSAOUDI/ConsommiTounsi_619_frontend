@@ -1,0 +1,162 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="color:rgb(255, 255, 255);">Espace Client : Order</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+     <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <button   class="button1"   (click)="onOpenModal(null, 'add')"  >  Add Order <span class="sr-only">(current)</span>           
+            </button>
+            <div style="font-size:1.5em">
+ 
+</div>
+
+        </li>
+     </ul>
+    
+  </div>
+
+  
+
+ 
+</nav>
+
+
+
+
+<!--  list des stock  --> 
+<div class="container" id="main-container">
+<div class="row">
+  <div *ngFor="let Order of order" class="col-md-6 col-xl-3">
+     <div class="card m-b-30">
+        <div class="card-body row">
+           <div class="col-6">
+              <a href=""><img src="https://www.erplain.com/sites/default/files/styles/erplain_scale_1440/public/uploaded_images/Wholesalers_0.png?itok=IlrlozQZ" alt="" class="img-fluid rounded-circle w-60"></a>
+           </div>
+           <div class="col-6 card-title align-self-center mb-0">
+              <h5>{{Order?.idOrder}}</h5>
+              <p class="m-0">{{o?. amountOrder}}</p>
+           </div>
+        </div>
+        <ul class="list-group list-group-flush">
+           <li class="list-group-item"><i class="fa fa-calendar float-right"></i>{{Order?.productNumberOrder }}</li>
+           <li class="list-group-item"><i class="fa fa-usd float-right"></i>State : {{Order?.stateOrder}}</li>
+        </ul>
+        <div class="card-body">
+           <div class="float-right btn-group btn-group-sm">
+              <a (click)="onOpenModal(order, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> </a>
+              <a (click)="onOpenModal(order, 'delete')" class="btn btn-danger" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+<!-- Add Stock Modal -->
+<div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title" id="addEmployeeModalLabel">Add Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddOrder(addForm)">
+          <div class="form-group">
+             <label for="idOrder">Id Order</label>
+             <input type="text" ngModel name="idOrder" class="form-control" id="idOrder" placeholder="Id Order" required>
+          </div>
+          <div class="form-group">
+            <label for="stateOrder">State Order</label>
+            <input type="text" ngModel name="stateOrder" class="form-control" id="stateOrder" placeholder="State Order" required>
+         </div>
+         <div class="form-group">
+          <label for="stateOrder">Product Number</label>
+          <input type="text" ngModel name="productNumberOrder" class="form-control" id="productNumberOrder" placeholder="Product Number Order" required>
+       </div>
+       <div class="form-group">
+        <label for="stateOrder">date Order</label>
+        <input type="text" ngModel name="dateOrder" class="form-control" id="dateOrder" placeholder="Date Order" required>
+     </div>
+          
+          
+          <div class="modal-footer">
+             <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Add</button>
+          </div>
+          </form>
+       </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <!-- Edit Modal -->
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Order {{editOrder?.idOrder}}</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #editForm="ngForm">
+              <div class="form-group">
+                 <label for="amountOrder">Amount</label>
+                 <input type="text" ngModel="{{editOrder?.amountOrder}}" name="amountOrder" class="form-control" id="amountOrder" aria-describedby="emailHelp" placeholder="amount order">
+              </div>
+
+              <input type="hidden" ngModel="{{editOrder?.idOrder}}" name="idOrder" class="form-control" id="idOrder" placeholder="Email">
+              <div class="form-group">
+                 <label for="productNumberOrder">Product number</label>\-
+                 <input type="text" ngModel="{{editOrder?.productNumberOrder}}" name="productNumberOrder" class="form-control" id="productNumberOrder" placeholder="product Number Order">
+              </div>
+              <div class="form-group">-
+                 <label for="stateOrder">State</label>
+                 <input type="text" ngModel="{{editOrder?.stateOrder}}" name="stateOrder" class="form-control" id="stateOrder" placeholder="stateOrder">
+              </div>
+              
+              
+              <div class="modal-footer">
+                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                 <button (click)="onUpdateOrder(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="deleteModelLabel">Delete Stock</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <p>Are you sure you want to delete the stock {{deleteOrder?.idOrder}}?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleteOrder(deleteOrder?.idOrder)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+</div>
+
+
+
+

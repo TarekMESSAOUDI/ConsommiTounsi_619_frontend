@@ -1,14 +1,19 @@
-<button routerLink="/administrator">Return</button>
-<button (click)="addUser()">Add User</button>
-<button (click)="showAllUsers()">Show All Users</button>
+<h2>
+  <div class="row mt-3">
+    <button class="col btn btn-purple-moon" routerLink="/administrator">Return</button>
+    <button class="col btn btn-ultra-voilet" (click)="addUser()">Add User</button>
+    <button class="col btn btn-pink-moon" (click)="showAllUsers()">Show All Users</button>
+  </div>
+</h2>
 
-<div *ngIf="ShowAllUsers">Show All Users</div>
+<br />
+<div *ngIf="ShowAllUsers"></div>
 
-<div *ngIf="UpdateUser">Update User</div>
+<div *ngIf="UpdateUser"></div>
 
-<div *ngIf="DeleteUser">Delet User</div>
+<div *ngIf="DeleteUser"></div>
 
-
+<div *ngIf="ShowUser"></div>
 
 
 <!--> Add User</!-->
@@ -19,14 +24,14 @@
   <div class="raw">
 
     <div class="col-md-16 login-form-1">
-      <h3 class="col-5 mx-auto">CREATE NEW ACCOUNT</h3>
+      <h3 class="col-5 mx-auto">CREATE NEW USER</h3>
 
       <form name="form" #u="ngForm" (ngSubmit)="addUser()">
 
         <div class="form-group">
           <label>First Name :</label>
           <input type="text" name="firstname" class="form-control" placeholder="Your First Name *"
-                 ngModel required #fn="ngModel" [(ngModel)]="form.username" />
+                 ngModel required #fn="ngModel" [(ngModel)]="form.username" [ngModelOptions]="{standalone: true}" />
         </div>
         <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
           First Name is a Required Field !
@@ -251,29 +256,29 @@
 <!-- Show All Users-->
 <div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
   <h3>LIST USERS</h3>
-  <div class="row col-md-6 col-md-offset-2 custyle">
+  <div class=" col-md-6 col-md-offset-2 custyle">
+    <div>
+      <a class="btn btn-primary">Search</a>
+      <input class="form-control" />
+    </div>
     <table class="table table-striped custab">
       <thead>
         <tr>
-          <th scope="col">Id</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
+          <th>Action</th>
+          <th scope="col" value="idUser">Id</th>
+          <th scope="col">F.Name</th>
+          <th scope="col">L.Name</th>
           <th scope="col">CIN</th>
           <th scope="col">State</th>
-          <th scope="col">Phone Number</th>
+          <th scope="col">Phone</th>
           <th scope="col">Adress</th>
-          <th scope="col">Birth Date</th>
+          <th scope="col">Birth</th>
           <th scope="col">Email</th>
           <th scope="col">Sexe</th>
-          <th scope="col">Account Non Locked</th>
-          <th scope="col">Lock Time</th>
-          <th scope="col">Reset Token</th>
-          <th scope="col">Is Blocked</th>
-          <th scope="col">Block Date</th>
-          <th scope="col">UnBlock Date</th>
-          <th scope="col">Is Private</th>
+          <th scope="col">R.Token</th>
+          <th scope="col">Private</th>
           <th scope="col">Salary</th>
-          <th scope="col">Point Number</th>
+          <th scope="col">Point</th>
           <th scope="col">Avilaibility</th>
           <th scope="col">Zone</th>
           <th scope="col">Role</th>
@@ -281,29 +286,25 @@
       </thead>
       <tbody>
         <tr *ngFor="let u of ListUsers">
-          <th scope="row">{{u.idUser}}</th>
-          <td>{{u.username}}</td>
-          <td>{{u.lastNameUser}}</td>
-          <td>{{u.cinUser}}</td>
-          <td>{{u.stateUser}}</td>
-          <td>{{u.phoneNumberUser}}</td>
-          <td>{{u.adressUser}}</td>
-          <td>{{u.birthDateUser}}</td>
-          <td>{{u.emailUser}}</td>
-          <td>{{u.sexeUser}}</td>
-          <td>{{u.accountNonLocked}}</td>
-          <td>{{u.lockTime}}</td>
-          <td>{{u.resettoken}}</td>
-          <td>{{u.isBlocked}}</td>
-          <td>{{u.blockDate}}</td>
-          <td>{{u.unBlockDate}}</td>
-          <td>{{u.isPrivate}}</td>
-          <td>{{u.salaire}}</td>
-          <td>{{u.pointnumber}}</td>
-          <td>{{u.avilaibility}}</td>
-          <td>{{u.zone}}</td>
-          <td>{{u.role}}</td>
-          <td class="text-center"><a class='btn btn-info btn-xs' (click)="updateUser()"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a (click)="deleteUser()" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+          <td class="text-center"><a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete.</a>
+          <a (click)="showUser(u.idUser)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a></td>
+          <th scope="row"><small>{{u.idUser}}</small></th>
+          <td><small>{{u.username}}</small></td>
+          <td><small>{{u.lastNameUser}}</small></td>
+          <td><small>{{u.cinUser}}</small></td>
+          <td><small>{{u.stateUser}}</small></td>
+          <td><small>{{u.phoneNumberUser}}</small></td>
+          <td><small>{{u.adressUser}}</small></td>
+          <td><small>{{u.birthDateUser}}</small></td>
+          <td><small>{{u.emailUser}}</small></td>
+          <td><small>{{u.sexeUser}}</small></td>
+          <td><small>{{u.resettoken}}</small></td>
+          <td><small>{{u.isPrivate}}</small></td>
+          <td><small>{{u.salaire}}</small></td>
+          <td><small>{{u.pointnumber}}</small></td>
+          <td><small>{{u.avilaibility}}</small></td>
+          <td><small>{{u.zone}}</small></td>
+          <td><small>{{u.role}}</small></td>
         </tr>
       </tbody>
     </table>
@@ -311,3 +312,64 @@
 </div>
 
 
+
+<!-- Update User-->
+
+<div class="container login-container" *ngIf="ShowUser" >
+  <div class="col-md-16 login-form-1">
+    <h3 class="col-5 mx-auto">UPDATE THIS USER</h3>
+    <form *ngIf="user">
+      <div class="form-group">
+        <input value="{{user.username}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.lastNameUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.cinUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.stateUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.phoneNumberUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.adressUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.birthDateUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.emailUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.sexeUser}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.resettoken}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.isPrivate}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.salaire}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.pointnumber}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.avilaibility}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.zone}}" class="form-control" />
+      </div>
+      <div class="form-group">
+        <input value="{{user.role}}" class="form-control" />
+      </div>
+    </form>
+    <div class="d-grid gap-5 col-3 mx-auto">
+      <button (click)="updateUser()" type="button" class="btn btn-success btn-lg"> Update </button>
+    </div>
+  </div>
+  </div>

@@ -5,4 +5,5 @@ export class Department {
 	nameDepartment :string ;
     typeDepartment : TypeDepartment ;
 	capacityDepartment :number ;
+    
 }

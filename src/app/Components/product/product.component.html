@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
-        <div class="col-md-10" *ngFor="let p of ListProducts">
+        <div class="col-md-6" *ngFor="let p of ListProducts">
            
            
             <div class="row p-2 bg-white border rounded mt-2">
@@ -19,8 +19,9 @@
                         <h4 class="mr-1">DT {{p.buyingPriceProduct}}</h4>
                     </div>
                     <h6 class="text-success">New Product</h6>
-                    <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button>
-                        <button class="btn btn-warning" type="button">Add To Chart</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist &hearts; </button></div>
+
+                    <div class="d-flex flex-column mt-4"> <button type="button" class="btn btn-success" (click)="onSelect(p)" ><i class="fas fa-list">Details</i></button> <button class="btn btn-warning" (click)="onAddToCart(p)" type="button">Add To Chart</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist &hearts; </button></div>
+
                 </div>
             </div>
         </div>

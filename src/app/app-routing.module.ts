@@ -42,7 +42,7 @@ import { OrderAdministratorComponent } from './Components/order-administrator/or
 import { OrderClientComponent } from './Components/order-client/order-client.component';
 import { ListaArticuloComponent } from './Stripe/articulo/lista-articulo/lista-articulo.component';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
-
+import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 
 
 

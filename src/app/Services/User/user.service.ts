@@ -17,7 +17,8 @@ const httpOptions = {
 export class UserService {
 
   addUserURL = "http://localhost:9091/SpringMVC/servlet/add-user";
-  deleteUserURL = "http://localhost:9091/SpringMVC/servlet/delete-user";
+  ajoutUserURL = "http://localhost:9091/SpringMVC/servlet/ajouter-user";
+  deleteUserURL = "http://localhost:9091/SpringMVC/servlet/delete-user/{user-id}";
   updateUserURL = "http://localhost:9091/SpringMVC/servlet/update-user";
   getAllUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-all-user";
   getByIdUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-id";
@@ -54,10 +55,12 @@ export class UserService {
   }
 
   ajouterUser(user: User): Observable<any> {
-    return this.userhttp.post(this.addUserURL, user);
+    return this.userhttp.post<JwtResponse>(this.ajoutUserURL, user).pipe(data => {
+      return data;
+    })
   }
 
-  deleteUser(id: number): Observable<any> {
+  deleteUser(idUser: number): Observable<any> {
     return this.userhttp.delete(this.deleteUserURL, { responseType: 'text' });
   }
 

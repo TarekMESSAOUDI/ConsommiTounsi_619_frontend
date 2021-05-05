@@ -15,7 +15,7 @@ export class CreateaccountComponent implements OnInit {
 
   createaccount: CreateAccount;
   ListUsers: User[];
-  user: User = new User();
+  //user: User = new User();
   msg = '';
   form: any = {};
   constructor(private userservice: UserService, private router: Router) { }
@@ -27,7 +27,7 @@ export class CreateaccountComponent implements OnInit {
     this.createaccount = new CreateAccount(this.form.username, this.form.lastName, this.form.cinUser, this.form.password, this.form.confirmPasswordUser, this.form.phoneNumberUser, this.form.adressUser, this.form.birthDateUser, this.form.emailUser, this.form.sexeUser, this.form.role)
     this.userservice.addUser(this.createaccount).subscribe(
       data => {
-        this.user.role = Role.CLIENT;
+        //this.user.role = Role.CLIENT;
         this.router.navigate(["/home"])
       },
       error => {

@@ -1,1 +1,45 @@
-<p>claim-client works!</p>
+<div class="wrapper">
+    <form  #F="ngForm"  action="#">
+      <div class="field">
+      
+        <label>Title</label>
+      <input type="text" required placeholder="Title Claim"  id="titleClaim" name="titleClaim" [(ngModel)]="claim.titleClaim">
+     
+      
+      </div>
+      
+      
+      <div class="field">
+      
+        <label>Description</label>
+        <input type="text" required placeholder="Description Claim"  id="descriptionClaim" name="descriptionClaim" [(ngModel)]="claim.descriptionClaim">
+       
+        
+        </div>
+    
+      
+    
+    
+    
+    
+          <div class="field">
+      
+            <label>Date</label>
+            <input type="text" required placeholder="Date Calim"  id="dateClaim" name="dateClaim" [(ngModel)]="claim.dateClaim">
+           
+            
+            </div>
+      
+      
+      
+    
+    
+      <div class="field">
+        <button type="button" [disabled]="F.invalid" id="adddepartment" (click)="addClaim()" class="btn btn-success">Add new Department</button>
+        
+        </div>
+        
+        
+        </form>
+    
+        </div>

@@ -1,1 +1,28 @@
-<p>claim-administrator works!</p>
+<table class="table table-hover">
+            
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title </th>
+        <th scope="col">description</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+
+    
+      <tr *ngFor="let c of ListClaim">
+   
+        <td>{{c.idClaim}}</td>
+        <td>{{c.titleClaim}}</td>
+        <td>{{c.descriptionClaim}}</td>
+        <td>{{c.dateClaim}}</td>
+        
+        <div >
+  <button (click)="DeleteClaim(c.idClaim)" type="button" class="btn-danger"> DELETE </button>
+</div>
+      </tr>
+      
+  
+   
+
+  </table>

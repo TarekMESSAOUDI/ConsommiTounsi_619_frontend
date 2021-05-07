@@ -10,18 +10,18 @@ import { Order } from 'src/app/Models/Order';
 })
 export class OrderService {
 
-  addOrderURL:"localhost:9091/SpringMVC/servlet/add-order";
+  //addOrderURL:"localhost:9091/SpringMVC/servlet/add-order";
   modifyOrderURL:"localhost:9091/SpringMVC/servlet/modify-order";
   //deleteOrderURL:"localhost:9091/SpringMVC/servlet/delete-order/"
   //getAllOrderURL:"localhost:9091/SpringMVC/servlet/getAllOrder"
   getOrderByTypeURL:"localhost:9091/SpringMVC/servlet/getOrder_by_Type"
-  ShowPDFByIdBillURL = "http://localhost:9091/SpringMVC/servlet/showPDF";
+  //ShowPDFByIdBillURL = "http://localhost:9091/SpringMVC/servlet/showPDF";
   
 
   constructor (private orderhttp: HttpClient, private router: Router) { }
 
-  addOrder(order : Order){
-    return this.orderhttp.post<ApiResponse>(this.addOrderURL, {});
+  public addOrder(order:Order){
+    return this.orderhttp.post<ApiResponse>("http://localhost:9091/SpringMVC/servlet/add-order", order);
   }
 
 
@@ -43,8 +43,8 @@ export class OrderService {
     return this.orderhttp.get(this.getOrderByTypeURL);
   }
 
-  showPdf(idOrder: number): Observable<any> {
-    return this.orderhttp.get(this. ShowPDFByIdBillURL);
+  public showPdf(idOrder : number) {
+    return this.orderhttp.get("http://localhost:9091/SpringMVC/servlet/showPDF/" + idOrder);
   }
   
 }

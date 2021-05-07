@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/Models/Order';
+import { PaymentType } from 'src/app/Models/PaymentType';
 import { OrderService } from 'src/app/Services/Order/order.service';
 
 @Component({
@@ -31,10 +32,10 @@ export class OrderAdministratorComponent implements OnInit {
     resp.subscribe((data)=>this.ListOrder=data);
   }
 
-  showpdf(idOrder){
-    let resp=this.orderService.showPdf(idOrder);
-    resp.subscribe((data)=>this.ListOrder=data);
-  }
+  //showpdf(){
+    //let resp=this.orderService.showPdf();
+    //resp.subscribe((data)=>this.ListOrder=data);
+  //}
   
   AddOrderShow(){
     this.show=true;
@@ -56,15 +57,24 @@ export class OrderAdministratorComponent implements OnInit {
   );
   }
 
-save(){
-  this.orderService.addOrder(this.order).subscribe();
-}
-  
+  addOrder() { 
+    this.order.paymentType = PaymentType.By_Card
+    this.orderService.addOrder(this.order).subscribe(res=>{console.log(res);
+    }
+    );
+  }
 
-  
+    public showpdf(idOrder:number){
+      this.orderService.showPdf(idOrder).subscribe(data =>{
+        this.ngOnInit();
+      },
+      error =>
+      console.log(error)
+      );
+      }
 
   
   
     
-    
-}  
+  }  
+  

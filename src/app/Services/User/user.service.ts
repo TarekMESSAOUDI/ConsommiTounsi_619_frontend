@@ -23,7 +23,7 @@ export class UserService {
   getAllUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-all-user";
   getByIdUserURL = "http://localhost:9091/SpringMVC/servlet";
   getByPointUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-point";
-  getByUsernameUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-username";
+  getByUsernameUserURL = "http://localhost:9091/SpringMVC/servlet";
   getByStateUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-state";
   getByAdressUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-adress";
   getByDateUserURL = "http://localhost:9091/SpringMVC/servlet/retrieve-user-by-date";
@@ -65,7 +65,7 @@ export class UserService {
   }
 
   updateUser(idUser: any, value: any): Observable<any> {
-    return this.userhttp.put(`${this.updateUserURL}/update-user`, value);
+    return this.userhttp.put(`${this.updateUserURL}/update-user/${idUser}`, value);
   }
 
   getAllUser(): Observable<any> {
@@ -81,7 +81,7 @@ export class UserService {
   }
 
   getByUsernameUser(username: string): Observable<any> {
-    return this.userhttp.get(this.getByUsernameUserURL);
+    return this.userhttp.get(`${this.getByUsernameUserURL}/retrieve-user-by-username/${username}`);
   }
 
   getByStateUser(state: boolean): Observable<any> {

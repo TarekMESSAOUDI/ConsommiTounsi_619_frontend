@@ -5,7 +5,6 @@ import { Role } from '../../Models/Role';
 import { User } from '../../Models/User';
 import { AuthenticationService } from '../../Services/Authenticate/authentication.service';
 import { TokenstorageService } from '../../Services/TokenStorage/tokenstorage.service';
-import { UserService } from '../../Services/User/user.service';
 
 @Component({
   selector: 'app-authentificate',
@@ -15,9 +14,7 @@ import { UserService } from '../../Services/User/user.service';
 export class AuthentificateComponent implements OnInit {
 
   form: any = {};
-  user: User;
   msg = '';
-  role: Role;
   constructor(private authservice: AuthenticationService,
     private tokenstorage: TokenstorageService,
               private router: Router) { }
@@ -32,7 +29,17 @@ export class AuthentificateComponent implements OnInit {
          localStorage.setItem('Token', data.jwttoken)
          localStorage.setItem('Type', data.type)
          localStorage.setItem('Username', data.username)
-         localStorage.setItem('Authorities', data.authorities)
+         localStorage.setItem('Authorities', data.authorities.toString())
+
+         if (localStorage.getItem(data.authorities.toString()) == "ADMINISTRATOR") {
+           this.router.navigate(["/administrator"])
+         } if (localStorage.getItem(data.authorities.toString()) == "CLIENT") {
+           this.router.navigate(["/client"])
+         } if (localStorage.getItem(data.authorities.toString()) == "DEPARTMENTMANAGER") {
+           this.router.navigate(["/departmentmanager"])
+         } if (localStorage.getItem(data.authorities.toString()) == "DELIVERYPERSON") {
+           this.router.navigate(["/deliveryperson"])
+         } 
       },
       error => {
       this.msg = 'Username Or password Invalid';

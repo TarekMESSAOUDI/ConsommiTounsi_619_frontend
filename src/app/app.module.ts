@@ -3,7 +3,7 @@ import { InjectionToken, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgForm, NgModel, ReactiveFormsModule } from '@angular/forms';
 import {HttpClient, HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -60,15 +60,13 @@ import { OrderAdministratorComponent } from './Components/order-administrator/or
 import { OrderClientComponent } from './Components/order-client/order-client.component';
 import { BillClientComponent } from './Components/bill-client/bill-client.component';
 import { ListaArticuloComponent } from './Stripe/articulo/lista-articulo/lista-articulo.component';
-
 import { MenuComponent } from './Stripe/menu/menu.component';
 import { ModalComponent } from './Stripe/modal/modal.component';
 import { PaymentComponent } from './Stripe/payment/payment.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastrModule } from 'ngx-toastr';
-import { NgxStripeModule } from 'ngx-stripe';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
-
+import { NgxStripeModule } from 'ngx-stripe';
+import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -134,11 +132,7 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
-    
 
-
-    
-    
   ],
   imports: [
     BrowserModule,
@@ -158,7 +152,7 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
   entryComponents: [ModalComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
-    //{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
+   // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],
   bootstrap: [AppComponent]
 })

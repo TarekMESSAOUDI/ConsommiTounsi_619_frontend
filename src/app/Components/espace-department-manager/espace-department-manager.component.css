@@ -3,7 +3,7 @@
   }
 
   
-  .button {
+  .buttony {
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
@@ -23,13 +23,13 @@
     border-radius: 4px;
   }
   
-  .button:hover {
+  .buttony:hover {
     background: rgb(176, 231, 26);
     box-shadow: 0px 2px 10px 5px #1abc9c;
     color: #000;
   }
   
-  .button:after {
+  .buttony:after {
     content: "";
     background: #1abc9c;
     display: block;
@@ -42,14 +42,14 @@
     transition: all 0.8s
   }
   
-  .button:active:after {
+  .buttony:active:after {
     padding: 0;
     margin: 0;
     opacity: 1;
     transition: 0s
   }
   
-  .button:focus { outline:0; }
+  .buttony:focus { outline:0; }
   
 
   #shop{

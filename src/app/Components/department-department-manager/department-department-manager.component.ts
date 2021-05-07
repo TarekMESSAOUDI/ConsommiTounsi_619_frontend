@@ -21,27 +21,19 @@ export class DepartmentDepartmentManagerComponent implements OnInit {
   public editDep :Department;
 
   alert :boolean=false;
-  constructor(private Departmentservice : DepartmentService, private router: Router) { }
+  constructor(private Departmentservice : DepartmentService) { }
 
 
 
 
 
   ngOnInit() {
-    this.getDepartments();
+    this.Departmentservice.getallDepartments().subscribe(res=>{console.log(res);
+      this.listDepartment =res});
+
   }
 
-  public getDepartments(): void {
-    this.Departmentservice.getallDepartments().subscribe(
-      (response: Department[]) => {
-        this.listDepartment = response;
-        console.log(this.listDepartment);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+  
 
 
   adddepartment(){
@@ -93,33 +85,8 @@ deleteDepartment(id:number){
   }
 
 
-  public onUpdateDep(department: Department): void {
-    this.Departmentservice.updateDep(department).subscribe(
-      (response: Department) => {
-        console.log(response);
-        this.getDepartments();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+  
     
   
-  public onOpenModal(department: Department, mode: string): void {
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    
-    if (mode === 'edit') {
-      this.editDep = department;
-      button.setAttribute('data-target', '#updateEmployeeModal');
-    }
-    
-    container.appendChild(button);
-    button.click();
-  }
 
 }

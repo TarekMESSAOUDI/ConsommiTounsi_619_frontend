@@ -24,7 +24,9 @@ export class SubjectService {
   constructor(private subjecthttp: HttpClient, private router: Router) { }
 
   addSubject(subject: Subject): Observable<any> {
-    return this.subjecthttp.post(this.addSubjectURL, subject);
+    return this.subjecthttp.post<Subject>(this.addSubjectURL, subject).pipe(data => {
+      return data;
+    });
   }
 
   deletSubject(id: number): Observable<any> {

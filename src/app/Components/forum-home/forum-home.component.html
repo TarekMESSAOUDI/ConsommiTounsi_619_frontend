@@ -1,1 +1,160 @@
-<p>forum-home works!</p>
+
+
+
+
+<!-- ADD SUBJECT-->
+<div class="container login-container">
+  <br>
+  <br />
+  <div class="raw">
+
+    <div class="col-md-16 login-form-1">
+      <h1 class="col-5 mx-auto">ADD SUBJECT</h1>
+
+      <form name="sf" #s="ngForm" (ngSubmit)="addSubject()">
+
+        <div class="form-group">
+          <label>Title:</label>
+          <input type="text" name="titlesubject" class="form-control" placeholder="Title Subject Here *"
+                 ngModel required #ts="ngModel" [(ngModel)]="sf.titleSubject" [ngModelOptions]="{standalone: true}" />
+        </div>
+        <div class="alert alert-danger" *ngIf="ts.invalid && ts.touched">
+          Title is a Required Field !
+        </div>
+
+        <div class="form-group">
+          <label>Description :</label>
+          <input type="text" name="descriptionsubject" class="form-control" placeholder="Description Subject Here *"
+                 ngModel required #ds="ngModel" [(ngModel)]="sf.descriptionSubject" [ngModelOptions]="{standalone: true}" />
+        </div>
+        <div class="alert alert-danger" *ngIf="ds.invalid && ds.touched">
+          Description is a Required Field !
+        </div>
+
+        <div class="d-grid gap-5 col-3 mx-auto">
+          <button [disabled]="s.invalid" (click)="addSubject()" type="button" class="btn btn-success btn-lg"> ADD </button>
+          <button type="button" class="btn btn-success btn-lg" (click)="showAllSubjects()"> Show</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<br />
+<br />
+
+
+
+<!--Search By Title-->
+<div  class="container">
+ 
+    <div class="d-grid gap-2 col-md-3  mx-auto">
+      <button type="button" class="btn btn-primary btn-lg" (click)="showSubjectByTitle()"> Search</button>
+      <input type="text" name="namesubject" class="form-control" placeholder="Title" />
+    </div>
+  </div>
+<br />
+
+<!--Show Subject List-->
+
+<div class="container" *ngFor="let s of ListSubject">
+  <div class="col-md-16" >
+    <div class="panel panel-default" >
+      <div class="panel-body" >
+        <section class="post-heading">
+          <div class="row mt-3">
+            <div class="col-md-11">
+              <div class="media">
+                <div class="media-body">
+                  <a href="#" class="anchor-username"><h4 class="media-heading">{{s.titleSubject}}</h4></a>
+                  <a href="#" class="anchor-time">51 min</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+            </div>
+          </div>
+        </section>
+        <section class="post-body">
+          <p>
+            {{s.descriptionSubject}}
+          </p>
+        </section>
+        <section class="post-footer">
+          <hr>
+          <div class="post-footer-option container">
+            <ul class="list-unstyled">
+              <li><a href="" ><i class="glyphicon glyphicon-thumbs-up"></i> Like</a></li>
+              <li><a href=""><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
+              <li><a href=""><i class="glyphicon glyphicon-share-alt"></i> Share</a></li>
+            </ul>
+          </div>
+          <div class="post-footer-comment-wrapper">
+            <div class="comment-form">
+
+            </div>
+            <div class="comment">
+              <div class="media">
+                <div class="media-body">
+                  <a href="#" class="anchor-username"><h4 class="media-heading">Comments</h4></a>
+                  <a href="#" class="anchor-time"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <br />
+        <br />
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--SOCIAL SITES-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <section id="contact" class="content-section text-center">
+      <div class="contact-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+
+              <hr>
+              <h3>Our Social Sites</h3>
+              <ul class="list-inline banner-social-buttons">
+                <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook"> <span class="network-name">Facebook</span></i></a></li>
+                <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-wordpress"> <span class="network-name">Wordpress</span></i></a></li>
+                <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-youtube-play"> <span class="network-name">Youtube</span></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

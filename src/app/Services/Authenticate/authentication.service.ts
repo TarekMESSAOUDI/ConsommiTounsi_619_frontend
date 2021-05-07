@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { Authenticate } from '../../Models/Authenticate';
-import { Role } from '../../Models/Role';
+import { JwtResponse } from '../../Models/JwtResponse';
 import { TokenstorageService } from '../TokenStorage/tokenstorage.service';
 
 const httpOptions = {
@@ -19,13 +19,12 @@ export class AuthenticationService {
 
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
-  role: Role;
 
   authenticateURL = "http://localhost:9091/SpringMVC/servlet/authenticate";
  
 
   constructor(private authhttp: HttpClient, private tokenstorage: TokenstorageService, private router: Router) {
-
+    //this.user = new User();
     this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem(TOKEN_KEY));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -34,18 +33,12 @@ export class AuthenticationService {
   }
 
   authenticate(authenticate: Authenticate) {
-    return this.authhttp.post<any>(this.authenticateURL, authenticate, httpOptions)
+    return this.authhttp.post<JwtResponse>(this.authenticateURL, authenticate, httpOptions)
+
       .pipe((data => {
+
+
         this.authenticate;
-        if (this.role = Role.ADMINISTRATOR) {
-          this.router.navigate(["/profile/administrator"])
-        } if (this.role = Role.DEPARTMENTMANAGER) {
-          this.router.navigate(["/profile/departmentmanager"])
-        } if (this.role = Role.DELIVERYPERSON) {
-          this.router.navigate(["/profile/deliveryperson"])
-        } if (this.role = Role.DELIVERYPERSON) {
-          this.router.navigate(["/profile/client"])
-        }
         return data;
       }));
   }

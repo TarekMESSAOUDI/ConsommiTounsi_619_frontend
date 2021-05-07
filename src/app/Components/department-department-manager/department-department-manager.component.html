@@ -2,24 +2,34 @@
  
  
  
- <!-- INTERFACE D'ADMINSITRATEUR -->
+
+
+
+
+
+<!-- INTERFACE D'ADMINSITRATEUR -->
 <div class="titre">
     <h3>Welcome to department manager shelf </h3>
 </div>
  
 
     <body>
-
-        <div class="field">
-            <button type="button" (click)="Viewdepartment()" id="submitButton" class="btn btn-primary">SHOW department </button>
-            <button type="button" (click)="AddDepatmentshowdiv()"  id="submitButton" class="btn btn-primary">ADD NEW department</button>
-            </div>
+        <div class="container">
+            <div class="row">
+        
+            <button type="buttony" (click)="Viewdepartment()" id="submitButton" class="buttony">Department Database </button>
+            <button type="button" (click)="AddDepatmentshowdiv()"  id="submitButton" class="buttony">ADD NEW department</button>
+            <button type="button"  id="submitButton" class="buttony"  routerLink="/Client/departments">check your Depatment </button>
+           
            <!-- adding a new department-->
            
-           
+           </div>
+        </div>
         
-        
            
+
+
+           <!--pppppeeeeee-->
            <div *ngIf="show">
            <div class="wrapper">
            <div class="title">
@@ -135,7 +145,7 @@
     <div class="field">
 
       
-        <button (click)="updateDep(department.idDepartment)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        <button class="btn btn-info" style="margin-left: 10px">Update</button>
         
         <button (click)="deleteDepartment(d.idDepartment)" class="btn btn-info" style="margin-left: 10px"   type="button" > DELETE </button>
         

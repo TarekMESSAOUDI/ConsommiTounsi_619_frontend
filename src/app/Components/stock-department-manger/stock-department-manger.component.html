@@ -1,12 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm bg-dark">
     <a class="navbar-brand" style="color:rgb(255, 255, 255);">Department Manager : Stock</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-       <ul class="navbar-nav mr-auto">
+    
+    <div class="collapse navbar-collapse" id="navbarColor02" >
+       <ul class="navbar-nav mr-auto" >
           <li class="nav-item active">
-              <button   class="button1"   (click)="onOpenModal(null, 'add')"  >  Add Stock <span class="sr-only">(current)</span>           
+              <button   class="btn btn-danger"   (click)="onOpenModal(null, 'add')"  >  Add Stock <span class="sr-only">(current)</span>           
               </button>
               <div style="font-size:1.5em">
  
@@ -29,22 +27,25 @@
 
 
   <!--  list des stock  --> 
-  <div class="container" id="main-container">
-  <div class="row">
-    <div *ngFor="let stock of stocks" class="col-md-6 col-xl-3">
-       <div class="card m-b-30">
-          <div class="card-body row">
+  <div class="container" id="main-container"  style="background-color:grey;">
+  <div class="row" >
+    <div *ngFor="let stock of stocks" class="col-12 col-sm-6 col-md-4 p-2" >
+       <div class="card m-b-30" >
+          <div class="card-body row"  >
              <div class="col-6">
                 <a href=""><img src="https://www.erplain.com/sites/default/files/styles/erplain_scale_1440/public/uploaded_images/Wholesalers_0.png?itok=IlrlozQZ" alt="" class="img-fluid rounded-circle w-60"></a>
              </div>
              <div class="col-6 card-title align-self-center mb-0">
                 <h5>{{stock?.nameStock}}</h5>
-                <p class="m-0">{{stock?. capacityStock}}</p>
+                <p class="m-0">{{stock?.quantityStock}}</p>
              </div>
           </div>
-          <ul class="list-group list-group-flush">
-             <li class="list-group-item"><i class="fa fa-calendar float-right"></i>{{stock?.validityStock }}</li>
-             <li class="list-group-item"><i class="fa fa-usd float-right"></i>Phone : {{stock?.costStock}}</li>
+          <ul class="list-group list-group-flush"  >
+             <li class="list-group-item"><i class="fa fa-calendar float-right"></i> Validity: {{stock?.validityStock }}</li>
+             
+             <li class="list-group-item"><i class="fa fa-usd float-right"></i>Cost : {{stock?.costStock}}</li>
+             <li class="list-group-item"><i class="fa fa-angle-double-up float-right" ></i>Max Stock : {{stock?.maxStock}}</li>
+             <li class="list-group-item"><i class="fa fa-angle-down float-right"></i>Min Stock : {{stock?.minStock}}</li>
           </ul>
           <div class="card-body">
              <div class="float-right btn-group btn-group-sm">
@@ -69,21 +70,34 @@
          <div class="modal-body">
             <form #addForm="ngForm" (ngSubmit)="onAddStock(addForm)">
             <div class="form-group">
-               <label for="nameStock">Name stock</label>
+               <label for="nameStock">Name stock </label>
                <input type="text" ngModel name="nameStock" class="form-control" id="nameStock" placeholder="Name Stock" required>
             </div>
             <div class="form-group">
-               <label for="capacityStock">Capacity Stock</label>
-               <input type="capacityStock" ngModel name="capacityStock" class="form-control" id="capacityStock" placeholder="Capacity stock" required>
+               <label for="Quantity Stock">quantity Stock</label>
+               <input type="quantityStock" ngModel name="quantityStock" class="form-control" id="quantityStock" placeholder="quantity Stock" required>
             </div>
             <div class="form-group">
-               <label for="phone"> validity Stock</label>
+               <label for="validityStock"> validity Stock</label>
                <input type="text" ngModel name=" validityStock" class="form-control" id=" validityStock" placeholder="  Validity date" required>
             </div>
             <div class="form-group">
                <label for="costStock">cost Stock</label>
                <input type="text" ngModel name="costStock" class="form-control" id="costStock" placeholder="Cost" required>
             </div>
+
+
+            <div class="form-group">
+               <label for="MinStock">Min Stock</label>
+               <input type="text" ngModel name="minStock" class="form-control" id="minStock" placeholder="min " required>
+            </div>
+
+            <div class="form-group">
+               <label for="MaxStock">Max Stock</label>
+               <input type="text" ngModel name="maxStock" class="form-control" id="maxStock" placeholder="Max" required>
+            </div>
+
+
             
             <div class="modal-footer">
                <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -117,8 +131,8 @@
 
                 <input type="hidden" ngModel="{{editStock?.idStock}}" name="idStock" class="form-control" id="idStock" placeholder="Email">
                 <div class="form-group">
-                   <label for="capacityStock">capacity Stock</label>\-
-                   <input type="capacityStock" ngModel="{{editStock?.capacityStock}}" name="capacityStock" class="form-control" id="capacityStock" placeholder="capacity Stock">
+                   <label for="quantityStock">quantity Stock</label>\-
+                   <input type="quantityStock" ngModel="{{editStock?.quantityStock}}" name="quantityStock" class="form-control" id="quantityStock" placeholder="quantityStock">
                 </div>
                 <div class="form-group">-
                    <label for="validityStock">validity Stock</label>
@@ -128,6 +142,16 @@
                    <label for="costStock">costStock</label>
                    <input type="text" ngModel="{{editStock?.costStock}}" name="costStock" class="form-control" id="costStock" name="costStock" placeholder="cost Stock">
                 </div>
+
+                <div class="form-group">
+                  <label for="maxstock">MaxStock</label>
+                  <input type="text" ngModel="{{editStock?.maxStock}}" name="maxStock" class="form-control" id="maxStock" name="maxStock" placeholder="MaxStock">
+               </div>
+
+               <div class="form-group">
+                  <label for="minStock">MinStock</label>
+                  <input type="text" ngModel="{{editStock?.minStock}}" name="minStock" class="form-control" id="minStock" name="minStock" placeholder="MinStock">
+               </div>
                 
                 <div class="modal-footer">
                    <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
@@ -175,5 +199,13 @@
 
 
 
+<!-- <div id="shop">
+   <div class="content">
+       <img src="../assets/img/back2.png"> 
+       <a href="#"></a>
+   </div>
+   </div>-->  
+
+   
 
 

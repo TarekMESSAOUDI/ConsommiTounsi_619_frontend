@@ -9,7 +9,7 @@
     cursor: pointer;
     font-size: 20px;
     letter-spacing: 4px;
-    position: relative;
+    position:initial;
     background-color: #2b7da3;
     border: none;
     color: rgb(255, 255, 255);
@@ -51,3 +51,25 @@
   
   .button:focus { outline:0; }
   
+
+  #shop{
+    
+    background-repeat:no-repeat;    
+    height:200px;
+    width: 700px;
+    margin-left: -250px;
+    margin-top: -50px;
+    padding-left: -50px;
+  
+}
+
+#shop .image{    
+    width: 20px;
+    height: auto;
+    line-height: 0px;
+    margin-top: 55px;
+    margin-left: 0px;
+    margin-right:0px;
+    
+    
+}

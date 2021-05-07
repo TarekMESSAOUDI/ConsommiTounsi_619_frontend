@@ -53,6 +53,9 @@ import { EventHomeComponent } from './Components/event-home/event-home.component
 import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
 import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
+
 import { OrderAdministratorComponent } from './Components/order-administrator/order-administrator.component';
 import { OrderClientComponent } from './Components/order-client/order-client.component';
 import { BillClientComponent } from './Components/bill-client/bill-client.component';
@@ -64,6 +67,7 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
 import { NgxStripeModule } from 'ngx-stripe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -117,6 +121,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EventHomeComponent,
     UpdateproductComponent,
     DepartmentClientComponent,
+
+    DetailsproductsComponent,
+
     OrderAdministratorComponent,
     OrderClientComponent,
     BillClientComponent,
@@ -125,6 +132,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
+
   ],
   imports: [
     BrowserModule,

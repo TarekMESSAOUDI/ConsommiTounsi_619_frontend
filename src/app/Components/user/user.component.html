@@ -1,10 +1,19 @@
-<h2>
-  <div class="row mt-3">
-    <button class="col btn btn-purple-moon" routerLink="/administrator">Return</button>
-    <button class="col btn btn-ultra-voilet" (click)="addUser()">Add User</button>
-    <button class="col btn btn-pink-moon" (click)="showAllUsers()">Show All Users</button>
+
+  <div class="container">
+    <div class="row mt-3">
+        <div class="col">
+          <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
+        </div>
+        <div class="col">
+          <button class="button" (click)="addUser()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Add User</h3></button>
+        </div>
+        <div class="col">
+          <button class="button" (click)="showAllUsers()"><h3><i class="fa fa-tags" aria-hidden="true"></i>All Users</h3></button>
+        </div>
+    </div>
   </div>
-</h2>
+
+
 
 <br />
 <div *ngIf="ShowAllUsers"></div>
@@ -24,7 +33,7 @@
   <div class="raw">
 
     <div class="col-md-16 login-form-1">
-      <h3 class="col-5 mx-auto">CREATE NEW USER</h3>
+      <h1 class="col-5 mx-auto">CREATE NEW USER</h1>
 
       <form name="form" #u="ngForm" (ngSubmit)="addUser()">
 
@@ -255,17 +264,17 @@
 
 <!-- Show All Users-->
 <div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
-  <h3>LIST USERS</h3>
+  <h1>LIST USERS</h1>
   <div class=" col-md-6 col-md-offset-2 custyle">
     <div>
-      <a class="btn btn-primary">Search</a>
-      <input class="form-control" />
+      <a class="btn btn-primary" (click)="getUserByName(nu)">Search</a>
+      <input class="form-control" [(ngModel)]="u.username"/>
     </div>
     <table class="table table-striped custab">
       <thead>
         <tr>
           <th>Action</th>
-          <th scope="col" value="idUser">Id</th>
+          <th scope="col">Id</th>
           <th scope="col">F.Name</th>
           <th scope="col">L.Name</th>
           <th scope="col">CIN</th>
@@ -287,7 +296,7 @@
       <tbody>
         <tr *ngFor="let u of ListUsers">
           <td class="text-center"><a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete.</a>
-          <a (click)="showUser(u.idUser)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a></td>
+          <a (click)="showUser(u)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a></td>
           <th scope="row"><small>{{u.idUser}}</small></th>
           <td><small>{{u.username}}</small></td>
           <td><small>{{u.lastNameUser}}</small></td>
@@ -319,6 +328,9 @@
   <div class="col-md-16 login-form-1">
     <h3 class="col-5 mx-auto">UPDATE THIS USER</h3>
     <form *ngIf="user">
+      <div class="form-group">
+        <input value="{{user.idUser}}" class="form-control" />
+      </div>
       <div class="form-group">
         <input value="{{user.username}}" class="form-control" />
       </div>
@@ -369,7 +381,7 @@
       </div>
     </form>
     <div class="d-grid gap-5 col-3 mx-auto">
-      <button (click)="updateUser()" type="button" class="btn btn-success btn-lg"> Update </button>
+      <button (click)="updateUser(user)" type="button" class="btn btn-success btn-lg"> Update </button>
     </div>
   </div>
   </div>

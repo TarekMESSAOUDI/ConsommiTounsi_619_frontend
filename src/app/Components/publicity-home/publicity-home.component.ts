@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Publicity } from 'src/app/Models/Publicity';
+import { PublicityService } from 'src/app/Services/Publicity/publicity.service';
 
 @Component({
   selector: 'app-publicity-home',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicityHomeComponent implements OnInit {
 
-  constructor() { }
+  ListPubs: Publicity[];
+
+  constructor(private ServicePublicity: PublicityService) { }
 
   ngOnInit(): void {
+
+    this.ServicePublicity.getAllPublicities().subscribe(res => {
+      console.log('hhhhjjjjj', res);
+      this.ListPubs = res
+    });
+    console.log(this.ListPubs, 'jjkhljlk')
   }
 
 }

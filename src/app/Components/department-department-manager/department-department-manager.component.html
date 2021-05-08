@@ -82,6 +82,10 @@
            </div>
            
            </div>
+
+           <label></label>
+    <input type="file"  name="file"[(ngModel)]="department.fileName"> <label>virtual visit photo</label><br>
+
            
            
            
@@ -132,7 +136,10 @@
 <th>Department Id</th>
 <th>Name</th>
 <th>Type</th>
+<th>Capacity</th>
+<th>visite v</th>
 <th>Edit</th>
+
 </tr>
 </thead>
 <tbody>
@@ -140,6 +147,9 @@
 <td><h6 class="card-title">{{d.idDepartment}}</h6></td>
 <td><h6 class="card-title">{{d.nameDepartment}}</h6></td>
 <td><h6 class="cartd-title">{{d.typeDepartment}}</h6></td>
+<td><h6 class="cartd-title">{{d.capacityDepartment}}</h6></td>
+
+<td><img src="{{'http://localhost:9091/SpringMVC/servlet/depart/'+d.idDepartment}}" width="100" height="150"  class="card-img-top" alt="..."></td>
 
 <td>
     <div class="field">

@@ -77,6 +77,8 @@ const routes: Routes = [
               { path: 'client', component: EsapaceClientComponent },
                     { path: 'client/home', component: HomeClientComponent },
                     { path: 'client/profile', component: ProfileClientComponent },
+                    { path: 'departmentmanager/client', component: DepartmentClientComponent },
+
                     { path: 'client/claim', component: ClaimClientComponent },
                     { path: 'client/cagnotte', component: CagnotteClientComponent },
                     { path: 'client/event', component: EventClientComponent },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/Models/Order';
 import { PaymentType } from 'src/app/Models/PaymentType';
 import { OrderService } from 'src/app/Services/Order/order.service';
@@ -16,11 +16,13 @@ export class OrderAdministratorComponent implements OnInit {
   showOrder:boolean;
   val:string;
   message:any;
-  order : Order;
+  order: Order = new Order();
   submitted = false;
+  id: number;
+  
 
 
-  constructor( private orderService : OrderService, private router: Router) { }
+  constructor( private route: ActivatedRoute,private router: Router, private orderService : OrderService) { }
 
   
 
@@ -32,10 +34,6 @@ export class OrderAdministratorComponent implements OnInit {
     resp.subscribe((data)=>this.ListOrder=data);
   }
 
-  //showpdf(){
-    //let resp=this.orderService.showPdf();
-    //resp.subscribe((data)=>this.ListOrder=data);
-  //}
   
   AddOrderShow(){
     this.show=true;
@@ -47,7 +45,7 @@ export class OrderAdministratorComponent implements OnInit {
     this.showOrder=true;
   }
 
-
+//delete order
   public deleteOrder(idOrder:number){
   this.orderService.deleteOrder(idOrder).subscribe(data =>{
     this.ngOnInit();
@@ -57,12 +55,7 @@ export class OrderAdministratorComponent implements OnInit {
   );
   }
 
-  addOrder() { 
-    this.order.paymentType = PaymentType.By_Card
-    this.orderService.addOrder(this.order).subscribe(res=>{console.log(res);
-    }
-    );
-  }
+  //generate pdf
 
     public showpdf(idOrder:number){
       this.orderService.showPdf(idOrder).subscribe(data =>{
@@ -73,8 +66,45 @@ export class OrderAdministratorComponent implements OnInit {
       );
       }
 
+//add Order
+
+      newOrder(): void {
+        this.submitted = false;
+        this.order = new Order();
+      }
+    
+      save() {
+        this.orderService
+        .addOrder(this.order).subscribe(data => {
+          console.log(data)
+          this.order = new Order();
+          this.gotoList();
+        }, 
+        error => console.log(error));
+      }
+    
+      onSubmit() {
+        this.submitted = true;
+        this.save();    
+      }
+    
+      gotoList() {
+        this.router.navigate(['/administrator/order']);
+      }
+    
+   //get order by payment type
+
+   public getOrderbyid(idOrder : number){
+    this.orderService.getOrderbyid(idOrder).subscribe(data => {
+      this.ngOnInit();
+    },
+    error =>
+    console.log(error)
+    );
+    
+  }
   
-  
+ 
     
   }  
   

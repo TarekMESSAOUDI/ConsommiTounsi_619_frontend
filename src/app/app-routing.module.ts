@@ -71,8 +71,7 @@ const routes: Routes = [
                     { path: 'administrator/cagnotte', component: CagnotteAdministratorComponent },
                     { path: 'administrator/event', component: EventAdministratorComponent },
                     { path: 'administrator/order', component: OrderAdministratorComponent },
-                    {path: 'client/lista', component: ListaArticuloComponent},
-                    {path: 'client/detalle/:id', component: DetalleArticuloComponent},
+                    
                   
               { path: 'client', component: EsapaceClientComponent },
                     { path: 'client/home', component: HomeClientComponent },
@@ -84,7 +83,7 @@ const routes: Routes = [
                     { path: 'client/event', component: EventClientComponent },
                     {path:  'client/product',component:ProductComponent},
                     { path: 'client/order', component: OrderClientComponent },
-                    {path: '', component: ListaArticuloComponent},
+                    
                     {path: 'client/lista', component: ListaArticuloComponent},
                     {path: 'client/detalle/:id', component: DetalleArticuloComponent},
                   

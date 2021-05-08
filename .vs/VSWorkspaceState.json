@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\Components",
+    "\\src\\app\\Components\\esapace-administrator"
   ],
+  "SelectedNode": "\\src\\app\\Components\\esapace-administrator\\esapace-administrator.component.css",
   "PreviewInSolutionExplorer": false
 }

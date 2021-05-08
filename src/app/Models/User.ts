@@ -5,6 +5,7 @@ import { ZoneMap } from "./ZoneMap";
 
 
 export class User {
+  
   idUser: string;
   username: string;
   lastNameUser: string;
@@ -29,11 +30,15 @@ export class User {
   avilaibility: boolean;
   zone: ZoneMap;
   role: Role;
-  constructor(username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
-    stateUser: boolean, phoneNumberUser: string, adressUser: string, birthDateUser: Date, emailUser: string, sexeUser: SexeType,
+
+ 
+
+
+  constructor( username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
+               stateUser: boolean, phoneNumberUser: string, adressUser: string, birthDateUser: Date, emailUser: string, sexeUser: SexeType,
     accountNonLocked: boolean, lockTime: Date, resettoken: string, isBlocked: boolean, blockDate: Date,
-    unBlockDate: Date, isPrivate: boolean, salaire: number, pointnumber: number, avilaibility: boolean, /*zone: ZoneMap,
-    role: Role*/) {
+    unBlockDate: Date, isPrivate: boolean, salaire: number, pointnumber: number, avilaibility: boolean, zone: ZoneMap,
+    role: Role) {
 
     this.username = username;
     this.lastNameUser = lastNameUser;
@@ -52,12 +57,13 @@ export class User {
     this.isBlocked = isBlocked;
     this.blockDate = blockDate;
     this.unBlockDate = unBlockDate;
-    this.isPrivate = isPrivate;
-    this.salaire = salaire;
-    this.pointnumber = pointnumber;
-    this.avilaibility = avilaibility;
-    //this.zone= zone;
-    //this. role= role;
+    this.isPrivate= isPrivate;
+    this.salaire= salaire;
+    this.pointnumber= pointnumber;
+    this.avilaibility= avilaibility;
+    this.zone = zone;
+    this.role = Role.CLIENT;
+
   }
 
 }

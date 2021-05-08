@@ -5,5 +5,7 @@ export class Department {
 	nameDepartment :string ;
     typeDepartment : TypeDepartment ;
 	capacityDepartment :number ;
+    AmountDep:number;
+    fileName: String;
     
 }

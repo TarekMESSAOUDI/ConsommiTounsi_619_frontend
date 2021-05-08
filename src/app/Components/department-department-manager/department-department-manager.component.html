@@ -2,24 +2,34 @@
  
  
  
- <!-- INTERFACE D'ADMINSITRATEUR -->
+
+
+
+
+
+<!-- INTERFACE D'ADMINSITRATEUR -->
 <div class="titre">
     <h3>Welcome to department manager shelf </h3>
 </div>
  
 
     <body>
-
-        <div class="field">
-            <button type="button" (click)="Viewdepartment()" id="submitButton" class="btn btn-primary">SHOW department </button>
-            <button type="button" (click)="AddDepatmentshowdiv()"  id="submitButton" class="btn btn-primary">ADD NEW department</button>
-            </div>
+        <div class="container">
+            <div class="row">
+        
+            <button type="buttony" (click)="Viewdepartment()" id="submitButton" class="buttony">Department Database </button>
+            <button type="button" (click)="AddDepatmentshowdiv()"  id="submitButton" class="buttony">ADD NEW department</button>
+            <button type="button"  id="submitButton" class="buttony"  routerLink="/Client/departments">check your Depatment </button>
+           
            <!-- adding a new department-->
            
-           
+           </div>
+        </div>
         
-        
            
+
+
+           <!--pppppeeeeee-->
            <div *ngIf="show">
            <div class="wrapper">
            <div class="title">
@@ -72,6 +82,10 @@
            </div>
            
            </div>
+
+           <label></label>
+    <input type="file"  name="file"[(ngModel)]="department.fileName"> <label>virtual visit photo</label><br>
+
            
            
            
@@ -122,7 +136,10 @@
 <th>Department Id</th>
 <th>Name</th>
 <th>Type</th>
+<th>Capacity</th>
+<th>visite v</th>
 <th>Edit</th>
+
 </tr>
 </thead>
 <tbody>
@@ -130,12 +147,15 @@
 <td><h6 class="card-title">{{d.idDepartment}}</h6></td>
 <td><h6 class="card-title">{{d.nameDepartment}}</h6></td>
 <td><h6 class="cartd-title">{{d.typeDepartment}}</h6></td>
+<td><h6 class="cartd-title">{{d.capacityDepartment}}</h6></td>
+
+<td><img src="{{'http://localhost:9091/SpringMVC/servlet/depart/'+d.idDepartment}}" width="100" height="150"  class="card-img-top" alt="..."></td>
 
 <td>
     <div class="field">
 
       
-        <button (click)="updateDep(department.idDepartment)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        <button class="btn btn-info" style="margin-left: 10px">Update</button>
         
         <button (click)="deleteDepartment(d.idDepartment)" class="btn btn-info" style="margin-left: 10px"   type="button" > DELETE </button>
         

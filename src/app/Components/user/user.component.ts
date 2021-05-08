@@ -28,6 +28,9 @@ export class UserComponent implements OnInit {
   u: any = {};
   idUser: number;
   uu: Observable<User[]>;
+  id: any;
+  hideall: boolean;
+  hidesearch: boolean = true;
 
   constructor(private route: ActivatedRoute, private userservice: UserService, private router: Router) { }
 
@@ -38,7 +41,7 @@ export class UserComponent implements OnInit {
     this.AddUsers = true;
     this.ShowAllUsers = false;
     this.ShowUser = false;
-    this.user = new User(this.form.username, this.form.lastName, this.form.cinUser, this.form.password, this.form.confirmPasswordUser, this.form.stateUser, this.form.phoneNumberUser, this.form.adressUser, this.form.birthDateUser, this.form.emailUser, this.form.sexeUser, this.form.accountNonLoked, this.form.lockTime, this.form.resettoken, this.form.isBlocked, this.form.blockDate, this.form.unBlockDate, this.form.isPrivate, this.form.salaire, this.form.pointNumber, this.form.avilaibility)
+    this.user = new User(this.form.username, this.form.lastName, this.form.cinUser, this.form.password, this.form.confirmPasswordUser, this.form.stateUser, this.form.phoneNumberUser, this.form.adressUser, this.form.birthDateUser, this.form.emailUser, this.form.sexeUser, this.form.accountNonLoked, this.form.lockTime, this.form.resettoken, this.form.isBlocked, this.form.blockDate, this.form.unBlockDate, this.form.isPrivate, this.form.salaire, this.form.pointNumber, this.form.avilaibility, this.form.zone, this.form.role)
     this.userservice.ajouterUser(this.user).subscribe(
       data => {
         this.msg = 'User Adeded Succesfuly';
@@ -49,18 +52,18 @@ export class UserComponent implements OnInit {
       }
     )
   }
-  updateUser() {
+  updateUser(use: User) {
 
     this.UpdateUser = true;
     this.AddUsers = false;
     this.DeleteUser = false;
     this.ShowAllUsers = false;
     this.ShowUser = false;
-    this.userservice.updateUser(this.idUser, this.user).subscribe(
+    this.userservice.updateUser(use).subscribe(
       data => {
         console.log(data),
           this.showAllUsers();
-          this.msg = 'User Adeded Succesfuly';},
+          this.msg = 'User Updated Succesfuly';},
       (error) => {
         console.log(error);
       });
@@ -94,20 +97,20 @@ export class UserComponent implements OnInit {
     });
   }
 
-  showUser(idu: number) {
+  showUser(u: User) {
     this.DeleteUser = false;
     this.UpdateUser = false;
     this.AddUsers = false;
     this.ShowAllUsers = false;
     this.ShowUser = true;
-    this.user = new User(this.u.username, this.u.lastName, this.u.cinUser, this.u.password, this.u.confirmPasswordUser, this.u.stateUser, this.u.phoneNumberUser, this.u.adressUser, this.u.birthDateUser, this.u.emailUser, this.u.sexeUser, this.u.accountNonLoked, this.u.lockTime, this.u.resettoken, this.u.isBlocked, this.u.blockDate, this.u.unBlockDate, this.u.isPrivate, this.u.salaire, this.u.pointNumber, this.u.avilaibility);
-    this.idUser = this.route.snapshot.params.idUser;
-    this.userservice.getByIdUser(idu).subscribe(
-      data => {
-        this.showUser;
-      },
-      error =>
-        console.log(error)
-    );
+    this.user = u;
+  }
+
+  getUserByName(nu: any) {
+    this.hideall = true;
+    this.hidesearch = false;
+    this.userservice.getByUsernameUser(nu).subscribe(data => {
+      this.user = data;
+    })
   }
 }

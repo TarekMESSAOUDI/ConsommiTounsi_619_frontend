@@ -44,11 +44,13 @@ import { ListaArticuloComponent } from './Stripe/articulo/lista-articulo/lista-a
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
+import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
 
 
 
 
 const routes: Routes = [
+
       { path: 'home', component: HomeComponent },
       { path: 'home/category', component: CategoryComponent },
       { path: 'home/basket', component: BasketClientComponent },
@@ -96,8 +98,10 @@ const routes: Routes = [
       { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent },
       { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent },
       { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent },
-
+      {path:'client/delivery',component:DeliveryClientComponent},
+         
       { path: '**', component: HomeComponent }
+
 
 
 ];

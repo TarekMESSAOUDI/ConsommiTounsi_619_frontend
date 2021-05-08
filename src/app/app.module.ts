@@ -67,6 +67,7 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
 import { NgxStripeModule } from 'ngx-stripe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
 
 
 
@@ -132,6 +133,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
+    DeliveryClientComponent,
 
   ],
   imports: [

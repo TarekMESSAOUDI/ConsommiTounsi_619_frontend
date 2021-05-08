@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Claim } from 'src/app/Models/Claim';
 import { StateClaim_Order } from 'src/app/Models/StateClaim_Order';
 import { ClaimService } from 'src/app/Services/Claim/claim.service';
@@ -26,5 +25,14 @@ export class ClaimClientComponent implements OnInit {
     );
 
   }
-    
+   
+  ViewClaim(){
+    this.show=true;
+    this.addclaim=false;
+  }
+  
+  AddClaimshow(){
+    this.show=false;
+    this.addclaim=true;
+  }
   }

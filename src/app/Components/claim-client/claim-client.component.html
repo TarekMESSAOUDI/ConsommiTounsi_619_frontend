@@ -1,8 +1,56 @@
+<!--<div class="field">
+    <button type="button" (click)="ViewClaim()"  id="submitButton" class="btn btn-primary" >Show Claim</button>
+    <button type="button" (click)="AddClaimshow()"  id="submitButton" class="btn btn-primary" >Delete Claim</button>
+    </div>
+
+   <div *ngIf="addclaim"> 
+      
+  
+
+
+        
+   
+
+       
+    
+   <div *ngIf="show"> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="wrapper">
+  <div class="text-center pt-4 pb-3">
+  <h5 class="mt-1 mb-4">Client: Claim</h5>
     <form  #F="ngForm"  action="#">
       <div class="field">
       
-        <label>Title</label>
+        <label class="btn-lg">Title</label>
       <input type="text" required placeholder="Title Claim"  id="titleClaim" name="titleClaim" [(ngModel)]="claim.titleClaim">
      
       
@@ -11,7 +59,7 @@
       
       <div class="field">
       
-        <label>Description</label>
+        <label  class="btn-lg">Description</label>
         <input type="text" required placeholder="Description Claim"  id="descriptionClaim" name="descriptionClaim" [(ngModel)]="claim.descriptionClaim">
        
         
@@ -24,7 +72,7 @@
     
           <div class="field">
       
-            <label>Date</label>
+            <label  class="btn-lg">Date</label>
             <input type="text" required placeholder="Date Calim"  id="dateClaim" name="dateClaim" [(ngModel)]="claim.dateClaim">
            
             
@@ -43,3 +91,4 @@
         </form>
     
         </div>
+</div>

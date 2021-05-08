@@ -26,13 +26,13 @@ export class ClaimClientComponent implements OnInit {
 
   }
    
-  ViewClaim(){
-    this.show=true;
-    this.addclaim=false;
-  }
+  //ViewClaim(){
+    //this.show=true;
+    //this.addclaim=false;
+  //}
   
-  AddClaimshow(){
-    this.show=false;
-    this.addclaim=true;
-  }
+  //AddClaimshow(){
+    //this.show=false;
+    //this.addclaim=true;
+  //}
   }

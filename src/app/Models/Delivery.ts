@@ -7,7 +7,8 @@ export class Delivery {
 	dateDelivery:Date ;
 	placeDelivery:string ;
 	stateDelivery:boolean ;
-	
+	NameProduct:string;
+	DetailleDelivery:string;
 	meansOfTransportDelivery : MeansOfTransport;
 	adressDelivery:string ;
 	finishedDelivery:Boolean;

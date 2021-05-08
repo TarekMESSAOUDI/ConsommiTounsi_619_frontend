@@ -2,7 +2,13 @@
   margin-top: 1%;
 }
 
+body {
+  margin-top: 20px;
+}
 
+.fa-fw {
+  width: 2em;
+}
 .button {
   text-align: center;
   text-transform: uppercase;
@@ -73,3 +79,14 @@ h2 {
     margin-left: 0px;
     margin-right: 0px;
   }
+
+
+
+
+
+
+
+
+
+
+

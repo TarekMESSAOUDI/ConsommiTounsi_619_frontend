@@ -64,8 +64,8 @@ export class UserService {
     return this.userhttp.delete(`${this.deleteUserURL}/delete-user/${idUser}`, { responseType: 'text' });
   }
 
-  updateUser(idUser: any, value: any): Observable<any> {
-    return this.userhttp.put(`${this.updateUserURL}/update-user/${idUser}`, value);
+  updateUser(user: User): Observable<any> {
+    return this.userhttp.put(`${this.updateUserURL}/update-user`, user);
   }
 
   getAllUser(): Observable<any> {

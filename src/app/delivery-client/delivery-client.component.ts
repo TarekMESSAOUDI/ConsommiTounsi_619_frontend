@@ -25,7 +25,7 @@ export class DeliveryClientComponent implements OnInit {
   }
     showfreedeliveryinterface(){
       this.showfreedelivery=true;
-      this.showdelivery=false;
+      this.showdelivery=false;   
     }
 
 

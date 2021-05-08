@@ -43,7 +43,7 @@ import { OrderClientComponent } from './Components/order-client/order-client.com
 import { ListaArticuloComponent } from './Stripe/articulo/lista-articulo/lista-articulo.component';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
-
+import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
 
 
 
@@ -95,7 +95,7 @@ const routes: Routes = [
                     { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent },
                     { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent },
                     { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent },
- 
+                    {path:'client/delivery',component:DeliveryClientComponent},
   {path:'**',component:HomeComponent}
   
 

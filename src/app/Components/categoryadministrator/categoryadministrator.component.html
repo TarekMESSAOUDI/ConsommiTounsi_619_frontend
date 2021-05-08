@@ -1,0 +1,49 @@
+<p>categoryadministrator works!</p>
+
+<button type="button">Manage Category</button>
+<button type="button">Manage UnderCategory</button>
+
+
+<div>
+    <table class="table caption-top">
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title Category </th>
+
+
+        </tr>
+
+        <tr *ngFor="let p of ListCategories" class="col-4 col-sm-6 col-md-4 p-2">
+            <td>{{p.idCategory}}</td>
+            <td>{{p.nameCategory}}</td>
+
+            <button type="button" class="btn-primary"> Update </button>
+            <button type="button" (click)="deleteCategory(p.idCategory)" class="btn-danger"> DELETE </button>
+        </tr>
+    </table>
+
+</div>
+
+
+
+<div>
+    <table class="table caption-top">
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title Under Category </th>
+
+
+        </tr>
+
+        <tr *ngFor="let p of ListUnderCategories" class="col-4 col-sm-6 col-md-4 p-2">
+            <td>{{p.idUnderCategory}}</td>
+            <td>{{p.nameUnderCategory}}</td>
+
+            <button type="button" class="btn-primary"> Update </button>
+            <button type="button" (click)="deleteUnderCategory(p.idUnderCategory)" class="btn-danger"> DELETE </button>
+        </tr>
+    </table>
+
+</div>

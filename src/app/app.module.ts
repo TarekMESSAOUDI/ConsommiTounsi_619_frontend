@@ -68,6 +68,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxStripeModule } from 'ngx-stripe';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
+import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
 
 
 
@@ -134,6 +135,7 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
+    CategoryadministratorComponent,
     
 
 

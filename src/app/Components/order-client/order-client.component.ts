@@ -54,17 +54,7 @@ export class OrderClientComponent implements OnInit {
   }
 
 
-  public onUpdateOrder(order : Order): void {
-    this.orderService.updateOrder(order).subscribe(
-      (response: Order) => {
-        console.log(response);
-        this.getAllOrder();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+ 
 
 
   public onDeleteOrder(idOrder : number): void {

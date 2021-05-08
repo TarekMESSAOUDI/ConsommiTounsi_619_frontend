@@ -6,5 +6,6 @@ export class Department {
     typeDepartment : TypeDepartment ;
 	capacityDepartment :number ;
     AmountDep:number;
+    fileName: String;
     
 }

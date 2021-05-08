@@ -4,13 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\Components",
-    "\\src\\app\\Components\\espace-department-manager",
-    "\\src\\app\\Components\\stock",
-    "\\src\\app\\Components\\stock-department-manger",
-    "\\src\\app\\Components\\user",
-    "\\src\\app\\Services",
-    "\\src\\app\\Services\\User"
+    "\\src\\app\\Components\\esapace-administrator"
   ],
-  "SelectedNode": "\\src\\app\\Components\\stock-department-manger\\stock-department-manger.component.ts",
+  "SelectedNode": "\\src\\app\\Components\\esapace-administrator\\esapace-administrator.component.css",
   "PreviewInSolutionExplorer": false
 }

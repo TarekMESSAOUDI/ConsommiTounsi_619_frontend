@@ -11,13 +11,7 @@
     transition: 0.5s;
   }
 
-h3 {
-  color:brown;
-  font-style:italic;
-  position: center;
-  text-align:center;
 
-}
 h1 {
   color: brown;
   font-style: italic;
@@ -174,10 +168,7 @@ h2 {
   box-shadow: 0 5px 15px #193047;
   border-radius: 4px;
 }
-h3 {
-  font-style: initial;
-  color: rgb(255, 255, 255);
-}
+
 .container {
   margin-top: 1%;
 }

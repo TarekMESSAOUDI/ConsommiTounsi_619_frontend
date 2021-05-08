@@ -1,11 +1,11 @@
 
 <div class="field">
+  <button type="button" routerLink="/administrator" id="submitButton" class="btn btn-primary" >Return</button>
   <button type="button" (click)="ViewOrder()" id="submitButton" class="btn btn-primary">SHOW Order List </button>
   <button type="button" (click)="AddOrderShow()" id="submitButton" class="btn btn-primary">Add Order </button>
   </div>
  
- <html>
- <body>
+
  
  <div *ngIf="showOrder">
  
@@ -25,8 +25,7 @@
                  <th>State Order</th>
                  <th>Amount Order</th>
                  <th>Payment Type</th>
-                 <th>Action</th>
-                 <th>Action</th>
+                 
              </tr>
          </thead>
          <tbody>
@@ -38,7 +37,7 @@
                  <td>{{o.amountOrder}}</td>
                  <td>{{o.paymentType}}</td>
                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteOrder(o.idOrder)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
-                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Bill</button></td>
+                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Generate Bill</button></td>
                </tr>
          
          </tbody>
@@ -48,21 +47,60 @@
  
  </div>
  </div>
- </body>
- </html>
+ 
 
- <html>
-   <body>
-    <div *ngIf="show">
 
-      <form>
-        <div class="form-group">
-          <label>id</label>
-          <input type="number" name="idOrder" class="form-control" [(ngModel)]="order.pro">
-        </div>
+
+
+
+  <div class="container login-container" *ngIf="show">
+    <br>
+    <br />
+    <div class="raw">
+  
+      <div class="col-md-16 login-form-1">
+        <h3 class="col-5 mx-auto">Add Order</h3>
+  
+        <form name="form" #u="ngForm" (ngSubmit)="addOrder()">
         
-        <button class="btn btn-succes" (click)="save()">save</button>
-      </form>
+        <div class="form-group">
+          <label>Amount</label>
+          <input type="text" name="Amount" class="form-control" placeholder="Amount"
+                  [(ngModel)]="form.amountOrder" />
+        </div>
 
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" name="Date" class="form-control" placeholder="Date"
+                 ngModel required #dateOrder="ngModel" [(ngModel)]="form.dateOrde" />
+        </div>
 
+        <div class="form-group">
+          <label>Product Number</label>
+          <input type="text" name="productNumber" class="form-control" placeholder="product Number"
+                 ngModel required #productNumberOrder="ngModel" [(ngModel)]="form.productNumberOrder" />
+        </div>
+
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" name="State" class="form-control" placeholder="State"
+                 ngModele [(ngModel)]="form.stateOrder" />
+        </div>
+
+        <div class="d-grid gap-5 col-3 mx-auto">
+          <button href="client" [disabled]="u.invalid" (click)="addOrder()" type="button" class="btn btn-success btn-lg"> Add Order </button>
+          <button href="client" [disabled]="u.invalid"  type="button" class="btn btn-success btn-lg"> Update Order </button>
+        </div>
+  
+     </form>
+     </div>
     </div>
+    
+
+  
+
+        
+
+      
+
+  

@@ -140,7 +140,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' }),
+    //HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' }),
     BrowserAnimationsModule,
     NgbModule,
     BrowserAnimationsModule,
@@ -151,7 +151,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   entryComponents: [ModalComponent],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
    // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],
   bootstrap: [AppComponent]

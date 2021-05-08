@@ -28,7 +28,9 @@ export class UserComponent implements OnInit {
   u: any = {};
   idUser: number;
   uu: Observable<User[]>;
-    id: any;
+  id: any;
+  hideall: boolean;
+  hidesearch: boolean = true;
 
   constructor(private route: ActivatedRoute, private userservice: UserService, private router: Router) { }
 
@@ -50,18 +52,18 @@ export class UserComponent implements OnInit {
       }
     )
   }
-  updateUser(id: any) {
+  updateUser(use: User) {
 
     this.UpdateUser = true;
     this.AddUsers = false;
     this.DeleteUser = false;
     this.ShowAllUsers = false;
     this.ShowUser = false;
-    this.userservice.updateUser(id, User).subscribe(
+    this.userservice.updateUser(use).subscribe(
       data => {
         console.log(data),
           this.showAllUsers();
-          this.msg = 'User Adeded Succesfuly';},
+          this.msg = 'User Updated Succesfuly';},
       (error) => {
         console.log(error);
       });
@@ -105,6 +107,8 @@ export class UserComponent implements OnInit {
   }
 
   getUserByName(nu: any) {
+    this.hideall = true;
+    this.hidesearch = false;
     this.userservice.getByUsernameUser(nu).subscribe(data => {
       this.user = data;
     })

@@ -35,7 +35,7 @@ export class OrderService {
   }
 
   getOrderbyid(idOrder : number) {
-    return this.orderhttp.get(`${"http://localhost:9091/SpringMVC/servlet/getOrder_by_ID"}/${idOrder}`);
+    return this.orderhttp.get("http://localhost:9091/SpringMVC/servlet/getOrder_by_ID/" + idOrder);
   } 
   
 

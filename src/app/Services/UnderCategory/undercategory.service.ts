@@ -11,9 +11,9 @@ export class UndercategoryService {
   GetAllUnderCatUrl="http://localhost:9091/SpringMVC/servlet/show-all-under-categories";
   AddUnderCatUrl="http://localhost:9091/SpringMVC/servlet/add-under-category";
   DeleteUnderCatUrl="http://localhost:9091/SpringMVC/servlet/remove-under-category/";
-  updateUnderCatUrl:"http://localhost:9091/SpringMVC/servlet/update-under-category";
-  affectProductToUnderCatUrl:"http://localhost:9091/SpringMVC/servlet/affect-product-to-under-category/";
-  getUnderCatByIdUrl:"http://localhost:9091/SpringMVC/servlet/GetByIdUnderCat/";
+  updateUnderCatUrl="http://localhost:9091/SpringMVC/servlet/update-under-category";
+  affectProductToUnderCatUrl="http://localhost:9091/SpringMVC/servlet/affect-product-to-under-category/";
+  getUnderCatByIdUrl="http://localhost:9091/SpringMVC/servlet/GetByIdUnderCat/";
 
   constructor(private httpunderCat:HttpClient) { }
 

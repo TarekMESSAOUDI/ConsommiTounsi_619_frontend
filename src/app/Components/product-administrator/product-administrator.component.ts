@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PopupService } from '@ng-bootstrap/ng-bootstrap/util/popup';
 import { Observable } from 'rxjs';
+import { BarcodeResponse } from 'src/app/Models/BarcodeResponse';
 import { Product } from 'src/app/Models/Product';
 import { ProductService } from 'src/app/Services/product/product.service';
 
@@ -11,164 +13,189 @@ import { ProductService } from 'src/app/Services/product/product.service';
   styleUrls: ['./product-administrator.component.css']
 })
 export class ProductAdministratorComponent implements OnInit {
-  ListProducts:Product[];
-  productToUpdate:any;
-  userFile:null;
-  show:boolean;
-  updateProductInt:boolean;
-  showIntAddProd:boolean;
-  showIntUpdateProd:boolean;
+  ListProducts: Product[];
+  productToUpdate: any;
+  userFile: null;
+  show: boolean;
+  updateProductInt: boolean;
+  showIntAddProd: boolean;
+  showIntUpdateProd: boolean;
   public message: string;
   public imagePath;
   imgURL: any;
-  product:Product=new Product();
-  
-  id:number;
-  constructor(public prodSerivce:ProductService,private router: Router,public fb: FormBuilder) { }
-  
+  product: Product = new Product();
+  response: BarcodeResponse;
+  id: number;
+  ReaderResult: any;
+  file: File;
+  file_upload: object;
+  form: FormGroup;
+  constructor(public prodSerivce: ProductService, private router: Router, public fb: FormBuilder) { }
+
   get f() {
-    console.log("get",this.prodSerivce.dataForm.controls)
+    console.log("get", this.prodSerivce.dataForm.controls)
     return this.prodSerivce.dataForm.controls;
-}
+  }
   ngOnInit(): void {
-    
-    this.prodSerivce.getAllProducts().subscribe(res=>{console.log(res);
-      this.ListProducts=res});
+
+    this.prodSerivce.getAllProducts().subscribe(res => {
+      console.log(res);
+      this.ListProducts = res
+    });
+    this.createForm();
+  }
 
 
-    
-    }
-
-
-  infoForm(){
-    this.prodSerivce.dataForm=this.fb.group({
-      id:[''],
-      titleProduct:[''],
-      priceProduct:[''],
-      descriptionProduct:[''],
-      barcode :[''],
+  infoForm() {
+    this.prodSerivce.dataForm = this.fb.group({
+      id: [''],
+      titleProduct: [''],
+      priceProduct: [''],
+      descriptionProduct: [''],
+      barcode: [''],
       buyingPriceProduct: [''],
-
-
     })
   }
-  
-    deleteProduct(id:number){
-      this.prodSerivce.deleteProductById(id).subscribe(()=>this.prodSerivce.getAllProducts().subscribe(res=>{this.ListProducts=res}));
-    }
 
-    ViewProducts(){
-      this.show=true;
-      this.showIntAddProd=false;
-      this.showIntUpdateProd=false;
-    }
-   
-    AddProdShowDiv(){
-      this.show=false;
-      this.showIntAddProd=true;
-      this.showIntUpdateProd=false;
-    }
-  
-    addProduct(){
-      console.log(this.product)
-      var startIndex = (this.product.fileName.indexOf('\\') >= 0 ? this.product.fileName.lastIndexOf('\\') : this.product.fileName.lastIndexOf('/'));
+  deleteProduct(id: number) {
+    this.prodSerivce.deleteProductById(id).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
+  }
+
+  ViewProducts() {
+    this.show = true;
+    this.showIntAddProd = false;
+    this.showIntUpdateProd = false;
+  }
+
+  AddProdShowDiv() {
+    this.show = false;
+    this.showIntAddProd = true;
+    this.showIntUpdateProd = false;
+  }
+
+  addProduct() {
+    var startIndex = (this.product.fileName.indexOf('\\') >= 0 ? this.product.fileName.lastIndexOf('\\') : this.product.fileName.lastIndexOf('/'));
     var filename = this.product.fileName.substring(startIndex);
     if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-        filename = filename.substring(1);}
-        this.product.fileName = filename;
-        console.log(this.product)
-      this.prodSerivce.addProduct(this.product).subscribe(()=>this.prodSerivce.getAllProducts().subscribe(res=>{this.ListProducts=res}));
+      filename = filename.substring(1);
     }
-  
-    UpdateProductShowDiv(){
-      this.showIntUpdateProd=true;
-      this.showIntAddProd=false;
-      this.show=false;
-    }
-   
-  updateProduct(id:number,product:Product){
-    
-    this.prodSerivce.updateproduct(id,product);
-    this.updateProductInt=false;
-    this.show=true;
+    this.product.fileName = filename;
+    this.product.barcodeProduct = this.file_upload
+    console.log(this.product)
+    this.prodSerivce.addProduct(this.product).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
   }
-  updateProductInterface(id:number,product:Product){
-    this.updateProductInt=true;
-    this.show=false;
-console.log(id,product)
-this.productToUpdate=product;
-console.log('hhh',this.productToUpdate)
+
+  UpdateProductShowDiv() {
+    this.showIntUpdateProd = true;
+    this.showIntAddProd = false;
+    this.show = false;
+  }
+
+  updateProduct(id: number, product: Product) {
+    console.log("product", product)
+    console.log("ahawa", this.productToUpdate)
+    this.prodSerivce.updateproduct(id, product).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
+    this.updateProductInt = false;
+    this.show = true;
+  }
+
+  updateProductInterface(id: number, product: Product) {
+    this.updateProductInt = true;
+    this.show = false;
+    console.log(id, product)
+    this.productToUpdate = product;
+    console.log('hhh', this.productToUpdate)
   }
 
 
-  redirectTo(){
+  redirectTo() {
     this.router.navigate(['/administrator/product'])
   }
 
 
   removeData(id: number) {
     if (window.confirm('Are sure you want to delete this Article ?')) {
-    this.prodSerivce.deleteData(id)
-      .subscribe(
-        data => {
-          console.log(data);  
-        },
-        error => console.log(error));
-  }
-  
+      this.prodSerivce.deleteData(id)
+        .subscribe(
+          data => {
+            console.log(data);
+          },
+          error => console.log(error));
+    }
+
   }
 
   addData() {
-   const formData = new  FormData();
+    const formData = new FormData();
     const article = this.prodSerivce.dataForm;
-    console.log("art",article);
-    formData.append('article',JSON.stringify(article));
-    formData.append('file',this.userFile);
-    console.log('fd',formData);
-    this.prodSerivce.createData(formData).subscribe( data => {
-    
-      this.router.navigate(['/administrator/product']); 
+    console.log("art", article);
+    formData.append('article', JSON.stringify(article));
+    formData.append('file', this.userFile);
+    console.log('fd', formData);
+    this.prodSerivce.createData(formData).subscribe(data => {
+
+      this.router.navigate(['/administrator/product']);
     });
 
-  
+
   }
 
   // getData(){
   //   this.prodSerivce.getAll().subscribe(response =>{this.prodSerivce.listData = response;}
   //     );
   // }
-  
-  onSelectFile(event) {
-    if (event.target.files.length > 0)
-    {
-      const file = event.target.files[0];
-      this.userFile = file;
-  
- 
-    var mimeType = event.target.files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
-      return;
-    }
- 
-    var reader = new FileReader();
-    
-    this.imagePath = file;
-    reader.readAsDataURL(file); 
-    reader.onload = (_event) => { 
-      this.imgURL = reader.result; 
+
+  // onSelectFile(event) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     this.userFile = file;
+
+
+  //     var mimeType = event.target.files[0].type;
+  //     if (mimeType.match(/image\/*/) == null) {
+  //       this.message = "Only images are supported.";
+  //       return;
+  //     }
+
+  //     var reader = new FileReader();
+
+  //     this.imagePath = file;
+  //     reader.readAsDataURL(file);
+  //     reader.onload = (_event) => {
+  //       this.imgURL = reader.result;
+  //     }
+  //   }
+
+
+  // }
+
+  createForm() {
+    this.form = this.fb.group({
+      file_upload: null
+    });
+  }
+
+  // Check for changes in files inputs via a DOMString reprsenting the name of an event
+  fileChange(event: any) {
+    // Instantiate an object to read the file content
+    let reader = new FileReader();
+    // when the load event is fired and the file not empty
+    if (event.target.files && event.target.files.length > 0) {
+      // Fill file variable with the file content
+      this.file = event.target.files[0];
     }
   }
-     
-      
-    }
-    
 
-  
-    onSubmit(){
-      console.log(this.prodSerivce.dataForm.value);
-       this.addData();}
-
-
+  ReadBarcode() {
+    // Instantiate a FormData to store form fields and encode the file
+    let body = new FormData();
+    // Add file content to prepare the request
+    body.append("file", this.file);
+    // Launch post request
+    return this.prodSerivce.ZxingReader(body).subscribe((res) => {
+      this.file_upload = res['results'][0].toString()
+      console.log(this.file_upload)
+    });
+  }
 
 }

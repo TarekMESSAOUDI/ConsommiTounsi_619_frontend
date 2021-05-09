@@ -8,7 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+    
   },
+  "css.validate": false,
+"less.validate": false,
+"scss.validate": false,
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.2.12",

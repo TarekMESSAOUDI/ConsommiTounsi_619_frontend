@@ -51,6 +51,10 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
 
 const routes: Routes = [
 
+
+ 
+ 
+  
       { path: 'home', component: HomeComponent },
       { path: 'home/category', component: CategoryComponent },
       { path: 'home/basket', component: BasketClientComponent },

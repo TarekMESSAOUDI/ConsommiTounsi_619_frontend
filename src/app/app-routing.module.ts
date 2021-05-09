@@ -96,6 +96,7 @@ const routes: Routes = [
                     { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent },
                     { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent },
                     { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent },
+                    
  
   {path:'**',component:HomeComponent}
   

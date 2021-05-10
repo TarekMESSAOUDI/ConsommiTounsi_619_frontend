@@ -71,7 +71,11 @@ import { CategoryadministratorComponent } from './Components/categoryadministrat
 import { NgxStripeModule } from 'ngx-stripe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { SecondNavComponent } from './Components/second-nav/second-nav.component';
+
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+
 
 
 
@@ -138,8 +142,12 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
+
+    SecondNavComponent,
+
     CategoryadministratorComponent,
     DeliveryClientComponent,
+
 
 
   ],

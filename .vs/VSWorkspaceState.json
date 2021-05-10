@@ -4,8 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\Components",
-    "\\src\\app\\Components\\esapace-administrator"
+    "\\src\\app\\Components\\statistic-administrator"
   ],
-  "SelectedNode": "\\src\\app\\Components\\esapace-administrator\\esapace-administrator.component.css",
+  "SelectedNode": "\\src\\app\\Components\\statistic-administrator\\statistic-administrator.component.css",
   "PreviewInSolutionExplorer": false
 }

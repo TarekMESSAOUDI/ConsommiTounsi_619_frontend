@@ -1,74 +1,59 @@
 
- 
- 
 
 
-
-<div id="shop">
-<div class="image">
-    <img src="../assets/img/back2.png"> 
-    <a href="#"></a>
-</div>
-</div>
+/* list of products affected in shelf by iddepartment*/
 
 
 
 
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-6" *ngFor="let p of ListProducts">
+           
+           
+            <div class="row p-2 bg-white border rounded mt-2">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src = "{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}"></div>
+                <div class="col-md-6 mt-1">
+                    <h5>{{p.titleProduct}}</h5>
+                    <div class="d-flex flex-row">
+                        <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>{{p.quantityProduct}}</span>
+                    </div>
+                    <div class="mt-1 mb-1 spec-1"><span>wieght :{{p.weightProduct}}</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
+                    <p class="text-justify text-truncate para mb-0">{{p.descriptionProduct}}<br><br></p>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">DT {{p.buyingPriceProduct}}</h4>
+                    </div>
+                    <h6 class="text-success">New Product</h6>
 
+                    
 
-
-<!--  the router link is missing  :))))))))))-->
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-          
-        <button class="buttony" routerLink="epartment" >  <i class="fa fa-tags" aria-hidden="true"></i>  Products</button>
-      </div>
-
-      <div class="col-sm">
-          
-        <button class="buttony" routerLink="department" > <i class="fa fa-th" aria-hidden="true"></i> Departments</button>
-      </div>
-
-      <div class="col-sm">
-          
-        <button class="buttony" routerLink="stock" ><i class="fa fa-cubes" aria-hidden="true"></i>  S tock</button>
-      </div>
-
-
-      <div class="col-sm">
-          
-        <button class="buttony" routerLink="Department" ><i class="fa fa-balance-scale" aria-hidden="true"></i>  Sales</button>
-      </div>
-
-
-      
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 
 
 
+<a>affect product to</a>
+  <select id="monselect">
+  <option value="valeur1">Valeur 1</option>
+  <option value="valeur2" selected>Valeur 2</option>
+  <option value="valeur3">Valeur 3</option>
+</select>
+<a>department</a>
+<select id="monselect">
+  <option value="valeur1">Valeur 1</option>
+  <option value="valeur2" selected>Valeur 2</option>
+  <option value="valeur3">Valeur 3</option>
+</select>
 
-  <div class="jumbotron">
-    <div class="container">
-     
-    </div>
-    
-
-
-<div class="jumbotron">
-  <div class="container">
-    
-  </div>
-  
-</div>
-
-<div class="jumbotron">
-  <div class="container">
-    
-  </div>
-  
-</div>
-
-
-
+<form #F="ngForm">
+    <select name="Category" id="Category"  class="form-control">
+        <option *ngFor="let c of ListProducts" [value]="c.idProduct">
+            {{c.titleProduct}}</option>
+    </select>
+</form>

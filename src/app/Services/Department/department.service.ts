@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/Models/Department';
+import { Product } from 'src/app/Models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class DepartmentService {
   affectProductURL="http://localhost:9091/SpringMVC/servlet/alteProductToDepartment";
   affectfileURL="http://localhost:9091/SpringMVC/servlet/alteFileToDepartment"
 
-
+getprodBydep="http://localhost:9091/SpringMVC/servlet/Getprodbydep/"
 
 
   constructor(private Departmenthttp : HttpClient) { }
@@ -26,6 +27,18 @@ export class DepartmentService {
   getallDepartments():Observable<Department[]>{
     return this.Departmenthttp.get<Department[]>(this.DepartmentsRetrieveallUrl);
 }
+
+
+
+
+getallprodindDep(id:number ):Observable<Product[]>{
+  return this.Departmenthttp.get<Product[]>(this.getprodBydep +id );
+}
+
+
+
+
+
 
 adddepartment(department : Department){
   return this.Departmenthttp.post<Department>(this.DepartmentaddUrl, department )

@@ -12,39 +12,65 @@ import { UndercategoryService } from 'src/app/Services/UnderCategory/undercatego
 })
 export class CategoryadministratorComponent implements OnInit {
 
-  ListCategories:Category[];
-ListUnderCategories:UnderCategory[];
-category:Category=new Category();
-undercategory:UnderCategory=new UnderCategory();
+  ListCategories: Category[];
+  ListUnderCategories: UnderCategory[];
+  category: Category = new Category();
+  undercategory: UnderCategory = new UnderCategory();
 
-  constructor(private router:Router,private categoryService:CategoryService ,private underCatService:UndercategoryService) { }
+  manageCatInterface: boolean;
+  manageunderCatInterface: boolean;
+
+
+  constructor(private router: Router, private categoryService: CategoryService, private underCatService: UndercategoryService) { }
 
   ngOnInit(): void {
-    this.categoryService.getAllCategories().subscribe(res=>{console.log(res);
-      this.ListCategories=res});
+    this.categoryService.getAllCategories().subscribe(res => {
+      console.log(res);
+      this.ListCategories = res
+    });
 
-    this.underCatService.getAllUnderCat().subscribe(res=>{console.log(res);
-    this.ListUnderCategories=res});
+    this.underCatService.getAllUnderCat().subscribe(res => {
+      console.log(res);
+      this.ListUnderCategories = res
+    });
 
   }
-        
-  
-          // Crud Catgory 
-  addCategory(){
-    return this.categoryService.addCategory(this.category);
+
+
+
+
+  // Crud Catgory
+  ShowInterfaceManageCat() {
+    this.manageCatInterface = true;
+    this.manageunderCatInterface = false;
+
   }
-  deleteCategory(idCat:number){
-this.categoryService.deleteProductById(idCat).subscribe(()=>this.categoryService.getAllCategories().subscribe(res=>{this.ListCategories =res}));
+  addCategory() {
+    return this.categoryService.addCategory(this.category).subscribe(() => this.categoryService.getAllCategories().subscribe(res => { this.ListCategories = res }));
   }
 
-          // Crud Under Catgory 
-
-    addUnderCategory(){
-      return this.underCatService.addUndercategory(this.undercategory);
-    }
-
-    deleteUnderCategory(idUnderCat:number){
-      this.underCatService.DeleteUnderCat(idUnderCat).subscribe(()=>this.underCatService.getAllUnderCat().subscribe(res=>{this.ListUnderCategories=res}));
-    }
+  deleteCategory(idCat: number) {
+    this.categoryService.deleteCategoryById(idCat).subscribe(() => this.categoryService.getAllCategories().subscribe(res => { this.ListCategories = res }));
   }
+
+  // Crud Under Catgory 
+  showManageUnderCayegoryInterface() {
+    this.manageCatInterface = false;
+    this.manageunderCatInterface = true;
+  }
+
+  onChange(value) {
+    this.undercategory.Category = value
+  }
+
+  addUnderCategory() {
+    var b = Number(this.undercategory.Category)
+    console.log(this.undercategory)
+    return this.underCatService.addUndercategory(this.undercategory, b).subscribe(() => this.underCatService.getAllUnderCat().subscribe(res => { this.ListUnderCategories = res }));
+  }
+
+  deleteUnderCategory(idUnderCat: number) {
+    this.underCatService.DeleteUnderCat(idUnderCat).subscribe(() => this.underCatService.getAllUnderCat().subscribe(res => { this.ListUnderCategories = res }));
+  }
+}
 

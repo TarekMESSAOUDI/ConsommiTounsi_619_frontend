@@ -7,37 +7,37 @@ import { UnderCategory } from 'src/app/Models/UnderCategory';
   providedIn: 'root'
 })
 export class UndercategoryService {
-  
-  GetAllUnderCatUrl="http://localhost:9091/SpringMVC/servlet/show-all-under-categories";
-  AddUnderCatUrl="http://localhost:9091/SpringMVC/servlet/add-under-category";
-  DeleteUnderCatUrl="http://localhost:9091/SpringMVC/servlet/remove-under-category/";
-  updateUnderCatUrl="http://localhost:9091/SpringMVC/servlet/update-under-category";
-  affectProductToUnderCatUrl="http://localhost:9091/SpringMVC/servlet/affect-product-to-under-category/";
-  getUnderCatByIdUrl="http://localhost:9091/SpringMVC/servlet/GetByIdUnderCat/";
 
-  constructor(private httpunderCat:HttpClient) { }
+  GetAllUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/show-all-under-categories";
+  AddUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/add-underCategory/";
+  DeleteUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/remove-under-category/";
+  updateUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/update-under-category";
+  affectProductToUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/affect-product-to-under-category/";
+  getUnderCatByIdUrl = "http://localhost:9091/SpringMVC/servlet/GetByIdUnderCat/";
 
-getAllUnderCat():Observable<UnderCategory[]>{
-return this.httpunderCat.get<UnderCategory[]>(this.GetAllUnderCatUrl);
-}
+  constructor(private httpunderCat: HttpClient) { }
 
-addUndercategory(underCategory:UnderCategory){
-  return this.httpunderCat.post<UnderCategory>(this.AddUnderCatUrl,underCategory);
-}
+  getAllUnderCat(): Observable<UnderCategory[]> {
+    return this.httpunderCat.get<UnderCategory[]>(this.GetAllUnderCatUrl);
+  }
 
-DeleteUnderCat(idUnderCatgory:number){
-return this.httpunderCat.delete(this.DeleteUnderCatUrl+idUnderCatgory);
-}
+  addUndercategory(underCategory: UnderCategory, id: number) {
+    return this.httpunderCat.post<UnderCategory>(this.AddUnderCatUrl + id, underCategory);
+  }
 
-updateUnderCategory(idUderCat:number,value){
-return this.httpunderCat.put(this.updateUnderCatUrl+idUderCat,value);
-}
+  DeleteUnderCat(idUnderCatgory: number) {
+    return this.httpunderCat.delete(this.DeleteUnderCatUrl + idUnderCatgory);
+  }
 
-getUnderCatById(idUnderCat:number){
-  return this.httpunderCat.get<UnderCategory>(this.getUnderCatByIdUrl+idUnderCat);
-}
+  updateUnderCategory(idUderCat: number, value) {
+    return this.httpunderCat.put(this.updateUnderCatUrl + idUderCat, value);
+  }
 
-assignProductToUnderCat(idProduct,idUnderCatgory){
-  return this.httpunderCat.put(this.affectProductToUnderCatUrl+idProduct,idUnderCatgory);
-}
+  getUnderCatById(idUnderCat: number) {
+    return this.httpunderCat.get<UnderCategory>(this.getUnderCatByIdUrl + idUnderCat);
+  }
+
+  assignProductToUnderCat(idProduct, idUnderCatgory) {
+    return this.httpunderCat.put(this.affectProductToUnderCatUrl + idProduct, idUnderCatgory);
+  }
 }

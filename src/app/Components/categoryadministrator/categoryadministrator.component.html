@@ -1,0 +1,93 @@
+<button type="button" class="btn-primary" (click)="ShowInterfaceManageCat()">Manage Category</button>
+<button type="button" class="btn-primary" (click)="showManageUnderCayegoryInterface()">Manage UnderCategory</button>
+
+
+<div *ngIf="manageCatInterface">
+
+    <table class="table caption-top">
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title Category </th>
+
+
+        </tr>
+
+        <tr *ngFor="let p of ListCategories" class="col-4 col-sm-6 col-md-4 p-2">
+            <td>{{p.idCategory}}</td>
+            <td>{{p.nameCategory}}</td>
+
+            <button type="button" (click)="deleteCategory(p.idCategory)" class="btn-danger"> DELETE </button>
+        </tr>
+    </table>
+
+
+    <h2>Add New Categroy</h2>
+
+    <div>
+        <form #C="ngForm">
+            <label>Name Category : </label>
+            <input type="text" required placeholder="NameCategory" id="nameCategory" #nc="ngModel"
+                name="nameUnderCategory" [(ngModel)]="category.nameUnderCategory">
+
+            <button type="text" class="btn btn-success" (click)="addCategory()"> Add Category</button>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div *ngIf="manageunderCatInterface">
+    <table class="table caption-top">
+
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title Under Category </th>
+
+
+        </tr>
+
+        <tr *ngFor="let p of ListUnderCategories" class="col-4 col-sm-6 col-md-4 p-2">
+            <td>{{p.idUnderCategory}}</td>
+            <td>{{p.nameUnderCategory}}</td>
+
+            <button type="button" (click)="deleteUnderCategory(p.idUnderCategory)" class="btn-danger"> DELETE </button>
+        </tr>
+    </table>
+
+
+
+
+
+
+
+    <form #F="ngForm">
+
+        <div>
+            <label>Name Under Category : </label>
+            <input type="text" required placeholder="NameunderCategory" id="nameUnderCategory" #nc="ngModel"
+                name="nameUnderCategory" [(ngModel)]="undercategory.nameUnderCategory">
+        </div>
+
+        <div>
+            <label> Select Category </label>
+            <select name="Category" id="Category" [(ngModel)]="category.Category"
+                (change)="onChange($event.target.value)" class="form-control">
+
+                <option *ngFor="let c of ListCategories" [value]="c.idCategory">
+                    {{c.nameCategory}}</option>
+
+            </select>
+        </div>
+        <button type="button" type="submit" id="addProductToDatabase" (click)="addUnderCategory()"
+            class="btn btn-success">Add
+            New Under Category</button>
+    </form>
+
+</div>

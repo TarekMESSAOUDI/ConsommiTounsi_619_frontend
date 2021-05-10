@@ -1,1 +1,22 @@
-<p>department-client works!</p>
+
+<table>
+
+
+<div *ngFor="let d of ListDepartment">
+<thead>
+    <tr>
+        <img src="{{'http://localhost:9091/SpringMVC/servlet/depart/'+d.idDepartment}}" width="100" height="150"  class="card-img-top" alt="...">
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>{{d.nameDepartment}}</td>
+      <td>{{d.typeDepartment}}</td>
+      
+    </tr>
+</tbody>
+</div>
+
+
+
+</table>

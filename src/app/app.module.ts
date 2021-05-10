@@ -64,9 +64,19 @@ import { MenuComponent } from './Stripe/menu/menu.component';
 import { ModalComponent } from './Stripe/modal/modal.component';
 import { PaymentComponent } from './Stripe/payment/payment.component';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
+
+import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
+
+
 import { NgxStripeModule } from 'ngx-stripe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { SecondNavComponent } from './Components/second-nav/second-nav.component';
+
+import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+
+
 
 
 
@@ -132,6 +142,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
+
+    SecondNavComponent,
+
+    CategoryadministratorComponent,
+    DeliveryClientComponent,
+
+
 
   ],
   imports: [

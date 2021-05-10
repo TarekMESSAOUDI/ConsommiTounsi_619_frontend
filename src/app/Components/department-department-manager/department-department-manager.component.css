@@ -31,7 +31,7 @@ html,body{
   color: #fff;
   user-select: none;
   border-radius: 15px 15px 0 0;
-  background: linear-gradient(-135deg, #22b691, #22b691);
+  background: linear-gradient(-135deg, #8c908f, #a1b3ae);
 }
 .wrapper form{
   padding: 10px 30px 50px 30px;
@@ -113,7 +113,7 @@ form .content .pass-link{
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  background: linear-gradient(-135deg, #13af42);
+  background: linear-gradient(-135deg, #8c928e);
   transition: all 0.3s ease;
 }
 
@@ -132,7 +132,7 @@ form .content .pass-link{
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  background: linear-gradient(-135deg, #e40606, #da0012);
+  background: linear-gradient(-135deg, #06c3e4, #da0012);
   transition: all 0.3s ease;
 
 }
@@ -140,7 +140,7 @@ form .content .pass-link{
 #crudbutton{
 
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #676d67;
   border:red;
   padding-left: 20px;
   padding-right: 20px;
@@ -153,7 +153,7 @@ form .content .pass-link{
   font-size: 20px;
   font-weight: 300;
   cursor: pointer;
-  background: linear-gradient(-135deg, #33ca65, #4158d0);
+  background: linear-gradient(-135deg, #7b898b, #4158d0);
   transition: all 0.3s ease;
   border-radius: 12px
 
@@ -204,12 +204,12 @@ form {
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    min-width: 1000px;
     box-shadow: 0 0 25px rgba(6, 60, 34, 0.15);
     border:1px solid black;margin-left:auto;margin-right:auto;
 }
 .styled-table thead tr {
-  background-color: #009879;
+  background-color: #808685;
   color: #ffffff;
   text-align: left;
 }
@@ -230,7 +230,7 @@ form {
 
 .styled-table tbody tr.active-row {
   font-weight: bold;
-  color: #009879;
+  color: #737c7a;
   size: 20px;
 }
 
@@ -300,3 +300,62 @@ form {
 
 .button:focus { outline:0; }
 
+.container{
+  margin-top:2%;
+}
+
+
+.buttony {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 4px;
+  position:initial;
+  background-color: #2b7da3;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  width: 240px;
+  height: 150px;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 4px;
+}
+
+.buttony:hover {
+  background: rgb(176, 231, 26);
+  box-shadow: 0px 2px 10px 5px #1abc9c;
+  color: #000;
+}
+
+.buttony:after {
+  content: "";
+  background: #1abc9c;
+  display: block;
+  position: absolute;
+  padding-top: 100%;
+  padding-left: 80%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.buttony:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.buttony:focus { outline:0; }
+
+img {
+  max-width: auto;
+  height: auto;
+  position: relative;
+width:fit-content;
+}

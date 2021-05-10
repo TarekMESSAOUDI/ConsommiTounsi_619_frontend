@@ -4,8 +4,12 @@ import { Router } from '@angular/router';
 import { PopupService } from '@ng-bootstrap/ng-bootstrap/util/popup';
 import { Observable } from 'rxjs';
 import { BarcodeResponse } from 'src/app/Models/BarcodeResponse';
+import { Department } from 'src/app/Models/Department';
 import { Product } from 'src/app/Models/Product';
+import { UnderCategory } from 'src/app/Models/UnderCategory';
+import { DepartmentService } from 'src/app/Services/Department/department.service';
 import { ProductService } from 'src/app/Services/product/product.service';
+import { UndercategoryService } from 'src/app/Services/UnderCategory/undercategory.service';
 
 @Component({
   selector: 'app-product-administrator',
@@ -20,6 +24,8 @@ export class ProductAdministratorComponent implements OnInit {
   updateProductInt: boolean;
   showIntAddProd: boolean;
   showIntUpdateProd: boolean;
+  tunisianBarCode: boolean;
+  tunisianBarCodeCheck: string;
   public message: string;
   public imagePath;
   imgURL: any;
@@ -30,7 +36,16 @@ export class ProductAdministratorComponent implements OnInit {
   file: File;
   file_upload: object;
   form: FormGroup;
-  constructor(public prodSerivce: ProductService, private router: Router, public fb: FormBuilder) { }
+
+  ListUnderCategory: UnderCategory[];
+  ListDepartments: Department[];
+
+
+
+
+  constructor(public prodSerivce: ProductService, private router: Router, public fb: FormBuilder, private DepService: DepartmentService,
+    private underCatSer: UndercategoryService
+  ) { }
 
   get f() {
     console.log("get", this.prodSerivce.dataForm.controls)
@@ -43,6 +58,19 @@ export class ProductAdministratorComponent implements OnInit {
       this.ListProducts = res
     });
     this.createForm();
+
+
+    this.underCatSer.getAllUnderCat().subscribe(res => {
+      console.log(res);
+      this.ListUnderCategory = res
+    });
+
+    this.DepService.getallDepartments().subscribe(res => {
+
+      console.log(res);
+      this.ListDepartments = res
+    });
+
   }
 
 
@@ -73,6 +101,14 @@ export class ProductAdministratorComponent implements OnInit {
     this.showIntUpdateProd = false;
   }
 
+  onChange(value) {
+    this.product.UnderCategory = value
+  }
+
+  onChange2(value) {
+    this.product.Department = value
+  }
+
   addProduct() {
     var startIndex = (this.product.fileName.indexOf('\\') >= 0 ? this.product.fileName.lastIndexOf('\\') : this.product.fileName.lastIndexOf('/'));
     var filename = this.product.fileName.substring(startIndex);
@@ -82,7 +118,11 @@ export class ProductAdministratorComponent implements OnInit {
     this.product.fileName = filename;
     this.product.barcodeProduct = this.file_upload
     console.log(this.product)
-    this.prodSerivce.addProduct(this.product).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
+
+    var b = Number(this.product.UnderCategory)
+    var b2 = Number(this.product.Department)
+
+    this.prodSerivce.addProduct(this.product, b, b2).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
   }
 
   UpdateProductShowDiv() {
@@ -192,8 +232,15 @@ export class ProductAdministratorComponent implements OnInit {
     // Add file content to prepare the request
     body.append("file", this.file);
     // Launch post request
+
     return this.prodSerivce.ZxingReader(body).subscribe((res) => {
       this.file_upload = res['results'][0].toString()
+      var arr = this.file_upload.toString().split('')
+      this.tunisianBarCodeCheck = arr.slice(0, 3).join('')
+      this.tunisianBarCodeCheck === "619" ? this.tunisianBarCode = true : this.tunisianBarCode = false
+      if (this.tunisianBarCode === false) {
+        alert('Your product is not tunisian! Please insert a tunisian product')
+      }
       console.log(this.file_upload)
     });
   }

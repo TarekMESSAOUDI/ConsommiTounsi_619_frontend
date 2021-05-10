@@ -1,3 +1,6 @@
+import { Department } from "./Department";
+import { UnderCategory } from "./UnderCategory";
+
 export class Product {
     idProduct: number;
     descriptionProduct: string;
@@ -9,6 +12,8 @@ export class Product {
     maxQuantityProduct: number;
     fileName: string;
     barcodeProduct: object;
+    UnderCategory: UnderCategory;
+    Department: Department;
 }
 
 

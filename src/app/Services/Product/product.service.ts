@@ -50,9 +50,11 @@ export class ProductService {
   }
 
 
-  addProduct(product: Product) {
-    return this.prodhttp.post<Product>(this.addProdUrl, product);
+  addProduct(product: Product, id: number, idd: number) {
+    // return this.prodhttp.post<Product>(this.addProdUrl + id + idd, product);
+    return this.prodhttp.post(`${this.addProdUrl}/${id}/${idd}`, product, {});
   }
+
 
   updateproduct(id: number, product: Product) {
     return this.prodhttp.put(this.putProdUrl + id, product);
@@ -104,6 +106,7 @@ export class ProductService {
 
   createData(formData: FormData): Observable<any> {
     return this.prodhttp.post(`${this.PostProdcutUrl}`, formData);
+    // return this.prodhttp.post(`${this.PostProdcutUrl}`, formData);
   }
 
 

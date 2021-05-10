@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/Models/Category';
@@ -8,8 +9,10 @@ import { Category } from 'src/app/Models/Category';
 })
 export class CategoryService {
 
+
+
   showAllCategoryUrl = "http://localhost:9091/SpringMVC/servlet/show-all-categories";
-  addCategoryUrl = "http://localhost:9091/SpringMVC/servlet/add-category/";
+  addCategoryUrl = "http://localhost:9091/SpringMVC/servlet/add-category";
   deleteCategoryUrl = "http://localhost:9091/SpringMVC/servlet/remove-category/";
   updateCategoryUrl = "http://localhost:9091/SpringMVC/servlet/update-category";
   affectUnderCategoryToCategoryUrl = "http://localhost:9091/SpringMVC/servlet/affect-undercategory-to-category/";
@@ -20,7 +23,7 @@ export class CategoryService {
     return this.httpCategory.get<Category[]>(this.showAllCategoryUrl);
   }
 
-  deleteProductById(id: number) {
+  deleteCategoryById(id: number) {
     return this.httpCategory.delete(this.deleteCategoryUrl + id);
   }
 
@@ -35,6 +38,10 @@ export class CategoryService {
 
   affectUnderCategoryToCategory(idUnderCatgory: number, idcategory: number) {
     return this.httpCategory.put(this.affectUnderCategoryToCategoryUrl + idUnderCatgory, idcategory);
+  }
+
+  addUnderCategory() {
+    return this.httpCategory
   }
 
 }

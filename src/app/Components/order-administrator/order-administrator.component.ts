@@ -19,6 +19,7 @@ export class OrderAdministratorComponent implements OnInit {
   order: Order = new Order();
   submitted = false;
   id: number;
+  msg = '';
   
 
 
@@ -91,8 +92,9 @@ export class OrderAdministratorComponent implements OnInit {
       gotoList() {
         this.router.navigate(['/administrator/order']);
       }
-    
-   //get order by payment type
+
+ 
+   //get order by id
 
    public getOrderbyid(idOrder : number){
     this.orderService.getOrderbyid(idOrder).subscribe(data => {
@@ -103,6 +105,10 @@ export class OrderAdministratorComponent implements OnInit {
     );
     
   }
+
+  
+
+  
   
  
     

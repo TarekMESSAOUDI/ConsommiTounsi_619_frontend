@@ -9,24 +9,22 @@ import { Cagnotte } from 'src/app/Models/Cagnotte';
 })
 export class CagnotteService {
 
-  addCagnotteURL:"http://localhost:9091/SpringMVC/servlet/add-cagnotte";
-  getAllCagnotteURL:"URL : http://localhost:9091/SpringMVC/servlet/getAllCagnotte";
-  deleteCagnotteURL:"http://localhost:9091/SpringMVC/servlet/delete-cagnotte";
+
   modifyCagnotteURL:"http://localhost:9091/SpringMVC/servlet/modify-cagnotte";
   getCagnotteByIdURL:"http://localhost:9091/SpringMVC/servlet/getCagnotte_by_ID"
 
   constructor(private cagnottehttp: HttpClient, private router: Router) { }
   
-  addcagnotte(cagnotte:Cagnotte){
-    return this.cagnottehttp.post<Cagnotte>(this.addCagnotteURL,Cagnotte);
+  public addcagnotte(cagnotte:Cagnotte){
+    return this.cagnottehttp.post<Cagnotte>("http://localhost:9091/SpringMVC/servlet/add-cagnotte", cagnotte);
   }
 
   getAllCagnotte():Observable<Cagnotte[]>{
-    return this.cagnottehttp.get<Cagnotte[]>(this.getAllCagnotteURL);
+    return this.cagnottehttp.get<Cagnotte[]>("http://localhost:9091/SpringMVC/servlet/getAllCagnotte");
   }
 
-  deletetCagnotteById(id:number){
-    return this.cagnottehttp.delete(this.deleteCagnotteURL+id);
+  public deleteCagnotte(idCagnotte:number){
+    return this.cagnottehttp.delete("http://localhost:9091/SpringMVC/servlet/delete-cagnotte/" +idCagnotte);
   }
 
   updateCagnotte(id: number, value: any): Observable<any> {

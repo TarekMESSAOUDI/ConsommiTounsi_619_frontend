@@ -1,1 +1,188 @@
-<p>publicity-administrator works!</p>
+<button class="btn btn-warning " (click)="showAllPub()">Show All Publicities</button>
+<button class="btn btn-warning" (click)="showInAddPub()">Add New Publicities</button>
+
+
+
+
+<div *ngIf="showIntPub">
+    <div class="card-deck">
+        <table class="table caption-top">
+
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title </th>
+                <th scope="col">Description</th>
+                <th scope="col">Target</th>
+                <th scope="col">Channel</th>
+                <th scope="col">Type</th>
+                <th scope="col">Status</th>
+                <th scope="col">Initial Vue</th>
+                <th scope="col">Final View</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Cost </th>
+                <th scope="col">Phone OWner </th>
+                <th scope="col">Mail owner Publicity</th>
+                <th scope="col">Image</th>
+            </tr>
+
+            <tr *ngFor="let p of ListPublicities">
+                <td>{{p.idPublicity}}</td>
+                <td>{{p.namePublicity}}</td>
+                <td>{{p.descriptionPublicity}}</td>
+                <td>{{p.targetPublicity}}</td>
+                <td>{{p.channelPublicity}}</td>
+                <td>{{p.typePublicity}}</td>
+                <td>{{p.statusPublicity}} </td>
+                <td>{{p.InitialViewNumber}}</td>
+                <td>{{p.finalViewNumber}}</td>
+                <td>{{p.startDatePublicity}}</td>
+                <td>{{p.endDatePublicity}}</td>
+                <td>{{p.costPublicity}}</td>
+                <td>{{p.phoneOwnerPublicity}}</td>
+                <td>{{p.mailOwnerPublicity}}</td>
+                <div>
+                    <img src="{{'http://localhost:9091/SpringMVC/servlet/ImgPublcities/'+p.idPublicity}}" width="50"
+                        height="200" class="card-img-top" alt="...">
+                </div>
+                <button type="button" class="btn-primary" (click)="updateProductInterface(p.idPublicity,p)">
+                    Update</button>
+
+                <button (click)="deletePublicity(p.idPublicity)" type="button" class="btn-danger"> DELETE </button>
+            </tr>
+        </table>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<div *ngIf="AddIntPub">
+
+
+    <h1>ADD NEW PUBLICITY INTERFACE</h1>
+
+    <form #F="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Title Of Publicity : </label>
+                <input type="text" required placeholder="Title Of Publicity" #t="ngModel" id="titlePublicity"
+                    name="titlePublicity" [(ngModel)]="publicity.namePublicity">
+                <!-- <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+            <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+            <div *ngIf="t.errors.minlength">Invalid Title</div>
+        </div> -->
+
+            </div>
+
+            <div class="form-group">
+                <label>Publicity Description : </label>
+                <input type="text" required placeholder="description Publicity" #d="ngModel" id="descriptionPublicity"
+                    name="descriptionPublicity" [(ngModel)]="publicity.descriptionPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+            <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+            <div *ngIf="d.errors.minlength">Invalid Description</div>
+        </div> -->
+            </div>
+
+
+            <div class="form-group">
+                <label>Target Publicity : </label>
+                <input type="text" required placeholder="Publicity Target" #q="ngModel" name="targetPublicity"
+                    [(ngModel)]="publicity.targetPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+            <div *ngIf="q.errors.required">Target Is Obilgatory</div>
+            <div *ngIf="q.errors.minlength">Invalid Quantity</div>
+        </div> -->
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Channel Publicity : </label>
+                <input type="text" required placeholder="channel Publicity" #pp="ngModel" name="channelPublicity"
+                    [(ngModel)]="publicity.channelPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched" >
+            <div *ngIf="pp.errors.required">Channel Publicity Is Obilgatory</div>
+            
+        </div> -->
+            </div>
+
+            <label>Product Image</label>
+            <input type="file" name="file" [(ngModel)]="publicity.fileName"><br>
+
+
+
+
+
+            <button type="button" type="submit" id="add publicity" (click)="addPublicity()" class="btn btn-success">ADD
+                PUBLICITY</button>
+        </fieldset>
+    </form>
+    <br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="updateProductInt" class="container" style="padding-top: 100;">
+    <form #H="ngForm">
+        <fieldset>
+            <div class="form-group">
+                <label>Title Of Publicity : </label>
+                <input type="text" required placeholder="Title Of Publicity" #t="ngModel" id="titlePun  blicity"
+                    name="titlePublicity" [(ngModel)]="PublicityToUpdate.namePublicity">
+                <!-- <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+            <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+            <div *ngIf="t.errors.minlength">Invalid Title</div>
+        </div> -->
+
+            </div>
+
+            <div class="form-group">
+                <label>Publicity Desccription : </label>
+                <input type="text" required placeholder="descriptionPublicity" #d="ngModel" id="descriptionPublicity"
+                    name="descriptionPublicity" [(ngModel)]="PublicityToUpdate.descriptionPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+            <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+            <div *ngIf="d.errors.minlength">Invalid Description</div>
+        </div> -->
+            </div>
+
+
+            <div class="form-group">
+                <label>Publicity Target : </label>
+                <input type="text" required placeholder="targetPublicity" #q="ngModel" name="targetPublicity"
+                    [(ngModel)]="PublicityToUpdate.targetPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+            <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
+        </div> -->
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Channel Publicity : </label>
+                <input type="text" required placeholder="channelPublicity" #pp="ngModel" name="channelPublicity"
+                    [(ngModel)]="PublicityToUpdate.channelPublicity">
+                <!-- <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched" >
+            <div *ngIf="pp.errors.required">Channel Is Obilgatory</div>
+            
+        </div> -->
+
+                <button type="button" id="updatePublicity"
+                    (click)="updatePublicity(PublicityToUpdate.idPublicity,PublicityToUpdate)"
+                    class="btn btn-success">Update
+                    Product</button>
+            </div>

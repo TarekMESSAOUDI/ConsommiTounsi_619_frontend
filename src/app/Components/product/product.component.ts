@@ -1,5 +1,6 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/Models/User';
 import { Product } from '../../Models/Product';
 import { ProductService } from '../../Services/product/product.service';
 
@@ -12,6 +13,7 @@ export class ProductComponent implements OnInit {
   @Input() productsCart: any[] = [];
   selectedProduct:Product;
   ListProducts:Product[];
+  user:User;
  
   
   constructor(private prodClientServ:ProductService,private router:Router) { 
@@ -33,7 +35,7 @@ export class ProductComponent implements OnInit {
     {
       let prodId = product.idProduct;
       console.log(typeof(prodId),prodId)
-      let basketId = 2;
+      let basketId =1;
       this.prodClientServ.addProdToBasket(basketId,prodId).subscribe(res=>{console.log(res);})
       console.log(product,"product just added ");
      this.productsCart.push(product)

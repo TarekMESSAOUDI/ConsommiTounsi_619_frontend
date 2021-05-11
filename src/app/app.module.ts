@@ -64,10 +64,21 @@ import { MenuComponent } from './Stripe/menu/menu.component';
 import { ModalComponent } from './Stripe/modal/modal.component';
 import { PaymentComponent } from './Stripe/payment/payment.component';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
+
+import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
+
+
 import { NgxStripeModule } from 'ngx-stripe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { SecondNavComponent } from './Components/second-nav/second-nav.component';
+
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
 
 
 
@@ -133,7 +144,13 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
+
+    SecondNavComponent,
+
+    CategoryadministratorComponent,
     DeliveryClientComponent,
+
+
 
   ],
   imports: [
@@ -148,6 +165,17 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxStripeModule.forRoot('pk_test_51IbUTJD3cB2Kf1acSTRdQkoc23ugIGKZmwUzNAMdXA0r8u8NsnT5wc1RU8GZJ91NkKZoRaxpnzczQONGWpNEzAwR009imHTIjb'),
+    TranslateModule.forRoot({
+      defaultLanguage:'en',
+      loader:{
+        provide:TranslateLoader,
+        useFactory:createTranslateLoader,
+        deps:[HttpClient]
+        
+      }
+    }
+      
+    )
     
 
   ],
@@ -159,3 +187,8 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function createTranslateLoader(http:HttpClient){
+  return new TranslateHttpLoader(http,'./assets/i18n/', '.json')
+
+}

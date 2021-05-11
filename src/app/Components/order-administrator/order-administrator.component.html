@@ -24,12 +24,12 @@
      <div class="container">
          <div class="row col-md-6 col-md-offset-2 custyle">
           <div class=" col-md-6 col-md-offset-2 custyle">
-            <!--
+            
             <div>
               <a class="btn btn-primary" (click)="getOrderbyid(idOrder)">Search</a>
-              <input class="form-control" [(ngModel)]="o.idOrder"/>
+              <input class="form-control" [(ngModel)]="order.idOrder"/>
             </div>
-            -->
+            
          <table class="table table-striped custab">
          <thead>
              <tr>
@@ -39,6 +39,7 @@
                  <th>State Order</th>
                  <th>Amount Order</th>
                  <th>Payment Type</th>
+                 <th>Action</th>
                  <th>Action</th>
                  <th>Action</th>
                  
@@ -53,6 +54,7 @@
                  <td>{{o.amountOrder}}</td>
                  <td>{{o.paymentType}}</td>
                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteOrder(o.idOrder)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="updateOrder(o.idOrder)"> Update</button></td>
                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Generate Bill</button></td>
                  
                </tr>
@@ -65,11 +67,8 @@
  </div>
  </div>
  </div>
+
  
-
-
-
-
 
   <div class="container login-container" *ngIf="show">
     <h3>Add Order</h3>

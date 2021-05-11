@@ -6,6 +6,5 @@ export class Order {
 	productNumberOrder:number ;
 	stateOrder:string ;
 	amountOrder:number ;
-	prix:number;
 	paymentType:PaymentType ;
 }

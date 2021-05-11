@@ -94,10 +94,10 @@ const routes: Routes = [
       { path: 'client/lista', component: ListaArticuloComponent },
       { path: 'client/detalle/:id', component: DetalleArticuloComponent },
 
-      { path: 'Client/departments', component: DepartmentClientComponent },
+      { path: 'Client/department/virtual_visit', component: DepartmentClientComponent },
       { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent },
       { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent },
-      { path: 'departmentmanager', component: EspaceDepartmentManagerComponent },
+      { path: 'products/inmydepartment', component: EspaceDepartmentManagerComponent },
       { path: 'departmentmanager/product', component: ProductDepartmentManagerComponent },
       { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent },
       { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent },

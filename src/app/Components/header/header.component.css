@@ -39,9 +39,36 @@
 }
 
 
+.eng {
+    position:absolute;
+
+  right: 10%;
+
+
+}
+
+
+
+
+
+.lang {
+    position:absolute;
+
+  right: 5%;
+
+
+}
+
+
 .depo  :hover{
     color: red;
 }
+
+
+
+
+
+
 
 
 .evento  :hover{
@@ -65,4 +92,23 @@
     color: red;
 }
 
+.btn-group .button {
+  background-color: #d80d0d; /* Green */
+  border: 1px solid rgb(26, 27, 26);
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration:solid;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+}
 
+.btn-group .button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group .button:hover {
+  background-color: #000000;
+}

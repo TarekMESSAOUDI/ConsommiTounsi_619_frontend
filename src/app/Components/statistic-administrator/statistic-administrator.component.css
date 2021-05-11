@@ -1,0 +1,78 @@
+.title {
+  background: #f4f4f4;
+  height: 10vh;
+  width: 90%;
+  margin: 5vh auto;
+  border-radius: 1vh;
+  line-height: 10vh;
+}
+
+#usage {
+  width: 80%;
+}
+
+h2, h3 {
+  vertical-align: middle;
+  text-align: center;
+}
+
+#nine {
+  width: 90%;
+}
+
+#eight {
+  width: 80%;
+}
+
+#inputFieldChartStatistic {
+  display: flex;
+  justify-content: space-around;
+}
+
+#flex {
+  display: flex;
+  justify-content: center;
+}
+
+#piechart_3d {
+  width: 50%;
+}
+
+#js-app {
+  width: 60%;
+}
+
+.dataset-selector {
+  margin-top: 10px;
+  color: #337ab7;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+  .dataset-selector:hover {
+    color: #23527c;
+    text-decoration: underline;
+  }
+
+input[type="radio"]:checked + .step-select__label {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+  input[type="radio"]:checked + .step-select__label:hover {
+    text-decoration: none;
+  }
+
+.chart__axis-tick, .chart__axis-line {
+  stroke: darkgray;
+}
+
+.chart__axis-text {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.chart__area-plot {
+  stroke: steelblue;
+  stroke-width: 3px;
+}

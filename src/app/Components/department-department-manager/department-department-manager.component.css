@@ -353,3 +353,9 @@ form {
 
 .buttony:focus { outline:0; }
 
+img {
+  max-width: auto;
+  height: auto;
+  position: relative;
+width:fit-content;
+}

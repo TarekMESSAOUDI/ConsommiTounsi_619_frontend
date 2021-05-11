@@ -8,11 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-    
   },
   "css.validate": false,
-"less.validate": false,
-"scss.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   "private": true,
   "dependencies": {
     "@angular/animations": "^11.2.12",
@@ -26,6 +25,8 @@
     "@angular/platform-browser-dynamic": "~11.2.12",
     "@angular/router": "~11.2.12",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "@stripe/stripe-js": "^1.14.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",

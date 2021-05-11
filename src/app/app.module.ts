@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { InjectionToken, NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, NgForm, NgModel, ReactiveFormsModule } from '@angular/forms';
@@ -53,9 +52,7 @@ import { EventHomeComponent } from './Components/event-home/event-home.component
 import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
 import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
-
 import { OrderAdministratorComponent } from './Components/order-administrator/order-administrator.component';
 import { OrderClientComponent } from './Components/order-client/order-client.component';
 import { BillClientComponent } from './Components/bill-client/bill-client.component';
@@ -64,18 +61,16 @@ import { MenuComponent } from './Stripe/menu/menu.component';
 import { ModalComponent } from './Stripe/modal/modal.component';
 import { PaymentComponent } from './Stripe/payment/payment.component';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
-
 import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
-
-
 import { NgxStripeModule } from 'ngx-stripe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { SecondNavComponent } from './Components/second-nav/second-nav.component';
-
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
 import { ProductsViewComponent } from './Components/products-view/products-view.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 
 
@@ -165,6 +160,17 @@ import { ProductsViewComponent } from './Components/products-view/products-view.
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxStripeModule.forRoot('pk_test_51IbUTJD3cB2Kf1acSTRdQkoc23ugIGKZmwUzNAMdXA0r8u8NsnT5wc1RU8GZJ91NkKZoRaxpnzczQONGWpNEzAwR009imHTIjb'),
+    TranslateModule.forRoot({
+      defaultLanguage:'en',
+      loader:{
+        provide:TranslateLoader,
+        useFactory:createTranslateLoader,
+        deps:[HttpClient]
+        
+      }
+    }
+      
+    )
     
 
   ],
@@ -176,3 +182,8 @@ import { ProductsViewComponent } from './Components/products-view/products-view.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function createTranslateLoader(http:HttpClient){
+  return new TranslateHttpLoader(http,'./assets/i18n/', '.json')
+
+}

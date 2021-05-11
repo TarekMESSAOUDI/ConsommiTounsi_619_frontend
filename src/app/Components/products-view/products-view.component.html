@@ -1,0 +1,43 @@
+<!-- <div class="wrapper">
+    <div class="container">
+        <div class="row g-1">
+            
+            <div class="col-md-4">
+                <div class="card p-3" *ngFor="let p of listProducts" >
+                    <small style="color: red;">{{p.titleProduct}}</small>
+                    <div class="text-center"> <img src="" width="200"> </div>
+                    <div class="product-details"> <span class="font-weight-bold d-block">DT </span> <span></span>
+                        <div class="buttons d-flex flex-row">
+                            <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button class="btn btn-success cart-button btn-block"><span class="dot"></span>Add to cart </button>  
+                        </div>
+                        
+                        <div class="weight"> <small style="color: black;">reduction:% </small> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row g-1">
+            
+            <div class="col-md-4" *ngFor="let p of listProducts">
+                <div class="card p-3">
+                    <small style="color: red;">{{p.titleProduct}}</small>
+                    <div class="text-center"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="130"> </div>
+                    <div class="product-details"> <span class="font-weight-bold d-block">DT {{p.buyingPriceProduct}}</span> <span>{{p.descriptionProduct}}</span>
+                        <div class="buttons d-flex flex-row">
+                            <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button class="btn btn-success cart-button btn-block"><span class="dot"></span>Add to cart </button>  
+                        </div>
+                        
+                        <div class="weight"> <small style="color: black;">reduction:{{p.reduction}}% </small> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

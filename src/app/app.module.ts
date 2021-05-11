@@ -75,6 +75,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecondNavComponent } from './Components/second-nav/second-nav.component';
 
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+import { ProductsViewComponent } from './Components/products-view/products-view.component';
 
 
 
@@ -147,6 +148,7 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
 
     CategoryadministratorComponent,
     DeliveryClientComponent,
+    ProductsViewComponent,
 
 
 

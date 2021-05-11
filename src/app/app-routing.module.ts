@@ -45,16 +45,12 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+import { ProductsViewComponent } from './Components/products-view/products-view.component';
 
 
 
 
 const routes: Routes = [
-
-
- 
- 
-  
       { path: 'home', component: HomeComponent },
       { path: 'home/category', component: CategoryComponent },
       { path: 'home/basket', component: BasketClientComponent },
@@ -81,8 +77,6 @@ const routes: Routes = [
       { path: 'administrator/order', component: OrderAdministratorComponent },
       { path: 'client/lista', component: ListaArticuloComponent },
       { path: 'client/product/:id', component: DetailsproductsComponent },
-
-
       { path: 'client', component: EsapaceClientComponent },
       { path: 'client/home', component: HomeClientComponent },
       { path: 'client/profile', component: ProfileClientComponent },
@@ -93,7 +87,7 @@ const routes: Routes = [
       { path: 'client/order', component: OrderClientComponent },
       { path: 'client/lista', component: ListaArticuloComponent },
       { path: 'client/detalle/:id', component: DetalleArticuloComponent },
-
+      { path: 'client/products-view/:id', component: ProductsViewComponent },
       { path: 'Client/department/virtual_visit', component: DepartmentClientComponent },
       { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent },
       { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent },
@@ -102,11 +96,8 @@ const routes: Routes = [
       { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent },
       { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent },
       { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent },
-      {path:'client/delivery',component:DeliveryClientComponent},
-         
+      {path:'client/delivery',component:DeliveryClientComponent},     
       { path: '**', component: HomeComponent }
-
-
 
 ];
 

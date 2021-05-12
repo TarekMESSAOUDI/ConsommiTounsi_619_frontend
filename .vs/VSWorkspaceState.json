@@ -4,8 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\Components",
-    "\\src\\app\\Components\\statistic-administrator"
+    "\\src\\app\\Components\\user"
   ],
-  "SelectedNode": "\\src\\app\\Components\\statistic-administrator\\statistic-administrator.component.css",
+  "SelectedNode": "\\src\\app\\Components\\user\\user.component.ts",
   "PreviewInSolutionExplorer": false
 }

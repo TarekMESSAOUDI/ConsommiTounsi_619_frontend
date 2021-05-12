@@ -52,14 +52,14 @@ export class UserComponent implements OnInit {
       }
     )
   }
-  updateUser(use: User) {
+  updateUser() {
 
     this.UpdateUser = true;
     this.AddUsers = false;
     this.DeleteUser = false;
     this.ShowAllUsers = false;
     this.ShowUser = false;
-    this.userservice.updateUser(use).subscribe(
+    this.userservice.updateUser(this.user).subscribe(
       data => {
         console.log(data),
           this.showAllUsers();

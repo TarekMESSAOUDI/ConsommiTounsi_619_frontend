@@ -75,6 +75,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecondNavComponent } from './Components/second-nav/second-nav.component';
 
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+import { ForgotComponent } from './Components/forgot/forgot.component';
+import { UpdatepasswordComponent } from './Components/updatepassword/updatepassword.component';
 
 
 
@@ -147,6 +149,8 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
 
     CategoryadministratorComponent,
     DeliveryClientComponent,
+    ForgotComponent,
+    UpdatepasswordComponent,
 
 
 
@@ -168,7 +172,7 @@ import { DeliveryClientComponent } from './Components/delivery-client/delivery-c
   ],
   entryComponents: [ModalComponent],
   providers: [
-    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
    // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],
   bootstrap: [AppComponent]

@@ -3,37 +3,43 @@
 
 
 <!-- ADD SUBJECT-->
-<div class="container login-container">
+<div class="container login-container" >
   <br>
   <br />
   <div class="raw">
 
     <div class="col-md-16 login-form-1">
-      <h1 class="col-5 mx-auto">ADD SUBJECT</h1>
+      <h1 class="col-5 mx-auto" *ngIf="ShowAddSubject">ADD SUBJECT</h1>
 
       <form name="sf" #s="ngForm" (ngSubmit)="addSubject()">
 
-        <div class="form-group">
+        <div class="form-group" *ngIf="ShowAddSubject">
           <label>Title:</label>
           <input type="text" name="titlesubject" class="form-control" placeholder="Title Subject Here *"
                  ngModel required #ts="ngModel" [(ngModel)]="sf.titleSubject" [ngModelOptions]="{standalone: true}" />
-        </div>
-        <div class="alert alert-danger" *ngIf="ts.invalid && ts.touched">
-          Title is a Required Field !
+        </div >
+
+        <div *ngIf="ShowAddSubject">
+          <div class="alert alert-danger" >
+            Title is a Required Field !
+          </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" *ngIf="ShowAddSubject">
           <label>Description :</label>
           <input type="text" name="descriptionsubject" class="form-control" placeholder="Description Subject Here *"
                  ngModel required #ds="ngModel" [(ngModel)]="sf.descriptionSubject" [ngModelOptions]="{standalone: true}" />
-        </div>
-        <div class="alert alert-danger" *ngIf="ds.invalid && ds.touched">
+        </div >
+
+        <div *ngIf="ShowAddSubject">
+          <div class="alert alert-danger" >
           Description is a Required Field !
+          </div>
         </div>
 
         <div class="d-grid gap-5 col-3 mx-auto">
-          <button [disabled]="s.invalid" (click)="addSubject()" type="button" class="btn btn-success btn-lg"> ADD </button>
-          <button type="button" class="btn btn-success btn-lg" (click)="showAllSubjects()"> Show</button>
+          <button [disabled]="s.invalid" (click)="addSubject()" type="button" class="btn btn-success btn-lg" *ngIf="ShowAddSubject"> ADD </button>
+          <button type="button" class="btn btn-success btn-lg" (click)="showAllSubjects()" > Show</button>
         </div>
 
       </form>

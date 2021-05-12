@@ -25,8 +25,6 @@ export class CategoryComponent implements OnInit {
       this.ListCategories = res
     });
 
-
-
   }
 
 

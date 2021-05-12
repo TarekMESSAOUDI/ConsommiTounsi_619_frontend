@@ -1,4 +1,5 @@
 export enum SexeType {
-    Men,
-    Women,
-  }
+    Men = "Men",
+  Women = "Women",
+    
+}

@@ -16,9 +16,13 @@ export class ForumHomeComponent implements OnInit {
   hide: boolean;
   ListSubject: Observable<Subject[]>;
   ShowAllSubjects: boolean = true;
+  ShowAddSubject: boolean;
   constructor(private subjectservice: SubjectService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem("AuthAuthorities").includes("ADMINISTRATOR")) {
+      this.ShowAddSubject = true;
+    }
   }
 
 

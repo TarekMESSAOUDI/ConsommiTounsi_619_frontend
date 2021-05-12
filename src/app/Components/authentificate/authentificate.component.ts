@@ -12,9 +12,9 @@ import { TokenstorageService } from '../../Services/TokenStorage/tokenstorage.se
   styleUrls: ['./authentificate.component.css']
 })
 export class AuthentificateComponent implements OnInit {
-
   form: any = {};
   msg = '';
+  roles: string[];
   constructor(private authservice: AuthenticationService,
     private tokenstorage: TokenstorageService,
               private router: Router) { }
@@ -26,20 +26,12 @@ export class AuthentificateComponent implements OnInit {
 
      this.authservice.authenticate(new Authenticate(this.form.username, this.form.password)).subscribe(
        data => {
-         localStorage.setItem('Token', data.jwttoken)
+         this.tokenstorage.saveToken(data.jwttoken)
          localStorage.setItem('Type', data.type)
-         localStorage.setItem('Username', data.username)
-         localStorage.setItem('Authorities', data.authorities.toString())
-
-         if (localStorage.getItem(data.authorities.toString()) == "ADMINISTRATOR") {
-           this.router.navigate(["/administrator"])
-         } if (localStorage.getItem(data.authorities.toString()) == "CLIENT") {
-           this.router.navigate(["/client"])
-         } if (localStorage.getItem(data.authorities.toString()) == "DEPARTMENTMANAGER") {
-           this.router.navigate(["/departmentmanager"])
-         } if (localStorage.getItem(data.authorities.toString()) == "DELIVERYPERSON") {
-           this.router.navigate(["/deliveryperson"])
-         } 
+         this.tokenstorage.saveUsername(data.username)
+         this.tokenstorage.saveAuthorities(data.authorities)
+         
+         this.router.navigate(["/home"])
       },
       error => {
       this.msg = 'Username Or password Invalid';

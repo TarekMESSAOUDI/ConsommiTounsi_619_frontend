@@ -10,7 +10,7 @@ export class DeliveryService {
   addDeliveryURL="http://localhost:9091/SpringMVC/servlet/addDelivery";
   retrievealldeliveryURL="http://localhost:9091/SpringMVC/servlet/retrievealldelivery";
   retrievedeliveryURL="http://localhost:9091/SpringMVC/servlet/retrievedelivery";
-  deletedeliveryURL="http://localhost:9091/SpringMVC/servlet/remove-delivery";
+  deletedeliveryURL="http://localhost:9091/SpringMVC/servlet";
   updatedeliveryURL="http://localhost:9091/SpringMVC/servlet/modify-delivery";
   affectdeliveryTodeliveryPersonURL="http://localhost:9091/SpringMVC/servlet/affect-Delivery-to-DeliveryPerson";
   constructor(private deliveryhttp: HttpClient, private router: Router) { }
@@ -27,7 +27,7 @@ export class DeliveryService {
   }
 
   deletedelivery(id: number): Observable<any> {
-    return this.deliveryhttp.delete(this.deletedeliveryURL, { responseType: 'text' });
+    return this.deliveryhttp.delete(`${this.deletedeliveryURL}/remove-delivery/${id}`, { responseType: 'text' });
   }
 
   updatedelivery(id: number, value: any): Observable<any> {

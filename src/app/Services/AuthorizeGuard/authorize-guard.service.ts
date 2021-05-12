@@ -13,8 +13,9 @@ export class AuthorizeGuardService implements CanActivate{
     private router: Router) { }
 
   canActivate() {
-    if (!this.authservice.authenticate) {
-      this.router.navigate(['/authentificate']);
+    if (localStorage.getItem("AuthAuthorities").includes(null) || localStorage.getItem("AuthAuthorities").includes("CLIENT")
+      || localStorage.getItem("AuthAuthorities").includes("DELIVERYPERSON") || localStorage.getItem("AuthAuthorities").includes("DEPARTMENTMANAGER")  ) {
+      this.router.navigate(['/home/authentificate']);
       return false;
     }
     return true;

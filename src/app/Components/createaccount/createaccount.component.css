@@ -50,3 +50,11 @@
     font-weight: 600;
     text-decoration: none;
 }
+
+small{
+    color:red;
+}
+button{
+    width:150px;
+    font-weight:100;
+}

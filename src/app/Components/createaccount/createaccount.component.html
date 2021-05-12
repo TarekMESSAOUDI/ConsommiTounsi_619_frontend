@@ -80,12 +80,17 @@
           <div class="form-group">
             <label>Phone Number :</label>
             <input type="text" name="phonenumber" class="form-control" placeholder="Your Phone Number *" value=""
-                   ngModel [(ngModel)]="form.phoneNumberUser" />
+                   ngModel required #phonenumber="ngModel" [(ngModel)]="form.phoneNumberUser" />
           </div>
+          <div class="alert alert-danger" *ngIf="phonenumber.invalid && phonenumber.touched">
+            Phone Number is a Required Field !
+          </div>
+
+
 
           <div class="form-group">
             <label>Address :</label>
-            <input type="text" name="address" class="form-control" placeholder="Your Address *" value=""
+            <input type="text" name="address" class="form-control" placeholder="Your Address " value=""
                    ngModel [(ngModel)]="form.adressUser" />
           </div>
 
@@ -102,8 +107,7 @@
             <label>Sexe :</label>
             <select class="form-control" aria-label="Default select example" placeholder="Choose Your Sexe" type="text" name="sexe"
                     ngModel [(ngModel)]="form.sexeUser">
-              <option value="1">MEN</option>
-              <option value="2">WOMEN</option>
+              <option *ngFor="let s of Keys()">{{s}}</option>
             </select>
           </div>
 
@@ -116,7 +120,11 @@
           </div>
 
           <div class="d-grid gap-5 col-3 mx-auto">
-            <button href="client" [disabled]="u.invalid" (click)="addUser()" type="button" class="btn btn-success btn-lg"> Create Account </button>
+            <button href="client" [disabled]="u.invalid" (click)="addUser()" type="button" class="btn btn-success"> Create Account </button>
+          </div>
+          <br />
+          <div class="d-grid gap-5 col-3 mx-auto">
+            <button routerLink="/home/authentificate"  type="button" class="btn btn-success"> Sign In Now </button>
           </div>
           <br>
           <br />

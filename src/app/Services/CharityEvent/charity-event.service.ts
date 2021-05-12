@@ -9,11 +9,11 @@ import { CharityEvent } from 'src/app/Models/CharityEvent';
 })
 export class CharityEventService {
 
-  addEventURL="http://localhost:9091/SpringMVC/servlet/addEvent";
-  retrieveallEventURL="http://localhost:9091/SpringMVC/servlet/retrieveallEvent";
-  deleteEventURL="http://localhost:9091/SpringMVC/servlet/remove-event";
-  affectEventToClientURL:"http://localhost:9091/SpringMVC/servlet/FaireReservation";
-  addReservationURL:"http://localhost:9091/SpringMVC/servlet/addReservation";
+  addEventURL="http://localhost:9090/SpringMVC/servlet/addEvent";
+  retrieveallEventURL="http://localhost:9090/SpringMVC/servlet/retrieveallEvent";
+  deleteEventURL="http://localhost:9090/SpringMVC/servlet/remove-event";
+  affectEventToClientURL:"http://localhost:9090/SpringMVC/servlet/FaireReservation";
+  addReservationURL:"http://localhost:9090/SpringMVC/servlet/addReservation";
 
 
   constructor(private Eventhttp: HttpClient, private router: Router) { }

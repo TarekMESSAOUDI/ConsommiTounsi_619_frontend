@@ -1,1 +1,132 @@
-<p>event-home works!</p>
+<!DOCTYPE html>
+<html>
+<title>Charity Event</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>Charity Event</b></h1>
+ 
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <img src="../../assets/charity.JPG" alt="" style="width:100%">
+    <div class="w3-container">
+      <h3><b>singing session,rap,poem recitation, open mic session and many more . </b></h3>
+      <h5><span class="w3-opacity">Mai 21, 2021</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>can we please have a participation on this amazing event where donations are collected and then distributed among the needy ones . </p>
+      <div class="w3-row">
+        <span class="input-group-text" id="inputGroup-sizing-default">Titre</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="charityevent.titre">
+        <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="charityevent.description">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border" (click)="Reserve()"><b>Reserve</b></button></p>
+        </div>
+        <div class="input-group mb-3">
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+  <img src="../../assets/event.JPG" alt="Norway" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Charity Fundraising Events in 2021</b></h3>
+      <h5>How to Help Those Organisations Most in Need<span class="w3-opacity">Mai 19, 2021</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>Much like the events industry, the charities sector has been significantly affected by the COVID-19 pandemic. A loss of crucial income has meant that some have been unable to carry out their important work, while others might even be facing closure. In November 2020, 14% of charities predicted they would no longer be operating in 2021.
+        can we please have a participation on this amazing event where donations are collected and then distributed among the needy ones .
+      </p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Reserve</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+  
+    <div class="w3-container w3-white">
+      <i class="fas fa-user"></i>
+      <h4><b>Admin</b></h4>
+      <p>welcome to the charity event space.</p>
+    </div>
+  </div><hr>
+  
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Popular Event</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="../../assets/events.JPG" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Events + Virtual Events</span><br>
+        <span>Events have always been one of the most popular ways for organizations to fundraise</span>
+      </li>
+      <li class="w3-padding-16">
+        <img src="../../assets/marathon.JPG" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Marathon 2021</span><br>
+        <span>The Marathon is one of the longest established and most popular city centre road events in tunisia. </span>
+      </li>  
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <p>Powered by <a href="Consomi-Tounsi" target="_blank">Consomi-Tounsi</a></p>
+</footer>
+
+</body>
+</html>

@@ -12,11 +12,7 @@ export class EsapaceClientComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Logout() {
-    localStorage.removeItem("Token");
-    localStorage.removeItem("Type");
-    localStorage.removeItem("Username");
-    localStorage.removeItem("Authorities");
+    logOut() {
+      localStorage.clear();
+    }
   }
-
-}

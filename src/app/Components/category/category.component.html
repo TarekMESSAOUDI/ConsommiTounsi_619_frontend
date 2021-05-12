@@ -1,122 +1,33 @@
-<!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <title>Responsive Mega Menu | CodingNepal</title> -->
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-</head>
-
-<body>
-  <nav>
-
-
-
-
-
-
-   
-
-<!--  
-
-
+<nav>
   <div class="wrapper">
-      
-      <input type="radio" name="slider" id="menu-btn">
-      <input type="radio" name="slider" id="close-btn">
-      <ul class="nav-links">
-        <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
-        <li><a href="#">Products</a></li>
-        <li><a href="#"></a></li>
-        <li>
-          
-        </li>
-        <li>
-          <a href="#" class="desktop-item">
-       Departments</a>
-          
-        </li>
-        <li>
-          <a href="#" class="desktop-item"> Stock </a>
-          
-        </li>
+    <input type="radio" name="slider" id="menu-btn" />
+    <input type="radio" name="slider" id="close-btn" />
 
+    <ul class="nav-links">
+      <label for="close-btn" class="btn close-btn"
+        ><i class="fas fa-times"></i
+      ></label>
+      <li><a href="/">home</a></li>
+      <li *ngFor="let x of ListCategories">
+        <a class="desktop-item">{{x.nameCategory}}</a>
+        <input type="checkbox" id="showMega" />
+        <label for="showMega" class="mobile-item">category</label>
+        <div class="mega-box">
+          <div class="content">
+            <div class="row">
+              <!-- <img src="img.jpg" alt=""> -->
+              <ul class="mega-links" *ngFor="let c of ListUnderCategories">
+                <!--   -->
+                <li *ngIf="c.category.idCategory === x.idCategory" (click)="getProdsByUnderCat(c.idUnderCategory)"><a href="client/products-view/{{c.idUnderCategory}}">{{c.nameUnderCategory}}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <label for="menu-btn" class="btn menu-btn"
+      ><i class="fas fa-bars"></i
+    ></label>
+  </div>
+</nav>
 
-        <li>
-          <a href="#" class="desktop-item">check your shelfs
-          </a>
-          
-        </li>
-
-
-
-
-
-
-        <li><a ></a></li>
-      </ul>
-      <label for="menu-btn" class=""><i class="fas fa-bars"></i></label>
-    </div>
-
-
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="wrapper">
-
-      <input type="radio" name="slider" id="menu-btn">
-      <input type="radio" name="slider" id="close-btn">
-
-
-
-
-
-      <ul class="nav-links" *ngFor="let c of ListCategories">
-        <li><a href="#">{{c.nameCategory}}</a></li>
-
-
-
-        <li><a href="#"></a></li>
-      </ul>
-      <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
-    </div>
-  </nav>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-
-</html>

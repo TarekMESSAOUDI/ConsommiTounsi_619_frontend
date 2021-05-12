@@ -14,6 +14,7 @@ export class UndercategoryService {
   updateUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/update-under-category";
   affectProductToUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/affect-product-to-under-category/";
   getUnderCatByIdUrl = "http://localhost:9091/SpringMVC/servlet/GetByIdUnderCat/";
+  getProdsbyIdUnderCatUrl = "http://localhost:9091/SpringMVC/servlet/underCatProds/"
 
   constructor(private httpunderCat: HttpClient) { }
 
@@ -39,5 +40,9 @@ export class UndercategoryService {
 
   assignProductToUnderCat(idProduct, idUnderCatgory) {
     return this.httpunderCat.put(this.affectProductToUnderCatUrl + idProduct, idUnderCatgory);
+  }
+
+  getProdsByIdUnderCat(idUnderCat: number){
+    return this.httpunderCat.get(this.getProdsbyIdUnderCatUrl + idUnderCat)
   }
 }

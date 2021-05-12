@@ -45,6 +45,7 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
 
 import { AuthorizeclientguardService } from './Services/AuthorizeClientGuard/authorizeclientguard.service';
 import { AuthorizedepmantguardService } from './Services/AuthorizeDepManagerGuard/authorizedepmantguard.service';
@@ -93,6 +94,7 @@ const routes: Routes = [
   { path: 'administrator/category', component: CategoryadministratorComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/order', component: OrderAdministratorComponent, canActivate: [AuthorizeGuardService] },
 
+
   { path: 'client/lista', component: ListaArticuloComponent, canActivate: [AuthorizeclientguardService] },
   { path: 'client/product/:id', component: DetailsproductsComponent, canActivate: [AuthorizeclientguardService]},
   { path: 'client', component: EsapaceClientComponent, canActivate: [AuthorizeclientguardService] },
@@ -116,7 +118,7 @@ const routes: Routes = [
   { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent, canActivate: [AuthorizedepmantguardService]},
   { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService]},
-  
+ 
          
       { path: '**', component: HomeComponent }
 

@@ -122,11 +122,11 @@ form .content .pass-link{
     color: #fff;
   border:#262626;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 82px;
   padding-bottom: 20px;
   margin-top: 42px;
-  margin-bottom: 42px;
-  margin-right:100px ;
+  margin-bottom: 70px;
+  margin-right:120px ;
   margin-left:10px ;
  
   font-size: 20px;
@@ -237,7 +237,7 @@ form {
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
-    size: 30px;
+    size: 50px;
 }
 
 .titre{
@@ -262,8 +262,8 @@ form {
   background-color: #2b7da3;
   border: none;
   color: rgb(255, 255, 255);
-  padding: 20px;
-  width: 240px;
+  padding: 60px;
+  width: 300px;
   height: 150px;
   text-align: center;
   transition-duration: 0.4s;
@@ -354,8 +354,13 @@ form {
 .buttony:focus { outline:0; }
 
 img {
-  max-width: auto;
-  height: auto;
+  max-width: 70px;
+  height: 70px;
   position: relative;
 width:fit-content;
 }
+
+
+
+
+

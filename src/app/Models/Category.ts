@@ -4,6 +4,6 @@ export class Category {
 
      idCategory: number;
      nameCategory: String;
-     undercategories: [];
+     undercategories: [UnderCategory];
 
 }

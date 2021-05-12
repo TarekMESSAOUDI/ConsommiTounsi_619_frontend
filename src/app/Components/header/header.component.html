@@ -1,6 +1,7 @@
 <!-- HEADER -->
 
 <header>
+  
   <!-- MAIN HEADER -->
   <div id="header">
     <!-- container -->
@@ -18,11 +19,13 @@
       </div>
     </div>
 
-
+    
+    
 
     <div class="container">
       <!-- row -->
       <div class="row">
+        
         <!-- LOGO de consomi tounsi -->
         
         <!-- /LOGO de consomi tounsi-->
@@ -36,7 +39,7 @@
                 <option value="2">Category 02</option>
               </select>
               <input class="input" placeholder="Search here">
-              <button class="search-btn">Search</button>
+              <button class="search-btn"> {{"search1" | translate }}</button>
             </form>
           </div>
         </div>
@@ -52,7 +55,7 @@
 <div class="evento">
   <a href="home/event">
     <i class="fa fa-user"></i>
-    <span routerLink="home/event">Event</span>
+    <span routerLink="home/event"> {{"event" | translate }}</span>
     
     
   </a>
@@ -76,7 +79,7 @@
             <div class="basketo">
               <a href="/home/basket">
                 <i class="fa fa-shopping-cart"></i>
-                <span>Your Basket</span>
+                <span> {{"basket" | translate }}</span>
                 <div class="qty">5</div>
               </a>
             </div>
@@ -87,6 +90,7 @@
             <div class="sign ">
               <a>
                 <i class="fa fa-user"></i>
+
 
                 <a href="/home/authentificate">
                   <small *ngIf="NotConnected">Sign In</small>
@@ -124,6 +128,7 @@
                 <a href="/home/authentificate">
                   <small *ngIf="DeliveryPerson" (click)="logOut()">LogOut</small>
                 </a>
+
               </a>
             </div>
             <!--Sign in-->
@@ -134,7 +139,21 @@
 <div class="depo">
   <a href="Client/departments">
     <i class="fa fa-university"></i>
-    <span>Dicrover Departments</span>
+    <span>{{"department" | translate }}</span>
+    </a>
+</div>
+<!--Basket-->
+
+<!--Basket-->
+<div class="lang">
+  <a >
+    <div class="btn-group">
+      <button class="button" (click)="translate.use('en')" mat-raised-button color="accent">en</button>
+      
+      <button  class="button"   (click)="translate.use('fr')" mat-raised-button color="accent">fr</button>
+      
+    </div>
+    <span></span>
     </a>
 </div>
 <!--Basket-->
@@ -143,14 +162,26 @@
 
 
 
+<div class="eng">
+  <a href="">
+   
+    
+    </a>
+</div>
+
+
           </div>
             </div>
 
 
-
+           
+            
+            
+            
 
 
           </div>
+          
       <!-- row -->
     </div>
     <!-- container -->
@@ -177,9 +208,13 @@
         <!-- /NAV -->
       </div>
       
+      
       <!-- /responsive-nav -->
     </div>
-    <app-category> </app-category>
+    
+    <app-category> 
+      
+    </app-category>
 
     <!-- /container -->
   </nav>

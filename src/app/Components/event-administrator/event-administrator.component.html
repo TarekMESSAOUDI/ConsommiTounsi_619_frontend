@@ -1,1 +1,24 @@
-<p>event-administrator works!</p>
+<table class="table table-hover">
+            
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Titre </th>
+        <th scope="col">Description</th>
+       <!-- <th scope="col">Date</th>-->
+      </tr>
+    </thead>
+
+    
+      <tr *ngFor="let c of ListCharityEvent ">
+   
+        <td>{{c.id}}</td>
+        <td>{{c.titre}}</td>
+        <td>{{c.description}}</td>
+        <!--<td>{{c.dateClaim}}</td>-->
+        
+        <div >
+ <button  type="button" class="btn-danger"> DELETE </button>
+</div>
+      </tr>
+</table>

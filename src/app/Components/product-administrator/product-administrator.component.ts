@@ -14,7 +14,7 @@ import { UndercategoryService } from 'src/app/Services/UnderCategory/undercatego
 @Component({
   selector: 'app-product-administrator',
   templateUrl: './product-administrator.component.html',
-  styleUrls: ['./product-administrator.component.css']
+  styleUrls: ['./product-administrator.component.css'],
 })
 export class ProductAdministratorComponent implements OnInit {
   ListProducts: Product[];
@@ -36,43 +36,39 @@ export class ProductAdministratorComponent implements OnInit {
   file: File;
   file_upload: object;
   form: FormGroup;
-
   ListUnderCategory: UnderCategory[];
   ListDepartments: Department[];
+  
 
-
-
-
-  constructor(public prodSerivce: ProductService, private router: Router, public fb: FormBuilder, private DepService: DepartmentService,
+  constructor(
+    public prodSerivce: ProductService,
+    private router: Router,
+    public fb: FormBuilder,
+    private DepService: DepartmentService,
     private underCatSer: UndercategoryService
-  ) { }
+  ) {}
 
   get f() {
-    console.log("get", this.prodSerivce.dataForm.controls)
+    console.log('get', this.prodSerivce.dataForm.controls);
     return this.prodSerivce.dataForm.controls;
   }
   ngOnInit(): void {
-
-    this.prodSerivce.getAllProducts().subscribe(res => {
+    this.prodSerivce.getAllProducts().subscribe((res) => {
       console.log(res);
-      this.ListProducts = res
+      this.ListProducts = res;
     });
     this.createForm();
 
-
-    this.underCatSer.getAllUnderCat().subscribe(res => {
+    this.underCatSer.getAllUnderCat().subscribe((res) => {
       console.log(res);
-      this.ListUnderCategory = res
+      this.ListUnderCategory = res;
     });
 
-    this.DepService.getallDepartments().subscribe(res => {
-
+    this.DepService.getallDepartments().subscribe((res) => {
       console.log(res);
-      this.ListDepartments = res
+      this.ListDepartments = res;
     });
-
   }
-
 
   infoForm() {
     this.prodSerivce.dataForm = this.fb.group({
@@ -82,11 +78,15 @@ export class ProductAdministratorComponent implements OnInit {
       descriptionProduct: [''],
       barcode: [''],
       buyingPriceProduct: [''],
-    })
+    });
   }
 
   deleteProduct(id: number) {
-    this.prodSerivce.deleteProductById(id).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
+    this.prodSerivce.deleteProductById(id).subscribe(() =>
+      this.prodSerivce.getAllProducts().subscribe((res) => {
+        this.ListProducts = res;
+      })
+    );
   }
 
   ViewProducts() {
@@ -102,27 +102,35 @@ export class ProductAdministratorComponent implements OnInit {
   }
 
   onChange(value) {
-    this.product.UnderCategory = value
+    this.product.UnderCategory = value;
   }
 
   onChange2(value) {
-    this.product.Department = value
+    this.product.Department = value;
   }
 
   addProduct() {
-    var startIndex = (this.product.fileName.indexOf('\\') >= 0 ? this.product.fileName.lastIndexOf('\\') : this.product.fileName.lastIndexOf('/'));
+    var startIndex =
+      this.product.fileName.indexOf('\\') >= 0
+        ? this.product.fileName.lastIndexOf('\\')
+        : this.product.fileName.lastIndexOf('/');
     var filename = this.product.fileName.substring(startIndex);
     if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
       filename = filename.substring(1);
     }
     this.product.fileName = filename;
-    this.product.barcodeProduct = this.file_upload
-    console.log(this.product)
+    this.product.barcodeProduct = this.file_upload;
+    console.log(this.product);
 
-    var b = Number(this.product.UnderCategory)
-    var b2 = Number(this.product.Department)
+    var b = Number(this.product.UnderCategory);
+    var b2 = Number(this.product.Department);
 
-    this.prodSerivce.addProduct(this.product, b, b2).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
+    this.prodSerivce.addProduct(this.product, b, b2).subscribe(() =>
+      this.prodSerivce.getAllProducts().subscribe((res) => {
+        this.ListProducts = res;
+      })
+    );
+    this.router.navigate(['/administrator/product']);
   }
 
   UpdateProductShowDiv() {
@@ -132,9 +140,13 @@ export class ProductAdministratorComponent implements OnInit {
   }
 
   updateProduct(id: number, product: Product) {
-    console.log("product", product)
-    console.log("ahawa", this.productToUpdate)
-    this.prodSerivce.updateproduct(id, product).subscribe(() => this.prodSerivce.getAllProducts().subscribe(res => { this.ListProducts = res }));
+    console.log('product', product);
+    console.log('ahawa', this.productToUpdate);
+    this.prodSerivce.updateproduct(id, product).subscribe(() =>
+      this.prodSerivce.getAllProducts().subscribe((res) => {
+        this.ListProducts = res;
+      })
+    );
     this.updateProductInt = false;
     this.show = true;
   }
@@ -142,42 +154,36 @@ export class ProductAdministratorComponent implements OnInit {
   updateProductInterface(id: number, product: Product) {
     this.updateProductInt = true;
     this.show = false;
-    console.log(id, product)
+    console.log(id, product);
     this.productToUpdate = product;
-    console.log('hhh', this.productToUpdate)
+    console.log('hhh', this.productToUpdate);
   }
-
 
   redirectTo() {
-    this.router.navigate(['/administrator/product'])
+    this.router.navigate(['/administrator/product']);
   }
-
 
   removeData(id: number) {
     if (window.confirm('Are sure you want to delete this Article ?')) {
-      this.prodSerivce.deleteData(id)
-        .subscribe(
-          data => {
-            console.log(data);
-          },
-          error => console.log(error));
+      this.prodSerivce.deleteData(id).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (error) => console.log(error)
+      );
     }
-
   }
 
   addData() {
     const formData = new FormData();
     const article = this.prodSerivce.dataForm;
-    console.log("art", article);
+    console.log('art', article);
     formData.append('article', JSON.stringify(article));
     formData.append('file', this.userFile);
     console.log('fd', formData);
-    this.prodSerivce.createData(formData).subscribe(data => {
-
+    this.prodSerivce.createData(formData).subscribe((data) => {
       this.router.navigate(['/administrator/product']);
     });
-
-
   }
 
   // getData(){
@@ -189,7 +195,6 @@ export class ProductAdministratorComponent implements OnInit {
   //   if (event.target.files.length > 0) {
   //     const file = event.target.files[0];
   //     this.userFile = file;
-
 
   //     var mimeType = event.target.files[0].type;
   //     if (mimeType.match(/image\/*/) == null) {
@@ -206,12 +211,11 @@ export class ProductAdministratorComponent implements OnInit {
   //     }
   //   }
 
-
   // }
 
   createForm() {
     this.form = this.fb.group({
-      file_upload: null
+      file_upload: null,
     });
   }
 
@@ -230,19 +234,22 @@ export class ProductAdministratorComponent implements OnInit {
     // Instantiate a FormData to store form fields and encode the file
     let body = new FormData();
     // Add file content to prepare the request
-    body.append("file", this.file);
+    body.append('file', this.file);
     // Launch post request
 
     return this.prodSerivce.ZxingReader(body).subscribe((res) => {
-      this.file_upload = res['results'][0].toString()
-      var arr = this.file_upload.toString().split('')
-      this.tunisianBarCodeCheck = arr.slice(0, 3).join('')
-      this.tunisianBarCodeCheck === "619" ? this.tunisianBarCode = true : this.tunisianBarCode = false
+      this.file_upload = res['results'][0].toString();
+      console.log('image Complte', res);
+      var arr = this.file_upload.toString().split('');
+      this.tunisianBarCodeCheck = arr.slice(0, 3).join('');
+      this.tunisianBarCodeCheck === '613'
+        ? (this.tunisianBarCode = true)
+        : (this.tunisianBarCode = false);
       if (this.tunisianBarCode === false) {
-        alert('Your product is not tunisian! Please insert a tunisian product')
+        alert('Your product is not tunisian! Please insert a tunisian product');
       }
-      console.log(this.file_upload)
+      console.log(this.file_upload);
     });
   }
-
+  
 }

@@ -1,1 +1,32 @@
-<p>delivery-administrator works!</p>
+<table class="table table-hover">
+            
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Date</th>
+        <th scope="col">Name of Product</th>
+        <th scope="col">Delivery/FreeDelivery</th>
+        <th scope="col">Place Delivery</th>
+        <th scope="col">Adress of Delivery</th>
+      </tr>
+    </thead>
+
+    
+      <tr *ngFor="let d of ListDelivery">
+        <td>{{d.idDelivery}}</td>
+        <td>{{d.dateDelivery}}</td>
+        <td>{{d.NameProduct}}</td>
+        <td>{{d.DetailleDelivery}}</td>
+        <td>{{d.placeDelivery}}</td>
+        <td>{{d.adressDelivery}}</td>
+        <div >
+  <button (click)="DeleteDelivery(d.idDelivery)" type="button" class="btn-danger"> DELETE </button>
+  <button (click)="AffecteDeliveryToDeliveryPerson()" type="button" class="btn-danger"> Affecter </button>
+</div>
+      </tr> 
+      
+  
+   
+
+  </table>
+

@@ -9,6 +9,7 @@ import { Order } from 'src/app/Models/Order';
   providedIn: 'root'
 })
 export class OrderService {
+  
 
   constructor (private orderhttp: HttpClient, private router: Router) { }
 
@@ -28,11 +29,15 @@ export class OrderService {
     return this.orderhttp.get("http://localhost:9091/SpringMVC/servlet/showPDF/" + idOrder);
   }
 
- 
-
-  updateOrder(id: number, value: any): Observable<Object> {
-    return this.orderhttp.put(`${"http://localhost:8081/SpringMVC/servlet/modify-order"}/${id}`, value);
+  updateOrder(order : Order): Observable<any> {
+    return this.orderhttp.put("http://localhost:9091/SpringMVC/servlet/modify-order", order);
   }
+
+  getOrder(id: number): Observable<any> {
+    return this.orderhttp.get(`${"http://localhost:9091/SpringMVC/servlet/order"}/${id}`);
+  }
+
+
 
   getOrderbyid(idOrder : number) {
     return this.orderhttp.get("http://localhost:9091/SpringMVC/servlet/getOrder_by_ID/" + idOrder);

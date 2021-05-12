@@ -45,16 +45,21 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+
 import { AuthorizeclientguardService } from './Services/AuthorizeClientGuard/authorizeclientguard.service';
 import { AuthorizedepmantguardService } from './Services/AuthorizeDepManagerGuard/authorizedepmantguard.service';
 import { AuthorizedeliverymenguardService } from './Services/AuthorizeDeliveryMenGuard/authorizedeliverymenguard.service';
 import { ForgotComponent } from './Components/forgot/forgot.component';
 import { UpdatepasswordComponent } from './Components/updatepassword/updatepassword.component';
 
+import { ProductsViewComponent } from './Components/products-view/products-view.component';
+
+
 
 
 
 const routes: Routes = [
+
 
 
  
@@ -114,8 +119,6 @@ const routes: Routes = [
   
          
       { path: '**', component: HomeComponent }
-
-
 
 ];
 

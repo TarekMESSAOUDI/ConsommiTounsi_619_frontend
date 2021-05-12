@@ -144,6 +144,20 @@
 
 
 
+          <div class="form-group"></div>
+          <label>Product Reduction : </label>
+          <input type="number" required placeholder="reductionProduct" #mqp="ngModel" name="reductionProduct"
+            [(ngModel)]="product.reduction">
+          <!-- <div class="alert alert-danger" *ngIf="mqp.invalid && mqp.touched" >
+            <div *ngIf="mqp.errors.required">Max Quantity Product Is Obilgatory</div>
+            <div *ngIf="mqp.errors.pattern">Invalid Max Quantity Product</div>
+          </div> -->
+          <br>
+
+
+
+
+
           <div class="form-group">
             <label>Product Under Category : </label>
             <select id="underCategory" name="underCategory" (change)="onChange($event.target.value)"
@@ -158,7 +172,7 @@
             <label>Product Department : </label>
             <select id="departmentProduct" name="departmentProduct" (change2)="onChange($event.target.value)"
               [(ngModel)]="product.Department" class="form-control">
-              <option *ngFor="let d of ListDepartments" [value]="d.idDepartment">
+              <option  *ngFor="let d of ListDepartments" [value]="d.idDepartment">
                 {{d.nameDepartment}}
               </option>
             </select>

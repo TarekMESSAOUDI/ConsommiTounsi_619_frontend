@@ -1,81 +1,122 @@
 
-<br />
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <button class="button" routerLink="user"><h3><i class="fa fa-tags" aria-hidden="true"></i>Users</h3></button>
+<!--ESPACE ADMIN-->
+<div>
+  <div class="container-fluid mb-5">
+    <div class="text-center mt-5">
+      <h1>Our Services</h1>
     </div>
-    <div class="col">
-      <button class="button" routerLink="delivery"><h3><i class="fa fa-th" aria-hidden="true"></i>Delivery</h3></button>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box">
+          <div class="our-services settings">
+            <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
+            <h4>Settings</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box">
+          <div class="our-services speedup">
+            <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
+            <h4>Speedup</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box">
+          <div class="our-services privacy">
+            <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
+            <h4>Privacy</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <button class="button" routerLink="/product"><h3><i class="fa fa-cube" aria-hidden="true"></i>Product</h3></button>
-    </div>
-    <div class="col">
-      <button class="button" routerLink="/publicity"><h3><i class="fa fa-balance-scale" aria-hidden="true"></i>Publicity</h3></button>
-    </div>
-  </div>
- 
-
-
-  <div class="row mt-3">
-    <div class="col">
-      <button class="button" routerLink="claims"><h3><i class="fa fa-tags" aria-hidden="true"></i>Claims</h3></button>
-    </div>
-    <div class="col">
-      <button class="button" routerLink="department"><h3><i class="fa fa-th" aria-hidden="true"></i>Department</h3></button>
-    </div>
-    <div class="col">
-      <button class="button" routerLink="sales"><h3><i class="fa fa-cube" aria-hidden="true"></i>Sales</h3></button>
-    </div>
-    <div class="col">
-      <button class="button" routerLink="order"><h3><i class="fa fa-balance-scale" aria-hidden="true"></i>Order</h3></button>
-    </div>
-  </div>
-
-  <div class="row mt-3">
-    <div class="col">
-      <button class="button" routerLink="statistic"><h3><i class="fa fa-tags" aria-hidden="true"></i>Statistic</h3></button>
-    </div>
-    <div class="col">
-      <button class="button" routerLink="comptability"><h3><i class="fa fa-th" aria-hidden="true"></i>Accounting</h3></button>
-    </div>
-    <div class="col">
-      <button class="button" routerLink="cagnotte"><h3><i class="fa fa-cube" aria-hidden="true"></i>Cagnotte</h3></button>
-    </div>
-    <div class="col">
-      <button class="button" routerLink="stock"><h3><i class="fa fa-balance-scale" aria-hidden="true"></i>Stock</h3></button>
-    </div>
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="row mt-5">
-      <div class="col">
-        <button class="col btn btn-dark btn-rounded" routerLink="/home/authentificate" (click)="logOut()"><h2>LogOut</h2></button>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="box">
+          <div class="our-services backups">
+            <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
+            <h4>Backups</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box">
+          <div class="our-services ssl">
+            <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
+            <h4>SSL secured</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box">
+          <div class="our-services database">
+            <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
+            <h4>Database</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <br />
-  <br />
-</div>
+  <a href="/administrator/user" class="nav_link">
+    <i class='bx bx-user nav_icon'></i>
+    <span class="nav_name">Users</span>
+  </a>
+  <a routerLink="delivery" class="nav_logo">
+    <i class='bx bx-layer nav_logo-icon'></i>
+    <span class="nav_logo-name">Delivery</span>
+  </a>
+  <div class="nav_list">
+    <a routerLink="product" class="nav_link active">
+      <i class='bx bx-grid-alt nav_icon'></i>
+      <span class="nav_name">Product</span>
+    </a>
 
-
-
-
-
-
-<!--<div id="shop">
-  <div class="image">
-    <img src="../assets/img/admin.png">
-    <a href="#"></a>
+    <a routerLink="/publicity" class="nav_link">
+      <i class='bx bx-message-square-detail nav_icon'></i>
+      <span class="nav_name">Publicity</span>
+    </a>
+    <a routerLink="claims" class="nav_link">
+      <i class='bx bx-bookmark nav_icon'></i>
+      <span class="nav_name">Claims</span>
+    </a>
+    <a routerLink="department" class="nav_link">
+      <i class='bx bx-folder nav_icon'></i>
+      <span class="nav_name">Department</span>
+    </a>
+    <a routerLink="sales" class="nav_link">
+      <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+      <span class="nav_name">Sales</span>
+    </a>
+    <a routerLink="order" class="nav_link">
+      <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+      <span class="nav_name">Order</span>
+    </a>
+    <a routerLink="statistic" class="nav_link">
+      <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+      <span class="nav_name">Stats</span>
+    </a>
+    <a routerLink="comptability" class="nav_link">
+      <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+      <span class="nav_name">Accounting</span>
+    </a>
+    <a routerLink="cagnotte" class="nav_link">
+      <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+      <span class="nav_name">Cagnotte</span>
+    </a>
+    <a routerLink="stock" class="nav_link">
+      <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+      <span class="nav_name">Stocks</span>
+    </a>
+    <a href="#" class="nav_link">
+      <i class='bx bx-log-out nav_icon'></i>
+      <span class="nav_name">SignOut</span>
+    </a>
   </div>
-</div>-->
-
-
-
-
-
+</div>

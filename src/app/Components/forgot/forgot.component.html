@@ -1,0 +1,28 @@
+<div class="wrapper fadeInDown">
+
+  <div id="formContent">
+    <div class="fadeIn first">
+      <br />
+      <h3 class="col-12 mx-auto">FORGOT PASSWORD ?</h3>
+      <!-- Login Form -->
+      <form name="form" #forgot="ngForm" (ngSubmit)="forgotPassword()">
+
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email" ngModel
+               required #e="ngModel" [(ngModel)]="form.emailUser">
+        <a class="alert alert-danger" *ngIf="e.invalid && e.touched">
+          Email is a Required Field !
+        </a>
+
+        <input routerLink="updatepassword" type="submit" [disabled]="forgot.invalid" class="fadeIn fourth" value="Send Mail">
+      </form>
+
+      <div class="alert alert-primary">{{msg}}</div>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="home/createaccount">Dont have an account yet ?</a>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -101,7 +101,9 @@ deleteDepartment(id:number){
   }
 
 
-  
+  logOut() {
+    localStorage.clear();
+  }
     
   
 

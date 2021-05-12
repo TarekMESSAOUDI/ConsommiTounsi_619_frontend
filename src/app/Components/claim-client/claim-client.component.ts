@@ -12,6 +12,7 @@ export class ClaimClientComponent implements OnInit {
   //ListClaim:Observable<Claim>;
   claim : Claim=new Claim();
   form:any={};
+  submitted = false;
   
 
   constructor(private Cs:ClaimService) { }
@@ -20,11 +21,24 @@ export class ClaimClientComponent implements OnInit {
 
     
   }
-  addClaim() { 
-    this.claim.stateClaim = StateClaim_Order.treat
-    this.Cs.addClaim(this.claim).subscribe(res=>{console.log(res);
-    }
-    );
-
+  newOrder(): void {
+    this.submitted = false;
+    this.claim = new Claim();
   }
+
+  save() {
+    this.claim.stateClaim = StateClaim_Order.treat
+    this.Cs.addClaim(this.claim).subscribe(data => {
+      console.log(data)
+      this.claim = new Claim();
+      
+    }, 
+    error => console.log(error));
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();    
+  }
+
 }

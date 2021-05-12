@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/Models/Order';
@@ -19,6 +20,8 @@ export class OrderAdministratorComponent implements OnInit {
   order: Order = new Order();
   submitted = false;
   id: number;
+  msg = '';
+  public editOrder: Order;
   
 
 
@@ -91,8 +94,9 @@ export class OrderAdministratorComponent implements OnInit {
       gotoList() {
         this.router.navigate(['/administrator/order']);
       }
-    
-   //get order by payment type
+
+ 
+   //get order by id
 
    public getOrderbyid(idOrder : number){
     this.orderService.getOrderbyid(idOrder).subscribe(data => {
@@ -103,6 +107,38 @@ export class OrderAdministratorComponent implements OnInit {
     );
     
   }
+
+  public updateOrder(order : Order): void {
+    this.orderService.updateOrder(order).subscribe(
+      (response: Order) => {
+        console.log(response);
+        this.ngOnInit();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  
+  public onOpenModal(order : Order, mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addEmployeeModal');
+    }
+    if (mode === 'edit') {
+      this.editOrder = order;
+      button.setAttribute('data-target', '#updateEmployeeModal');
+    }
+    
+    container.appendChild(button);
+    button.click();
+  }
+  
   
  
     

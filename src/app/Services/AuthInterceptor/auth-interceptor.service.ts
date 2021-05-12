@@ -9,15 +9,15 @@ import { TokenstorageService } from '../TokenStorage/tokenstorage.service';
 })
 export class AuthInterceptorService implements HttpInterceptor {
 
-  constructor(private token: AuthenticationService) { }
+  constructor(private token: AuthenticationService, private tokens: TokenstorageService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let authReq = req;
-    const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXJlayIsImV4cCI6MTYyMDQzNzA4MCwiaWF0IjoxNjIwNDE5MDgwfQ.5oD8FAnOXmMmrlGKflmXCJCNT_q3SuSJNTBOiX-W9vIxrivOYFMULo6BFvqekpg2Qw98FwewLAk8L7DdPFfiWQ";
+    const token = localStorage.getItem("AuthToken");
     if (token != null) {
       authReq = req.clone({
         headers: req.headers.set(
-          'Authorization', 'Bearer' + token).set('Access-Control-Allow-Origin','*')
+          'Authorization', 'Bearer ' + token)
       });
     }
     return next.handle(authReq);

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { InjectionToken, NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, NgForm, NgModel, ReactiveFormsModule } from '@angular/forms';
@@ -53,9 +52,7 @@ import { EventHomeComponent } from './Components/event-home/event-home.component
 import { UpdateproductComponent } from './Components/updateproduct/updateproduct.component';
 import { DepartmentClientComponent } from './Components/espace-department-client/department-client/department-client.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
-
 import { OrderAdministratorComponent } from './Components/order-administrator/order-administrator.component';
 import { OrderClientComponent } from './Components/order-client/order-client.component';
 import { BillClientComponent } from './Components/bill-client/bill-client.component';
@@ -64,20 +61,21 @@ import { MenuComponent } from './Stripe/menu/menu.component';
 import { ModalComponent } from './Stripe/modal/modal.component';
 import { PaymentComponent } from './Stripe/payment/payment.component';
 import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/detalle-articulo.component';
-
 import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
-
-
 import { NgxStripeModule } from 'ngx-stripe';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { SecondNavComponent } from './Components/second-nav/second-nav.component';
-
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+
+import { ForgotComponent } from './Components/forgot/forgot.component';
+import { UpdatepasswordComponent } from './Components/updatepassword/updatepassword.component';
+
+import { ProductsViewComponent } from './Components/products-view/products-view.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
+
 
 
 
@@ -152,6 +150,12 @@ import { CommentStatsComponent } from './Components/comment-stats/comment-stats.
     DeliveryClientComponent,
     CommentStatsComponent,
 
+    ForgotComponent,
+    UpdatepasswordComponent,
+
+    ProductsViewComponent,
+
+
 
 
   ],
@@ -183,7 +187,7 @@ import { CommentStatsComponent } from './Components/comment-stats/comment-stats.
   ],
   entryComponents: [ModalComponent],
   providers: [
-    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
    // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],
   bootstrap: [AppComponent]

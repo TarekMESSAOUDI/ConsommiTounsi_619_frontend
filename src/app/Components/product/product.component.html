@@ -1,17 +1,23 @@
-<div class="container mt-5 mb-5">
+<!-- <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-6" *ngFor="let p of ListProducts">
-           
-           
+
+
             <div class="row p-2 bg-white border rounded mt-2">
-                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src = "{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}"></div>
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image"
+                        src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}"></div>
                 <div class="col-md-6 mt-1">
                     <h5>{{p.titleProduct}}</h5>
                     <div class="d-flex flex-row">
-                        <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>{{p.quantityProduct}}</span>
+                        <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                                class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                        <span>{{p.quantityProduct}}</span>
                     </div>
-                    <div class="mt-1 mb-1 spec-1"><span>wieght :{{p.weightProduct}}</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                    <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span>wieght :{{p.weightProduct}}</span><span
+                            class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best
+                            finish<br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For
+                            men</span><span class="dot"></span><span>Casual<br></span></div>
                     <p class="text-justify text-truncate para mb-0">{{p.descriptionProduct}}<br><br></p>
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">
@@ -20,10 +26,42 @@
                     </div>
                     <h6 class="text-success">New Product</h6>
 
-                    <div class="d-flex flex-column mt-4"> <button type="button" class="btn btn-success" (click)="onSelect(p)" ><i class="fas fa-list">Details</i></button> <button class="btn btn-warning" (click)="onAddToCart(p)" type="button">Add To Chart</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist &hearts; </button></div>
+                    <div class="d-flex flex-column mt-4"> <button type="button" class="btn btn-success"
+                            (click)="onSelect(p)"><i class="fas fa-list">Details</i></button> <button
+                            class="btn btn-warning" (click)="onAddToCart(p)" type="button">Add To Chart</button><button
+                            class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist &hearts; </button>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
-  </div>
+</div> -->
+
+
+
+
+
+
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="row g-1">
+            
+            <div class="col-md-4" *ngFor="let p of ListProducts">
+                <div class="card p-3">
+                    <small style="color: red;">{{p.titleProduct}}</small>
+                    <div class="text-center"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="200"> </div>
+                    <div class="product-details"> <span class="font-weight-bold d-block">DT {{p.buyingPriceProduct}}</span> <span>{{p.descriptionProduct}}</span>
+                        <div class="buttons d-flex flex-row">
+                            <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button class="btn btn-success cart-button btn-block"><span class="dot"></span>Add to cart </button>  
+                        </div>
+                        
+                        <div class="weight"> <small style="color: black;">reduction:{{p.reduction}}% </small> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

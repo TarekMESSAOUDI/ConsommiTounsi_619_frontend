@@ -11,13 +11,15 @@ import { DepartmentService } from 'src/app/Services/Department/department.servic
   styleUrls: ['./department-department-manager.component.css']
 })
 export class DepartmentDepartmentManagerComponent implements OnInit {
-
+ 
   listDepartment : Department[];
   show:boolean;
   showdepartments:boolean;
   department:Department= new Department;
   id:number;
+  depToUpdate: any;
 
+  updatedepInt:boolean;
   public editDep :Department;
 
   alert :boolean=false;
@@ -27,12 +29,17 @@ export class DepartmentDepartmentManagerComponent implements OnInit {
 
 
 
-  ngOnInit() {
-    this.Departmentservice.getallDepartments().subscribe(res=>{console.log(res);
-      this.listDepartment =res});
+  ngOnInit(): void{ this.getallDepartments();
+    
 
   }
+getallDepartments(){
 
+  this.Departmentservice.getallDepartments().subscribe(res=>{console.log(res);
+    this.listDepartment =res});
+
+
+}
   
 
 /*
@@ -93,11 +100,14 @@ deleteDepartment(id:number){
   AddDepatmentshowdiv(){
     this.show=true;
     this.showdepartments=false;
+    this.updatedepInt=false;
+
   }
   
   Viewdepartment(){
     this.show=false;
     this.showdepartments=true;
+    this.updatedepInt=false;
   }
 
 
@@ -107,4 +117,39 @@ deleteDepartment(id:number){
     
   
 
-}
+
+
+  updatedep(id: number, department: Department) {
+    console.log('department', department);
+    console.log('ahawa', this.depToUpdate);
+    this.Departmentservice.updateDep(id, department).subscribe(() =>
+      this.Departmentservice.getallDepartments().subscribe((res) => {
+        this.listDepartment = res;
+      })
+    );
+    this.updatedepInt = false;
+    this.show = true;
+  }
+
+
+  updatedepInterface(id: number, department: Department) {
+    this.updatedepInt = true;
+    this.show = false;
+    console.log(id, department);
+    this.depToUpdate = department;
+    console.log('hhh', this.depToUpdate);
+  }
+
+
+
+  }
+
+
+
+
+
+
+
+
+  
+

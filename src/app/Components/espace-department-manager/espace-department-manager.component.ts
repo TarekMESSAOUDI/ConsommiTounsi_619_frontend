@@ -9,7 +9,9 @@ import { DepartmentService } from 'src/app/Services/Department/department.servic
 })
 export class EspaceDepartmentManagerComponent implements OnInit {
 ListProducts:Product[];
-id:number=1;
+id:number=2;
+
+
   constructor(public deparserv :DepartmentService) { }
 
   ngOnInit(): void {

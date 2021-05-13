@@ -237,7 +237,7 @@ export class ProductAdministratorComponent implements OnInit {
       this.file_upload = res['results'][0].toString()
       var arr = this.file_upload.toString().split('')
       this.tunisianBarCodeCheck = arr.slice(0, 3).join('')
-      this.tunisianBarCodeCheck === "619" ? this.tunisianBarCode = true : this.tunisianBarCode = false
+      this.tunisianBarCodeCheck === "613" ? this.tunisianBarCode = true : this.tunisianBarCode = false
       if (this.tunisianBarCode === false) {
         alert('Your product is not tunisian! Please insert a tunisian product')
       }

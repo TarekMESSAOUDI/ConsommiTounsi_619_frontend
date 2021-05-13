@@ -1,22 +1,25 @@
 
-<table>
-
-
-<div *ngFor="let d of ListDepartment">
-<thead>
-    <tr>
-        <img src="{{'http://localhost:9091/SpringMVC/servlet/depart/'+d.idDepartment}}" width="100" height="150"  class="card-img-top" alt="...">
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>{{d.nameDepartment}}</td>
-      <td>{{d.typeDepartment}}</td>
-      
-    </tr>
-</tbody>
-</div>
 
 
 
-</table>
+
+<section id="content">
+    <div class="container">
+        <div *ngFor="let d of ListDepartment">
+
+        <div id="main">
+            <div class="imageselect row add-clearfix image-imagebox">
+                <div class="col-sm-12">
+                    <article class="imagebox">
+                        <figure> <a href="#"><img src="{{'http://localhost:9091/SpringMVC/servlet/department/'+d.idDepartment}}" alt=""></a>
+                            <figcaption> <span class="price">{{d.typeDepartment}}</span>
+                                <h2 class="caption-title">{{d.nameDepartment}}</h2>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

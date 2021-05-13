@@ -77,6 +77,7 @@ import { SecondNavComponent } from './Components/second-nav/second-nav.component
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
 
 
 
@@ -149,6 +150,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
     CategoryadministratorComponent,
     DeliveryClientComponent,
+    CommentStatsComponent,
 
 
 

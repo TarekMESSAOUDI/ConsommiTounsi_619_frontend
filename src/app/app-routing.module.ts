@@ -45,6 +45,7 @@ import { DetalleArticuloComponent } from './Stripe/articulo/detalle-articulo/det
 import { DetailsproductsComponent } from './Components/detailsproducts/detailsproducts.component';
 import { CategoryadministratorComponent } from './Components/categoryadministrator/categoryadministrator.component';
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
 
 
 
@@ -103,6 +104,8 @@ const routes: Routes = [
       { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent },
       { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent },
       {path:'client/delivery',component:DeliveryClientComponent},
+      {path:'commentstat',component:CommentStatsComponent},
+
          
       { path: '**', component: HomeComponent }
 

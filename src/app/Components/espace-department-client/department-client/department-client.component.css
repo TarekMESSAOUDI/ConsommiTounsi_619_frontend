@@ -1,10 +1,63 @@
-table,
-td {
-    border: 1px solid #333;
+body {
+    background-color: #eee
 }
 
-thead,
-tfoot {
-    background-color: #333;
-    color: #fff;
+.container {
+    margin-top: 100px
+    
+}
+
+.imageselect .imagebox {
+    position: relative
+}
+
+.imageselect .imagebox figure {
+    position: relative;
+    overflow: hidden
+}
+
+.imageselect .imagebox figcaption {
+    background: rgba(45, 62, 82, 0.9);
+    position: absolute;
+    left: 30px;
+    right: 10px;
+    bottom: 10px;
+    padding: 20px;
+    -webkit-transform: translateY(140%);
+    -moz-transform: translateY(140%);
+    -ms-transform: translateY(140%);
+    -o-transform: translateY(140%);
+    transform: translateY(140%);
+    -moz-transition: -moz-transform 0.5s ease;
+    -o-transition: -o-transform 0.5s ease;
+    -webkit-transition: -webkit-transform 0.5s ease;
+    -ms-transition: -ms-transform 0.5s ease;
+    transition: transform 0.5s ease
+}
+
+.imageselect .imagebox .caption-title {
+    margin-bottom: 0;
+    color: #fff
+}
+
+.imageselect .imagebox .price {
+    color: #fdb714
+}
+
+.imageselect .imagebox:hover figcaption {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0)
+}
+
+.price {
+    color: #f0715f;
+    font-size: 1.6667em;
+    text-transform: uppercase;
+    float: right;
+    text-align: right;
+    line-height: 1;
+    display: block
 }

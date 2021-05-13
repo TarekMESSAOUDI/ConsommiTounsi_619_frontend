@@ -50,7 +50,7 @@
         <div class="row g-1">
             
             <div class="col-md-4" *ngFor="let p of ListProducts">
-                <div class="card p-3">
+                <div class="card p-3"   id="pics">
                     <small style="color: red;">{{p.titleProduct}}</small>
                     <div class="text-center"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="200"> </div>
                     <div class="product-details"> <span class="font-weight-bold d-block">DT {{p.buyingPriceProduct}}</span> <span>{{p.descriptionProduct}}</span>

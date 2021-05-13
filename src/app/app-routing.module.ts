@@ -80,7 +80,7 @@ const routes: Routes = [
   { path: 'administrator', component: EsapaceAdministratorComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/user', component: UserComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/delivery', component: DeliveryAdministratorComponent, canActivate: [AuthorizeGuardService] },
-  { path: 'administrator/product', component: ProductAdministratorComponent, canActivate: [AuthorizeGuardService] },
+  
   { path: 'administrator/publicity', component: PublicityAdministratorComponent, canActivate: [AuthorizeGuardService]},
   { path: 'administrator/sales', component: SalesAdministratorComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/claims', component: ClaimAdministratorComponent, canActivate: [AuthorizeGuardService] },
@@ -107,17 +107,20 @@ const routes: Routes = [
   { path: 'client/order', component: OrderClientComponent, canActivate: [AuthorizeclientguardService] },
   { path: 'client/lista', component: ListaArticuloComponent, canActivate: [AuthorizeclientguardService] },
   { path: 'client/detalle/:id', component: DetalleArticuloComponent, canActivate: [AuthorizeclientguardService]},
-  { path: 'Client/department/virtual_visit', component: DepartmentClientComponent, canActivate: [AuthorizeclientguardService] },
+  { path: 'Client/department/virtual_visit', component: DepartmentClientComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'client/delivery', component: DeliveryClientComponent, canActivate: [AuthorizeclientguardService] },
   
   { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent, canActivate: [AuthorizedeliverymenguardService] },
   { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent, canActivate: [AuthorizedeliverymenguardService]},
-  { path: 'products/inmydepartment', component: EspaceDepartmentManagerComponent, canActivate: [AuthorizedeliverymenguardService] },
-  
+
+  { path: 'administrator/product', component: ProductAdministratorComponent, canActivate: [AuthorizedepmantguardService] },
+  { path: 'products/inmydepartment', component: EspaceDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/product', component: ProductDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent, canActivate: [AuthorizedepmantguardService]},
   { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService]},
+  { path: 'departmentmanager/comment', component: CommentStatsComponent, canActivate: [AuthorizedepmantguardService]},
+
  
          
       { path: '**', component: HomeComponent }

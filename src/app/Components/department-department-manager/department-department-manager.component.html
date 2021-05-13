@@ -1,12 +1,10 @@
- 
+
+
  
 <!--  <img src="../assets/img/back2.png">  -->
     
       
-
   
-
-
 
 
 
@@ -27,14 +25,21 @@
            <!-- adding a new department-->
            
            </div>
+
+
+
+           
+ 
+
         </div>
         
            
 
 
            <!--ppeeeee-->
-           <div *ngIf="show">
+           
            <div class="wrapper">
+            <div *ngIf="show">
            <div class="title">
            
            ADD a  new shelf</div>
@@ -106,6 +111,79 @@
            </div>
            
            
+
+<!-- update  department-->
+
+
+<div *ngIf="updatedepInt" class="container" style="padding-top: 100;">
+    <div class="wrapper">
+
+
+
+<div class="title">
+           
+    UPDATE Product</div>
+  
+    <form #H="ngForm">
+      <fieldset>
+        <div class="field">
+          
+          <input type="text" required placeholder="Title Of Product" #t="ngModel" id="titleProduct" name="titleProduct"
+            [(ngModel)]="depToUpdate.nameDepartment">
+          <!-- <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+          <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+      </div> -->
+  
+        </div>
+  
+        <div class="field">
+        
+          <input type="text" required placeholder="descriptionProduct" #d="ngModel" id="descriptionProduct"
+            name="descriptionProduct" [(ngModel)]="depToUpdate.typeDepartment">
+          <!-- <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+          <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+          <div *ngIf="d.errors.minlength">Invalid Description</div>
+      </div> -->
+        </div>
+  
+  
+        <div class="field">
+        
+          <input type="number" required placeholder="quantityProduct" #q="ngModel" pattern="[1-9][0-9]"
+            name="quantityProduct" [(ngModel)]="depToUpdate.capacityDepartment">
+          <!-- <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+          <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
+          <div *ngIf="q.errors.minlength">Invalid Quantity</div>
+      </div> -->
+        </div>
+  
+  
+  
+  
+        <button type="button" id="adddepartment" (click)="updatedep(depToUpdate.idDepartment, depToUpdate)"
+          class="btn btn-success">Update
+          Product</button>
+      </fieldset>
+    </form>
+    <br>
+  
+  
+  </div>
+
+
+
+
+
+
+
+    </div>
+    
+
+
+
+
+
+
            </div>
     
 
@@ -158,8 +236,8 @@
     <div class="field">
 
       
-        <button class="btn btn-info" style="margin-left: 10px">Update</button>
-        
+        <button (click)="updatedepInterface(d.idDepartment,d)" class="btn btn-info" style="margin-left: 10px"   type="button" >     Update </button>
+
         <button (click)="deleteDepartment(d.idDepartment)" class="btn btn-info" style="margin-left: 10px"   type="button" > DELETE </button>
         
         </div>
@@ -179,6 +257,9 @@
 </div>
 
 </div>
+
+
+
 
 
 

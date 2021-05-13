@@ -7,7 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
    </head>
 
-  <div class="sidebar">
+  <div class="sidebar" *ngIf="Showsidebare">
     <div class="logo_content">
       
       <i class='bx bx-menu' id="btn" ></i>
@@ -46,11 +46,11 @@
         <span class="tooltip">Stock</span>
       </li>
       <li>
-        <a href="#">
+        <a href="/administrator">
           <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="links_name">Analytics</span>
+          <span class="links_name">Tables</span>
         </a>
-        <span class="tooltip">Analytics</span>
+        <span class="tooltip">Tables</span>
       </li>
       <li>
         <a href="#">

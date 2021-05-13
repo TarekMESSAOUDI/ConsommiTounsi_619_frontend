@@ -30,8 +30,9 @@ export class OrderService {
   }
 
   updateOrder(order : Order): Observable<any> {
-    return this.orderhttp.put("http://localhost:9091/SpringMVC/servlet/modify-order", order);
+    return this.orderhttp.put<Order>("http://localhost:9091/SpringMVC/servlet/modify-order", order);
   }
+
 
   getOrder(id: number): Observable<any> {
     return this.orderhttp.get(`${"http://localhost:9091/SpringMVC/servlet/order"}/${id}`);

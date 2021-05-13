@@ -67,9 +67,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecondNavComponent } from './Components/second-nav/second-nav.component';
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
+
+import { ForgotComponent } from './Components/forgot/forgot.component';
+import { UpdatepasswordComponent } from './Components/updatepassword/updatepassword.component';
+
 import { ProductsViewComponent } from './Components/products-view/products-view.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
 
 
 
@@ -143,7 +148,13 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
     CategoryadministratorComponent,
     DeliveryClientComponent,
+    CommentStatsComponent,
+
+    ForgotComponent,
+    UpdatepasswordComponent,
+
     ProductsViewComponent,
+
 
 
 
@@ -176,7 +187,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   ],
   entryComponents: [ModalComponent],
   providers: [
-    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
    // { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }
   ],
   bootstrap: [AppComponent]

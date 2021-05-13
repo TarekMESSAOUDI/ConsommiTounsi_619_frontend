@@ -284,8 +284,6 @@
             <th scope="col">Birth</th>
             <th scope="col">Email</th>
             <th scope="col">Sexe</th>
-            <th scope="col">R.Token</th>
-            <th scope="col">Private</th>
             <th scope="col">Salary</th>
             <th scope="col">Point</th>
             <th scope="col">Avilaibility</th>
@@ -309,8 +307,6 @@
             <td><small>{{u.birthDateUser}}</small></td>
             <td><small>{{u.emailUser}}</small></td>
             <td><small>{{u.sexeUser}}</small></td>
-            <td><small>{{u.resettoken}}</small></td>
-            <td><small>{{u.isPrivate}}</small></td>
             <td><small>{{u.salaire}}</small></td>
             <td><small>{{u.pointnumber}}</small></td>
             <td><small>{{u.avilaibility}}</small></td>
@@ -326,7 +322,7 @@
 
   <!-- Update User-->
 
-  <div class="container login-container" *ngIf="ShowUser" (ngSubmit)="updateUser(user)">
+  <div class="container login-container" *ngIf="ShowUser" (ngSubmit)="updateUser()">
     <div class="col-md-16 login-form-1">
       <h3 class="col-5 mx-auto">UPDATE THIS USER</h3>
       <form>
@@ -383,7 +379,7 @@
         </div>
       </form>
       <div class="d-grid gap-5 col-3 mx-auto">
-        <button (click)="updateUser(user)" type="button" class="btn btn-success btn-lg"> Update </button>
+        <button (click)="updateUser()" type="button" class="btn btn-success btn-lg"> Update </button>
       </div>
     </div>
   </div>

@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecondNavComponent implements OnInit {
 
+  Showsidebare: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem("AuthAuthorities").includes("DEPARTMENTMANAGER")) {
+      this.Showsidebare = true;
+    }
   }
 
 }

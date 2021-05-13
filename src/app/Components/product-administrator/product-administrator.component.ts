@@ -238,6 +238,7 @@ export class ProductAdministratorComponent implements OnInit {
     // Launch post request
 
     return this.prodSerivce.ZxingReader(body).subscribe((res) => {
+
       this.file_upload = res['results'][0].toString();
       console.log('image Complte', res);
       var arr = this.file_upload.toString().split('');
@@ -245,6 +246,7 @@ export class ProductAdministratorComponent implements OnInit {
       this.tunisianBarCodeCheck === '613'
         ? (this.tunisianBarCode = true)
         : (this.tunisianBarCode = false);
+
       if (this.tunisianBarCode === false) {
         alert('Your product is not tunisian! Please insert a tunisian product');
       }

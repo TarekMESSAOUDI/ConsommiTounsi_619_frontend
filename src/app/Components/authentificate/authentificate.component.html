@@ -16,13 +16,15 @@
           Username is a Required Field !
         </a>
 
-        <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password"
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"
                ngModel required #p="ngModel" [(ngModel)]="form.password">
+
+
         <a class="alert alert-danger" *ngIf="p.invalid && p.touched">
           Password is a Required Field !
         </a>
 
-        <input href="client" type="submit" [disabled]="auth.invalid"  class="fadeIn fourth" value="Log In" (click)="authenticat()">
+        <input href="client" type="submit" [disabled]="auth.invalid" class="fadeIn fourth" value="Log In" (click)="authenticat()">
       </form>
 
       <div class="alert alert-primary">{{msg}}</div>
@@ -31,7 +33,11 @@
       <div id="formFooter">
         <a class="underlineHover" href="home/createaccount">Dont have an account yet ?</a>
       </div>
+      <div id="formFootera">
+        <a class="underlineHover" href="home/forgot" >Forgot Your Password ?</a>
+      </div>
     </div>
   </div>
-
 </div>
+
+

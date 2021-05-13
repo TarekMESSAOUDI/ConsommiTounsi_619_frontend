@@ -15,9 +15,9 @@
         <div class="mega-box">
           <div class="content">
             <div class="row">
-              <!-- <img src="img.jpg" alt=""> -->
+              
               <ul class="mega-links" *ngFor="let c of ListUnderCategories">
-                <!--   -->
+                
                 <li *ngIf="c.category.idCategory === x.idCategory" (click)="getProdsByUnderCat(c.idUnderCategory)"><a href="client/products-view/{{c.idUnderCategory}}">{{c.nameUnderCategory}}</a></li>
               </ul>
             </div>

@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit {
   selectedProduct:Product;
   ListProducts:Product[];
   user:User;
+  productName:string;
  
   
   constructor(private prodClientServ:ProductService,private router:Router) { 
@@ -40,6 +41,18 @@ export class ProductComponent implements OnInit {
       console.log(product,"product just added ");
      this.productsCart.push(product)
        console.log(this.productsCart.length,'number of products added to cart');
+    }
+
+    searchByName(){
+     
+      if(this.productName!==""){
+        this.ListProducts=this.ListProducts.filter(res=>{
+          return res.titleProduct?.toLocaleLowerCase().match(this.productName?.toLocaleLowerCase())
+        });
+      }else if(this.productName==""){
+        this.ngOnInit();
+      }
+      
     }
     
 }

@@ -42,17 +42,19 @@
 
 
 
-
-
-
+<div class="right" >
+<label for="Search"></label>
+<input type="text" [(ngModel)]="productName" (input)="searchByName()" placeholder="Search By Name..."></div>
+<br>
+<br>
 <div class="wrapper">
     <div class="container">
         <div class="row g-1">
             
             <div class="col-md-4" *ngFor="let p of ListProducts">
-                <div class="card p-3"   id="pics">
-                    <small style="color: red;">{{p.titleProduct}}</small>
-                    <div class="text-center"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="200"> </div>
+                <div class="card p-3">
+                    <h4>{{p.titleProduct}}</h4> 
+                   <div class="text-center"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="200"> </div>
                     <div class="product-details"> <span class="font-weight-bold d-block">DT {{p.buyingPriceProduct}}</span> <span>{{p.descriptionProduct}}</span>
                         <div class="buttons d-flex flex-row">
                             <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button class="btn btn-success cart-button btn-block"><span class="dot"></span>Add to cart </button>  

@@ -18,7 +18,7 @@ export class DepartmentService {
   affectProductURL="http://localhost:9091/SpringMVC/servlet/alteProductToDepartment";
   affectfileURL="http://localhost:9091/SpringMVC/servlet/alteFileToDepartment"
 
-getprodBydep="http://localhost:9091/SpringMVC/servlet/Getprodbydep/"
+getprodBydep="http://localhost:9091/SpringMVC/servlet/Getprodbydep?id="
 
 
   constructor(private Departmenthttp : HttpClient) { }
@@ -31,7 +31,7 @@ getprodBydep="http://localhost:9091/SpringMVC/servlet/Getprodbydep/"
 
 
 
-getallprodindDep(id:number ):Observable<Product[]>{
+getallprodindDep(id):Observable<Product[]>{
   return this.Departmenthttp.get<Product[]>(this.getprodBydep +id );
 }
 

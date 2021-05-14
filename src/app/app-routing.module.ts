@@ -114,7 +114,7 @@ const routes: Routes = [
   { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent, canActivate: [AuthorizedeliverymenguardService]},
 
   { path: 'administrator/product', component: ProductAdministratorComponent, canActivate: [AuthorizedepmantguardService] },
-  { path: 'products/inmydepartment', component: EspaceDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
+  { path: 'products/inmydepartment/:id', component: EspaceDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/product', component: ProductDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent, canActivate: [AuthorizedepmantguardService]},

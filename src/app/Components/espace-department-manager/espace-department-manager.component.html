@@ -3,70 +3,35 @@
 
 
 
-<!--     list of products affected in shelf by iddepartment      -->
+<!--     
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card text-center pt-2">
+        <h2 class="head text-left mb-4">Grocery Checklist</h2>
+        
+        <div *ngFor="let t of ListDepartments">
+    
+            <a href="products/inmydepartment/{{t.idDepartment}}">
+    
+                <i class="{{t.nameDepartment}}"></i>
+                <span>{{t.nameDepartment}}</span>
+            </a>
+    
+        
+        </div>
 
-
-<!--  
-
-
-
-
-
-<div class="container mt-5 mb-5">
-    <div class="d-flex justify-content-center row">
-        <div class="col-md-6" *ngFor="let p of ListProducts">
-           
-           
-            <div class="row p-2 bg-white border rounded mt-2">
-                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src = "{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}"></div>
-                <div class="col-md-6 mt-1">
-                    <h5>{{p.titleProduct}}</h5>
-                    <div class="d-flex flex-row">
-                        <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>{{p.quantityProduct}}</span>
-                    </div>
-                    <div class="mt-1 mb-1 spec-1"><span>wieght :{{p.weightProduct}}</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                    <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                    <p class="text-justify text-truncate para mb-0">{{p.descriptionProduct}}<br><br></p>
-                </div>
-                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                    <div class="d-flex flex-row align-items-center">
-                        <h4 class="mr-1">DT {{p.buyingPriceProduct}}</h4>
-                    </div>
-                    <h6 class="text-success">New Product</h6>
-
-                    
-
-                </div>
+        <div class="d-flex flex-row align-items-center icon"> <img src="https://img.icons8.com/fluent/96/000000/cherry.png" width="30" />
+            <div>
+                <h4 class="mb-0">Berries</h4>
+                <p>blue,rasp etc</p>
             </div>
         </div>
+
     </div>
-  </div>
+</div>
 
 
 
-
-
-
-  -->
-
-<!--    <div class="container mb-5 mt-5">
-    <div class="row">
-        <div class="col-md-4" *ngFor="let p of ListProducts">
-            <div class="card mt-3"  >
-                <div class="product-1 align-items-center p-2 text-center"> <img src= "{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" class="rounded" width="160">
-                    <h5>GARNIER</h5>
-                    <div class="mt-3 info"> <span class="text1 d-block">Garnier Pure Active Miceller</span> <span class="text1">cleansing water. 125 ml </span> </div>
-                    <div class=" cost mt-3 text-dark"> <span>$60</span>
-                        <div class=" star mt-3 align-items-center"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>   -->
-  
+    
 
 
 
@@ -75,13 +40,14 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-3 mt-1" *ngFor="let p of ListProducts">
-            <div class="card">
+
+            <div class="card" >
                 <div class="image-container" id="imagaro">
                     <div class="first">
                         <div class="d-flex justify-content-between alSign-items-center"> <span class="discount">-25%</span> <span class="wishlist"><i class="fa fa-heart-o"></i></span> </div>
                     </div> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}"   class="img-fluid rounded thumbnail-image">
                 </div>
-                <div class="product-detail-container p-2">
+                <div class="product-detail-container p-2" >
                     <div class="d-flex justify-content-between align-items-center">
                         <h5 class="dress-name">{{p.titleProduct}}</h5>
                         <div class="d-flex flex-column mb-2"> <span class="new-price">{{p.buyingPriceProduct}}</span> <small class="old-price text-right">$5.99</small> </div>
@@ -111,3 +77,306 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+     -->
+
+
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" >
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="bg-white rounded d-flex align-items-center justify-content-between" id="header"> <button class="btn btn-hide text-uppercase" type="button" data-toggle="collapse" data-target="#filterbar" aria-expanded="false" aria-controls="filterbar" id="filter-btn" onclick="changeBtnTxt()"> <span class="fas fa-angle-left" id="filter-angle"></span> <span id="btn-txt">Hide filters</span> </button>
+                <nav class="navbar navbar-expand-lg navbar-light pl-lg-0 pl-auto"> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="mynav" aria-expanded="false" aria-label="Toggle navigation" onclick="chnageIcon()" id="icon"> <span class="navbar-toggler-icon"></span> </button>
+                    <div class="collapse navbar-collapse" id="mynav">
+                        <ul class="navbar-nav d-lg-flex align-items-lg-center">
+                            <li class="nav-item active"> <select name="sort" id="sort">
+                                    <option value="" hidden selected>Sort by</option>
+                                    <option value="price">Price</option>
+                                    <option value="popularity">Popularity</option>
+                                    <option value="rating">Rating</option>
+                                </select> </li>
+                            <li class="nav-item d-inline-flex align-items-center justify-content-between mb-lg-0 mb-3">
+                                <div class="d-inline-flex align-items-center mx-lg-2" id="select2">
+                                    <div class="pl-2">Products:</div> <select name="pro" id="pro">
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                </div>
+                                <div class="font-weight-bold mx-2 result">18 from 200</div>
+                            </li>
+                            <li class="nav-item d-lg-none d-inline-flex"> </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="ml-auto mt-3 mr-2">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"> <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true" class="font-weight-bold">&lt;</span> <span class="sr-only">Previous</span> </a> </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">..</a></li>
+                            <li class="page-item"><a class="page-link" href="#">24</a></li>
+                            <li class="page-item"> <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true" class="font-weight-bold">&gt;</span> <span class="sr-only">Next</span> </a> </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="content" class="my-5">
+                <div id="filterbar" class="collapse">
+                    <div class="box border-bottom">
+                        <div class="form-group text-center">
+                            <div class="btn-group" data-toggle="buttons"> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="radio"> Reset </label> <label class="btn btn-success form-check-label active"> <input class="form-check-input" type="radio" checked> Apply </label> </div>
+                        </div>
+                        <div> <label class="tick">New <input type="checkbox" checked="checked"> <span class="check"></span> </label> </div>
+                        <div> <label class="tick">Sale <input type="checkbox"> <span class="check"></span> </label> </div>
+                    </div>
+                    <div class="box border-bottom">
+                        <div class="box-label text-uppercase d-flex align-items-center">YOUR Departments <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#inner-box" aria-expanded="false" aria-controls="inner-box" id="out" onclick="outerFilter()"> <span class="fas fa-plus"></span> </button> </div>
+                   
+                      
+                      
+                      
+                        <div class="my-1"> <label class="tick"> <div *ngFor="let t of ListDepartments">
+                            
+                            <a href="products/inmydepartment/{{t.idDepartment}}">
+                
+                                <span>{{t.nameDepartment}}</span>
+                            </a>
+                      
+                            
+                        
+                        
+                    </div> <input type="checkbox"> <span class="check"></span> </label> </div>
+
+                      
+    
+                            
+                      
+                       
+
+
+
+
+
+
+                    </div>
+                    <div class="box border-bottom">
+                        <div class="box-label text-uppercase d-flex align-items-center">season <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#inner-box2" aria-expanded="false" aria-controls="inner-box2"><span class="fas fa-plus"></span></button> </div>
+                        <div id="inner-box2" class="collapse mt-2 mr-1">
+                            <div class="my-1"> <label class="tick">Spring <input type="checkbox" checked="checked"> <span class="check"></span> </label> </div>
+                            <div class="my-1"> <label class="tick">Summer <input type="checkbox"> <span class="check"></span> </label> </div>
+                            <div class="my-1"> <label class="tick">Autumn <input type="checkbox" checked> <span class="check"></span> </label> </div>
+                            <div class="my-1"> <label class="tick">Winter <input type="checkbox"> <span class="check"></span> </label> </div>
+                            <div class="my-1"> <label class="tick">Rainy <input type="checkbox"> <span class="check"></span> </label> </div>
+                        </div>
+                    </div>
+                    <div class="box border-bottom">
+                        <div class="box-label text-uppercase d-flex align-items-center">price <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#price" aria-expanded="false" aria-controls="price"><span class="fas fa-plus"></span></button> </div>
+                        <div class="collapse" id="price">
+                            <div class="middle">
+                                <div class="multi-range-slider"> <input type="range" id="input-left" min="0" max="100" value="10"> <input type="range" id="input-right" min="0" max="100" value="50">
+                                    <div class="slider">
+                                        <div class="track"></div>
+                                        <div class="range"></div>
+                                        <div class="thumb left"></div>
+                                        <div class="thumb right"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-2">
+                                <div> <span id="amount-left" class="font-weight-bold"></span> uah </div>
+                                <div> <span id="amount-right" class="font-weight-bold"></span> uah </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box-label text-uppercase d-flex align-items-center">size <button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#size" aria-expanded="false" aria-controls="size"><span class="fas fa-plus"></span></button> </div>
+                        <div id="size" class="collapse">
+                            <div class="btn-group d-flex align-items-center flex-wrap" data-toggle="buttons"> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox"> 80 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 92 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 102 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 104 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 106 </label> <label class="btn btn-success form-check-label"> <input class="form-check-input" type="checkbox" checked> 108 </label> </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="products">
+                    <div class="row mx-0">
+                        
+                       
+                        
+                       
+                        
+                        <div class="col-lg-4 col-md-6 pt-md-4 pt-3"   *ngFor="let p of ListProducts">
+                            <div class="card d-flex flex-column align-items-center">
+                                <div class="product-name text-center">{{p.titleProduct}}</div>
+                                <div class="card-img"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}"   class="img-fluid rounded thumbnail-image"> </div>
+                                <div class="card-body pt-5">
+                                    <div class="text-muted text-center mt-auto">Available Colors</div>
+                                    
+                                    <div class="d-flex align-items-center justify-content-center price">
+                                        <div class="font-weight-bold">{{p.buyingPriceProduct}} Dt</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js	" ></script>
+
+      
+      
+      
+      
+      
+      
+      
+      <script>
+
+            // For Filters
+document.addEventListener("DOMContentLoaded", function() {
+var filterBtn = document.getElementById('filter-btn');
+var btnTxt = document.getElementById('btn-txt');
+var filterAngle = document.getElementById('filter-angle');
+
+$('#filterbar').collapse(false);
+var count = 0, count2 = 0;
+function changeBtnTxt() {
+$('#filterbar').collapse(true);
+count++;
+if (count % 2 != 0) {
+filterAngle.classList.add("fa-angle-right");
+btnTxt.innerText = "show filters"
+filterBtn.style.backgroundColor = "#36a31b";
+}
+else {
+filterAngle.classList.remove("fa-angle-right")
+btnTxt.innerText = "hide filters"
+filterBtn.style.backgroundColor = "#ff935d";
+}
+
+}
+
+// For Applying Filters
+$('#inner-box').collapse(false);
+$('#inner-box2').collapse(false);
+
+// For changing NavBar-Toggler-Icon
+var icon = document.getElementById('icon');
+
+function chnageIcon() {
+count2++;
+if (count2 % 2 != 0) {
+icon.innerText = "";
+icon.innerHTML = '<span class="far fa-times-circle" style="width:100%"></span>';
+icon.style.paddingTop = "5px";
+icon.style.paddingBottom = "5px";
+icon.style.fontSize = "1.8rem";
+
+
+}
+else {
+icon.innerText = "";
+icon.innerHTML = '<span class="navbar-toggler-icon"></span>';
+icon.style.paddingTop = "5px";
+icon.style.paddingBottom = "5px";
+icon.style.fontSize = "1.2rem";
+}
+}
+
+// Showing tooltip for AVAILABLE COLORS
+$(function () {
+$('[data-tooltip="tooltip"]').tooltip()
+})
+
+// For Range Sliders
+var inputLeft = document.getElementById("input-left");
+var inputRight = document.getElementById("input-right");
+
+var thumbLeft = document.querySelector(".slider > .thumb.left");
+var thumbRight = document.querySelector(".slider > .thumb.right");
+var range = document.querySelector(".slider > .range");
+
+var amountLeft = document.getElementById('amount-left')
+var amountRight = document.getElementById('amount-right')
+
+function setLeftValue() {
+var _this = inputLeft,
+min = parseInt(_this.min),
+max = parseInt(_this.max);
+
+_this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+
+var percent = ((_this.value - min) / (max - min)) * 100;
+
+thumbLeft.style.left = percent + "%";
+range.style.left = percent + "%";
+amountLeft.innerText = parseInt(percent * 100);
+}
+setLeftValue();
+
+function setRightValue() {
+var _this = inputRight,
+min = parseInt(_this.min),
+max = parseInt(_this.max);
+
+_this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+
+var percent = ((_this.value - min) / (max - min)) * 100;
+
+amountRight.innerText = parseInt(percent * 100);
+thumbRight.style.right = (100 - percent) + "%";
+range.style.right = (100 - percent) + "%";
+}
+setRightValue();
+
+inputLeft.addEventListener("input", setLeftValue);
+inputRight.addEventListener("input", setRightValue);
+
+inputLeft.addEventListener("mouseover", function () {
+thumbLeft.classList.add("hover");
+});
+inputLeft.addEventListener("mouseout", function () {
+thumbLeft.classList.remove("hover");
+});
+inputLeft.addEventListener("mousedown", function () {
+thumbLeft.classList.add("active");
+});
+inputLeft.addEventListener("mouseup", function () {
+thumbLeft.classList.remove("active");
+});
+
+inputRight.addEventListener("mouseover", function () {
+thumbRight.classList.add("hover");
+});
+inputRight.addEventListener("mouseout", function () {
+thumbRight.classList.remove("hover");
+});
+inputRight.addEventListener("mousedown", function () {
+thumbRight.classList.add("active");
+});
+inputRight.addEventListener("mouseup", function () {
+thumbRight.classList.remove("active");
+});
+});
+        </script>
+
+    </body>
+
+    
+
+
+   
+
+

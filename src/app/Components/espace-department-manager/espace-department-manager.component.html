@@ -149,7 +149,7 @@
                             
                             <a href="products/inmydepartment/{{t.idDepartment}}">
                 
-                                <span>{{t.nameDepartment}}</span>
+                                <div>{{t.nameDepartment}}</div>
                             </a>
                       
                             
@@ -217,11 +217,14 @@
                                 <div class="product-name text-center">{{p.titleProduct}}</div>
                                 <div class="card-img"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}"   class="img-fluid rounded thumbnail-image"> </div>
                                 <div class="card-body pt-5">
-                                    <div class="text-muted text-center mt-auto">Available Colors</div>
+                                    <div class="text-muted text-center mt-auto">{{p.descriptionProduct}}</div>
                                     
                                     <div class="d-flex align-items-center justify-content-center price">
-                                        <div class="font-weight-bold">{{p.buyingPriceProduct}} Dt</div>
+                                        <div class="font-weight-bold">Buying price: {{p.buyingPriceProduct}} Dt</div>
+                                        
+
                                     </div>
+                                    <div class="font-weight-bold">Price :{{p.priceProduct}} Dt</div>
                                 </div>
                             </div>
                         </div>

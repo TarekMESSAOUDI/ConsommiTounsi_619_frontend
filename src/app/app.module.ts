@@ -132,9 +132,7 @@ import { CommentStatsComponent } from './Components/comment-stats/comment-stats.
     EventHomeComponent,
     UpdateproductComponent,
     DepartmentClientComponent,
-
     DetailsproductsComponent,
-
     OrderAdministratorComponent,
     OrderClientComponent,
     BillClientComponent,
@@ -143,22 +141,15 @@ import { CommentStatsComponent } from './Components/comment-stats/comment-stats.
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
-
     SecondNavComponent,
-
     CategoryadministratorComponent,
     DeliveryClientComponent,
     CommentStatsComponent,
-
     ForgotComponent,
     UpdatepasswordComponent,
-
-    ProductsViewComponent,
-
-
-
-
+    ProductsViewComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -191,27 +191,27 @@ export class ProductAdministratorComponent implements OnInit {
   //     );
   // }
 
-  // onSelectFile(event) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-  //     this.userFile = file;
+  onSelectFile(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.userFile = file;
 
-  //     var mimeType = event.target.files[0].type;
-  //     if (mimeType.match(/image\/*/) == null) {
-  //       this.message = "Only images are supported.";
-  //       return;
-  //     }
+      var mimeType = event.target.files[0].type;
+      if (mimeType.match(/image\/*/) == null) {
+        this.message = "Only images are supported.";
+        return;
+      }
 
-  //     var reader = new FileReader();
+      var reader = new FileReader();
 
-  //     this.imagePath = file;
-  //     reader.readAsDataURL(file);
-  //     reader.onload = (_event) => {
-  //       this.imgURL = reader.result;
-  //     }
-  //   }
+      this.imagePath = file;
+      reader.readAsDataURL(file);
+      reader.onload = (_event) => {
+        this.imgURL = reader.result;
+      }
+    }
 
-  // }
+  }
 
   createForm() {
     this.form = this.fb.group({

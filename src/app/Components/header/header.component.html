@@ -51,30 +51,25 @@
         <div class="col-md-4 clearfix">
           <div class="header-ctn">
 
-<!--Event -->
-<div class="evento">
-  <a href="home/event">
-    <i class="fa fa-user"></i>
-    <span routerLink="home/event"> {{"event" | translate }}</span>
-    
-    
-  </a>
-</div>
-<!--Event-->
+            <!--Event -->
+            <div class="evento">
+              <a href="home/event">
+                <i class="fa fa-user"></i>
+                <span routerLink="home/event"> {{"event" | translate }}</span>
+
+
+              </a>
+            </div>
+            <!--Event-->
 
             <div class="froumo">
               <a href="/home/forum">
                 <i class="fa fa-heart"></i>
-                <span >Forum</span>
-               
+                <span>Forum</span>
+
               </a>
             </div>
             <!-- /Forum -->
-
-            
-
-            
-
             <!--Basket-->
             <div class="basketo">
               <a href="/home/basket">
@@ -84,14 +79,10 @@
               </a>
             </div>
             <!--Basket-->
-
-
             <!--Sign in-->
             <div class="sign ">
               <a>
                 <i class="fa fa-user"></i>
-
-
                 <a href="/home/authentificate">
                   <small *ngIf="NotConnected">Sign In</small>
                 </a>
@@ -99,50 +90,44 @@
                 <a href="/administrator">
                   <small *ngIf="Admin">{{user}}</small>
                 </a>
-                <br />
-                <a href="/home/authentificate">
-                  <small *ngIf="Admin" (click)="logOut()">LogOut</small>
-
-                </a>
-
                 <a href="/client">
                   <small *ngIf="Client">{{user}}</small>
                 </a>
-                <br />
-                <a href="/home/authentificate">
-                  <small *ngIf="Client" (click)="logOut()">LogOut</small>
-                </a>
-
                 <a href="/departmentmanager/department">
                   <small *ngIf="DepartmentManager">{{user}}</small>
                 </a>
-                <br />
-                <a href="/home/authentificate">
-                  <small *ngIf="DepartmentManager" (click)="logOut()">LogOut</small>
-                </a>
-
                 <a href="/deliveryperson">
                   <small *ngIf="DeliveryPerson">{{user}}</small>
                 </a>
                 <br />
                 <a href="/home/authentificate">
-                  <small *ngIf="DeliveryPerson" (click)="logOut()">LogOut</small>
+                  <small *ngIf="Admin || DepartmentManager || Client || DeliveryPerson" (click)="logOut()">LogOut</small>
                 </a>
-
               </a>
             </div>
             <!--Sign in-->
+            <!--Basket-->
+            <div class="depo">
+              <a href="Client/departments">
+                <i class="fa fa-university"></i>
+                <span>{{"department" | translate }}</span>
+              </a>
+            </div>
+            <!--Basket-->
+            <!--Basket-->
+            <div class="lang">
+              <a>
+                <div class="btn-group">
+                  <button class="button" (click)="translate.use('en')" mat-raised-button color="accent">en</button>
 
+                  <button class="button" (click)="translate.use('fr')" mat-raised-button color="accent">fr</button>
 
+                </div>
+                <span></span>
+              </a>
+            </div>
+            <!--Basket-->
 
-<!--Basket-->
-<div class="depo">
-  <a href="Client/departments">
-    <i class="fa fa-university"></i>
-    <span>{{"department" | translate }}</span>
-    </a>
-</div>
-<!--Basket-->
 
 <!--Basket-->
 <div class="lang">
@@ -161,13 +146,12 @@
 
 
 
+            <div class="eng">
+              <a href="">
 
-<div class="eng">
-  <a href="">
-   
-    
-    </a>
-</div>
+
+              </a>
+            </div>
 
 
           </div>

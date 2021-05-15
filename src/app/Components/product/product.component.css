@@ -171,9 +171,18 @@ body {
     overflow: hidden
 }
 
+.search{
+    width:500px;
+    margin:50px ;
+    float:right;
+    top:-40px;
+}
 
 
-
+.right{
+    position: absolute;
+    right: 0;
+}
 
 
 #pics img {

@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   DeliveryPerson: boolean;
   DepartmentManager: boolean;
   Admin: boolean;
+  
   constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router, public translate: TranslateService) { }
 
   ngOnInit(): void {

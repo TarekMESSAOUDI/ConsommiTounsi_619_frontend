@@ -1,57 +1,61 @@
-<div class="field">
-    <button type="button" (click)="ViewClaim()"  id="submitButton" class="btn btn-primary" >Show Claim</button>
-   <!-- <button type="button" (click)="AddClaimshow()"  id="submitButton" class="btn btn-primary" >Delete Claim</button>
-    </div>-->
-
-   <!--<div *ngIf="show">--> 
-      
-  
-
-
-        
-   
-
-       
-    
-   <div *ngIf="show"> 
-
-
-
-
-
-
-
-
-
-
-
-
-<table class="table table-hover">
-            
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Title </th>
-        <th scope="col">description</th>
-        <th scope="col">Date</th>
-      </tr>
-    </thead>
-
-    
-      <tr *ngFor="let c of ListClaim">
-   
-        <td>{{c.idClaim}}</td>
-        <td>{{c.titleClaim}}</td>
-        <td>{{c.descriptionClaim}}</td>
-        <td>{{c.dateClaim}}</td>
-        
-        <div >
-  <button (click)="DeleteClaim(c.idClaim)" type="button" class="btn-danger"> DELETE </button>
+<div class="container">
+  <div class="row mt-3">
+<div class="col">
+  <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
 </div>
-      </tr>
-      
-  
-   
+<div class="col">
+  <button class="button" (click)="ViewClaim()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Show Claim</h3></button>
+</div>
+</div>
+</div>
 
-  </table>
 
+
+
+
+<div *ngIf="show">
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+   <div class="container">
+       <div class="row col-md-6 col-md-offset-2 custyle">
+        <div class=" col-md-6 col-md-offset-2 custyle">
+          
+          
+          
+       <table class="table table-striped custab">
+       <thead>
+           <tr>
+               <th>Id</th>
+               <th>Title</th>
+               <th>description</th>
+               <th>Date</th>
+               
+               
+           </tr>
+       </thead>
+       <tbody>
+           <tr *ngFor="let c of ListClaim">
+               <td>{{c.idClaim}}</td>
+               <td>{{c.titleClaim}}</td>
+               <td>{{c.descriptionClaim}}</td>
+               <td>{{c.dateClaim}}</td>
+            
+               <td class="text-center"><button class="btn btn-danger btn-xs" (click)="DeleteClaim(c.idClaim)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+               
+              
+               
+             </tr>
+       
+       </tbody>
+       </table>
+</div>
+</div>
+
+</div>
+</div>
+</div>

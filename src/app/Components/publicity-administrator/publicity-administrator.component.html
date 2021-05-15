@@ -1,5 +1,5 @@
-<button class="btn btn-warning " (click)="showAllPub()">Show All Publicities</button>
-<button class="btn btn-warning" (click)="showInAddPub()">Add New Publicities</button>
+<button type="buttony" class="buttony " id="submitButton" (click)="showAllPub()">Show All Publicities</button>
+<button type="buttony" class="buttony" id="submitButton" (click)="showInAddPub()">Add New Publicities</button>
 
 
 
@@ -43,7 +43,7 @@
                 <td>{{p.mailOwnerPublicity}}</td>
                 <div>
                     <img src="{{'http://localhost:9091/SpringMVC/servlet/ImgPublcities/'+p.idPublicity}}" width="50"
-                        height="200" class="card-img-top" alt="...">
+                        height="200" class="card-img-top" id="pub">
                 </div>
                 <button type="button" class="btn-primary" (click)="updateProductInterface(p.idPublicity,p)">
                     Update</button>

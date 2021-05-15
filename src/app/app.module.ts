@@ -131,9 +131,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     EventHomeComponent,
     UpdateproductComponent,
     DepartmentClientComponent,
-
     DetailsproductsComponent,
-
     OrderAdministratorComponent,
     OrderClientComponent,
     BillClientComponent,
@@ -142,21 +140,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
-
     SecondNavComponent,
-
     CategoryadministratorComponent,
     DeliveryClientComponent,
-
     ForgotComponent,
     UpdatepasswordComponent,
-
-    ProductsViewComponent,
-
-
-
-
+    ProductsViewComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

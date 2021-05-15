@@ -65,7 +65,7 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<any> {
-    return this.userhttp.put(`${this.updateUserURL}/update-user`, user);
+    return this.userhttp.put('http://localhost:9091/SpringMVC/servlet/update-user', user);
   }
 
   getAllUser(): Observable<any> {
@@ -158,5 +158,13 @@ export class UserService {
 
   getMinAgeUser(): Observable<any> {
     return this.userhttp.get(this.getMinAgeUserURL);
+  }
+
+  forgotPassword(email: string) {
+    return this.userhttp.get('http://localhost:9091/SpringMVC/servlet/sendme/' + email);
+  }
+
+  updatePassword(email: string, password: string, confirmPassword: string) {
+    return this.userhttp.put('http://localhost:9091/SpringMVC/servlet/updatepassword/' + email + '/' + password + '/' + confirmPassword, { responseType: 'text' });
   }
 }

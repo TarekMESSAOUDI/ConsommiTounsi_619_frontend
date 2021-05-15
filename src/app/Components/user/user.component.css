@@ -1,6 +1,6 @@
 .custab {
   border: 1px solid #ccc;
-  padding: 5px;
+  padding: 10px;
   margin: 5% 0;
   box-shadow: 3px 3px 2px #ccc;
   transition: 0.5s;
@@ -17,19 +17,21 @@ h1 {
   font-style: italic;
   position: center;
   text-align: center;
+  position: center;
 }
-a{
-    width:80px;
-    height:35px
+a {
+  width: 80px;
+  height: 35px;
+  position: center;
 }
 table {
   position: center;
-  margin: auto;
+  margin: 100px;
   text-align: center;
   border: 1px solid #ccc;
-  padding: 5px;
-  margin: 5% 0;
-  box-shadow: 3px 3px 2px #ccc;
+  padding: 20px;
+  margin: 10% 0;
+  box-shadow: 20px 3px 2px #ccc;
   transition: 0.5s;
 }
 
@@ -38,6 +40,7 @@ body {
   background: -webkit-linear-gradient(to right, #243B55, #141E30); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff;
+  position: center;
 }
 
 .btn-purple-moon {
@@ -200,4 +203,10 @@ h2 {
 
 .button:focus {
   outline: 0;
+}
+
+img{
+    width:60px;
+    height:60px
+    
 }

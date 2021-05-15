@@ -34,12 +34,12 @@ export class User {
  
 
 
-  constructor( username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
+  constructor(iduser: number, username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
                stateUser: boolean, phoneNumberUser: string, adressUser: string, birthDateUser: Date, emailUser: string, sexeUser: SexeType,
     accountNonLocked: boolean, lockTime: Date, resettoken: string, isBlocked: boolean, blockDate: Date,
     unBlockDate: Date, isPrivate: boolean, salaire: number, pointnumber: number, avilaibility: boolean, zone: ZoneMap,
     role: Role) {
-
+    this.idUser = this.idUser;
     this.username = username;
     this.lastNameUser = lastNameUser;
     this.cinUser = cinUser;

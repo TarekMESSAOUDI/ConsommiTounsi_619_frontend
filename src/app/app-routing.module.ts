@@ -54,6 +54,7 @@ import { ForgotComponent } from './Components/forgot/forgot.component';
 import { UpdatepasswordComponent } from './Components/updatepassword/updatepassword.component';
 
 import { ProductsViewComponent } from './Components/products-view/products-view.component';
+import { AuthorizeforgotguardServiceService } from './Services/AuthorizeforgotguardService/authorizeforgotguard-service.service';
 
 
 
@@ -75,7 +76,6 @@ const routes: Routes = [
   { path: 'home/authentificate', component: AuthentificateComponent },
   { path: 'home/createaccount', component: CreateaccountComponent },
   { path: 'home/forgot', component: ForgotComponent },
-  { path: 'home/forgot/updatepassword', component: UpdatepasswordComponent },
 
   { path: 'administrator', component: EsapaceAdministratorComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/user', component: UserComponent, canActivate: [AuthorizeGuardService] },
@@ -118,11 +118,12 @@ const routes: Routes = [
   { path: 'departmentmanager/product', component: ProductDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent, canActivate: [AuthorizedepmantguardService]},
+
+  { path: 'home/forgot/updatepassword', component: UpdatepasswordComponent, canActivate: [AuthorizeforgotguardServiceService] },
+
   { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService]},
   { path: 'departmentmanager/comment', component: CommentStatsComponent, canActivate: [AuthorizedepmantguardService]},
 
- 
-         
       { path: '**', component: HomeComponent }
 
 ];

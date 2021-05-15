@@ -1,14 +1,20 @@
-<div class="container" id="main-container" style="background-color:grey;">
-  <h3>Department Manager Products Home </h3>
-  <button type="button" (click)="ViewProducts()" class="btn btn-primary">SHOW PRODUCTS </button>
-  <button type="button" (click)="AddProdShowDiv()" class="btn btn-primary">ADD NEW PRODUCT</button>
+
+  
+
+<div class="container" id="main-container" >
+  <h3 >Department Manager Products Home </h3>
+  <button type="buttony" id="submitButton" (click)="ViewProducts()" class="buttony">SHOW PRODUCTS </button>
+  <button type="buttony" id="submitButton" (click)="AddProdShowDiv()" class="buttony">ADD NEW PRODUCT</button>
 
 
 
   <!-- AFFICHAGE DES PRODUITS AVEC OPTION DELETE-->
 
-  <div *ngIf="show" class="card-deck">
-    <table class="table caption-top">
+  <div *ngIf="show" class="card-deck" >
+    
+      
+   
+    <table id="rcorners2" class="table caption-top" style="background-color:white; ">
 
       <tr>
         <th scope="col">#</th>
@@ -41,13 +47,14 @@
         <button (click)="deleteProduct(p.idProduct)" type="button" class="btn-danger"> DELETE </button>
       </tr>
     </table>
+  
   </div>
 
   <!-- FORMULAIRE D'AJOUT D'UN NOUVEAU PRODUITS -->
 
 
 
-  <div *ngIf="showIntAddProd" class="container" style="padding-top: 100;">
+  <div *ngIf="showIntAddProd" class="container" style="background-color: white;display: block;margin:auto">
     <h1>BarcodeReader</h1>
 
     <form (ngSubmit)="ReadBarcode()" [formGroup]="form">
@@ -58,7 +65,7 @@
     <div *ngIf="tunisianBarCode; else elseBlock">
 
 
-      <form #F="ngForm">
+      <form #F="ngForm" style="background-color: white;display: block;margin:auto">
         <h1>ADD NEW PRODUCTS INTERFACE</h1>
         <fieldset>
           <div class="form-group">
@@ -182,7 +189,7 @@
 
 
           <label>Product Image</label>
-          <input type="file" name="file" [(ngModel)]="product.fileName"><br>
+          <input type="file" name="file" [(ngModel)]="product.fileName"  ><br>
 
 
           <button type="button" type="submit" id="addProductToDatabase" (click)="addProduct()"
@@ -200,7 +207,7 @@
 
 <!-- Updated view product-->
 
-<div *ngIf="updateProductInt" class="container" style="padding-top: 100;">
+<div *ngIf="updateProductInt" class="container" style="padding-top: 100;background-color:white;width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
   <h1>UPDATE Product</h1>
 
   <form #H="ngForm">
@@ -295,3 +302,7 @@
 
 
 </div>
+
+
+
+

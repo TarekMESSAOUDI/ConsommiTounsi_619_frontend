@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../Services/User/user.service';
 
 @Component({
   selector: 'app-forgot',
@@ -8,12 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class ForgotComponent implements OnInit {
   msg = '';
   form: any = {};
-  constructor() { }
+  email: string;
+  constructor(private userservice: UserService) { }
 
   ngOnInit(): void {
   }
 
   forgotPassword() {
+    this.email = this.form.emailUser;
+    this.userservice.forgotPassword(this.email).subscribe(
+      data => {
+        console.log(data)
+        this.msg = 'User Adeded Succesfuly';
+        this.form = " ";
+      },
+      error => {
+        console.log(error)
+        this.msg = 'cannot found user with this email';
+        this.form = " ";
+      });
 
   }
 

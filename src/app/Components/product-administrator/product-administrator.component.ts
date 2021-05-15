@@ -191,27 +191,27 @@ export class ProductAdministratorComponent implements OnInit {
   //     );
   // }
 
-  // onSelectFile(event) {
-  //   if (event.target.files.length > 0) {
-  //     const file = event.target.files[0];
-  //     this.userFile = file;
+  onSelectFile(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.userFile = file;
 
-  //     var mimeType = event.target.files[0].type;
-  //     if (mimeType.match(/image\/*/) == null) {
-  //       this.message = "Only images are supported.";
-  //       return;
-  //     }
+      var mimeType = event.target.files[0].type;
+      if (mimeType.match(/image\/*/) == null) {
+        this.message = "Only images are supported.";
+        return;
+      }
 
-  //     var reader = new FileReader();
+      var reader = new FileReader();
 
-  //     this.imagePath = file;
-  //     reader.readAsDataURL(file);
-  //     reader.onload = (_event) => {
-  //       this.imgURL = reader.result;
-  //     }
-  //   }
+      this.imagePath = file;
+      reader.readAsDataURL(file);
+      reader.onload = (_event) => {
+        this.imgURL = reader.result;
+      }
+    }
 
-  // }
+  }
 
   createForm() {
     this.form = this.fb.group({
@@ -238,6 +238,7 @@ export class ProductAdministratorComponent implements OnInit {
     // Launch post request
 
     return this.prodSerivce.ZxingReader(body).subscribe((res) => {
+
       this.file_upload = res['results'][0].toString();
       console.log('image Complte', res);
       var arr = this.file_upload.toString().split('');
@@ -245,6 +246,7 @@ export class ProductAdministratorComponent implements OnInit {
       this.tunisianBarCodeCheck === '613'
         ? (this.tunisianBarCode = true)
         : (this.tunisianBarCode = false);
+
       if (this.tunisianBarCode === false) {
         alert('Your product is not tunisian! Please insert a tunisian product');
       }

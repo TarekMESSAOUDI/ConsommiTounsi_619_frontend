@@ -250,65 +250,63 @@
 
   <!-- Show All Users-->
 
-  <div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
-
-    <div class=" col-md-6 col-md-offset-2 custyle">
-      <div>
-        <a class="btn btn-primary" (click)="getUserByName(u.username)">Search</a>
-      </div>
-      <br />
-      <input class="form-control" [(ngModel)]="u.username" />
-      <table class="table table-striped custab">
-        <thead>
-          <tr>
-            <th>Action</th>
-
-            <th scope="col">Image</th>
-            <th scope="col">Id</th>
-            <th scope="col">F.Name</th>
-            <th scope="col">L.Name</th>
-            <th scope="col">CIN</th>
-            <th scope="col">State</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Adress</th>
-            <th scope="col">BirthDate</th>
-            <th scope="col">Email</th>
-            <th scope="col">Sexe</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Avilaibility</th>
-            <th scope="col">Zone</th>
-            <th scope="col">Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let u of ListUsers">
-            <td class="text-center col-3">
-              <a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a>
-              <br />
-              <a (click)="showUser(u)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a>
-            </td>
-            <img src="{{'http://localhost:9091/SpringMVC/servlet/Imguserss/'+u.idUser}}"
-                 class="card-img-top">
-            <th scope="row"><small>{{u.idUser}}</small></th>
-
-            <td><small>{{u.username}}</small></td>
-            <td><small>{{u.lastNameUser}}</small></td>
-            <td><small>{{u.cinUser}}</small></td>
-            <td><small>{{u.stateUser}}</small></td>
-            <td><small>{{u.phoneNumberUser}}</small></td>
-            <td><small>{{u.adressUser}}</small></td>
-            <td><small>{{u.birthDateUser}}</small></td>
-            <td><small>{{u.emailUser}}</small></td>
-            <td><small>{{u.sexeUser}}</small></td>
-            <td><small>{{u.salaire}}</small></td>
-            <td><small>{{u.avilaibility}}</small></td>
-            <td><small>{{u.zone}}</small></td>
-            <td><small>{{u.role}}</small></td>
-          </tr>
-        </tbody>
-      </table>
+<div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
+  
+  <div class=" col-md-6 col-md-offset-2 custyle">
+    <div>
+      <input type="text" #myInput [(ngModel)]="username" (input)="Search()" class="form-control" placeholder="Search …">
     </div>
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th>Action</th>
+
+          <th scope="col">Image</th>
+          <th scope="col">Id</th>
+          <th scope="col">F.Name</th>
+          <th scope="col">L.Name</th>
+          <th scope="col">CIN</th>
+          <th scope="col">State</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Adress</th>
+          <th scope="col">BirthDate</th>
+          <th scope="col">Email</th>
+          <th scope="col">Sexe</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Avilaibility</th>
+          <th scope="col">Zone</th>
+          <th scope="col">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of ListUsers">
+          <td class="text-center col-3">
+            <a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            <br />
+            <a (click)="showUser(u)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a>
+          </td>
+          <img src="{{'http://localhost:9091/SpringMVC/servlet/Imguserss/'+u.idUser}}"
+               class="card-img-top">
+          <th scope="row"><small>{{u.idUser}}</small></th>
+
+          <td><small>{{u.username}}</small></td>
+          <td><small>{{u.lastNameUser}}</small></td>
+          <td><small>{{u.cinUser}}</small></td>
+          <td><small>{{u.stateUser}}</small></td>
+          <td><small>{{u.phoneNumberUser}}</small></td>
+          <td><small>{{u.adressUser}}</small></td>
+          <td><small>{{u.birthDateUser}}</small></td>
+          <td><small>{{u.emailUser}}</small></td>
+          <td><small>{{u.sexeUser}}</small></td>
+          <td><small>{{u.salaire}}</small></td>
+          <td><small>{{u.avilaibility}}</small></td>
+          <td><small>{{u.zone}}</small></td>
+          <td><small>{{u.role}}</small></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
 
   <!-- Update User-->
 

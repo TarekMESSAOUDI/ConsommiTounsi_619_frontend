@@ -21,6 +21,8 @@ export class UserComponent implements OnInit {
   AddUsers: boolean;
   ShowUser: boolean;
 
+  nameUser: string;
+
   roleType = Role;
   Keysr(): Array<string> {
     var Keys = Object.keys(this.roleType);
@@ -41,7 +43,8 @@ export class UserComponent implements OnInit {
   }
   user: User;
   usere: User;
-  ListUsers: Observable< User[]>;
+  userf: User[];
+  ListUsers: User[];
   msg = '';
   form: any = {};
   forme: any = {};
@@ -151,4 +154,18 @@ export class UserComponent implements OnInit {
     })
   }
 
+
+  Search() {
+    if (this.username != "") {
+
+
+      this.ListUsers = this.ListUsers.filter(res => {
+        return res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase());
+      });
+    }
+    else if (this.username == "") {
+      this.showAllUsers();
+    }
+
+  }
 }

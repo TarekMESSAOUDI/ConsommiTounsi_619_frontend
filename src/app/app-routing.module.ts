@@ -55,6 +55,7 @@ import { UpdatepasswordComponent } from './Components/updatepassword/updatepassw
 
 import { ProductsViewComponent } from './Components/products-view/products-view.component';
 import { AuthorizeforgotguardServiceService } from './Services/AuthorizeforgotguardService/authorizeforgotguard-service.service';
+import { PdfComponent } from './Components/pdf/pdf.component';
 
 
 
@@ -109,7 +110,7 @@ const routes: Routes = [
   { path: 'client/detalle/:id', component: DetalleArticuloComponent, canActivate: [AuthorizeclientguardService]},
   { path: 'Client/department/virtual_visit', component: DepartmentClientComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'client/delivery', component: DeliveryClientComponent, canActivate: [AuthorizeclientguardService] },
-  
+  { path: 'pdf', component:PdfComponent },
   { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent, canActivate: [AuthorizedeliverymenguardService] },
   { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent, canActivate: [AuthorizedeliverymenguardService]},
 

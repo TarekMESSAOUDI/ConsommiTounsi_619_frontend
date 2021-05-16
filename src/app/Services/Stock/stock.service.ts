@@ -16,6 +16,7 @@ retrieveStocksurl ="http://localhost:9091/SpringMVC/servlet/retrieve-all-Stocks"
 affectproductToStock="http://localhost:9091/SpringMVC/servlet/allocateProductToStock"
 orderproductURL="http://localhost:9091/SpringMVC/servlet/orderProduct"
 updatestockURL="http://localhost:9091/SpringMVC/servlet/update-stock"
+countstock="http://localhost:9091/SpringMVC/servlet/nbstocks"
 
 constructor(private stockhttp : HttpClient) { }
 
@@ -50,6 +51,13 @@ OrderProduct(stock:Stock) {
 
 updateStock(stock:Stock): Observable<Stock>{
   return this.stockhttp.put<Stock>(this.updatestockURL, stock);
+}
+
+
+
+
+getstockstat():Observable<any>{
+  return this.stockhttp.get<any>(this.countstock);
 }
 
 }

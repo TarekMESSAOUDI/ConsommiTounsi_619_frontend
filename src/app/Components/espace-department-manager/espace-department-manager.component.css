@@ -309,7 +309,7 @@ body {
 
 button.btn.btn-hide {
     height: inherit;
-    background-color: #ff935d;
+    background:red;
     color: #fff;
     font-size: 0.82rem;
     padding-left: 40px;
@@ -569,7 +569,9 @@ label {
 }
 
 .card:hover {
-    box-shadow: 2px 2px 15px #fd9a6ce5;
+    box-shadow: 2px 2px 15px rgb(50, 168, 184);
+
+    
     transform: scale(1.02)
 }
 

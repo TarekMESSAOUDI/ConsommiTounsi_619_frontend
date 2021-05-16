@@ -7,6 +7,7 @@ import { PaymentService } from './payment.service';
 import { Router } from '@angular/router';
 import { PaymentIntentDto } from '../model/payment-intent-dto';
 
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -98,4 +99,3 @@ export class PaymentComponent implements OnInit {
   }
 
 }
-

@@ -1,1 +1,39 @@
-<p>department-administrator works!</p>
+<div   >
+
+
+
+
+    <table class="styled-table">
+    <thead>
+    <tr>
+    <th>Department Id</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Capacity</th>
+    <th>visite v</th>
+   
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let d of listDepartment">
+    <td><h6 class="card-title">{{d.idDepartment}}</h6></td>
+    <td><h6 class="card-title">{{d.nameDepartment}}</h6></td>
+    <td><h6 class="cartd-title">{{d.typeDepartment}}</h6></td>
+    <td><h6 class="cartd-title">{{d.capacityDepartment}}</h6></td>
+    
+    <td><img src="{{'http://localhost:9091/SpringMVC/servlet/department/'+d.idDepartment}}" height="200px" width="200px"  class="card-img-top" alt="..."></td>
+    
+   
+    
+    </tr>
+    
+    
+    </tbody>
+    </table>
+    
+    
+    
+    
+    
+    </div>

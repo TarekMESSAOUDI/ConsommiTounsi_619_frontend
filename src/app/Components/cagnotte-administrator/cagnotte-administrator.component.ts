@@ -12,7 +12,7 @@ export class CagnotteAdministratorComponent implements OnInit {
 
   ListCagnotte : any;
   show:boolean;
-  showOrder:boolean;
+  showCagnotte:boolean;
   val:string;
   message:any;
   cagnotte: Cagnotte = new Cagnotte();
@@ -30,14 +30,14 @@ export class CagnotteAdministratorComponent implements OnInit {
   }
 
   
-  AddOrderShow(){
+  AddCagnotteShow(){
     this.show=true;
-    this.showOrder=false;
+    this.showCagnotte=false;
   }
   
-  ViewOrder(){
+  ViewCagnotte(){
     this.show=false;
-    this.showOrder=true;
+    this.showCagnotte=true;
   }
 
   //delete cagnotte

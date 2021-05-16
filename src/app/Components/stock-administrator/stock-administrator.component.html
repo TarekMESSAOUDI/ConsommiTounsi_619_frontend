@@ -1,1 +1,87 @@
-<p>stock-administrator works!</p>
+<div class="container px-5 py-5 mx-auto">
+    
+    <div class="row d-flex justify-content-between">
+        <div class="box box1">
+            <div class="fa fa-cubes fa-3x"></div>
+            <h1>{{nbr}}</h1>
+            <p class="sm-text">Stocks </p> <a href="#">
+                <p class="bottom">the counting of stocks</p>
+            </a>
+        </div>
+        <div class="box box2">
+            <h5 class="pb-3">Linkedin</h5>
+            <h1>+10.000</h1>
+            <p class="sm-text">People working here.</p> <a href="#">
+                <p class="bottom">Connect via Linkedin</p>
+            </a>
+        </div>
+        <div class="box box3">
+            <h5 class="pb-3">Storable raises $200M as Latin American tech investment reaches new highs.</h5>
+            <p class="sm-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> <a href="#">
+                <p class="bottom">Read full article</p>
+            </a>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+<div>
+
+    <div class="row d-flex justify-content-center mt-100">
+        <div class="col-md-4">
+            <input type="text" #myInput  [(ngModel)]="nameStock" (input)="Search()"   class="form-control" placeholder="Search …"> 
+        </div>
+    </div>
+  
+
+    <table class="styled-table">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>quatity stock</th>
+    <th>validity Stock</th>
+    <th>coast stock</th>
+    <th>max Stock</th>
+    <th>min stock</th>
+    <th>capacity Stock</th>
+
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let d of stocks">
+    <td><h6 class="card-title">{{d.nameStock}}</h6></td>
+    <td><h6 class="card-title">{{d.quantityStock}}</h6></td>
+    <td><h6 class="cartd-title">{{d.validityStock}}</h6></td>
+    <td><h6 class="cartd-title">{{d.coastStock}}</h6></td>
+    <td><h6 class="cartd-title">{{d.maxStock}}</h6></td>
+    <td><h6 class="cartd-title">{{d.minStock}}</h6></td>
+    <td><h6 class="cartd-title">{{d.capacityStock}}</h6></td>
+
+
+
+    
+    <td>      </td>
+    
+    
+
+
+    
+    </tr>
+    
+    
+    </tbody>
+    </table>
+    
+    
+    
+    
+    
+    </div>

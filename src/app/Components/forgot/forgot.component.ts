@@ -20,7 +20,7 @@ export class ForgotComponent implements OnInit {
     this.userservice.forgotPassword(this.email).subscribe(
       data => {
         console.log(data)
-        this.msg = 'User Adeded Succesfuly';
+        this.msg = 'Mail Sended Succesfully';
         this.form = " ";
       },
       error => {

@@ -12,14 +12,14 @@ export class CagnotteClientComponent implements OnInit {
 
   ListCagnotte : any;
   show:boolean;
-  showOrder:boolean;
+  showCagnotte:boolean;
   val:string;
   message:any;
   cagnotte: Cagnotte = new Cagnotte();
   submitted = false;
   id: number;
 
-  constructor( private route: ActivatedRoute,private router: Router, private cagnotteService : CagnotteService) { }
+  constructor(private router: Router, private cagnotteService : CagnotteService) { }
 
   ngOnInit(): void {
     this.cagnotte=new Cagnotte();
@@ -30,14 +30,14 @@ export class CagnotteClientComponent implements OnInit {
   }
 
   
-  AddOrderShow(){
+  AddCagnotteShow(){
     this.show=true;
-    this.showOrder=false;
+    this.showCagnotte=false;
   }
   
-  ViewOrder(){
+  ViewCagnotte(){
     this.show=false;
-    this.showOrder=true;
+    this.showCagnotte=true;
   }
 
   //delete cagnotte
@@ -52,7 +52,7 @@ export class CagnotteClientComponent implements OnInit {
 
   //add Cagnotte
 
-  newOrder(): void {
+  newCagnotte(): void {
     this.submitted = false;
     this.cagnotte = new Cagnotte();
   }

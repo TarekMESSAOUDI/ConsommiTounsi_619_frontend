@@ -30,16 +30,17 @@ export class User {
   avilaibility: boolean;
   zone: ZoneMap;
   role: Role;
+  fileName: string;
 
  
 
 
-  constructor( username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
+  constructor(iduser: number, username: string, lastNameUser: string, cinUser: string, password: string, confirmPasswordUser: string,
                stateUser: boolean, phoneNumberUser: string, adressUser: string, birthDateUser: Date, emailUser: string, sexeUser: SexeType,
     accountNonLocked: boolean, lockTime: Date, resettoken: string, isBlocked: boolean, blockDate: Date,
     unBlockDate: Date, isPrivate: boolean, salaire: number, pointnumber: number, avilaibility: boolean, zone: ZoneMap,
-    role: Role) {
-
+    role: Role, fileName: string) {
+    this.idUser = this.idUser;
     this.username = username;
     this.lastNameUser = lastNameUser;
     this.cinUser = cinUser;
@@ -62,7 +63,8 @@ export class User {
     this.pointnumber= pointnumber;
     this.avilaibility= avilaibility;
     this.zone = zone;
-    this.role = Role.CLIENT;
+    this.role = role;
+    this.fileName = fileName;
 
   }
 

@@ -4,8 +4,11 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\Components",
-    "\\src\\app\\Components\\user"
+    "\\src\\app\\Components\\user",
+    "\\src\\app\\Services",
+    "\\src\\app\\Services\\Publicity",
+    "\\src\\app\\Services\\User"
   ],
-  "SelectedNode": "\\src\\app\\Components\\user\\user.component.ts",
+  "SelectedNode": "\\src\\app\\Services\\User\\user.service.ts",
   "PreviewInSolutionExplorer": false
 }

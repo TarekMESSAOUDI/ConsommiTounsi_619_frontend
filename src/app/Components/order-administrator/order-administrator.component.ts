@@ -2,7 +2,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/Models/Order';
-import { PaymentType } from 'src/app/Models/PaymentType';
 import { OrderService } from 'src/app/Services/Order/order.service';
 
 @Component({

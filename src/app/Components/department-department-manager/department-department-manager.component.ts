@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/Models/Department';
+import { TypeDepartment } from 'src/app/Models/TypeDepartment';
 import { DepartmentService } from 'src/app/Services/Department/department.service';
 
 @Component({
@@ -23,6 +24,16 @@ export class DepartmentDepartmentManagerComponent implements OnInit {
   public editDep :Department;
 
   alert :boolean=false;
+
+
+
+
+  typedepartment = TypeDepartment;
+  Keys(): Array<string> {
+    var Keys = Object.keys(this.typedepartment);
+    return Keys;
+  }
+
   constructor(private Departmentservice : DepartmentService) { }
 
 

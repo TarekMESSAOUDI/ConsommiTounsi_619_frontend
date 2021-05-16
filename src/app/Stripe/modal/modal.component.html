@@ -1,15 +1,15 @@
 <div class="modal-header">
-    <h5 class="modal-title">confirm order</h5>
+    <h5 class="modal-title">confirm payment</h5>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
-    <h5>Datos del pago:</h5>
+    <h5>Details of payment:</h5>
     <p><b>ID</b> {{id}}</p>
     <p><b>Nombre</b> {{nombre}}</p>
     <p><b>Description</b> {{descripcion}}</p>
-    <p><b>Prix</b> {{precio / 100}}€</p>
+    <p><b>Prix</b> {{precio}}€</p>
 </div>
 <div class="modal-footer d-flex justify-content-between">
     <button type="button" class="btn btn-success" (click)="confirmar(id)">Confirm</button>

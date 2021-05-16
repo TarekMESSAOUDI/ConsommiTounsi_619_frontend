@@ -21,7 +21,6 @@
             <button type="button" (click)="Viewdepartment()" id="submitButton" class="buttony">Department Database </button>
             <button type="button" (click)="AddDepatmentshowdiv()"  id="submitButton" class="buttony">ADD NEW department</button>
             <button type="button"  id="submitButton" class="buttony"  routerLink="/Client/department/virtual_visit">check your Depatment </button>
-            <button type="button" id="submitButton" class="buttony" (click)="logOut()" routerLink="/home/authentificate">LogOut </button>
            <!-- adding a new department-->
            
            </div>
@@ -36,7 +35,7 @@
            
 
 
-           <!--ppeeeee-->
+           <!--add dep-->
            
            <div class="wrapper">
             <div *ngIf="show">
@@ -69,15 +68,18 @@
            
            <div class="field">
            
-           <label></label>
-           <input type="text" required placeholder="typeDepartment"  #d="ngModel"  id="typeDepartment" name="typeDepartment" [(ngModel)]="department.typeDepartment">
-           <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
-           <div *ngIf="d.errors.required">Description Is Obilgatory</div>
-           <div *ngIf="d.errors.minlength">Invalid Description</div>
-           </div>
+            <select class="form-control" aria-label="Default select example" placeholder="Choose Your Sexe" type="text" name="sexe"
+            ngModel [(ngModel)]="department.typeDepartment">
+      <option *ngFor="let s of Keys()">{{s}}</option>
+    </select>
            </div>
            
            
+
+
+
+
+
            
            
            <div class="field">

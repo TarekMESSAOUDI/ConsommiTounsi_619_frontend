@@ -1,0 +1,309 @@
+
+  
+
+
+
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 1000px;
+    box-shadow: 0 0 25px rgba(6, 60, 34, 0.15);
+    border:1px solid black;margin-left:auto;margin-right:auto;
+}
+.styled-table thead tr {
+  background-color: #808685;
+  color: #ffffff;
+  text-align: left;
+}
+
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #737c7a;
+  size: 20px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    size: 50px;
+}
+
+.titre{
+  position:relative;
+}
+
+
+
+
+.container{
+  margin-top:2%;
+}
+
+
+
+
+body {
+    background-color: #eeeeee59
+}
+
+.footer-subscribe input[type=text] {
+    border: 1px solid #ff3514;
+    border-radius: 55px;
+    font-size: 12px;
+    padding: 12px 40% 12px 20px;
+    background: transparent;
+    width: 98%;
+    box-shadow: none !important
+}
+
+.mt-100 {
+    margin-top: 200px
+}
+
+a,
+button[type="submit"],
+input[type=text] {
+    color: #333;
+    text-decoration: none;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    -ms-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out
+}
+
+.footer-subscribe .btn-theme {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: 0
+}
+
+.btn-theme:hover {
+    box-shadow: none
+}
+
+.btn-theme {
+    color: #FFF !important;
+    padding: 0.5rem 1.9rem;
+    font-weight: 400;
+    font-size: 0.875rem;
+    display: inline-block;
+    display: inline-flex;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 2;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 14px 47px 0px rgba(28, 28, 28, 0.24);
+    -moz-box-shadow: 0px 14px 47px 0px rgba(28, 28, 28, 0.24);
+    box-shadow: 0px 14px 47px 0px rgba(28, 28, 28, 0.24);
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+    border-radius: 70px
+}
+
+.bg-orange {
+    background: #ff3514
+}
+
+
+
+
+
+
+body {
+    background-color: #eee
+  }
+  
+  .badge {
+    font-size: 25px;
+    font-weight: 200
+  }
+  
+    .badge i {
+      font-size: 20px;
+      font-weight: 200
+    }
+  
+  .about-rating {
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px
+  }
+  
+  .total-ratings {
+    font-size: 12px
+  }
+  
+  .bg-custom {
+    background-color: #b7dd29 !important
+  }
+  
+  .text-custom {
+    color: #b7dd29 !important
+  }
+  
+  .progress {
+    margin-top: 2px;
+    border-radius: 0px;
+    padding-left: 0px
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  body {
+    overflow-x: hidden
+}
+
+a {
+    color: #fff
+}
+
+a:hover {
+    color: #E0E0E0
+}
+
+.line {
+    background-color: lightgrey;
+    width: 50px;
+    margin: 12px 7px 25px 7px;
+    border-radius: 50px
+}
+
+.box {
+    width: 30%;
+    padding: 30px 30px 35px 30px;
+    margin-bottom: 20px;
+    height: 400px;
+    position: relative
+}
+
+@media screen and (max-width: 992px) {
+    .box {
+        width: 48%
+    }
+
+    .btn-pink {
+        width: 150px !important
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .box {
+        width: 80%
+    }
+}
+
+.box1 {
+    background-color: #E91E63;
+    color: #fff
+}
+
+.box2 {
+    background-color: #5C6BC0;
+    color: #fff
+}
+
+.box3 {
+    background-color: #42A5F5;
+    color: #fff
+}
+
+.fa-lightbulb-o {
+    color: #E91E63;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 40px;
+    padding: 20px 30px
+}
+
+.btn-pink {
+    border: 1px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    background-color: #E91E63;
+    height: 50px;
+    width: 180px
+}
+
+.btn-pink:hover {
+    color: #E91E63;
+    background-color: #fff
+}
+
+.btn-pink:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.sm-text {
+    font-size: 14px
+}
+
+.bottom {
+    bottom: 20px;
+    position: absolute;
+    width: 150px
+}
+
+.mt-large {
+    margin-top: 120px
+}
+
+.title-btm {
+    font-weight: bold
+}
+
+select {
+    border: 1px solid lightgrey
+}
+
+.red-text {
+    color: red;
+    cursor: pointer
+}
+
+.red-text:hover {
+    text-decoration: underline
+}
+
+.footer-line {
+    border-top: 1px solid lightgrey
+}

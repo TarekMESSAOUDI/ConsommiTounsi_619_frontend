@@ -54,6 +54,7 @@ import { ForgotComponent } from './Components/forgot/forgot.component';
 import { UpdatepasswordComponent } from './Components/updatepassword/updatepassword.component';
 
 import { ProductsViewComponent } from './Components/products-view/products-view.component';
+import { BasketComponent } from './Components/basket/basket.component';
 
 
 
@@ -68,7 +69,7 @@ const routes: Routes = [
   
   { path: 'home', component: HomeComponent },
   { path: 'home/category', component: CategoryComponent },
-  { path: 'home/basket', component: BasketClientComponent },
+  { path: 'home/basket', component: BasketComponent },
   { path: 'home/publicity', component: PublicityHomeComponent },
   { path: 'home/forum', component: ForumHomeComponent },
   { path: 'home/event', component: EventHomeComponent },
@@ -76,7 +77,7 @@ const routes: Routes = [
   { path: 'home/createaccount', component: CreateaccountComponent },
   { path: 'home/forgot', component: ForgotComponent },
   { path: 'home/forgot/updatepassword', component: UpdatepasswordComponent },
-
+  
   { path: 'administrator', component: EsapaceAdministratorComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/user', component: UserComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/delivery', component: DeliveryAdministratorComponent, canActivate: [AuthorizeGuardService] },
@@ -91,12 +92,12 @@ const routes: Routes = [
   { path: 'administrator/comptability', component: ComptabilityAdministratorComponent, canActivate: [AuthorizeGuardService]},
   { path: 'administrator/cagnotte', component: CagnotteAdministratorComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/event', component: EventAdministratorComponent, canActivate: [AuthorizeGuardService]},
-  { path: 'administrator/category', component: CategoryadministratorComponent, canActivate: [AuthorizeGuardService] },
+  { path: 'administrator/category', component: CategoryadministratorComponent },
   { path: 'administrator/order', component: OrderAdministratorComponent, canActivate: [AuthorizeGuardService] },
 
 
   { path: 'client/lista', component: ListaArticuloComponent, canActivate: [AuthorizeclientguardService] },
-  { path: 'client/product/:id', component: DetailsproductsComponent, canActivate: [AuthorizeclientguardService]},
+  { path: 'client/product/:id', component: DetailsproductsComponent},
   { path: 'client', component: EsapaceClientComponent, canActivate: [AuthorizeclientguardService] },
   { path: 'client/home', component: HomeClientComponent, canActivate: [AuthorizeclientguardService]},
   { path: 'client/profile', component: ProfileClientComponent, canActivate: [AuthorizeclientguardService]},
@@ -112,8 +113,8 @@ const routes: Routes = [
   
   { path: 'deliveryperson', component: EsapaceDeliveryPersonComponent, canActivate: [AuthorizedeliverymenguardService] },
   { path: 'deliveryperson/delivery', component: DeliveryDeliveryPersonComponent, canActivate: [AuthorizedeliverymenguardService]},
-
-  { path: 'administrator/product', component: ProductAdministratorComponent, canActivate: [AuthorizedepmantguardService] },
+  {path:  'client/products-view/:id',component:ProductsViewComponent},
+  { path: 'administrator/product', component: ProductAdministratorComponent},
   { path: 'products/inmydepartment', component: EspaceDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/product', component: ProductDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },

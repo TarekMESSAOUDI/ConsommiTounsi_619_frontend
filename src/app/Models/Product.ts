@@ -13,6 +13,8 @@ export class Product {
     fileName: string;
     barcodeProduct: object;
     UnderCategory: UnderCategory;
+    likes:number;
+    reduction:number;
     Department: Department;
 }
 

@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
   ShowUser: boolean;
 
   roleType = Role;
-  Keys(): Array<string> {
+  Keysr(): Array<string> {
     var Keys = Object.keys(this.roleType);
     return Keys;
   }
@@ -39,7 +39,6 @@ export class UserComponent implements OnInit {
     var Keys = Object.keys(this.zoneType);
     return Keys;
   }
-
   user: User;
   usere: User;
   ListUsers: Observable< User[]>;
@@ -64,7 +63,17 @@ export class UserComponent implements OnInit {
     this.AddUsers = true;
     this.ShowAllUsers = false;
     this.ShowUser = false;
-    this.user = new User(this.form.idUser,this.form.username, this.form.lastName, this.form.cinUser, this.form.password, this.form.confirmPasswordUser, this.form.stateUser, this.form.phoneNumberUser, this.form.adressUser, this.form.birthDateUser, this.form.emailUser, this.form.sexeUser, this.form.accountNonLoked, this.form.lockTime, this.form.resettoken, this.form.isBlocked, this.form.blockDate, this.form.unBlockDate, this.form.isPrivate, this.form.salaire, this.form.pointNumber, this.form.avilaibility, this.form.zone, this.form.role)
+    this.user = new User(this.form.idUser, this.form.username, this.form.lastName, this.form.cinUser, this.form.password, this.form.confirmPasswordUser, this.form.stateUser, this.form.phoneNumberUser, this.form.adressUser, this.form.birthDateUser, this.form.emailUser, this.form.sexeUser, this.form.accountNonLoked, this.form.lockTime, this.form.resettoken, this.form.isBlocked, this.form.blockDate, this.form.unBlockDate, this.form.isPrivate, this.form.salaire, this.form.pointNumber, this.form.avilaibility, this.form.zone, this.form.role, this.form.fileName)
+    var startIndex =
+      this.user.fileName.indexOf('\\') >= 0
+        ? this.user.fileName.lastIndexOf('\\')
+        : this.user.fileName.lastIndexOf('/');
+    var filename = this.user.fileName.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+      filename = filename.substring(1);
+    }
+    this.user.fileName = filename;
+    
     this.userservice.ajouterUser(this.user).subscribe(
       data => {
         this.msg = 'User Adeded Succesfuly';
@@ -76,7 +85,7 @@ export class UserComponent implements OnInit {
       }
     )
   }
-  updateUser() {
+  updateUser(us: User) {
 
     this.UpdateUser = true;
     this.AddUsers = false;
@@ -85,13 +94,13 @@ export class UserComponent implements OnInit {
     this.ShowUser = true;
 
     //this.username = this.user.username;
-    this.u = new User(this.forme.idUser,this.forme.username, this.forme.lastName, this.forme.cinUser, this.forme.password, this.forme.confirmPasswordUser, this.forme.stateUser, this.forme.phoneNumberUser, this.forme.adressUser, this.forme.birthDateUser, this.forme.emailUser, this.forme.sexeUser, this.forme.accountNonLoked, this.forme.lockTime, this.forme.resettoken, this.forme.isBlocked, this.forme.blockDate, this.forme.unBlockDate, this.forme.isPrivate, this.forme.salaire, this.forme.pointNumber, this.forme.avilaibility, this.forme.zone, this.forme.role)
-    this.userservice.updateUser(this.u).subscribe(
+    //this.u = new User(this.forme.idUser,this.forme.username, this.forme.lastName, this.forme.cinUser, this.forme.password, this.forme.confirmPasswordUser, this.forme.stateUser, this.forme.phoneNumberUser, this.forme.adressUser, this.forme.birthDateUser, this.forme.emailUser, this.forme.sexeUser, this.forme.accountNonLoked, this.forme.lockTime, this.forme.resettoken, this.forme.isBlocked, this.forme.blockDate, this.forme.unBlockDate, this.forme.isPrivate, this.forme.salaire, this.forme.pointNumber, this.forme.avilaibility, this.forme.zone, this.forme.role)
+    this.userservice.updateUser(us).subscribe(
       data => {
-        console.log(data),
-          
+        console.log(data),  
         this.msg = 'User Updated Succesfuly';
-      },(error) => {
+      },
+      (error) => {
         console.log(error);
         this.msg = 'error';
       });
@@ -141,4 +150,5 @@ export class UserComponent implements OnInit {
       this.user = data;
     })
   }
+
 }

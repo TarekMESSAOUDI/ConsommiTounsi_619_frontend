@@ -1,132 +1,64 @@
-<!--Section: Block Content-->
-<section class="mb-5">
 
-  <div class="row">
-    <div class="col-md-6 mb-4 mb-md-0">
-      <script>
-        $(document).ready(function () {
-          // MDB Lightbox Init
-          $(function () {
-            $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-          });
-        });</script>
+               
+           
 
-      <div id="mdb-lightbox-ui"></div>
-
-      <div class="mdb-lightbox">
-
-        <div class="row product-gallery mx-1">
-
-          <div class="col-12 mb-0">
-            <figure class="view overlay rounded z-depth-1 main-img">
-              <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg" data-size="710x823">
-                <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+id}}" class="img-fluid z-depth-1">
-              </a>
-            </figure>
-
-
-
-          </div>
-          <div class="col-12">
-            <div class="row">
-              <div class="col-3">
-                <div class="view overlay rounded z-depth-1 gallery-item">
-
-                  <div class="mask rgba-white-slight"></div>
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <!-- product -->
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
+                <div class="product-image">
+                    <div id="myCarousel-2" class="carousel slide">
+                       
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="item active">
+                              <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+id}}" class="img-fluid z-depth-1" width="350" height="500">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-3">
-                <div class="view overlay rounded z-depth-1 gallery-item">
-
-                  <div class="mask rgba-white-slight"></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="view overlay rounded z-depth-1 gallery-item">
-
-                  <div class="mask rgba-white-slight"></div>
-                </div>
-              </div>
-              <div class="col-3">
-                <div class="view overlay rounded z-depth-1 gallery-item">
-
-                  <div class="mask rgba-white-slight"></div>
-                </div>
-              </div>
             </div>
-          </div>
+
+            <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+                <h2 class="name">
+                   {{title}}
+                    
+                    <span class="fa fa-2x"><h5> Votes</h5></span>
+                    <a href="javascript:void(0);">109 customer reviews</a>
+                </h2>
+                <hr />
+                <h3 class="price-container">
+                    Dt {{price}}
+                    <small>*includes tax</small>
+                </h3>
+                <div class="certified">
+                    <ul>
+                       
+                        <li>
+                            <a href="javascript:void(0);">Certified<span>Quality Assured</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <hr />
+                <ul id="myTab" class="nav nav-pills">
+                  <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin">{{description}} </a></li>
+              </ul>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <a href="javascript:void(0);" class="btn btn-success btn-lg">Add to cart   {{price}} DT</a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="btn-group pull-right">
+
+                            <button class="btn btn-white btn-default"><i class="fa fa-envelope"></i> Contact Seller</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-      </div>
-
     </div>
-    <div class="col-md-6">
 
-      <h5>Fantasy T-shirt</h5>
-      <p class="mb-2 text-muted text-uppercase small">Shirts</p>
-      <ul class="rating">
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="far fa-star fa-sm text-primary"></i>
-        </li>
-      </ul>
-      <p><span class="mr-1"><strong>DT {{price}}</strong></span></p>
-      <p class="pt-1"> {{description}}</p>
-      <div class="table-responsive">
-      </div>
-      <hr>
-      <div class="table-responsive mb-2">
-        <table class="table table-sm table-borderless">
-          <tbody>
-            <tr>
-              <td class="pl-0 pb-0 w-25">Quantity</td>
-              <td class="pb-0">Select size</td>
-            </tr>
-            <tr>
-              <td class="pl-0">
-                <div class="def-number-input number-input safari_only mb-0">
-                  <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                    class="minus"></button>
-                  <input class="quantity" min="0" name="quantity" value="1" type="number">
-                  <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                </div>
-              </td>
-              <td>
-                <div class="mt-1">
-                  <div class="form-check form-check-inline pl-0">
-                    <input type="radio" class="form-check-input" id="small" name="materialExampleRadios" checked>
-                    <label class="form-check-label small text-uppercase card-link-secondary" for="small">Small</label>
-                  </div>
-                  <div class="form-check form-check-inline pl-0">
-                    <input type="radio" class="form-check-input" id="medium" name="materialExampleRadios">
-                    <label class="form-check-label small text-uppercase card-link-secondary" for="medium">Medium</label>
-                  </div>
-                  <div class="form-check form-check-inline pl-0">
-                    <input type="radio" class="form-check-input" id="large" name="materialExampleRadios">
-                    <label class="form-check-label small text-uppercase card-link-secondary" for="large">Large</label>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button>
-      <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>Add to
-        cart</button>
-    </div>
-  </div>
-
-</section>
-<!--Section: Block Content-->
+</div>

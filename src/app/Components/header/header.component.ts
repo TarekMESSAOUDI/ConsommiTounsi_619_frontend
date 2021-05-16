@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TokenstorageService } from '../../Services/TokenStorage/tokenstorage.service';
 import { UserService } from '../../Services/User/user.service';
+import { BasketService } from 'src/app/Services/Basket/basket.service';
 
 @Component({
   selector: 'app-header',
@@ -17,10 +18,17 @@ export class HeaderComponent implements OnInit {
   DeliveryPerson: boolean;
   DepartmentManager: boolean;
   Admin: boolean;
+
+  basket: number
+  constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router ,public translate:TranslateService,private CartService:BasketService) { }
+
   
-  constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router, public translate: TranslateService) { }
+
 
   ngOnInit(): void {
+    var x = this.CartService.cartItems
+    this.basket = x.length
+    console.log(this.basket)
     if (localStorage.getItem("AuthAuthorities").includes("ADMINISTRATOR")) {
       this.Admin = true;
       this.Client = false;

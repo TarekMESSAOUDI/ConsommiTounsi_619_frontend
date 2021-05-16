@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row mt-3">
   <div class="col">
-    <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
+    <button class="button" routerLink="/administrator" id="submitButton" class="buttony">Return</button>
   </div>
   <div class="col">
-    <button class="button" (click)="AddOrderShow()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Add Order</h3></button>
+    <button class="button" (click)="AddOrderShow()" id="submitButton" class="buttony">Add Order</button>
   </div>
   <div class="col">
-    <button class="button" (click)="ViewOrder()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Order List</h3></button>
+    <button class="button" (click)="ViewOrder()" id="submitButton" class="buttony">Order List</button>
   </div>
   </div>
  </div>
@@ -91,7 +91,7 @@
                  <td>{{o.amountOrder}}</td>
                  <td>{{o.paymentType}}</td>
                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteOrder(o.idOrder)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
-                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Generate Bill</button></td>
+                 <td class="text-center"><button class="btn btn-danger btn-xs" routerLink="/pdf"> Generate Bill</button></td>
                  </tr>
          
          </tbody>

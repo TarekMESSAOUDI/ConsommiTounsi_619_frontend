@@ -2,17 +2,57 @@
   <div class="container">
     <div class="row mt-3">
   <div class="col">
-    <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
+    <button class="button" routerLink="/administrator" id="submitButton" class="buttony">Return</button>
   </div>
   <div class="col">
-    <button class="button" (click)="AddOrderShow()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Add Order</h3></button>
+    <button class="button" (click)="AddOrderShow()" id="submitButton" class="buttony">Add Order</button>
   </div>
   <div class="col">
-    <button class="button" (click)="ViewOrder()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Order List</h3></button>
+    <button class="button" (click)="ViewOrder()" id="submitButton" class="buttony">Order List</button>
   </div>
   </div>
  </div>
+
+ <div class="container login-container" *ngIf="show">
+  <h3>Add Order</h3>
+     <div [hidden]="submitted" style="width: 400px;">
+       <form (ngSubmit)="onSubmit()">
+         <div class="form-group">
+          <label for="name">Amount Order</label>
+          <input type="text" class="form-control" id="amountOrder" required [(ngModel)]="order.amountOrder" name="amountOrder">
+         </div>
+
+         <div class="form-group">
+          <label for="name">Payment Type</label>
+          <input type="text" class="form-control" id="paymentType" required [(ngModel)]="order.paymentType" name="paymentType">
+         </div>
+
+         <div class="form-group">
+          <label for="name">State Order</label>
+          <input type="text" class="form-control" id="stateOrder" required [(ngModel)]="order.stateOrder" name="stateOrder">
+         </div>
+
+         <div class="form-group">
+          <label for="name">Product Number</label>
+          <input type="text" class="form-control" id="productNumberOrder" required [(ngModel)]="order.productNumberOrder" name="productNumberOrder">
+         </div>
+
+         <div class="form-group">
+          <label for="name">Date Order</label>
+          <input type="date" class="form-control" id="dateOrde" required [(ngModel)]="order.dateOrder" name="dateOrder">
+         </div>
+
+         <button type="submit" class="btn btn-success">Add Order</button>
+       </form>
+     </div>
+
+     <div [hidden]="!submitted">
+      <h4>You added successfully!</h4>
+      <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+     </div>
+</div>
  
+
  <div *ngIf="showOrder">
  
  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -51,9 +91,8 @@
                  <td>{{o.amountOrder}}</td>
                  <td>{{o.paymentType}}</td>
                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteOrder(o.idOrder)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
-                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Generate Bill</button></td>
-                 <a (click)="onOpenModal(order, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i> </a>
-               </tr>
+                 <td class="text-center"><button class="btn btn-danger btn-xs" routerLink="/pdf"> Generate Bill</button></td>
+                 </tr>
          
          </tbody>
          </table>
@@ -64,74 +103,24 @@
  </div>
 
 
-<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-     <div class="modal-content">
-        <div class="modal-header">
-           <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Stock {{editOrder?.stateOrder}}</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-           </button>
-        </div>
-        <div class="modal-body">
-           <form #editForm="ngForm">
-              <div class="form-group">
-                 <label for="stateOrder">State</label>
-                 <input type="text" ngModel="{{editOrder?.stateOrder}}" name="stateOrder" class="form-control" id="stateOrder" aria-describedby="emailHelp" placeholder="stateOrder">
-              </div>
-
-          
-              
-              <div class="modal-footer">
-                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                 <button (click)="updateOrder(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
-              </div>
-           </form>
-        </div>
-     </div>
-  </div>
-</div>
-</div>
  
 
-  <div class="container login-container" *ngIf="show">
-    <h3>Add Order</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Amount Order</label>
-      <input type="text" class="form-control" id="amountOrder" required [(ngModel)]="order.amountOrder" name="amountOrder">
-    </div>
 
-    <div class="form-group">
-      <label for="name">Payment Type</label>
-      <input type="text" class="form-control" id="paymentType" required [(ngModel)]="order.paymentType" name="paymentType">
-    </div>
 
-    <div class="form-group">
-      <label for="name">State Order</label>
-      <input type="text" class="form-control" id="stateOrder" required [(ngModel)]="order.stateOrder" name="stateOrder">
-    </div>
+ 
 
-    <div class="form-group">
-      <label for="name">Product Number</label>
-      <input type="text" class="form-control" id="productNumberOrder" required [(ngModel)]="order.productNumberOrder" name="productNumberOrder">
-    </div>
 
-    <div class="form-group">
-      <label for="name">Date Order</label>
-      <input type="date" class="form-control" id="dateOrde" required [(ngModel)]="order.dateOrder" name="dateOrder">
-    </div>
 
-    <button type="submit" class="btn btn-success">Add Order</button>
-  </form>
-</div>
 
-<div [hidden]="!submitted">
-  <h4>You added successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
-</div>
-    </div>
+
+
+
+
+
+
+ 
+  
+    
     
 
   

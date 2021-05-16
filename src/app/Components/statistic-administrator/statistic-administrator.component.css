@@ -1,78 +1,37 @@
-.title {
-  background: #f4f4f4;
-  height: 10vh;
-  width: 90%;
-  margin: 5vh auto;
-  border-radius: 1vh;
-  line-height: 10vh;
+body {
+  background-color: #eee
 }
 
-#usage {
-  width: 80%;
+.badge {
+  font-size: 25px;
+  font-weight: 200
 }
 
-h2, h3 {
-  vertical-align: middle;
-  text-align: center;
-}
-
-#nine {
-  width: 90%;
-}
-
-#eight {
-  width: 80%;
-}
-
-#inputFieldChartStatistic {
-  display: flex;
-  justify-content: space-around;
-}
-
-#flex {
-  display: flex;
-  justify-content: center;
-}
-
-#piechart_3d {
-  width: 50%;
-}
-
-#js-app {
-  width: 60%;
-}
-
-.dataset-selector {
-  margin-top: 10px;
-  color: #337ab7;
-  padding: 4px 10px;
-  border-radius: 8px;
-}
-
-  .dataset-selector:hover {
-    color: #23527c;
-    text-decoration: underline;
+  .badge i {
+    font-size: 20px;
+    font-weight: 200
   }
 
-input[type="radio"]:checked + .step-select__label {
-  color: #fff;
-  background-color: #337ab7;
+.about-rating {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px
 }
 
-  input[type="radio"]:checked + .step-select__label:hover {
-    text-decoration: none;
-  }
-
-.chart__axis-tick, .chart__axis-line {
-  stroke: darkgray;
+.total-ratings {
+  font-size: 12px
 }
 
-.chart__axis-text {
-  font-family: sans-serif;
-  font-size: 14px;
+.bg-custom {
+  background-color: #b7dd29 !important
 }
 
-.chart__area-plot {
-  stroke: steelblue;
-  stroke-width: 3px;
+.text-custom {
+  color: #b7dd29 !important
+}
+
+.progress {
+  margin-top: 2px;
+  border-radius: 0px;
+  padding-left: 0px
 }

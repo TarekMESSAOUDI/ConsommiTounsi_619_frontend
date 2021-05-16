@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height:auto;
+  width: 100%;
+  place-items: center;
+  background: #f2f2f2;
+  /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
+}
+::selection{
+  background: #4158d0;
+  color: #fff;
+}
+.wrapper{
+  width: 420px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  font-size: 35px;            /*nl*/
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #8c908f, #a1b3ae);
+}
+.wrapper form{
+  padding: 10px 30px 50px 30px;
+}
+.wrapper form .field{
+  height: 45px;
+  width: 100%;
+  margin-top: 35px;
+  position: relative;
+}
+.wrapper form .field input{        /*fprm field*/
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.4s ease;
+}
+.wrapper form .field input:focus,
+form .field input:valid{
+  border-color: #4158d0;
+}
+.wrapper form .field label{
+  position:absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field input:valid ~ label{
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+form .content{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+form .content .checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .content input{
+  width: 15px;
+  height: 15px;
+  background: red;
+}
+form .content label{
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+}
+form .content .pass-link{
+  color: "";
+}
+#adddepartment{
+  color: #fff;
+  border:#262626;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: -20px;
+  margin-top: 20px;
+  margin-right:100px ;
+  margin-left:70px ;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #8c928e);
+  transition: all 0.3s ease;
+}
+
+  
+#submitButton{
+    color: #fff;                /*buttons fonts*/
+  border:#262626;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-top: 42px;
+  margin-bottom: 70px;
+  margin-right:12px ;
+  margin-left:10px ;
+ 
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #06c3e4, #da0012);
+  transition: all 0.3s ease;
+
+}
+
+#crudbutton{
+
+  color: #fff;
+  background-color: #676d67;
+  border:red;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-top: 42px;
+  margin-bottom: 42px;
+  margin-right:10px ;
+  margin-left:10px ;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 300;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #7b898b, #4158d0);
+  transition: all 0.3s ease;
+  border-radius: 12px
+
+
+
+
+}
+
+#crudbutton :hover{
+
+  background-color: #4CAF50;
+  color: rgb(189, 16, 16);
+}
+
+
+
+form .field input[type="submit"]:active{
+  transform: scale(0.95);
+}
+
+form .pass-link a:hover,
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+
+
+form {
+    /* Uniquement centrer le formulaire sur la page */
+    margin: 0 auto;
+    width: 400px;
+    /* Encadré pour voir les limites du formulaire */
+    padding: 1em;
+    
+    border-radius: 4em;
+    
+  }
+  
+  form div + div {
+    margin-top: 1em;
+  }
+  
+  
+
+
+
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 1000px;
+    box-shadow: 0 0 25px rgba(6, 60, 34, 0.15);
+    border:1px solid black;margin-left:auto;margin-right:auto;
+}
+.styled-table thead tr {
+  background-color: #808685;
+  color: #ffffff;
+  text-align: left;
+}
+
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #737c7a;
+  size: 20px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    size: 50px;
+}
+
+.titre{
+  position:relative;
+}
+
+
+
+
+.container{
+  margin-top:2%;
+}
+
+
+.button {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 4px;
+  position:initial;
+  background-color: #2b7da3;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 60px;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background: rgb(176, 231, 26);
+  box-shadow: 0px 2px 10px 5px #1abc9c;
+  color: #000;
+}
+
+.button:after {
+  content: "";
+  background: #1abc9c;
+  display: block;
+  position: absolute;
+  padding-top: 100%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: 100%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.button:focus { outline:0; }
+
+.container{
+  margin-top:2%;
+}
+
+
+.buttony {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 4px;
+  position:initial;
+  background-color: #2b7da3;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  width: 240px;
+  height: 150px;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 4px;
+}
+
+.buttony:hover {
+  background: rgb(176, 231, 26);
+  box-shadow: 0px 2px 10px 5px #1abc9c;
+  color: #000;
+}
+
+.buttony:after {
+  content: "";
+  background: #1abc9c;
+  display: block;
+  position: absolute;
+ 
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.buttony:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.buttony:focus { outline:0; }
+
+img {
+  max-width: 70px;
+  height: 70px;
+  position: relative;
+width:fit-content;
+}
+
+
+
+

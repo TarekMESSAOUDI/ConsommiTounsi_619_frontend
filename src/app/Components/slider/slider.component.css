@@ -1,3 +1,26 @@
+
+  
+
+
+  body {
+    background-color: #eee
+}
+
+.container-fluid {
+    margin-top: 0px
+}
+
+.carousel-item img {
+    height: 800px
+}
+
+
+
+
+
+/*
+
+
 *{
     margin: 0;
     padding: 0;
@@ -84,7 +107,6 @@
   input[type="radio"]{
     display: none;
   }
-  
 
 
-  
+*/

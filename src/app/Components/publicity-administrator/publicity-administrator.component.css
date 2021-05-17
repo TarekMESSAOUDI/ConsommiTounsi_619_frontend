@@ -71,11 +71,13 @@
  }
  
  .buttony:focus { outline:0; }
- 
- img {
-   max-width: auto;
-   height: auto;
-   position: relative;
- width:fit-content;
- }
+
+img {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  transition-duration: 0.2s;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 42px;
+}
 

@@ -4,9 +4,12 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\Components",
-    "\\src\\app\\Components\\esapace-administrator",
+    "\\src\\app\\Components\\department-department-manager",
+    "\\src\\app\\Components\\espace-department-manager",
+    "\\src\\app\\Components\\header",
+    "\\src\\app\\Components\\stock",
     "\\src\\app\\Components\\user"
   ],
-  "SelectedNode": "\\src\\app\\Components\\esapace-administrator\\esapace-administrator.component.html",
+  "SelectedNode": "\\src\\app\\app-routing.module.ts",
   "PreviewInSolutionExplorer": false
 }

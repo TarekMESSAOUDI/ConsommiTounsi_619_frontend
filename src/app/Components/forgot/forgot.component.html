@@ -13,7 +13,7 @@
           Email is a Required Field !
         </a>
 
-        <input routerLink="updatepassword" type="submit" [disabled]="forgot.invalid" class="fadeIn fourth" value="Send Mail">
+        <input  type="submit" [disabled]="forgot.invalid" class="fadeIn fourth" value="Send Mail" (click)="forgotPassword()" >
       </form>
 
       <div class="alert alert-primary">{{msg}}</div>
@@ -25,4 +25,3 @@
     </div>
   </div>
 </div>
-

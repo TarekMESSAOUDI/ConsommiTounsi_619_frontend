@@ -2,13 +2,13 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col">
-      <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
+      <button type="button" routerLink="/administrator" class="buttony" id="submitButton"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
     </div>
     <div class="col">
-      <button class="button" (click)="addUser()"><h3><i class="fa fa-th" aria-hidden="true"></i>Add User</h3></button>
+      <button type="button" class="buttony" (click)="addUser()" id="submitButton"><h3><i class="fa fa-th" aria-hidden="true"></i>Add User</h3></button>
     </div>
     <div class="col">
-      <button class="button" (click)="showAllUsers()"><h3><i class="fa fa-cube" aria-hidden="true"></i>All Users</h3></button>
+      <button type="button" class="buttony" (click)="showAllUsers()" id="submitButton"><h3><i class="fa fa-cube" aria-hidden="true"></i>All Users</h3></button>
     </div>
   </div>
 </div>
@@ -166,7 +166,7 @@
             <label>Sexe :</label>
             <select class="form-control" aria-label="Default select example" placeholder="Choose Your Sexe" type="text" name="sexe"
                     ngModel [(ngModel)]="form.sexeUser">
-              <option *ngFor="let s of SexeUser">{{s.SexeUser}}</option>
+              <option *ngFor="let a of Keyss()">{{a}}</option>
             </select>
           </div>
 
@@ -174,16 +174,7 @@
             <label>Zone :</label>
             <select class="form-control" aria-label="Default select example" placeholder="Zone Map" type="text" name="zone"
                     ngModel [(ngModel)]="form.zone">
-              <option value="1">TUNIS</option>
-              <option value="2">ARIANA</option>
-              <option value="1">BEN AROUS</option>
-              <option value="2">MANOUBA</option>
-              <option value="1">TOUZEUR</option>
-              <option value="2">ZAGHOUANE</option>
-              <option value="1">GASERINE</option>
-              <option value="2">SFAX</option>
-              <option value="1">GAFSA</option>
-              <option value="2">TATAOUIN</option>
+              <option *ngFor="let s of Keysz()">{{s}}</option>
             </select>
           </div>
 
@@ -191,10 +182,7 @@
             <label>Role :</label>
             <select class="form-control" aria-label="Default select example" placeholder="Role" type="text" name="role"
                     ngModel [(ngModel)]="form.role">
-              <option value="1">CLIENT</option>
-              <option value="2">ADMINISTRATOR</option>
-              <option value="1">DEPARTMENTMANAGER</option>
-              <option value="2">DELIVERYPERSON</option>
+              <option  *ngFor="let c of Keysr()">{{c}}</option>
             </select>
           </div>
 
@@ -241,7 +229,7 @@
           <div class="form-group">
             <label for="formFile" class="form-label">Image</label>
             <input class="form-control" type="file" name="image" placeholder="Your Image"
-                   ngModel [(ngModel)]="form.imageUser">
+                   ngModel [(ngModel)]="form.fileName">
           </div>
 
           <div class="d-grid gap-5 col-3 mx-auto">
@@ -257,129 +245,132 @@
 </div>
 
 
-
-
-
   <!-- Show All Users-->
-  <div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()" >
 
-    <h1>LIST USERS</h1>
-    <div class=" col-md-6 col-md-offset-2 custyle">
-      <div>
-        <a class="btn btn-primary" (click)="getUserByName(u.username)">Search</a>
-      </div>
-      <br />
-      <input class="form-control" [(ngModel)]="u.username" />
-      <table class="table table-striped custab">
-        <thead>
-          <tr>
-            <th>Action</th>
-            <th scope="col">Id</th>
-            <th scope="col">F.Name</th>
-            <th scope="col">L.Name</th>
-            <th scope="col">CIN</th>
-            <th scope="col">State</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Adress</th>
-            <th scope="col">Birth</th>
-            <th scope="col">Email</th>
-            <th scope="col">Sexe</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Point</th>
-            <th scope="col">Avilaibility</th>
-            <th scope="col">Zone</th>
-            <th scope="col">Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let u of ListUsers">
-            <td class="text-center">
-              <a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete.</a>
-              <a (click)="showUser(u)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a>
-            </td>
-            <th scope="row"><small>{{u.idUser}}</small></th>
-            <td><small>{{u.username}}</small></td>
-            <td><small>{{u.lastNameUser}}</small></td>
-            <td><small>{{u.cinUser}}</small></td>
-            <td><small>{{u.stateUser}}</small></td>
-            <td><small>{{u.phoneNumberUser}}</small></td>
-            <td><small>{{u.adressUser}}</small></td>
-            <td><small>{{u.birthDateUser}}</small></td>
-            <td><small>{{u.emailUser}}</small></td>
-            <td><small>{{u.sexeUser}}</small></td>
-            <td><small>{{u.salaire}}</small></td>
-            <td><small>{{u.pointnumber}}</small></td>
-            <td><small>{{u.avilaibility}}</small></td>
-            <td><small>{{u.zone}}</small></td>
-            <td><small>{{u.role}}</small></td>
-          </tr>
-        </tbody>
-      </table>
+<div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
+  
+  <div class=" col-md-6 col-md-offset-2 custyle">
+    <div>
+      <input type="text" #myInput [(ngModel)]="username" (input)="Search()" class="form-control" placeholder="Search …">
     </div>
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th>Action</th>
+
+          <th scope="col">Image</th>
+          <th scope="col">Id</th>
+          <th scope="col">F.Name</th>
+          <th scope="col">L.Name</th>
+          <th scope="col">CIN</th>
+          <th scope="col">State</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Adress</th>
+          <th scope="col">BirthDate</th>
+          <th scope="col">Email</th>
+          <th scope="col">Sexe</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Avilaibility</th>
+          <th scope="col">Zone</th>
+          <th scope="col">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of ListUsers">
+          <td class="text-center col-3">
+            <a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            <br />
+            <a (click)="showUser(u)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a>
+          </td>
+          <img src="{{'http://localhost:9091/SpringMVC/servlet/Imguserss/'+u.idUser}}"
+               class="card-img-top">
+          <th scope="row"><small>{{u.idUser}}</small></th>
+
+          <td><small>{{u.username}}</small></td>
+          <td><small>{{u.lastNameUser}}</small></td>
+          <td><small>{{u.cinUser}}</small></td>
+          <td><small>{{u.stateUser}}</small></td>
+          <td><small>{{u.phoneNumberUser}}</small></td>
+          <td><small>{{u.adressUser}}</small></td>
+          <td><small>{{u.birthDateUser}}</small></td>
+          <td><small>{{u.emailUser}}</small></td>
+          <td><small>{{u.sexeUser}}</small></td>
+          <td><small>{{u.salaire}}</small></td>
+          <td><small>{{u.avilaibility}}</small></td>
+          <td><small>{{u.zone}}</small></td>
+          <td><small>{{u.role}}</small></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-
+</div>
 
   <!-- Update User-->
 
-  <div class="container login-container" *ngIf="ShowUser" (ngSubmit)="updateUser()">
+  <div class="container login-container" *ngIf="ShowUser" >
     <div class="col-md-16 login-form-1">
       <h3 class="col-5 mx-auto">UPDATE THIS USER</h3>
-      <form>
+      <form name="forme" #up="ngForm" (ngSubmit)="updateUser()">
         <div class="form-group">
-          <input value="{{user.idUser}}" class="form-control" />
+          <input  value="{{user.idUser}}" class="form-control" ngModel #id="ngModel" [(ngModel)]="forme.idUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.username}}" class="form-control" />
+          <input value="{{user.username}}" class="form-control" ngModel #un="ngModel" [(ngModel)]="forme.username" />
         </div>
         <div class="form-group">
-          <input value="{{user.lastNameUser}}" class="form-control" />
+          <input value="{{user.lastNameUser}}" class="form-control" ngModel #ln="ngModel" [(ngModel)]="forme.lastNameUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.cinUser}}" class="form-control" />
+          <input value="{{user.cinUser}}" class="form-control" ngModel #ln="ngModel" [(ngModel)]="forme.cinUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.stateUser}}" class="form-control" />
+          <input value="{{user.password}}" class="form-control" ngModel #p="ngModel" [(ngModel)]="forme.password" />
         </div>
         <div class="form-group">
-          <input value="{{user.phoneNumberUser}}" class="form-control" />
+          <input value="{{user.stateUser}}" class="form-control" ngModel #ln="ngModel" [(ngModel)]="forme.stateUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.adressUser}}" class="form-control" />
+          <input value="{{user.phoneNumberUser}}" class="form-control" ngModel #pn="ngModel" [(ngModel)]="forme.phoneNumberUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.birthDateUser}}" class="form-control" />
+          <input value="{{user.adressUser}}" class="form-control" ngModel #au="ngModel" [(ngModel)]="forme.adressUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.emailUser}}" class="form-control" />
+          <input value="{{user.birthDateUser}}" class="form-control" ngModel #bdu="ngModel" [(ngModel)]="forme.birthDateUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.sexeUser}}" class="form-control" />
+          <input value="{{user.emailUser}}" class="form-control" ngModel #eu="ngModel" [(ngModel)]="forme.emailUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.resettoken}}" class="form-control" />
+          <input value="{{user.sexeUser}}" class="form-control" ngModel #su="ngModel" [(ngModel)]="forme.sexeUser" />
         </div>
         <div class="form-group">
-          <input value="{{user.isPrivate}}" class="form-control" />
+          <input value="{{user.resettoken}}" class="form-control" ngModel rtu="ngModel" [(ngModel)]="forme.resettoken" />
         </div>
         <div class="form-group">
-          <input value="{{user.salaire}}" class="form-control" />
+          <input value="{{user.isPrivate}}" class="form-control" ngModel #ip="ngModel" [(ngModel)]="forme.isPrivate" />
         </div>
         <div class="form-group">
-          <input value="{{user.pointnumber}}" class="form-control" />
+          <input value="{{user.salaire}}" class="form-control" ngModel #s="ngModel" [(ngModel)]="forme.salaire" />
         </div>
         <div class="form-group">
-          <input value="{{user.avilaibility}}" class="form-control" />
+          <input value="{{user.pointnumber}}" class="form-control" ngModel #pnu="ngModel" [(ngModel)]="forme.pointnumber" />
         </div>
         <div class="form-group">
-          <input value="{{user.zone}}" class="form-control" />
+          <input value="{{user.avilaibility}}" class="form-control" ngModel avun="ngModel" [(ngModel)]="forme.avilaibility" />
         </div>
         <div class="form-group">
-          <input value="{{user.role}}" class="form-control" />
+          <input value="{{user.zone}}" class="form-control" ngModel #zu="ngModel" [(ngModel)]="forme.zone" />
+        </div>
+        <div class="form-group">
+          <input value="{{user.role}}" class="form-control" ngModel #r="ngModel" [(ngModel)]="forme.role" />
         </div>
       </form>
       <div class="d-grid gap-5 col-3 mx-auto">
-        <button (click)="updateUser()" type="button" class="btn btn-success btn-lg"> Update </button>
+        <input type="submit" (click)="updateUser(user.username,user.lastNameUser,user.cinUser,userpassword,user.stateUser,user.phoneNumberUser,user.adressUser,user.birthDateUser,user.emailUser,user.sexeUser)" class="btn btn-success btn-lg" value="Update" />
       </div>
+      <br>
+      <br />
+      <div class="alert alert-primary">{{msg}}</div>
     </div>
   </div>

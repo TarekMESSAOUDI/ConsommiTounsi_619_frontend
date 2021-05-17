@@ -74,6 +74,8 @@ import { UpdatepasswordComponent } from './Components/updatepassword/updatepassw
 import { ProductsViewComponent } from './Components/products-view/products-view.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
+import { PdfComponent } from './Components/pdf/pdf.component';
 
 
 
@@ -131,9 +133,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     EventHomeComponent,
     UpdateproductComponent,
     DepartmentClientComponent,
-
     DetailsproductsComponent,
-
     OrderAdministratorComponent,
     OrderClientComponent,
     BillClientComponent,
@@ -142,21 +142,16 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ModalComponent,
     PaymentComponent,
     DetalleArticuloComponent,
-
     SecondNavComponent,
-
     CategoryadministratorComponent,
     DeliveryClientComponent,
-
+    CommentStatsComponent,
     ForgotComponent,
     UpdatepasswordComponent,
-
     ProductsViewComponent,
-
-
-
-
+    PdfComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

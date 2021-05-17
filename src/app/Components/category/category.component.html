@@ -15,9 +15,9 @@
         <div class="mega-box">
           <div class="content">
             <div class="row">
-              <!-- <img src="img.jpg" alt=""> -->
+              
               <ul class="mega-links" *ngFor="let c of ListUnderCategories">
-                <!--   -->
+                
                 <li *ngIf="c.category.idCategory === x.idCategory" (click)="getProdsByUnderCat(c.idUnderCategory)"><a href="client/products-view/{{c.idUnderCategory}}">{{c.nameUnderCategory}}</a></li>
               </ul>
             </div>
@@ -31,3 +31,55 @@
   </div>
 </nav>
 
+
+
+
+
+
+<!-- 
+<nav>
+    <ul class="mainMenu">
+        <li><a href="#">Home</a></li>
+        <li *ngFor="let x of ListCategories"><a href="#">{{x.nameCategory}}</a>
+         <ul *ngFor="let c of ListUnderCategories" class="subMenu">
+             <li  *ngIf="c.category.idCategory === x.idCategory" (click)="getProdsByUnderCat(c.idUnderCategory)"><a href="client/products-view/{{c.idUnderCategory}}">{{c.nameUnderCategory}}</a></li>
+         </ul>
+        </li>
+        
+        
+    </ul>
+</nav> -->
+
+
+
+
+
+
+
+
+
+
+ 
+<!-- <div id="container">
+  <nav>
+      <ul>
+          <li ><a href="">Home</a></li>
+          <li *ngFor="let x of ListCategories"><a href="">{{x.nameCategory}}</a>
+          
+          <ul  *ngFor="let c of ListUnderCategories">
+
+              <li  *ngIf="c.category.idCategory === x.idCategory" (click)="getProdsByUnderCat(c.idUnderCategory)"><a  href="client/products-view/{{c.idUnderCategory}}">{{c.nameUnderCategory}}</a></li>
+
+          </ul>
+      </ul>
+  </nav>
+</div> -->
+
+
+
+
+
+
+
+
+  

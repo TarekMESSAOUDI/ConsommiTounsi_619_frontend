@@ -4,8 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\Components",
+    "\\src\\app\\Components\\esapace-administrator",
     "\\src\\app\\Components\\user"
   ],
-  "SelectedNode": "\\src\\app\\Components\\user\\user.component.ts",
+  "SelectedNode": "\\src\\app\\Components\\esapace-administrator\\esapace-administrator.component.html",
   "PreviewInSolutionExplorer": false
 }

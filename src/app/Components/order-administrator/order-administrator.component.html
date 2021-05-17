@@ -2,17 +2,57 @@
   <div class="container">
     <div class="row mt-3">
   <div class="col">
-    <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
+    <button class="button" routerLink="/administrator" id="submitButton" class="buttony">Return</button>
   </div>
   <div class="col">
-    <button class="button" (click)="AddOrderShow()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Add Order</h3></button>
+    <button class="button" (click)="AddOrderShow()" id="submitButton" class="buttony">Add Order</button>
   </div>
   <div class="col">
-    <button class="button" (click)="ViewOrder()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Order List</h3></button>
+    <button class="button" (click)="ViewOrder()" id="submitButton" class="buttony">Order List</button>
   </div>
   </div>
  </div>
+
+ <div class="container login-container" *ngIf="show">
+  <h3>Add Order</h3>
+     <div [hidden]="submitted" style="width: 400px;">
+       <form (ngSubmit)="onSubmit()">
+         <div class="form-group">
+          <label for="name">Amount Order</label>
+          <input type="text" class="form-control" id="amountOrder" required [(ngModel)]="order.amountOrder" name="amountOrder">
+         </div>
+
+         <div class="form-group">
+          <label for="name">Payment Type</label>
+          <input type="text" class="form-control" id="paymentType" required [(ngModel)]="order.paymentType" name="paymentType">
+         </div>
+
+         <div class="form-group">
+          <label for="name">State Order</label>
+          <input type="text" class="form-control" id="stateOrder" required [(ngModel)]="order.stateOrder" name="stateOrder">
+         </div>
+
+         <div class="form-group">
+          <label for="name">Product Number</label>
+          <input type="text" class="form-control" id="productNumberOrder" required [(ngModel)]="order.productNumberOrder" name="productNumberOrder">
+         </div>
+
+         <div class="form-group">
+          <label for="name">Date Order</label>
+          <input type="date" class="form-control" id="dateOrde" required [(ngModel)]="order.dateOrder" name="dateOrder">
+         </div>
+
+         <button type="submit" class="btn btn-success">Add Order</button>
+       </form>
+     </div>
+
+     <div [hidden]="!submitted">
+      <h4>You added successfully!</h4>
+      <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+     </div>
+</div>
  
+
  <div *ngIf="showOrder">
  
  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -25,10 +65,7 @@
          <div class="row col-md-6 col-md-offset-2 custyle">
           <div class=" col-md-6 col-md-offset-2 custyle">
             
-            <div>
-              <a class="btn btn-primary" (click)="getOrderbyid(idOrder)">Search</a>
-              <input class="form-control" [(ngModel)]="order.idOrder"/>
-            </div>
+            
             
          <table class="table table-striped custab">
          <thead>
@@ -41,7 +78,7 @@
                  <th>Payment Type</th>
                  <th>Action</th>
                  <th>Action</th>
-                 <th>Action</th>
+                 
                  
              </tr>
          </thead>
@@ -54,10 +91,8 @@
                  <td>{{o.amountOrder}}</td>
                  <td>{{o.paymentType}}</td>
                  <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteOrder(o.idOrder)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
-                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="updateOrder(o.idOrder)"> Update</button></td>
-                 <td class="text-center"><button class="btn btn-danger btn-xs" (click)="showpdf(o.idOrder)"> Generate Bill</button></td>
-                 
-               </tr>
+                 <td class="text-center"><button class="btn btn-danger btn-xs" routerLink="/pdf"> Generate Bill</button></td>
+                 </tr>
          
          </tbody>
          </table>
@@ -66,48 +101,26 @@
  
  </div>
  </div>
- </div>
+
 
  
 
-  <div class="container login-container" *ngIf="show">
-    <h3>Add Order</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Amount Order</label>
-      <input type="text" class="form-control" id="amountOrder" required [(ngModel)]="order.amountOrder" name="amountOrder">
-    </div>
 
-    <div class="form-group">
-      <label for="name">Payment Type</label>
-      <input type="text" class="form-control" id="paymentType" required [(ngModel)]="order.paymentType" name="paymentType">
-    </div>
 
-    <div class="form-group">
-      <label for="name">State Order</label>
-      <input type="text" class="form-control" id="stateOrder" required [(ngModel)]="order.stateOrder" name="stateOrder">
-    </div>
+ 
 
-    <div class="form-group">
-      <label for="name">Product Number</label>
-      <input type="text" class="form-control" id="productNumberOrder" required [(ngModel)]="order.productNumberOrder" name="productNumberOrder">
-    </div>
 
-    <div class="form-group">
-      <label for="name">Date Order</label>
-      <input type="date" class="form-control" id="dateOrde" required [(ngModel)]="order.dateOrder" name="dateOrder">
-    </div>
 
-    <button type="submit" class="btn btn-success">Add Order</button>
-  </form>
-</div>
 
-<div [hidden]="!submitted">
-  <h4>You added successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
-</div>
-    </div>
+
+
+
+
+
+
+ 
+  
+    
     
 
   

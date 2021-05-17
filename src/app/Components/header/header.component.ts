@@ -19,10 +19,14 @@ export class HeaderComponent implements OnInit {
   DepartmentManager: boolean;
   Admin: boolean;
 
+  constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router,public translate:TranslateService) { }
+
+
   basket: number
   constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router ,public translate:TranslateService,private CartService:BasketService) { }
 
   
+
 
 
   ngOnInit(): void {
@@ -67,6 +71,13 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     localStorage.clear();
+  }
+
+
+
+
+  
+
   }
 
   }

@@ -9,17 +9,24 @@ import { CharityEventService } from 'src/app/Services/CharityEvent/charity-event
 })
 export class EventHomeComponent implements OnInit {
 charityevent:CharityEvent=new CharityEvent;
+msg = '';
   constructor(private CeS:CharityEventService) { }
 
   ngOnInit(): void {
   }
 
   Reserve(){
-    this.CeS.addEvent(this.charityevent).subscribe(res=>{console.log(res);
-    }
-    );
+    this.CeS.addEvent(this.charityevent).subscribe(
+      data => {
+        console.log(data),
+          
+      this.msg = 'Event is reserved';},
+      (error) => {
+        console.log(error);
+      });
 
   }
+
 
 
   }

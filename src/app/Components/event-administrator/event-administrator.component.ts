@@ -9,6 +9,12 @@ import { CharityEventService } from 'src/app/Services/CharityEvent/charity-event
 })
 export class EventAdministratorComponent implements OnInit {
   ListCharityEvent:CharityEvent[];
+  show:boolean;
+  addevent:boolean;
+  //charityevent:CharityEvent;
+  msg = '';
+  charityevent : CharityEvent=new CharityEvent();
+ 
   constructor(private CeService:CharityEventService) { 
     this.CeService.retrieveallEvent().subscribe(res=>{console.log(res);
       this.ListCharityEvent=res});
@@ -17,4 +23,34 @@ export class EventAdministratorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+  ViewEvent(){
+    this.show=true;
+    this.addevent=false;
+  }
+  
+  AddEventshow(){
+    this.show=false;
+    this.addevent=true;
+  }
+
+  addcharityevent(){
+
+    this.show = false;
+    this.addevent = true;
+    this.CeService.addEvent(this.charityevent).subscribe(
+      data => {
+        console.log(data),
+          this.AddEventshow();
+          this.msg = 'Event added Succesfuly';},
+      (error) => {
+        console.log(error);
+      });
+    }
+    
+
+    DeleteEvent(id:number){
+      this.CeService.deleteEvent(id).subscribe(()=>this.CeService.retrieveallEvent().subscribe(res=>{this. ListCharityEvent=res}));
+    }}
+  
+
+

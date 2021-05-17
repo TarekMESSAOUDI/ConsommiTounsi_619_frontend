@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   DeliveryPerson: boolean;
   DepartmentManager: boolean;
   Admin: boolean;
-  constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router) { }
+  constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router,public translate:TranslateService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("AuthAuthorities").includes("ADMINISTRATOR")) {
@@ -69,4 +69,3 @@ export class HeaderComponent implements OnInit {
   
 
   }
-

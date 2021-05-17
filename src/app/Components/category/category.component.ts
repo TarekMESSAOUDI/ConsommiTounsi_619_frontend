@@ -24,13 +24,11 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe(res => {
-      console.log(res);
       this.ListCategories = res
     });
 
 
     this.UnderCategoryService.getAllUnderCat().subscribe(res => {
-      console.log(res);
       this.ListUnderCategories = res
     });
   }

@@ -75,6 +75,7 @@ import { ProductsViewComponent } from './Components/products-view/products-view.
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
+import { PdfComponent } from './Components/pdf/pdf.component';
 
 
 
@@ -147,7 +148,8 @@ import { CommentStatsComponent } from './Components/comment-stats/comment-stats.
     CommentStatsComponent,
     ForgotComponent,
     UpdatepasswordComponent,
-    ProductsViewComponent
+    ProductsViewComponent,
+    PdfComponent
   ],
 
   imports: [

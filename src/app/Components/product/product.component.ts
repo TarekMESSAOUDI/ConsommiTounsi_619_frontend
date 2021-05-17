@@ -1,6 +1,8 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/Models/User';
+import { BasketService } from 'src/app/Services/Basket/basket.service';
+import { DatashareService } from 'src/app/Services/SharingData/datashare.service';
 import { Product } from '../../Models/Product';
 import { ProductService } from '../../Services/product/product.service';
 
@@ -10,20 +12,23 @@ import { ProductService } from '../../Services/product/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  @Input() productsCart: any[] = [];
+   productsCart: any[] = [];
   selectedProduct:Product;
   ListProducts:Product[];
   user:User;
   productName:string;
  
   
-  constructor(private prodClientServ:ProductService,private router:Router) { 
+  constructor(private prodClientServ:ProductService,private router:Router,private dataShare:DatashareService,
+    private CartService:BasketService) { 
     
-  };
+  }
 
   ngOnInit(): void {
-    this.prodClientServ.getAllProducts().subscribe(res=>{console.log(res);
+    this.prodClientServ.getAllProducts().subscribe(res=>{
+      console.log(res)
       this.ListProducts=res});
+            
   }
   onSelect(product: Product) : void 
     {
@@ -36,11 +41,12 @@ export class ProductComponent implements OnInit {
     {
       let prodId = product.idProduct;
       console.log(typeof(prodId),prodId)
-      let basketId =1;
-      this.prodClientServ.addProdToBasket(basketId,prodId).subscribe(res=>{console.log(res);})
+      // let basketId =1;
+      // this.prodClientServ.addProdToBasket(basketId,prodId).subscribe(res=>{console.log(res);})
       console.log(product,"product just added ");
-     this.productsCart.push(product)
-       console.log(this.productsCart.length,'number of products added to cart');
+      this.productsCart.push(product)
+      console.log(this.productsCart.length,'number of products added to cart');
+      console.log('estaa',this.productsCart)
     }
 
     searchByName(){
@@ -52,7 +58,15 @@ export class ProductComponent implements OnInit {
       }else if(this.productName==""){
         this.ngOnInit();
       }
-      
     }
     
+likeProduct(id:number,prod:Product){
+  return this.prodClientServ.likeProduct(prod,id);
+}
+  //ADD TO CART SERVICE
+
+addToCArt(product:Product){
+  this.CartService.addToCart(product);
+}
+
 }

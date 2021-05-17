@@ -10,6 +10,8 @@ import { DeliveryService } from 'src/app/Services/Delivery/delivery.service';
 export class DeliveryAdministratorComponent implements OnInit {
   ListDelivery:Delivery[];
   delivery:Delivery;
+  show:boolean;
+addclaim:boolean;
   constructor(private Ds:DeliveryService) { 
     this.Ds.retrievealldelivery().subscribe(res=>{console.log(res);
       this.ListDelivery=res});
@@ -20,6 +22,18 @@ export class DeliveryAdministratorComponent implements OnInit {
   DeleteDelivery(id:number){
     this.Ds.deletedelivery(id).subscribe(()=>this.Ds.retrievealldelivery().subscribe(res=>{this. ListDelivery=res}));
   }
+
+  ViewClaim(){
+    this.show=true;
+    this.addclaim=false;
+  }
+  
+  AddClaimshow(){
+    this.show=false;
+    this.addclaim=true;
+  }
+
+
 
   AffecteDeliveryToDeliveryPerson(){
    // this.httpClientng

@@ -19,6 +19,8 @@ export class PaymentComponent implements OnInit {
   @Input() descripcion;
   @Input() nombre;
 
+  alert: boolean=false;
+
   error: any;
 
   elements: Elements;
@@ -27,6 +29,7 @@ export class PaymentComponent implements OnInit {
   elementsOptions: ElementsOptions = {
     locale: 'es'
   };
+  
 
   constructor(
     public modalService: NgbModal,
@@ -74,7 +77,7 @@ export class PaymentComponent implements OnInit {
           const paymentIntentDto: PaymentIntentDto = {
             token: result.token.id,
             amount: this.precio,
-            currency: 'EUR',
+            currency: 'eur',
             description: this.descripcion
           };
           this.paymentService.pagar(paymentIntentDto).subscribe(
@@ -88,7 +91,12 @@ export class PaymentComponent implements OnInit {
           this.error = result.error.message;
         }
       });
+      this.alert=true;
+
+      
   }
+
+ 
 
   abrirModal(id: string, nombre: string, descripcion: string, precio: number) {
     const modalRef = this.modalService.open(ModalComponent);

@@ -1,24 +1,109 @@
-<table class="table table-hover">
-            
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Titre </th>
-        <th scope="col">Description</th>
-       <!-- <th scope="col">Date</th>-->
-      </tr>
-    </thead>
-
-    
-      <tr *ngFor="let c of ListCharityEvent ">
-   
-        <td>{{c.id}}</td>
-        <td>{{c.titre}}</td>
-        <td>{{c.description}}</td>
-        <!--<td>{{c.dateClaim}}</td>-->
-        
-        <div >
- <button  type="button" class="btn-danger"> DELETE </button>
+<div class="container">
+  <div class="row mt-3">
+<div class="col">
+  <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
 </div>
-      </tr>
-</table>
+<div class="col">
+    <button class="button" (click)="AddEventshow()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Add New Event</h3></button>
+  </div>
+<div class="col">
+  <button class="button" (click)="ViewEvent()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Show reserved Event</h3></button>
+</div>
+</div>
+</div>
+
+<!--addevent-->
+
+    <div class="container login-container" *ngIf="addevent">
+        <br>
+        <br />
+        <div class="raw">
+      
+          <div class="col-md-16 login-form-1">
+            <h1 class="col-5 mx-auto">Add New Event</h1>
+      
+            <form name="form" (ngSubmit)="addevent()">
+      
+              <div class="form-group">
+                <label>Title :</label>
+                <input type="text" name="titre" class="form-control" placeholder="Title *" [(ngModel)]="charityevent.titre" />
+              </div>
+      
+              <div class="form-group">
+                <label>Description :</label>
+                <input type="text" name="description" class="form-control" placeholder="Description"
+                       ngModele [(ngModel)]="charityevent.description" />
+              </div>
+
+              <div class="form-group">
+                <label> Date :</label>
+                <input type="date" name="date" class="form-control" placeholder=" Date *"
+                       ngModel required [(ngModel)]="charityevent.datee" />
+              </div>
+              
+              <div class="form-group">
+                <label for="formFile" class="form-label">Image</label>
+                <input class="form-control" type="file" name="image" placeholder="Your Image">
+              </div>
+    
+
+              <div class="d-grid gap-5 col-3 mx-auto">
+            <button   (click)="addcharityevent()" type="button" class="btn btn-success btn-lg"> Add Event </button>
+          </div>
+
+          <div class="alert alert-primary">{{msg}}</div>
+      
+      </form> 
+
+
+
+
+</div>
+</div>
+</div>
+
+<!--show event-->
+<div *ngIf="show">
+
+  <div class="container mt-5">
+    <table class="table table-borderless table-responsive card-1 p-4">
+        <thead>
+            <tr class="border-bottom">
+                <th> <span class="ml-2">Id</span> </th>
+                <th> <span class="ml-2">Title</span> </th>
+                <th> <span class="ml-2">Description</span> </th>
+                <th> <span class="ml-4">Action</span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of ListCharityEvent ">
+                
+                <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{c.id}}</span> </div>
+                    </div>
+                </td>
+                
+               <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{c.titre}}</span> </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{c.description}}</span> </div>
+                    </div>
+                </td> 
+          
+         
+
+ <td class="text-center"><button class="btn btn-danger btn-xs"(click)="DeleteEvent(c.id)" ><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+
+            </tr>
+            
+          
+        </tbody>
+    </table>
+</div>
+</div>

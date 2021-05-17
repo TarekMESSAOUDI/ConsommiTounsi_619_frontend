@@ -28,7 +28,7 @@ export class ModalComponent implements OnInit {
     this.paymentService.confirmar(id).subscribe(
       data => {
         this.toastrService.success
-        ('pago confirmado', 'se ha confirmado el pago con id ' + data[`id`], {positionClass: 'toast-top-center', timeOut: 3000});
+        ('payment confirmed ',' payment has been confirmed with id ' + data[`id`], {positionClass: 'toast-top-center', timeOut: 3000});
         this.activeModal.close();
       },
       err => {
@@ -42,7 +42,7 @@ export class ModalComponent implements OnInit {
     this.paymentService.cancelar(id).subscribe(
       data => {
         this.toastrService.success
-        ('pago cancelado', 'se ha cancelado el pago con id ' + data[`id`], {positionClass: 'toast-top-center', timeOut: 3000});
+        ('payment canceled ',' payment with id has been canceled ' + data[`id`], {positionClass: 'toast-top-center', timeOut: 3000});
         this.activeModal.close();
       },
       err => {

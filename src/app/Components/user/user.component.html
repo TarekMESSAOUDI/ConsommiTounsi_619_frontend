@@ -2,13 +2,13 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col">
-      <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
+      <button type="button" routerLink="/administrator" class="buttony" id="submitButton"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
     </div>
     <div class="col">
-      <button class="button" (click)="addUser()"><h3><i class="fa fa-th" aria-hidden="true"></i>Add User</h3></button>
+      <button type="button" class="buttony" (click)="addUser()" id="submitButton"><h3><i class="fa fa-th" aria-hidden="true"></i>Add User</h3></button>
     </div>
     <div class="col">
-      <button class="button" (click)="showAllUsers()"><h3><i class="fa fa-cube" aria-hidden="true"></i>All Users</h3></button>
+      <button type="button" class="buttony" (click)="showAllUsers()" id="submitButton"><h3><i class="fa fa-cube" aria-hidden="true"></i>All Users</h3></button>
     </div>
   </div>
 </div>
@@ -166,7 +166,7 @@
             <label>Sexe :</label>
             <select class="form-control" aria-label="Default select example" placeholder="Choose Your Sexe" type="text" name="sexe"
                     ngModel [(ngModel)]="form.sexeUser">
-              <option *ngFor="let s of Keyss()">{{s}}</option>
+              <option *ngFor="let a of Keyss()">{{a}}</option>
             </select>
           </div>
 
@@ -182,7 +182,7 @@
             <label>Role :</label>
             <select class="form-control" aria-label="Default select example" placeholder="Role" type="text" name="role"
                     ngModel [(ngModel)]="form.role">
-              <option  *ngFor="let s of Keys()">{{s}}</option>
+              <option  *ngFor="let c of Keysr()">{{c}}</option>
             </select>
           </div>
 
@@ -229,7 +229,7 @@
           <div class="form-group">
             <label for="formFile" class="form-label">Image</label>
             <input class="form-control" type="file" name="image" placeholder="Your Image"
-                   ngModel [(ngModel)]="form.imageUser">
+                   ngModel [(ngModel)]="form.fileName">
           </div>
 
           <div class="d-grid gap-5 col-3 mx-auto">
@@ -245,66 +245,65 @@
 </div>
 
 
-
-
-
   <!-- Show All Users-->
 
-  <div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
-
-    <div class=" col-md-6 col-md-offset-2 custyle">
-      <div>
-        <a class="btn btn-primary" (click)="getUserByName(u.username)">Search</a>
-      </div>
-      <br />
-      <input class="form-control" [(ngModel)]="u.username" />
-      <table class="table table-striped custab">
-        <thead>
-          <tr>
-            <th>Action</th>
-            <th scope="col">Id</th>
-            <th scope="col">Image</th>
-            <th scope="col">F.Name</th>
-            <th scope="col">L.Name</th>
-            <th scope="col">CIN</th>
-            <th scope="col">State</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Adress</th>
-            <th scope="col">Birth</th>
-            <th scope="col">Email</th>
-            <th scope="col">Sexe</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Avilaibility</th>
-            <th scope="col">Zone</th>
-            <th scope="col">Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let u of ListUsers">
-            <td class="text-center">
-              <a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete.</a>
-              <a (click)="showUser(u)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a>
-            </td>
-            <th scope="row"><small>{{u.idUser}}</small></th>
-              <th class="inline-flex w-10 h-10"><img class='w-10 h-10 object-cover rounded-full' alt='User avatar' src='../assets/img/user1.jpeg' /></th>
-              <td><small>{{u.username}}</small></td>
-              <td><small>{{u.lastNameUser}}</small></td>
-              <td><small>{{u.cinUser}}</small></td>
-              <td><small>{{u.stateUser}}</small></td>
-              <td><small>{{u.phoneNumberUser}}</small></td>
-              <td><small>{{u.adressUser}}</small></td>
-              <td><small>{{u.birthDateUser}}</small></td>
-              <td><small>{{u.emailUser}}</small></td>
-              <td><small>{{u.sexeUser}}</small></td>
-              <td><small>{{u.salaire}}</small></td>
-              <td><small>{{u.avilaibility}}</small></td>
-              <td><small>{{u.zone}}</small></td>
-              <td><small>{{u.role}}</small></td>
-</tr>
-        </tbody>
-      </table>
+<div *ngIf="ShowAllUsers" name="f" (ngSubmit)="showAllUsers()">
+  
+  <div class=" col-md-6 col-md-offset-2 custyle">
+    <div>
+      <input type="text" #myInput [(ngModel)]="username" (input)="Search()" class="form-control" placeholder="Search …">
     </div>
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th>Action</th>
+
+          <th scope="col">Image</th>
+          <th scope="col">Id</th>
+          <th scope="col">F.Name</th>
+          <th scope="col">L.Name</th>
+          <th scope="col">CIN</th>
+          <th scope="col">State</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Adress</th>
+          <th scope="col">BirthDate</th>
+          <th scope="col">Email</th>
+          <th scope="col">Sexe</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Avilaibility</th>
+          <th scope="col">Zone</th>
+          <th scope="col">Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of ListUsers">
+          <td class="text-center col-3">
+            <a (click)="deleteUser(u.idUser)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a>
+            <br />
+            <a (click)="showUser(u)" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>Show</a>
+          </td>
+          <img src="{{'http://localhost:9091/SpringMVC/servlet/Imguserss/'+u.idUser}}"
+               class="card-img-top">
+          <th scope="row"><small>{{u.idUser}}</small></th>
+
+          <td><small>{{u.username}}</small></td>
+          <td><small>{{u.lastNameUser}}</small></td>
+          <td><small>{{u.cinUser}}</small></td>
+          <td><small>{{u.stateUser}}</small></td>
+          <td><small>{{u.phoneNumberUser}}</small></td>
+          <td><small>{{u.adressUser}}</small></td>
+          <td><small>{{u.birthDateUser}}</small></td>
+          <td><small>{{u.emailUser}}</small></td>
+          <td><small>{{u.sexeUser}}</small></td>
+          <td><small>{{u.salaire}}</small></td>
+          <td><small>{{u.avilaibility}}</small></td>
+          <td><small>{{u.zone}}</small></td>
+          <td><small>{{u.role}}</small></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
 
   <!-- Update User-->
 
@@ -368,7 +367,7 @@
         </div>
       </form>
       <div class="d-grid gap-5 col-3 mx-auto">
-        <input type="submit" (click)="updateUser()" class="btn btn-success btn-lg" value="Update" />
+        <input type="submit" (click)="updateUser(user.username,user.lastNameUser,user.cinUser,userpassword,user.stateUser,user.phoneNumberUser,user.adressUser,user.birthDateUser,user.emailUser,user.sexeUser)" class="btn btn-success btn-lg" value="Update" />
       </div>
       <br>
       <br />

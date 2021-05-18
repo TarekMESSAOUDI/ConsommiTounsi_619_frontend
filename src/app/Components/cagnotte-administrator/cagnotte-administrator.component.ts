@@ -18,6 +18,7 @@ export class CagnotteAdministratorComponent implements OnInit {
   cagnotte: Cagnotte = new Cagnotte();
   submitted = false;
   id: number;
+  name: String;
 
   constructor( private route: ActivatedRoute,private router: Router, private cagnotteService : CagnotteService) { }
 
@@ -75,6 +76,8 @@ export class CagnotteAdministratorComponent implements OnInit {
   gotoList() {
     this.router.navigate(['/administrator/cagnotte']);
   }
+
+  
 
 
 }

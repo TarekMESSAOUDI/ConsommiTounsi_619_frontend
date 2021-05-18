@@ -122,7 +122,7 @@ const routes: Routes = [
   { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent, canActivate: [AuthorizedepmantguardService]},
 
-  { path: 'home/forgot/updatepassword', component: UpdatepasswordComponent },
+  { path: 'home/forgot/updatepassword', component: UpdatepasswordComponent, canActivate: [AuthorizeforgotguardServiceService] },
 
   { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService]},
   { path: 'departmentmanager/comment', component: CommentStatsComponent, canActivate: [AuthorizedepmantguardService]},

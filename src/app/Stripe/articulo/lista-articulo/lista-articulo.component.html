@@ -8,11 +8,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let articulo of articulos">
-        <td>{{articulo.nombre}}</td>
-        <td>{{articulo.descripcion}}</td>
-        <td>{{articulo.precio / 100}}€</td>
-        <td><button class="btn btn-outline-info" routerLink="/client/detalle/{{articulo.id}}">Buy</button></td>
+      <tr *ngFor="let product of product">
+        <td>{{product.titleProduct}}</td>
+        <td>{{product.descriptionProduct}}</td>
+        <td>{{product.priceProduct / 100}}DT</td>
+        <td><button class="btn btn-outline-info" routerLink="/client/detalle/{{product.idProduct}}">Buy</button></td>
       </tr>
     </tbody>
   </table> 

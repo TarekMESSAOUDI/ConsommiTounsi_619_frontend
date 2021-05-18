@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { jsDocComment } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -13,7 +14,7 @@ export class BasketService {
   numOfItems = new BehaviorSubject([]);
   cartiteeems = new BehaviorSubject([]);
   placeholder = [];
-
+  
   addBasketURL = 'http://localhost:9091/SpringMVC/servlet/add-basket';
   deletBasketURL = 'http://localhost:9091/SpringMVC/servlet/delet-basket';
   affectBasketURL =
@@ -76,6 +77,7 @@ export class BasketService {
       let storeData: any = [];
       storeData.push(product);
       localStorage.setItem('cart', JSON.stringify(storeData));
+      
     } else {
       var id = product.idProduct;
       let index: number = -1;

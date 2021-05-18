@@ -1,0 +1,23 @@
+<h5>Filter by categories</h5>
+  <form >
+      <div class="category-filter filter-wrapper" *ngFor = 'let filter of underCategoryList'>
+        <div class="custom-control custom-checkbox">
+            <label class="fake-checkbox">
+              <input type="checkbox" class="custom-control-input" checked (change)='onInputChange($event, filter, "category")'>
+              <span class="custom-control-label"> {{filter.nameUnderCategory}}</span>
+              <span></span>
+            </label>
+        </div>
+    </div>
+</form>
+<h5>Filter by price</h5>
+<form *ngIf = "showFilters">
+    <div class="custom-filter filter-wrapper" *ngFor = 'let filter of priceFilters'>
+        <label class="fake-checkbox">
+          <input type="radio" name="price" [checked]='filter.checked' (click)='onInputChange($event, filter, "price")'>
+          <span class="circle"><span class="fill"></span></span>
+          <span class="label">{{filter.name}}</span>
+          <span></span>
+        </label>
+    </div>
+  </form>

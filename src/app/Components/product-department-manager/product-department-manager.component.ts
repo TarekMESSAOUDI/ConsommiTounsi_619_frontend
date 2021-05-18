@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from 'src/app/Models/Product';
+import { ProductService } from 'src/app/Services/product/product.service';
 
 @Component({
   selector: 'app-product-department-manager',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDepartmentManagerComponent implements OnInit {
 
-  constructor() { }
+  ListProducts:Product[];
+
+  constructor(public prodSerivce: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
+
+    this.prodSerivce.getAllProducts().subscribe((res) => {
+      console.log(res);
+      this.ListProducts = res;
+    });
+    
+
   }
 
 }

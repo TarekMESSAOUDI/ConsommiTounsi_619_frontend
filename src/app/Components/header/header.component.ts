@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   DeliveryPerson: boolean;
   DepartmentManager: boolean;
   Admin: boolean;
-
   basket: number
   constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router ,public translate:TranslateService,private CartService:BasketService) { }
 
@@ -77,5 +76,4 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  
 

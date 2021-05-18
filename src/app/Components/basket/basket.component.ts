@@ -27,5 +27,41 @@ export class BasketComponent implements OnInit {
     this.price = total;
     console.log(this.price);
   }
- 
+  removeProduct() {
+    localStorage.removeItem('cart');
+    window.location.reload();
+  }
+
+  getproduct(id) {
+    if (localStorage.getItem('cart')) {
+      this.listCartHere = JSON.parse(localStorage.getItem('cart'));
+      for (let i = 0; i < this.listCartHere.length; i++) {
+        if (this.listCartHere[i].idProduct === id) {
+          this.listCartHere.splice(i, 1);
+          localStorage.setItem('cart', JSON.stringify(this.listCartHere));
+          window.location.reload();
+        }
+      }
+    }
+  }
 }
+
+// getCartDetails: any[];
+// cartDetails() {
+//   if (localStorage.getItem('cart')) {
+//     this.getCartDetails = JSON.parse(localStorage.getItem('cart'));
+//   }
+// }
+
+// removeSingleProduct(product:Product) {
+//   console.log(product);
+//   if (localStorage.getItem('cart')) {
+//     this.getCartDetails = JSON.parse(localStorage.getItem('cart'));
+//     for (let i = 0; i < this.getCartDetails.length; i++) {
+//       if (this.getCartDetails[i].idProduct === this.getCartDetails) {
+//         this.getCartDetails.splice(i, 1);
+//         localStorage.setItem('cart', JSON.stringify(this.getCartDetails));
+//       }
+//     }
+//   }
+// }

@@ -14,7 +14,7 @@ import { ProductService } from '../../Services/product/product.service';
 export class ProductComponent implements OnInit {
    productsCart: any[] = [];
   selectedProduct:Product;
-  ListProducts:Product[];
+  ListProducts:Product[]= [];
   user:User;
   productName:string;
  
@@ -58,6 +58,21 @@ export class ProductComponent implements OnInit {
       }else if(this.productName==""){
         this.ngOnInit();
       }
+    }
+
+   
+  
+    
+  
+    getAllProducts(): void {
+      this.prodClientServ.lista().subscribe(
+        data => {
+          this.ListProducts = data;
+        },
+        err => {
+          console.log(err);
+        }
+      );
     }
     
 likeProduct(id:number,prod:Product){

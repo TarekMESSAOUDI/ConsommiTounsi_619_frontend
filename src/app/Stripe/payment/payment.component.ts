@@ -15,9 +15,9 @@ import { PaymentIntentDto } from '../model/payment-intent-dto';
 })
 export class PaymentComponent implements OnInit {
 
-  @Input() precio;
-  @Input() descripcion;
-  @Input() nombre;
+  @Input() priceProduct;
+  @Input() descriptionProduct;
+  @Input() titleProduct;
 
   alert: boolean=false;
 
@@ -76,14 +76,14 @@ export class PaymentComponent implements OnInit {
         if (result.token) {
           const paymentIntentDto: PaymentIntentDto = {
             token: result.token.id,
-            amount: this.precio,
+            amount: this.priceProduct,
             currency: 'eur',
-            description: this.descripcion
+            description: this.descriptionProduct
           };
           this.paymentService.pagar(paymentIntentDto).subscribe(
             data => {
-              this.abrirModal(data[`id`], this.nombre, data[`description`], data[`amount`]);
-              this.router.navigate(['/client']);
+              this.abrirModal(data[`id`], this.titleProduct, data[`description`], data[`amount`]);
+              this.router.navigate(['/']);
             }
           );
           this.error = undefined;
@@ -98,12 +98,12 @@ export class PaymentComponent implements OnInit {
 
  
 
-  abrirModal(id: string, nombre: string, descripcion: string, precio: number) {
+  abrirModal(id: string, titleProduct: string, descriptionProduct: string, priceProduct: number) {
     const modalRef = this.modalService.open(ModalComponent);
     modalRef.componentInstance.id = id;
-    modalRef.componentInstance.nombre = nombre;
-    modalRef.componentInstance.descripcion = descripcion;
-    modalRef.componentInstance.precio = precio;
+    modalRef.componentInstance.titleProduct = titleProduct;
+    modalRef.componentInstance.descriptionProduct = descriptionProduct;
+    modalRef.componentInstance.priceProduct = priceProduct;
   }
 
 }

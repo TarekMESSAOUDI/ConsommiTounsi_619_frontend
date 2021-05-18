@@ -1,9 +1,10 @@
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { BarcodeResponse } from 'src/app/Models/BarcodeResponse';
 import { Product } from '../../Models/Product';
+const cabecera = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
 @Injectable({
   providedIn: 'root'
@@ -121,6 +122,19 @@ export class ProductService {
 
   ZxingReader(file) {
     return this.prodhttp.post(this.zxingBarcodeUrl, file)
+  }
+
+
+  productURL = 'http://localhost:9091/SpringMVC/servlet/';
+
+  
+
+  public lista(): Observable<Product[]> {
+    return this.prodhttp.get<Product[]>('http://localhost:9091/SpringMVC/servlet/lista', cabecera);
+  }
+
+  public detalle(idProduct: number): Observable<Product> {
+    return this.prodhttp.get<Product>(this.productURL + `detalle/${idProduct}`, cabecera);
   }
 
 }

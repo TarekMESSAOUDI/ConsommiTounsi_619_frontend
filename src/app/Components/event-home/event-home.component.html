@@ -27,9 +27,9 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-col l8 s12">
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-    <img src="../../assets/charity.JPG" alt="" style="width:100%">
+    <img src="../../assets/charity.jpg" alt="" style="width:100%">
     <div class="w3-container">
-      <h3><b>singing session,rap,poem recitation, open mic session and many more . </b></h3>
+      <h3><b>This a Description Of Event ... </b></h3>
       <h5><span class="w3-opacity">Mai 21, 2021</span></h5>
     </div>
 
@@ -43,20 +43,23 @@ and is wrapped around the whole page content, except for the footer in this exam
         <div class="w3-col m8 s12">
           <p><button class="w3-button w3-padding-large w3-white w3-border" (click)="Reserve()"><b>Reserve</b></button></p>
         </div>
+        
         <div class="input-group mb-3">
-        <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
-        </div>
+        
         
       </div>
       </div>
     </div>
+    <div class="alert alert-primary">{{msg}}</div>
   </div>
+  
   <hr>
+
+ 
 
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-  <img src="../../assets/event.JPG" alt="Norway" style="width:100%">
+  <img src="../../assets/event.jpg" alt="Norway" style="width:100%">
     <div class="w3-container">
       <h3><b>Charity Fundraising Events in 2021</b></h3>
       <h5>How to Help Those Organisations Most in Need<span class="w3-opacity">Mai 19, 2021</span></h5>
@@ -67,14 +70,17 @@ and is wrapped around the whole page content, except for the footer in this exam
         can we please have a participation on this amazing event where donations are collected and then distributed among the needy ones .
       </p>
       <div class="w3-row">
+        <span class="input-group-text" id="inputGroup-sizing-default">Titre</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="charityevent.titre">
+        <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="charityevent.description">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Reserve</b></button></p>
+          <p><button class="w3-button w3-padding-large w3-white w3-border" (click)="Reserve()"><b>Reserve</b></button></p>
         </div>
-        <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
-        </div>
+        
       </div>
     </div>
+    <div class="alert alert-primary">{{msg}}</div>
   </div>
 <!-- END BLOG ENTRIES -->
 </div>
@@ -84,6 +90,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- About Card -->
   <div class="w3-card w3-margin w3-margin-top">
   
+   
     <div class="w3-container w3-white">
       <i class="fas fa-user"></i>
       <h4><b>Admin</b></h4>
@@ -110,7 +117,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     </ul>
   </div>
   <hr> 
- 
+
   <!-- Labels / tags -->
 
   

@@ -15,47 +15,50 @@
 
 <div *ngIf="show">
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+  <div class="container mt-5">
+    <table class="table table-borderless table-responsive card-1 p-4">
+        <thead>
+            <tr class="border-bottom">
+                <th> <span class="ml-2">Id</span> </th>
+                <th> <span class="ml-2">Title</span> </th>
+                <th> <span class="ml-2">Description</span> </th>
+                <th> <span class="ml-2">Date</span> </th>
+                <th> <span class="ml-4">Action</span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of ListClaim">
+                
+                <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{c.idClaim}}</span> </div>
+                    </div>
+                </td>
+                
+               <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{c.titleClaim}}</span> </div>
+                    </div>
+                </td>
 
-<div class="container">
-   <div class="container">
-       <div class="row col-md-6 col-md-offset-2 custyle">
-        <div class=" col-md-6 col-md-offset-2 custyle">
+                <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{c.descriptionClaim}}</span> </div>
+                    </div>
+                </td> 
           
-          
-          
-       <table class="table table-striped custab">
-       <thead>
-           <tr>
-               <th>Id</th>
-               <th>Title</th>
-               <th>description</th>
-               <th>Date</th>
-               
-               
-           </tr>
-       </thead>
-       <tbody>
-           <tr *ngFor="let c of ListClaim">
-               <td>{{c.idClaim}}</td>
-               <td>{{c.titleClaim}}</td>
-               <td>{{c.descriptionClaim}}</td>
-               <td>{{c.dateClaim}}</td>
+               <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{c.dateClaim}}</span> </div>
+                    </div>
+                </td> 
+
+ <td class="text-center"><button class="btn btn-danger btn-xs" (click)="DeleteClaim(c.idClaim)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+
+            </tr>
             
-               <td class="text-center"><button class="btn btn-danger btn-xs" (click)="DeleteClaim(c.idClaim)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
-               
-              
-               
-             </tr>
-       
-       </tbody>
-       </table>
-</div>
-</div>
-
-</div>
+          
+        </tbody>
+    </table>
 </div>
 </div>

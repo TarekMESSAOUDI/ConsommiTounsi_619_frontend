@@ -13,6 +13,7 @@ import { SortedComponentComponent } from '../sorted-component/sorted-component.c
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
+
   productsCart: any[] = [];
   errorMessage: string;
   selectedProduct: Product;
@@ -42,6 +43,7 @@ export class ProductComponent implements OnInit {
     { name: 'Price > 2000', value: 'more_2000', checked: false },
     { name: 'Price < 500', value: 'less_500', checked: false },
   ];
+
 
   ngOnInit(): void {
     this.prodClientServ.getAllProducts().subscribe(
@@ -114,7 +116,27 @@ export class ProductComponent implements OnInit {
     } else if (this.productName == '') {
       this.ngOnInit();
     }
-  }
+
+
+   
+  
+    
+  
+    getAllProducts(): void {
+      this.prodClientServ.lista().subscribe(
+        data => {
+          this.ListProducts = data;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+    
+likeProduct(id:number,prod:Product){
+  return this.prodClientServ.likeProduct(prod,id);
+}
+
 
   likeProduct(id: number, prod: Product) {
     return this.prodClientServ.likeProduct(prod, id);

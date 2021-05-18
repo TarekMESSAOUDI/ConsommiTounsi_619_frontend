@@ -71,9 +71,12 @@
  }
  
  .buttony:focus { outline:0; }
+
  
  .img {
    width: 300;
    height: 300;
  }
+
+
 

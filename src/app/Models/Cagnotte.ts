@@ -6,5 +6,6 @@ export class Cagnotte{
     Email: string;
 	imagenURL : string;
 	name : string;
+  filter: any;
 }
 

@@ -77,6 +77,8 @@ const routes: Routes = [
   { path: 'home/event', component: EventHomeComponent },
   { path: 'home/authentificate', component: AuthentificateComponent },
   { path: 'home/createaccount', component: CreateaccountComponent },
+  { path: 'home/forgot', component: ForgotComponent },
+
   { path: 'administrator', component: EsapaceAdministratorComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/user', component: UserComponent, canActivate: [AuthorizeGuardService] },
   { path: 'administrator/delivery', component: DeliveryAdministratorComponent, canActivate: [AuthorizeGuardService] },
@@ -120,7 +122,7 @@ const routes: Routes = [
   { path: 'departmentmanager/department', component: DepartmentDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService] },
   { path: 'departmentmanager/stock', component: StockDepartmentMangerComponent, canActivate: [AuthorizedepmantguardService]},
 
-  { path: 'home/forgot/updatepassword', component: UpdatepasswordComponent },
+  { path: 'home/forgot/updatepassword', component: UpdatepasswordComponent, canActivate: [AuthorizeforgotguardServiceService] },
 
   { path: 'departmentmanager/Sales', component: SalesDepartmentManagerComponent, canActivate: [AuthorizedepmantguardService]},
   { path: 'departmentmanager/comment', component: CommentStatsComponent, canActivate: [AuthorizedepmantguardService]},

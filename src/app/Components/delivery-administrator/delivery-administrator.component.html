@@ -1,32 +1,79 @@
-<table class="table table-hover">
-            
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Date</th>
-        <th scope="col">Name of Product</th>
-        <th scope="col">Delivery/FreeDelivery</th>
-        <th scope="col">Place Delivery</th>
-        <th scope="col">Adress of Delivery</th>
-      </tr>
-    </thead>
-
-    
-      <tr *ngFor="let d of ListDelivery">
-        <td>{{d.idDelivery}}</td>
-        <td>{{d.dateDelivery}}</td>
-        <td>{{d.NameProduct}}</td>
-        <td>{{d.DetailleDelivery}}</td>
-        <td>{{d.placeDelivery}}</td>
-        <td>{{d.adressDelivery}}</td>
-        <div >
-  <button (click)="DeleteDelivery(d.idDelivery)" type="button" class="btn-danger"> DELETE </button>
-  <button (click)="AffecteDeliveryToDeliveryPerson()" type="button" class="btn-danger"> Affecter </button>
+<div class="container">
+  <div class="row mt-3">
+<div class="col">
+  <button class="button" routerLink="/administrator"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
 </div>
-      </tr> 
-      
-  
-   
+<div class="col">
+  <button class="button" (click)="ViewClaim()"><h3><i class="fa fa-tags" aria-hidden="true"></i>Show delivery</h3></button>
+</div>
+</div>
+</div>
 
-  </table>
 
+
+
+
+<div *ngIf="show">
+
+  <div class="container mt-5">
+    <table class="table table-borderless table-responsive card-1 p-4">
+        <thead>
+            <tr class="border-bottom">
+                <th> <span class="ml-2">Id</span> </th>
+                <th> <span class="ml-2">Date</span> </th>
+                <th> <span class="ml-2">Name of Product</span> </th>
+                 <th> <span class="ml-2">Place Delivery</span> </th>
+                 <th> <span class="ml-2">Adress of Delivery</span> </th>
+                <th> <span class="ml-4">Action</span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of ListDelivery">
+                
+                <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{d.idDelivery}}</span> </div>
+                    </div>
+                </td>
+                
+               <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{d.dateDelivery}}</span> </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{d.NameProduct}}</span> </div>
+                    </div>
+                </td> 
+          
+               
+
+                 <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{d.placeDelivery}}</span> </div>
+                    </div>
+                </td>              
+
+               
+
+            <td>
+                    <div class="p-2 d-flex flex-row align-items-center mb-2"> 
+                        <div class="d-flex flex-column ml-2"> <span class="d-block font-weight-bold">{{d.adressDelivery}}</span> </div>
+                    </div>
+                </td>              
+
+
+
+
+ <td class="text-center"><button class="btn btn-danger btn-xs" (click)="DeleteDelivery(d.idDelivery)" ><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+<td class="text-center"><button class="btn btn-success" ><span class="glyphicon glyphicon-remove"></span> Affecté</button></td>
+
+            </tr>
+            
+          
+        </tbody>
+    </table>
+</div>
+</div>

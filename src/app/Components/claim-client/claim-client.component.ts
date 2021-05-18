@@ -21,7 +21,7 @@ export class ClaimClientComponent implements OnInit {
 
     
   }
-  newOrder(): void {
+  newClaim(): void {
     this.submitted = false;
     this.claim = new Claim();
   }

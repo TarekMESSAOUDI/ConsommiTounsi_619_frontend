@@ -33,11 +33,12 @@ export class ProductService {
   deleteAvance = "http://localhost:9091/SpringMVC/servlet/products";
 
   addProdToBasketUrl = "http://localhost:9091/SpringMVC/servlet/AffectProdToBasket/";
-
+  likeProductUrl="http://localhost:9091/SpringMVC/servlet/like-product";
 
   // barcodeReaderService
   dynamsoftBarcodeUrl = "http://localhost:9091/SpringMVC/servlet/dynamsoft";
   zxingBarcodeUrl = "http://localhost:9091/SpringMVC/servlet/zxing";
+
 
 
   constructor(private prodhttp: HttpClient) { }
@@ -125,6 +126,7 @@ export class ProductService {
   }
 
 
+
   productURL = 'http://localhost:9091/SpringMVC/servlet/';
 
   
@@ -136,5 +138,11 @@ export class ProductService {
   public detalle(idProduct: number): Observable<Product> {
     return this.prodhttp.get<Product>(this.productURL + `detalle/${idProduct}`, cabecera);
   }
+
+  likeProduct(p:Product,id:number){
+     this.prodhttp.post(this.likeProductUrl+id,p);
+   } 
+ 
+
 
 }

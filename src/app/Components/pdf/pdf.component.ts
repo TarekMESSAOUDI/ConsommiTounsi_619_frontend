@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
+
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { Product } from 'src/app/Models/Product';
+import { Order } from 'src/app/Models/Order';
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 class Invoice{
@@ -10,12 +12,12 @@ class Invoice{
   address: string;
   email: string;
   
-  products: Product[] = [];
+  order: Order[] = [];
   additionalDetails: string;
 
   constructor(){
     // Initially one empty product row we will show 
-    this.products.push(new Product());
+    this.order.push(new Order());
   }
 }
 
@@ -78,8 +80,8 @@ export class PdfComponent {
             widths: ['*', 'auto', 'auto', 'auto'],
             body: [
               ['Product', 'Price', 'Quantity', 'Amount'],
-              ...this.invoice.products.map(p => ([p.titleProduct, p.priceProduct, p.quantityProduct, (p.priceProduct*p.quantityProduct).toFixed(2)])),
-              [{text: 'Total Amount', colSpan: 3}, {}, {}, this.invoice.products.reduce((sum, p)=> sum + (p.quantityProduct * p.priceProduct), 0).toFixed(2)]
+              ...this.invoice.order.map(o => ([o.product, o.amountOrder, o.productNumberOrder, (o.amountOrder*o.productNumberOrder).toFixed(2)])),
+              [{text: 'Total Amount', colSpan: 3}, {}, {}, this.invoice.order.reduce((sum, o)=> sum + (o.productNumberOrder * o.amountOrder), 0).toFixed(2)]
             ]
           }
         },
@@ -130,7 +132,7 @@ export class PdfComponent {
   }
 
   addProduct(){
-    this.invoice.products.push(new Product());
+    this.invoice.order.push(new Order());
   }
   
 }

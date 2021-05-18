@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/Models/Product';
+import { ProductService } from 'src/app/Services/product/product.service';
 import { Articulo } from '../../model/articulo';
 import { ArticuloService } from '../articulo.service';
 
@@ -11,9 +13,9 @@ import { ArticuloService } from '../articulo.service';
 })
 export class ListaArticuloComponent implements OnInit {
 
-  articulos: Articulo[]= [];
+  product: Product[]= [];
 
-  constructor(private articuloService: ArticuloService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.cargarLista();
@@ -22,9 +24,9 @@ export class ListaArticuloComponent implements OnInit {
   
 
   cargarLista(): void {
-    this.articuloService.lista().subscribe(
+    this.productService.lista().subscribe(
       data => {
-        this.articulos = data;
+        this.product = data;
       },
       err => {
         console.log(err);

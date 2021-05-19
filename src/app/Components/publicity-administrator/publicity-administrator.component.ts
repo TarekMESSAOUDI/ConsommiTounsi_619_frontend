@@ -6,6 +6,7 @@ import { PublicityService } from 'src/app/Services/Publicity/publicity.service';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @Component({
   selector: 'ngbd-modal-content',
   template: `
@@ -68,9 +69,10 @@ export class PublicityAdministratorComponent implements OnInit {
   PublicityToUpdate: any;
   updateProductInt: boolean;
   publicity: Publicity = new Publicity();
-  private modalService: NgbModal
+  
+  
   constructor(
-    public PublicityService: PublicityService,
+    public PublicityService: PublicityService,private modalService: NgbModal,
     private router: Router
   ) {}
 

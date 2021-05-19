@@ -307,7 +307,7 @@ export class ProductAdministratorComponent implements OnInit {
         
 
       if (this.tunisianBarCode === false) {
-        alert('Your product is not tunisian! Please insert a tunisian product');
+        alert('Your product is not tunisian !!!! \n Please insert a tunisian product');
       }
       console.log(this.file_upload);
     });

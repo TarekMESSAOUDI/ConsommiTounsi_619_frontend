@@ -2,7 +2,11 @@
   <div class="row mt-3">
 
 <div class="col">
-  <button class="button" (click)="showdeliveryinterface()"><h3>Confirm Delivery</h3></button>
+
+  <button class="button" routerLink="/client"><h3><i class="fa fa-tags" aria-hidden="true"></i>Return</h3></button>
+</div>
+<div class="col">
+  <button class="button" (click)="showdeliveryinterface()"><h3><i class="fa fa-tags" aria-hidden="true"></i>confirm Delivery</h3></button>
 </div>
 
 </div>
@@ -13,7 +17,8 @@
 
 <div class="col-md-16 login-form-1">
   
-  <h1></h1>
+
+  <h1>Confirm Delivery</h1>
   <form name="form" (ngSubmit)="addevent()">
 
     <div class="form-group">

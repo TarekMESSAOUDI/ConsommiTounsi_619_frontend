@@ -3,8 +3,17 @@
 
 
 <div *ngIf="manageCatInterface">
+    <h2 style="margin-left: 35%;">Add New Categroy</h2>
+    <div style="margin-left: 30%;">
+        <form #C="ngForm" name="form">
+            <label>Name Category : </label>
+            <input type="text" required placeholder="Name Category" id="nameCategory" #nc="ngModel"
+                name="nameUnderCategory" [(ngModel)]="category.nameCategory">
 
-    <table class="table caption-top">
+            <button type="text" class="btn btn-success" (click)="addCategory()"> Add Category</button>
+        </form>
+    </div>
+    <table  class="table caption-top">
 
         <tr>
             <th scope="col">#</th>
@@ -22,26 +31,41 @@
     </table>
 
 
-    <h2>Add New Categroy</h2>
+   
 
-    <div>
-        <form #C="ngForm">
-            <label>Name Category : </label>
-            <input type="text" required placeholder="NameCategory" id="nameCategory" #nc="ngModel"
-                name="nameUnderCategory" [(ngModel)]="category.nameCategory">
-
-            <button type="text" class="btn btn-success" (click)="addCategory()"> Add Category</button>
-        </form>
-    </div>
+    
 
 </div>
 
 
 
 
-
+<!-- **************************UNDER CATGORY********************************************* -->
 
 <div *ngIf="manageunderCatInterface">
+    <h2 style="margin-left: 30%;">Add Under Category</h2>
+    <form #F="ngForm" name="form" style="margin-left: 30%;">
+
+        <div>
+            <label>Name Under Category : </label>
+            <input class="form-control" type="text" required placeholder="Name Under Category" id="nameUnderCategory" #nc="ngModel"
+                name="nameUnderCategory" [(ngModel)]="undercategory.nameUnderCategory">
+        </div>
+
+        <div>
+            <label> Select Category </label>
+            <select  name="Category" id="Category" [(ngModel)]="category.Category"
+                (change)="onChange($event.target.value)" class="form-control">
+
+                <option *ngFor="let c of ListCategories" [value]="c.idCategory">
+                    {{c.nameCategory}}</option>
+
+            </select>
+        </div>
+        <button type="button" type="submit" id="addProductToDatabase" (click)="addUnderCategory()"
+            class="btn btn-success">Add
+            New Under Category</button>
+    </form>
     <table class="table caption-top">
 
         <tr>
@@ -65,28 +89,7 @@
 
 
 
-    <form #F="ngForm">
-
-        <div>
-            <label>Name Under Category : </label>
-            <input type="text" required placeholder="NameunderCategory" id="nameUnderCategory" #nc="ngModel"
-                name="nameUnderCategory" [(ngModel)]="undercategory.nameUnderCategory">
-        </div>
-
-        <div>
-            <label> Select Category </label>
-            <select name="Category" id="Category" [(ngModel)]="category.Category"
-                (change)="onChange($event.target.value)" class="form-control">
-
-                <option *ngFor="let c of ListCategories" [value]="c.idCategory">
-                    {{c.nameCategory}}</option>
-
-            </select>
-        </div>
-        <button type="button" type="submit" id="addProductToDatabase" (click)="addUnderCategory()"
-            class="btn btn-success">Add
-            New Under Category</button>
-    </form>
+    
 
 </div>
 

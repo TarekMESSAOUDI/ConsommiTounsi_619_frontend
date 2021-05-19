@@ -19,6 +19,9 @@ export class HeaderComponent implements OnInit {
   DepartmentManager: boolean;
   Admin: boolean;
 
+  basket: number
+
+
   
 
   basket: number=0;
@@ -30,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+    this.basket;
     this.nbrproductFun();
     
     console.log(this.basket);
@@ -84,6 +87,6 @@ nbrproductFun(){
   }
 }
 
-  }
+  
 
 

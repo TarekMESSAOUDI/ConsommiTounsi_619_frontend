@@ -4,7 +4,7 @@
 
                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 <div class="col-sm-12 col-md-12 col-lg-12">
-    <!-- product -->
+    
     <div class="product-content product-wrap clearfix product-deatil">
         <div class="row">
             <div class="col-md-5 col-sm-12 col-xs-12">
@@ -12,9 +12,9 @@
                     <div id="myCarousel-2" class="carousel slide">
                        
                         <div class="carousel-inner">
-                            <!-- Slide 1 -->
+                       
                             <div class="item active">
-                              <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+id}}" class="img-fluid z-depth-1" width="350" height="500">
+                              <img  style="margin-left: 20%;" src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+id}}" class="img-fluid z-depth-1" width="350" height="500">
                             </div>
                         </div>
                     </div>
@@ -25,17 +25,16 @@
                 <h2 class="name">
                    {{title}}
                     
-                    <span class="fa fa-2x"><h5> Votes</h5></span>
-                    <a href="javascript:void(0);">109 customer reviews</a>
+                    
                 </h2>
                 <hr />
                 <h3 class="price-container">
-                    Dt {{price}}
+                   {{price}} Dt 
                     <small>*includes tax</small>
                 </h3>
                 <div class="certified">
                     <ul>
-                       
+                       <li>{{quantity}} in stock </li>
                         <li>
                             <a href="javascript:void(0);">Certified<span>Quality Assured</span></a>
                         </li>
@@ -62,3 +61,5 @@
     </div>
 
 </div>
+
+

@@ -83,7 +83,7 @@
                     name="descriptionPublicity" [(ngModel)]="publicity.descriptionPublicity">
                 <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
             <div *ngIf="d.errors.required">Description Is Obilgatory</div>
-        </div>
+                </div>
             </div>
 
 
@@ -145,13 +145,15 @@
 
 
             <label>Publicity Image</label>
-            <input type="file" class="form-control"  name="file" [(ngModel)]="publicity.fileName"><br>
+            <input type="file" class="form-control" placeholder="Image is a required filed" name="file" [(ngModel)]="publicity.fileName" #imp="ngModel" required><br>
+            <div class="alert alert-danger" *ngIf="mo.invalid && ed.touched" >
+                <div *ngIf="imp.errors.required">Image is a required field   </div>
+                
+            </div>
 
 
 
-
-
-            <button type="button" type="submit" id="add publicity" (click)="addPublicity()" class="btn btn-success">ADD
+            <button type="button" type="submit" id="add publicity" [disabled]="F.invalid" (click)="addPublicity()" class="btn btn-success">ADD
                 PUBLICITY</button>
         
     </form>

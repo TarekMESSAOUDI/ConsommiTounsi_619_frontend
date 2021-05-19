@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+    this.basket;
     this.nbrproductFun();
     
     console.log(this.basket);

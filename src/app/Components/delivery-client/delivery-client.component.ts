@@ -13,15 +13,21 @@ export class DeliveryClientComponent implements OnInit {
   delivery : Delivery=new Delivery();
   showfreedelivery:boolean;
   showdelivery:boolean;
+  msg = '';
   constructor(private Ds:DeliveryService) { }
 
   ngOnInit(): void {
   }
   addDelivery() { 
     this.delivery.status = Status.IN_PROGRESS
-    this.Ds.addDelivery(this.delivery).subscribe(res=>{console.log(res);
-    }
-    );
+    this.Ds.addDelivery(this.delivery).subscribe(
+      data => {
+        console.log(data),
+          this.showdeliveryinterface();
+          this.msg = 'delivery is confirmed';},
+      (error) => {
+        console.log(error);
+      });
 
   }
     showfreedeliveryinterface(){

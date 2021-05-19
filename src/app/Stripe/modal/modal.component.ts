@@ -11,9 +11,9 @@ import { ToastrService } from 'ngx-toastr';
 export class ModalComponent implements OnInit {
 
   @Input() id;
-  @Input() nombre;
-  @Input() descripcion;
-  @Input() precio;
+  @Input() titleProduct;
+  @Input() descriptionProduct;
+  @Input() priceProduct;
 
   constructor(
     public activeModal: NgbActiveModal,

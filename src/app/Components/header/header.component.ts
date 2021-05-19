@@ -18,12 +18,15 @@ export class HeaderComponent implements OnInit {
   DeliveryPerson: boolean;
   DepartmentManager: boolean;
   Admin: boolean;
+
   
 
   basket: number=0;
+
   constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router ,public translate:TranslateService,private CartService:BasketService) { }
 
   
+
 
 
   ngOnInit(): void {
@@ -72,6 +75,7 @@ export class HeaderComponent implements OnInit {
   }
 //Nuber products in basket
 
+
 nbrproductFun(){
   if (localStorage.getItem('cart')!=null){
     var cartCount=JSON.parse(localStorage.getItem('cart'));
@@ -79,5 +83,7 @@ nbrproductFun(){
     this.basket = cartCount.length;
   }
 }
+
   }
+
 

@@ -76,6 +76,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
 import { PdfComponent } from './Components/pdf/pdf.component';
+import { SortedComponentComponent } from './Components/sorted-component/sorted-component.component';
+
 
 
 
@@ -149,7 +151,8 @@ import { PdfComponent } from './Components/pdf/pdf.component';
     ForgotComponent,
     UpdatepasswordComponent,
     ProductsViewComponent,
-    PdfComponent
+    PdfComponent,
+    SortedComponentComponent,
   ],
 
   imports: [
@@ -163,7 +166,7 @@ import { PdfComponent } from './Components/pdf/pdf.component';
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxStripeModule.forRoot('pk_test_51IbUTJD3cB2Kf1acSTRdQkoc23ugIGKZmwUzNAMdXA0r8u8NsnT5wc1RU8GZJ91NkKZoRaxpnzczQONGWpNEzAwR009imHTIjb'),
+    NgxStripeModule.forRoot('pk_test_51IsUqjJQltlOMJ3wkucINZcyFSyDDuwjUASdv6zg8YSsYmtLUgwc1eKDruUR8uFZegBoxGEcbvWtta3QiM2hnPC500b2NzqN8E'),
     TranslateModule.forRoot({
       defaultLanguage:'en',
       loader:{

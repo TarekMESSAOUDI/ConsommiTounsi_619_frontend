@@ -289,7 +289,7 @@ h4 {
 
 body {
     background-color: #f4f4f4   ;
-    height: 1000px;
+    height: 1400px;
 }
 
 .container {
@@ -315,7 +315,8 @@ button.btn.btn-hide {
     padding-left: 40px;
     padding-right: 40px;
     border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px
+    border-bottom-right-radius: 0px;
+    border-radius: 40px;
 }
 
 .btn:focus {

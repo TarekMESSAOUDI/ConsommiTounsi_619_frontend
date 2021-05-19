@@ -18,7 +18,14 @@ export class HeaderComponent implements OnInit {
   DeliveryPerson: boolean;
   DepartmentManager: boolean;
   Admin: boolean;
+
   basket: number
+
+
+  
+
+  basket: number=0;
+
   constructor(private userservice: UserService, private tokenstorage: TokenstorageService, private router: Router ,public translate:TranslateService,private CartService:BasketService) { }
 
   
@@ -26,9 +33,10 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    var x = this.CartService.cartItems
-    this.basket = x.length
-    console.log(this.basket)
+    
+    this.nbrproductFun();
+    
+    console.log(this.basket);
     if (localStorage.getItem("AuthAuthorities").includes("ADMINISTRATOR")) {
       this.Admin = true;
       this.Client = false;
@@ -68,13 +76,17 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.clear();
   }
+//Nuber products in basket
 
 
-
-
-  
-
+nbrproductFun(){
+  if (localStorage.getItem('cart')!=null){
+    var cartCount=JSON.parse(localStorage.getItem('cart'));
+    console.log(cartCount);
+    this.basket = cartCount.length;
   }
+}
 
   
+
 

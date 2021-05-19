@@ -15,7 +15,7 @@ nav{
 nav .wrapper{
   position: relative;
   max-width: 1300px;
-  padding: 0px 30px;
+  padding: 0px 60px;
   height: 70px;
   line-height: 70px;
   margin: auto;
@@ -106,7 +106,7 @@ nav .wrapper{
   font-weight: 500;
 }
 .content .row .mega-links{
-  margin-left: -40px;
+  margin-left: 40px;
   border-left: 1px solid rgba(143, 33, 110, 0.09);
 }
 .row .mega-links li{

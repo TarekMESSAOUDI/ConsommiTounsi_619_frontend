@@ -50,25 +50,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let product of invoice.products; let i=index">
+                                    <tr *ngFor="let order of invoice.order; let i=index">
                                         <td scope="row">
-                                            <input type="text" class="form-control" name="productName{{i}}"
+                                            <input type="text" class="form-control" name="product{{i}}"
                                                 [ngClass]="{'is-invalid': invoiceForm.submitted && ProductName.invalid}"
-                                                id="productName" [(ngModel)]="product.name" #ProductName="ngModel"
+                                                id="product" [(ngModel)]="order.product" #ProductName="ngModel"
                                                 required>
                                         </td>
                                         <td>
                                             <input type="number" class="form-control" name="price{{i}}" id="price"
                                                 [ngClass]="{'is-invalid': invoiceForm.submitted && ProductPrice.invalid}"
-                                                [(ngModel)]="product.price" #ProductPrice="ngModel" required>
+                                                [(ngModel)]="order.amountOrder" #ProductPrice="ngModel" required>
                                         </td>
                                         <td>
                                             <input type="number" class="form-control" name="quantity{{i}}" id="quantity"
                                                 [ngClass]="{'is-invalid': invoiceForm.submitted && ProductQty.invalid}"
-                                                [(ngModel)]="product.qty" #ProductQty="ngModel" required>
+                                                [(ngModel)]="order.productNumberOrder" #ProductQty="ngModel" required>
                                         </td>
                                         <td>
-                                            {{product.price * product.qty || ''}}
+                                            {{order.amountOrder * order.productNumberOrder || ''}}
                                         </td>
                                     </tr>
                                 </tbody>

@@ -17,6 +17,10 @@
   <h3>Add Order</h3>
      <div [hidden]="submitted" style="width: 400px;">
        <form (ngSubmit)="onSubmit()">
+
+       
+
+
          <div class="form-group">
           <label for="name">Amount Order</label>
           <input type="text" class="form-control" id="amountOrder" required [(ngModel)]="order.amountOrder" name="amountOrder">
@@ -54,6 +58,8 @@
  
 
  <div *ngIf="showOrder">
+
+  
  
  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

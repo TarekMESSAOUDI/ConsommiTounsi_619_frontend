@@ -82,51 +82,7 @@
 
 
 
-<!--Sign in-->
-<div class="sign ">
-  <a>
-    <i class="fa fa-user"></i>
 
-
-    <a href="/home/authentificate">
-      <small *ngIf="NotConnected">Sign In</small>
-    </a>
-
-    <a href="/administrator">
-      <small *ngIf="Admin">{{user}}</small>
-    </a>
-    <br />
-    <a href="/home/authentificate">
-      <small *ngIf="Admin" (click)="logOut()">LogOut</small>
-    </a>
-
-      <a href="/client">
-        <small>{{user}}</small>
-      </a>
-      <br />
-      <a href="/home/authentificate">
-        <small  (click)="logOut()">LogOut</small>
-      </a>
-
-    <a href="/departmentmanager/department">
-      <small *ngIf="DepartmentManager">{{user}}</small>
-    </a>
-    <br />
-    <a href="/home/authentificate">
-      <small *ngIf="DepartmentManager" (click)="logOut()">LogOut</small>
-    </a>
-
-    <a href="/deliveryperson">
-      <small *ngIf="DeliveryPerson">{{user}}</small>
-    </a>
-    <br />
-    <a href="/home/authentificate">
-      <small *ngIf="DeliveryPerson" (click)="logOut()">LogOut</small>
-    </a>
-
-  </a>
-</div>
-<!--Sign in-->
 
             <!--Sign in-->
             <div class="sign ">

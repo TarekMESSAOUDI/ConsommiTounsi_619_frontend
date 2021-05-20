@@ -177,8 +177,8 @@ export class ProductAdministratorComponent implements OnInit {
         this.ListProducts = res;
       })
     );
-    this.open();
-    window.setTimeout(this.reload, 3000);
+    //this.open();
+   // window.setTimeout(this.reload, 3000);
   }
 
   reload() {

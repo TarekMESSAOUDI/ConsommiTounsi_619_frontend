@@ -117,7 +117,7 @@ export class ProductComponent implements OnInit {
       this.ngOnInit();
     }
 
-
+  }
    
   
     
@@ -138,9 +138,6 @@ likeProduct(id:number,prod:Product){
 }
 
 
-  likeProduct(id: number, prod: Product) {
-    return this.prodClientServ.likeProduct(prod, id);
-  }
   //ADD TO CART SERVICE
 
   addToCArt(product: Product) {

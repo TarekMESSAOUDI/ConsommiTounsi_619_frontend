@@ -67,17 +67,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SecondNavComponent } from './Components/second-nav/second-nav.component';
 import { DeliveryClientComponent } from './Components/delivery-client/delivery-client.component';
-
 import { ForgotComponent } from './Components/forgot/forgot.component';
 import { UpdatepasswordComponent } from './Components/updatepassword/updatepassword.component';
-
 import { ProductsViewComponent } from './Components/products-view/products-view.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
 import { PdfComponent } from './Components/pdf/pdf.component';
-
-
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 
@@ -157,13 +154,14 @@ import { PdfComponent } from './Components/pdf/pdf.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxCaptchaModule,
     HttpClientModule,
     //HttpClientXsrfModule.withOptions({ cookieName: 'XSRF-TOKEN' }),
     BrowserAnimationsModule,
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxStripeModule.forRoot('pk_test_51IbUTJD3cB2Kf1acSTRdQkoc23ugIGKZmwUzNAMdXA0r8u8NsnT5wc1RU8GZJ91NkKZoRaxpnzczQONGWpNEzAwR009imHTIjb'),
+    NgxStripeModule.forRoot('pk_test_51IziEXDGIe2QH5KPbwRWzkIgPxzHWJ21nzT9LMZdb01c5xNMDu8B1Vww6Z5Y60HVIfJPhdUU9D3J1VLN06mnBYvS00HUQItxxq'),
     TranslateModule.forRoot({
       defaultLanguage:'en',
       loader:{

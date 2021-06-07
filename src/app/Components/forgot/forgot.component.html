@@ -13,7 +13,13 @@
           Email is a Required Field !
         </a>
 
-        <input  type="submit" [disabled]="forgot.invalid" class="fadeIn fourth" value="Send Mail" (click)="forgotPassword()" >
+        <ngx-recaptcha2 name="recaptcha" class="fadeIn third" #captchaElem required #r="ngModel" [(ngModel)]="form.recap" [siteKey]="siteKey">
+        </ngx-recaptcha2>
+        <a class="alert alert-danger" *ngIf="r.invalid && r.touched">
+          Recaptcha is a Required Field !
+        </a>
+
+        <input type="submit" [disabled]="forgot.invalid" class="fadeIn fourth" value="Send Mail" (click)="forgotPassword()">
       </form>
 
       <div class="alert alert-primary">{{msg}}</div>

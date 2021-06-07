@@ -31,6 +31,7 @@
     "@stripe/stripe-js": "^1.14.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
+    "ngx-captcha": "^9.0.1",
     "ngx-stripe": "^7.4.5",
     "ngx-toastr": "^13.2.1",
     "pdfmake": "^0.1.71",

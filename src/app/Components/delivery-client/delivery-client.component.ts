@@ -32,13 +32,13 @@ export class DeliveryClientComponent implements OnInit {
   }
     showfreedeliveryinterface(){
       this.showfreedelivery=true;
-      this.showdelivery=false;   
+      this.showdelivery=true;   
     }
 
 
     showdeliveryinterface(){
 this.showdelivery=true;
-this.showfreedelivery=false;
+this.showfreedelivery=true;
 
     }
   }

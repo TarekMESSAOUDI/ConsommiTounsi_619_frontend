@@ -75,6 +75,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CommentStatsComponent } from './Components/comment-stats/comment-stats.component';
 import { PdfComponent } from './Components/pdf/pdf.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { SortedComponentComponent } from './Components/sorted-component/sorted-component.component';
 
 
 
@@ -146,7 +147,8 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     ForgotComponent,
     UpdatepasswordComponent,
     ProductsViewComponent,
-    PdfComponent
+    PdfComponent,
+    SortedComponentComponent,
   ],
 
   imports: [

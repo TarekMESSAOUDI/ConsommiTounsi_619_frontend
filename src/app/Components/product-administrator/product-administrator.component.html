@@ -1,8 +1,5 @@
-
-  
-
-<div class="container" id="main-container">
-  <h3>Department Manager Products Home </h3>
+<div class="container" id="main-container" >
+ 
   <button type="buttony" id="submitButton" (click)="ViewProducts()" class="buttony">SHOW PRODUCTS </button>
   <button type="buttony" id="submitButton" (click)="AddProdShowDiv()" class="buttony">ADD NEW PRODUCT</button>
 
@@ -10,10 +7,10 @@
 
   <!-- AFFICHAGE DES PRODUITS AVEC OPTION DELETE-->
 
-  <div *ngIf="show" class="card-deck">
-
-
-
+  <div *ngIf="show" class="card-deck" >
+    
+      
+   
     <table id="rcorners2" class="table caption-top" style="background-color:white; ">
 
       <tr>
@@ -45,267 +42,277 @@
         <td>{{p.likes}}  </td>
         <div>
           <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="100" height="150"
-               class="card-img-top" alt="...">
+            class="card-img-top" alt="...">
         </div>
         <button type="button" class="btn-primary" (click)="updateProductInterface(p.idProduct,p)"> Update </button>
         <button (click)="deleteProduct(p.idProduct)" type="button" class="btn-danger"> DELETE </button>
       </tr>
     </table>
-
+  
   </div>
 
   <!-- FORMULAIRE D'AJOUT D'UN NOUVEAU PRODUITS -->
 
 
-  <div class="container login-container" *ngIf="showIntAddProd">
-    <div class="raw">
-      <div class="col-md-16 login-form-1">
-        <h1 class="col-5 mx-auto">BarcodeReader</h1>
 
-        <form name="form" (ngSubmit)="ReadBarcode()" [formGroup]="form">
+  <div *ngIf="showIntAddProd" class="container login-container">
+
+  <div class="raw">
+    <div class="col-md-16 login-form-1">
+      <h1 class="col-5 mx-auto"> Barcode Reader</h1>
+
+    <form (ngSubmit)="ReadBarcode()" [formGroup]="form">
+
+      <div class="form-group">
+         <input  ng-model="file_upload"  class="form-control" name="file" type="file" (change)="fileChange($event)" #fileInput>
+         <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+  </div>
+  </div>
+
+
+
+
+  
+  <div class="raw"></div>
+  <div class="col-md-16 login-form-1"></div>
+    <div *ngIf="tunisianBarCode; else elseBlock">
+
+
+      <form #F="ngForm" name="form">
+        
+        
+          <div class="form-group">
+            <label>Title Of Product : </label>
+            <input  type="text" required placeholder="Title Of Product" #t="ngModel" id="titleProduct" minlength="4"
+              name="titleProduct" [(ngModel)]="product.titleProduct" class="form-control">
+            <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
+              <div *ngIf="t.errors.required">Title Is Obilgatory</div>
+              <div *ngIf="t.errors.minlength">Invalid Title,minlength title is 8 characters</div>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label>Product Desccription : </label>
+            <input class="form-control" type="text" required placeholder="descriptionProduct" #d="ngModel" id="descriptionProduct" minlength="20"
+              name="descriptionProduct" [(ngModel)]="product.descriptionProduct">
+            <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
+              <div *ngIf="d.errors.required">Description Is Obilgatory</div>
+              <div *ngIf="d.errors.minlength">Invalid Description</div>
+            </div>
+          </div>
 
 
           <div class="form-group">
-            <input type="file" name="file" class="form-control" (change)="fileChange($event)" #fileInput ng-model="file_upload" />
-            <br />
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <label>Product Quantity : </label>
+            <input class="form-control" type="number" required placeholder="quantityProduct" #q="ngModel" 
+              name="quantityProduct" [(ngModel)]="product.quantityProduct">
+            <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
+              <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
+            </div>
           </div>
 
-        </form>
-
-      </div>
-    </div>
-
-    <div class="raw">
-      <div class="col-md-16 login-form-1">
-        <div *ngIf="tunisianBarCode; else elseBlock">
-          <h1>ADD NEW PRODUCTS INTERFACE</h1>
-          <form #F="ngForm" name="form">
-
-            <div class="form-group">
-              <label>Title Of Product : </label>
-              <input type="text" required placeholder="Title Of Product" #t="ngModel" id="titleProduct" minlength="8" class="form-control"
-                     name="titleProduct" [(ngModel)]="product.titleProduct">
-            </div>
-
-            <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
-                <div *ngIf="t.errors.required">Title Is Obilgatory</div>
-                <div *ngIf="t.errors.minlength">Invalid Title,minlength title is 8 characters</div>
-            </div>
-
-            <div class="form-group">
-              <label>Product Desccription : </label>
-              <input type="text" required placeholder="descriptionProduct" #d="ngModel" id="descriptionProduct" minlength="20" class="form-control"
-                     name="descriptionProduct" [(ngModel)]="product.descriptionProduct">
-            </div>
-
-            <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
-                <div *ngIf="d.errors.required">Description Is Obilgatory</div>
-                <div *ngIf="d.errors.minlength">Invalid Description</div>
-            </div>
 
 
-            <div class="form-group">
-              <label>Product Quantity : </label>
-              <input type="number" required placeholder="quantityProduct" #q="ngModel" class="form-control"
-                     name="quantityProduct" [(ngModel)]="product.quantityProduct">
-            </div>
-
-            <div class="alert alert-danger" *ngIf="q.invalid && q.touched">
-                <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
-            </div>
-
-            <div class="form-group">
-              <label>Product Initial Price : </label>
-              <input type="number" required placeholder="priceProduct" #pp="ngModel" class="form-control"
-                     name="priceProduct" [(ngModel)]="product.priceProduct">
-            </div>
-
-            <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched">
-                <div *ngIf="pp.errors.required">Price Is Obilgatory</div>
-            </div>
-
-            <div class="form-group">
-              <label>Product Weight : </label>
-              <input type="number" required placeholder="weightProduct" #wp="ngModel" name="weightProduct" minlength="2" class="form-control"
-                     pattern="[1-9][0-9][0-9]" [(ngModel)]="product.weightProduct">
-            </div>
-
-            <div class="alert alert-danger" *ngIf="wp.invalid && wp.touched">
-                <div *ngIf="wp.errors.required">Weight Is Obilgatory</div>
-                <div *ngIf="wp.errors.minlength">Invalid Weight</div>
-            </div>
-
-
-            <div class="form-group">
-              <label>Buying Price : </label>
-              <input type="number" required placeholder="buyingPriceProduct" #bp="ngModel" pattern="[1-9][0-9]" class="form-control"
-                   name="buyingPriceProduct" [(ngModel)]="product.buyingPriceProduct">
-            </div>
-
-            <div class="alert alert-danger" *ngIf="bp.invalid && bp.touched">
-              <div *ngIf="bp.errors.required">Buying Price Is Obilgatory</div>
-            </div>
-
-
-            <div class="form-group">
-              <label>Product Stock Quantity : </label>
-              <input type="number" required placeholder="maxQuantityProduct" #mqp="ngModel" name="maxQuantityProduct" class="form-control"
-                   [(ngModel)]="product.maxQuantityProduct">
-              <br>
-            </div>
-
-            <div class="form-group">
-              <label>Product Diskount : </label>
-              <input type="number" required placeholder="Diskount is not neccessary" #redp="ngModel" name="reductionProduct" class="form-control"
-                   [(ngModel)]="product.reduction">
-              <br>
-            </div>
-
-            <div class="form-group">
-              <label>Product Under Category : </label>
-              <select id="underCategory" #uc="ngModel" name="underCategory" (change)="onChange($event.target.value)"
-                      [(ngModel)]="product.UnderCategory" class="form-control">
-                <option *ngFor="let u of ListUnderCategory" [value]="u.idUnderCategory">
-                  {{u.nameUnderCategory}}
-                </option>
-              </select>
-            </div>
-
-              <div class="alert alert-danger" *ngIf="uc.required && uc.touched">
-                <div *ngIf="uc.errors.required">UnderCategory Is Obilgatory</div>
-              </div>
-
-            <div class="form-group">
-              <label>Product Department : </label>
-              <select required id="departmentProduct" name="departmentProduct" (change2)="onChange($event.target.value)"
-                      [(ngModel)]="product.Department" class="form-control">
-                <option *ngFor="let d of ListDepartments" [value]="d.idDepartment">
-                  {{d.nameDepartment}}
-                </option>
-              </select>
-            </div>
-
-            <div>
-              <label>Product Image</label>
-              <input type="file" name="file" [(ngModel)]="product.fileName" required class="form-control"><br>
-            </div>
-
-            <div>
-              <button  type="submit" id="addProductToDatabase" (click)="addProduct()"
-                      class="btn btn-success">
-                ADD
-                TO DATABASE
-              </button>
-            </div>
-        </form>
-      </div>
-      <br>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!-- Updated view product-->
-
-  <div *ngIf="updateProductInt" class="container" style="padding-top: 100;background-color:white;width:400px; margin-right:auto; margin-left:auto; border:1px solid #000;">
-    <h1>UPDATE Product</h1>
-
-    <form #H="ngForm">
-      <fieldset>
-        <div class="form-group">
-          <label>Title Of Product : </label>
-          <input type="text" required placeholder="Title Of Product" #t="ngModel" id="titleProduct" name="titleProduct"
-                 [(ngModel)]="productToUpdate.titleProduct">
-          <!-- <div class="alert alert-danger" *ngIf="t.invalid && t.touched" >
-              <div *ngIf="t.errors.required">Title Is Obilgatory</div>
-          </div> -->
-
-        </div>
-
-        <div class="form-group">
-          <label>Product Desccription : </label>
-          <input type="text" required placeholder="descriptionProduct" #d="ngModel" id="descriptionProduct"
-                 name="descriptionProduct" [(ngModel)]="productToUpdate.descriptionProduct">
-          <!-- <div class="alert alert-danger" *ngIf="d.invalid && d.touched" >
-              <div *ngIf="d.errors.required">Description Is Obilgatory</div>
-              <div *ngIf="d.errors.minlength">Invalid Description</div>
-          </div> -->
-        </div>
-
-
-        <div class="form-group">
-          <label>Product Quantity : </label>
-          <input type="number" required placeholder="quantityProduct" #q="ngModel" pattern="[1-9][0-9]"
-                 name="quantityProduct" [(ngModel)]="productToUpdate.quantityProduct">
-          <!-- <div class="alert alert-danger" *ngIf="q.invalid && q.touched" >
-              <div *ngIf="q.errors.required">Quantity Is Obilgatory</div>
-              <div *ngIf="q.errors.minlength">Invalid Quantity</div>
-          </div> -->
-        </div>
-
-
-
-        <div class="form-group">
-          <label>Product Initial Price : </label>
-          <input type="number" required placeholder="priceProduct" #pp="ngModel" pattern="[1-9][0-9]" name="priceProduct"
-                 [(ngModel)]="productToUpdate.priceProduct">
-          <!-- <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched" >
+          <div class="form-group">
+            <label>Product Initial Price : </label>
+            <input  class="form-control" type="number" required placeholder="priceProduct" #pp="ngModel" 
+              name="priceProduct" [(ngModel)]="product.priceProduct">
+            <div class="alert alert-danger" *ngIf="pp.invalid && pp.touched" >
               <div *ngIf="pp.errors.required">Price Is Obilgatory</div>
-              <div *ngIf="pp.errors.pattern">Invalid Price</div>
-          </div> -->
-        </div>
+            </div>
+          </div>
 
 
 
 
-        <div class="form-group">
-          <label>Product Weight : </label>
-          <input type="number" required placeholder="weightProduct" #wp="ngModel" name="weightProduct"
-                 pattern="[1-9][0-9][0-9]" [(ngModel)]="productToUpdate.weightProduct">
-          <!-- <div class="alert alert-danger" *ngIf="wp.invalid && wp.touched" >
+          <div class="form-group">
+            <label>Product Weight : </label>
+            <input type="number"  class="form-control"required placeholder="weightProduct" #wp="ngModel" name="weightProduct" minlength="2"
+               [(ngModel)]="product.weightProduct">
+            <div class="alert alert-danger" *ngIf="wp.invalid && wp.touched" >
               <div *ngIf="wp.errors.required">Weight Is Obilgatory</div>
-              <div *ngIf="wp.errors.pattern">Invalid Weight</div>
-          </div> -->
+              <div *ngIf="wp.errors.minlength">Invalid Weight</div>
+            </div>
 
-        </div>
-
-
-        <div class="form-group"></div>
-        <label>Buying Price : </label>
-        <input type="number" required placeholder="buyingPriceProduct" #bp="ngModel" pattern="[1-9][0-9]"
-               name="buyingPriceProduct" [(ngModel)]="productToUpdate.buyingPriceProduct">
-        <!-- <div class="alert alert-danger" *ngIf="bp.invalid && bp.touched" >
-          <div *ngIf="bp.errors.required">Buying Price Is Obilgatory</div>
-          <div *ngIf="bp.errors.pattern">Invalid Buying Price</div>
-        </div> -->
+          </div>
 
 
+          <div class="form-group"></div>
+          <label>Buying Price : </label>
+          <input class="form-control" type="number" required placeholder="buyingPriceProduct" #bp="ngModel"
+            name="buyingPriceProduct" [(ngModel)]="product.buyingPriceProduct">
+          
+            <div class="alert alert-danger" *ngIf="bp.invalid && bp.touched" >
+            <div *ngIf="bp.errors.required">Buying Price Is Obilgatory</div>
+          </div>
 
 
-        <div class="form-group"></div>
-        <label>Product Stock Quantity : </label>
-        <input type="number" required placeholder="maxQuantityProduct" #mqp="ngModel" name="maxQuantityProduct"
-               [(ngModel)]="productToUpdate.maxQuantityProduct">
-        <!-- <div class="alert alert-danger" *ngIf="mqp.invalid && mqp.touched" >
-          <div *ngIf="mqp.errors.required">Max Quantity Product Is Obilgatory</div>
-          <div *ngIf="mqp.errors.pattern">Invalid Max Quantity Product</div>
-        </div> -->
-        <br>
 
 
-        <button type="button" id="appdateProduct" (click)="updateProduct(productToUpdate.idProduct, productToUpdate)"
-                class="btn btn-success">
-          Update
-          Product
-        </button>
-      </fieldset>
-    </form>
+          <div class="form-group"></div>
+          <label>Product Stock Quantity : </label>
+          <input  class="form-control" type="number" required placeholder="maxQuantityProduct" #mqp="ngModel" name="maxQuantityProduct"
+            [(ngModel)]="product.maxQuantityProduct">
+          <div class="alert alert-danger" *ngIf="mqp.invalid && mqp.touched" >
+            <div *ngIf="mqp.errors.required">Max Quantity Product Is Obilgatory</div>
+            
+          </div>
+          
+
+
+
+          <div class="form-group"></div>
+          <label>Product Diskount : </label>
+          <input class="form-control" type="number" required placeholder="Diskount is not neccessary" #redp="ngModel" name="reductionProduct"
+            [(ngModel)]="product.reduction">
+           <!--<div class="alert alert-danger" *ngIf="redp.invalid && redp.touched" >
+            <div *ngIf="redp.errors.pattern">Invalid Product Diskount</div> 
+          </div>-->
+          <br>
+
+
+
+
+
+          <div class="form-group">
+            <label>Product Under Category : </label>
+            <select  class="form-control" id="underCategory" #uc="ngModel" name="underCategory" (change)="onChange($event.target.value)"
+              [(ngModel)]="product.UnderCategory" class="form-control">
+              <option *ngFor="let u of ListUnderCategory" [value]="u.idUnderCategory">
+                {{u.nameUnderCategory}}
+              </option>
+            </select>
+            <div class="alert alert-danger" *ngIf="uc.required && uc.touched" >
+              <div *ngIf="uc.errors.required">UnderCategory Is Obilgatory</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Product Department : </label>
+            <select  class="form-control" required id="departmentProduct"   #pdep="ngModel" name="departmentProduct" (change2)="onChange($event.target.value)"
+              [(ngModel)]="product.Department" class="form-control">
+              <option  *ngFor="let d of ListDepartments" [value]="d.idDepartment">
+                {{d.nameDepartment}}
+              </option>
+            </select>
+            <div class="alert alert-danger" *ngIf="uc.required && uc.touched" >
+              <div *ngIf="pdep.errors.required">UnderCategory Is Obilgatory</div>
+            </div>
+          </div>
+
+
+
+
+          <label>Product Image</label>
+          <input type="file" class="form-control" name="file" [(ngModel)]="product.fileName" required ><br>
+
+
+          <button type="button" type="submit" id="addProductToDatabase" (click)="addProduct()"
+            class="btn btn-success"  [disabled]="F.invalid">Add Product</button>
+
+        
+      </form>
+    </div>
     <br>
 
-
+  
   </div>
 
+</div>
 
 
 
+
+
+
+
+
+
+
+
+                                      <!-- Updated view product-->
+
+<div class="raw">
+<div class="col-md-16 login-form-1">                        
+
+<div *ngIf="updateProductInt" class="container login-container" >
+  <h1>UPDATE PRODUCT</h1>
+
+
+  
+  <form #H="ngForm" name="form">
+   
+      <div class="form-group">
+        <label>Title Of Product : </label>
+        <input class="form-control" type="text" required placeholder="Title Of Product" #t="ngModel" id="titleProduct" name="titleProduct"
+          [(ngModel)]="productToUpdate.titleProduct">
+      </div>
+
+      <div class="form-group">
+        <label>Product Desccription : </label>
+        <input type="text"  class="form-control"required placeholder="descriptionProduct" #d="ngModel" id="descriptionProduct"
+          name="descriptionProduct" [(ngModel)]="productToUpdate.descriptionProduct">
+      </div>
+
+
+      <div class="form-group">
+        <label>Product Quantity : </label>
+        <input  class="form-control" type="number" required placeholder="quantityProduct" #q="ngModel" pattern="[1-9][0-9]"
+          name="quantityProduct" [(ngModel)]="productToUpdate.quantityProduct">
+      </div>
+
+
+
+      <div class="form-group">
+        <label>Product Initial Price : </label>
+        <input  class="form-control" type="number" required placeholder="priceProduct" #pp="ngModel" pattern="[1-9][0-9]" name="priceProduct"
+          [(ngModel)]="productToUpdate.priceProduct">
+      </div>
+
+
+
+
+      <div class="form-group">
+        <label>Product Weight : </label>
+        <input class="form-control" type="number" required placeholder="weightProduct" #wp="ngModel" name="weightProduct"
+          pattern="[1-9][0-9][0-9]" [(ngModel)]="productToUpdate.weightProduct">
+      </div>
+
+
+      <div class="form-group"></div>
+      <label>Buying Price : </label>
+      <input class="form-control" type="number" required placeholder="buyingPriceProduct" #bp="ngModel" pattern="[1-9][0-9]"
+        name="buyingPriceProduct" [(ngModel)]="productToUpdate.buyingPriceProduct">
+
+
+      <div class="form-group"></div>
+      <label>Product Diskount: </label>
+      <input class="form-control" type="number" required placeholder="buyingPriceProduct" #pd="ngModel" 
+        name="buyingPriceProduct" [(ngModel)]="productToUpdate.reduction">
+    
+
+      <div class="form-group"></div>
+      <label>Product Stock Quantity : </label>
+      <input  class="form-control" type="number" required placeholder="maxQuantityProduct" #mqp="ngModel" name="maxQuantityProduct"
+        [(ngModel)]="productToUpdate.maxQuantityProduct">
+    
+
+      <div class="form-group"></div>
+      <label>Image Product : </label>
+      <input class="form-control" type="file" required placeholder="Product Image" #imp="ngModel" name="fileName"
+        [(ngModel)]="productToUpdate.fileName">
+      
+      <br><br>
+
+      <button type="button" id="appdateProduct" (click)="updateProduct(productToUpdate.idProduct, productToUpdate)"
+        class="btn btn-success">Update
+        Product</button>
+    
+  </form>
+  
+</div>
+</div>
+</div>

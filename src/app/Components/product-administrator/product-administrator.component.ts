@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopupService } from '@ng-bootstrap/ng-bootstrap/util/popup';
@@ -10,6 +10,48 @@ import { UnderCategory } from 'src/app/Models/UnderCategory';
 import { DepartmentService } from 'src/app/Services/Department/department.service';
 import { ProductService } from 'src/app/Services/product/product.service';
 import { UndercategoryService } from 'src/app/Services/UnderCategory/undercategory.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+  selector: 'ngbd-modal-content',
+  template: `
+    <div class="modal-header">
+      <h4 class="modal-title">Hi there!</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="activeModal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>
+        Your product has been added to the database. Thank
+        you!
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="activeModal.close('Close click')"
+      >
+        Close
+      </button>
+    </div>
+  `,
+})
+
+
+
+
+export class NgbdModalContent {
+  @Input() name;
+
+  constructor(public activeModal: NgbActiveModal) {}
+}
 
 @Component({
   selector: 'app-product-administrator',
@@ -38,14 +80,14 @@ export class ProductAdministratorComponent implements OnInit {
   form: FormGroup;
   ListUnderCategory: UnderCategory[];
   ListDepartments: Department[];
-  
 
   constructor(
     public prodSerivce: ProductService,
     private router: Router,
     public fb: FormBuilder,
     private DepService: DepartmentService,
-    private underCatSer: UndercategoryService
+    private underCatSer: UndercategoryService,
+    private modalService: NgbModal
   ) {}
 
   get f() {
@@ -109,6 +151,11 @@ export class ProductAdministratorComponent implements OnInit {
     this.product.Department = value;
   }
 
+  open() {
+    const modalRef = this.modalService.open(NgbdModalContent);
+    modalRef.componentInstance.name = 'World';
+  }
+
   addProduct() {
     var startIndex =
       this.product.fileName.indexOf('\\') >= 0
@@ -130,7 +177,12 @@ export class ProductAdministratorComponent implements OnInit {
         this.ListProducts = res;
       })
     );
-    this.router.navigate(['/administrator/product']);
+    //this.open();
+   // window.setTimeout(this.reload, 3000);
+  }
+
+  reload() {
+    window.location.reload();
   }
 
   UpdateProductShowDiv() {
@@ -142,6 +194,14 @@ export class ProductAdministratorComponent implements OnInit {
   updateProduct(id: number, product: Product) {
     console.log('product', product);
     console.log('ahawa', this.productToUpdate);
+    var startIndex = this.productToUpdate.fileName.indexOf('\\') >= 0 ? this.productToUpdate.fileName.lastIndexOf('\\')
+        : this.productToUpdate.fileName.lastIndexOf('/');
+    var filename = this.productToUpdate.fileName.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+      filename = filename.substring(1);
+      console.log('ahawa', this.productToUpdate);
+    }
+    this.productToUpdate.fileName = filename;
     this.prodSerivce.updateproduct(id, product).subscribe(() =>
       this.prodSerivce.getAllProducts().subscribe((res) => {
         this.ListProducts = res;
@@ -198,7 +258,7 @@ export class ProductAdministratorComponent implements OnInit {
 
       var mimeType = event.target.files[0].type;
       if (mimeType.match(/image\/*/) == null) {
-        this.message = "Only images are supported.";
+        this.message = 'Only images are supported.';
         return;
       }
 
@@ -208,9 +268,8 @@ export class ProductAdministratorComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = (_event) => {
         this.imgURL = reader.result;
-      }
+      };
     }
-
   }
 
   createForm() {
@@ -238,7 +297,6 @@ export class ProductAdministratorComponent implements OnInit {
     // Launch post request
 
     return this.prodSerivce.ZxingReader(body).subscribe((res) => {
-
       this.file_upload = res['results'][0].toString();
       console.log('image Complte', res);
       var arr = this.file_upload.toString().split('');
@@ -246,12 +304,12 @@ export class ProductAdministratorComponent implements OnInit {
       this.tunisianBarCodeCheck === '613'
         ? (this.tunisianBarCode = true)
         : (this.tunisianBarCode = false);
+        
 
       if (this.tunisianBarCode === false) {
-        alert('Your product is not tunisian! Please insert a tunisian product');
+        alert('Your product is not tunisian !!!! \n Please insert a tunisian product');
       }
       console.log(this.file_upload);
     });
   }
-  
 }

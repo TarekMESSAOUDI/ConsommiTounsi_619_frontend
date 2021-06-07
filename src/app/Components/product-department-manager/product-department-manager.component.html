@@ -1,1 +1,35 @@
-<p>product-department-manager works!</p>
+
+    <table  class="table caption-top" >
+      
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title </th>
+          <th scope="col">Description</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Max Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Buying Price</th>
+          <th scope="col">Profit Margin</th>
+          <th scope="col">Diskount</th>
+          <th scope="col">Likes</th>
+          <th scope="col">Image</th>
+        </tr>
+  
+        <tr *ngFor="let p of ListProducts" class="col-12 col-sm-6 col-md-4 p-2">
+          <td>{{p.idProduct}}</td>
+          <td>{{p.titleProduct}}</td>
+          <td>{{p.descriptionProduct}}</td>
+          <td>{{p.quantityProduct}}</td>
+          <td>{{p.weightProduct}}</td>
+          <td>{{p.maxQuantityProduct}}</td>
+          <td>{{p.priceProduct}} DT</td>
+          <td>{{p.buyingPriceProduct}} DT </td>
+          <td>{{p.buyingPriceProduct-p.priceProduct}}</td>
+          <td>{{p.reduction}} %  </td>
+          <td>{{p.likes}}  </td>
+          
+            <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" >
+         
+        </tr>
+      </table>

@@ -14,6 +14,7 @@ nav {
   background: #131212;
 }
 
+
   nav .wrapper {
     position: relative;
     max-width: 1300px;
@@ -27,6 +28,7 @@ nav {
   }
 
 .wrapper .logo a {
+
   color: #f2f2f2;
   font-size: 30px;
   font-weight: 600;
@@ -121,8 +123,8 @@ nav {
   font-size: 20px;
   font-weight: 500;
 }
-
 .content .row .mega-links {
+
   margin-left: 40px;
   border-left: 1px solid rgba(143, 33, 110, 0.09);
 }
@@ -313,7 +315,13 @@ nav input {
   padding: 0 30px;
 }
 
-  .body-text div {
-    font-size: 45px;
-    font-weight: 600;
-  }
+.body-text div{
+  font-size: 45px;
+  font-weight: 600;
+}
+
+
+
+
+
+

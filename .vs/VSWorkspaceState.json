@@ -1,15 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\Components",
-    "\\src\\app\\Components\\department-department-manager",
-    "\\src\\app\\Components\\espace-department-manager",
-    "\\src\\app\\Components\\header",
-    "\\src\\app\\Components\\stock",
-    "\\src\\app\\Components\\user"
+    ""
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "SelectedNode": "\\src",
   "PreviewInSolutionExplorer": false
 }

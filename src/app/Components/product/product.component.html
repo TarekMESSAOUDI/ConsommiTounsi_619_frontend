@@ -44,9 +44,10 @@
 
 <div class="right" >
 <label for="Search"> Search</label>
-<input type="text" [(ngModel)]="productName" (input)="searchByName()" placeholder="Search By Name..."></div>
+<input type="text" [(ngModel)]="productName" (input)="searchByName()" placeholder="Search..."></div>
 <br>
 <br>
+<!-- <app-sorted-component [priceFilters]="priceFilters" ></app-sorted-component> -->
 <div class="wrapper">
     <div class="container">
         <div class="row g-1">
@@ -58,17 +59,13 @@
                    <div class="text-center"> <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="200"> </div>
                     <div class="product-details"> <span class="font-weight-bold d-block">DT {{p.priceProduct}}</span> <span>{{p.descriptionProduct}}</span>
                         <div class="buttons d-flex flex-row">
-                            <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button class="btn btn-success cart-button btn-block"><span class="dot"></span>Add to cart </button> 
+                            <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button (click)="addToCArt(p)"  class="btn btn-success cart-button btn-block"><span class="dot"></span>Add to cart </button> 
                             <td><button class="btn btn-outline-info" routerLink="/client/detalle/{{p.idProduct}}">Buy</button></td> 
                         </div>
 
-                <div class="card p-3"   >
-                    <h4>{{p.titleProduct}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button (click)="likeProduct(p,p.idProduct)" type="button" class="btn btn-light" ><i class="fa fa-heart" style="font-size:20px;color:red"></i>&nbsp;&nbsp;&nbsp;{{p.likes}}</button> </h4> 
-                    <div class="text-center">  <img src="{{'http://localhost:9091/SpringMVC/servlet/Imgarticles/'+p.idProduct}}" width="200"></div>
-                    <div class="product-details"> <span class="font-weight-bold d-block">DT {{p.buyingPriceProduct}}</span> <span>{{p.descriptionProduct}}</span>
-                        <div class="buttons d-flex flex-row">
-                            <div class="cart"><i class="fa fa-shopping-cart"></i></div> <button (click)="addToCArt(p)" class="btn btn-success cart-button btn-block"><span class="dot"></span>Add to cart </button>
-                          </div>
+
+                
+
                           
 
                         

@@ -46,11 +46,14 @@ export class CategoryadministratorComponent implements OnInit {
 
   }
   addCategory() {
-    return this.categoryService.addCategory(this.category).subscribe(() => this.categoryService.getAllCategories().subscribe(res => { this.ListCategories = res }));
-  }
+    alert(" Category "+this.category.nameCategory+" added with success");
+     this.categoryService.addCategory(this.category).subscribe(() => this.categoryService.getAllCategories().subscribe(res => { this.ListCategories = res }));
+    window.location.reload();
+    }
 
   deleteCategory(idCat: number) {
     this.categoryService.deleteCategoryById(idCat).subscribe(() => this.categoryService.getAllCategories().subscribe(res => { this.ListCategories = res }));
+    alert(" Category "+this.category.nameCategory+" deleted with success");
   }
 
   // Crud Under Catgory 
@@ -66,11 +69,14 @@ export class CategoryadministratorComponent implements OnInit {
   addUnderCategory() {
     var b = Number(this.undercategory.Category)
     console.log(this.undercategory)
-    return this.underCatService.addUndercategory(this.undercategory, b).subscribe(() => this.underCatService.getAllUnderCat().subscribe(res => { this.ListUnderCategories = res }));
+    alert("Under Category "+this.undercategory.nameUnderCategory+" added with success");
+    this.underCatService.addUndercategory(this.undercategory, b).subscribe(() => this.underCatService.getAllUnderCat().subscribe(res => { this.ListUnderCategories = res }));
+    window.location.reload();
   }
 
   deleteUnderCategory(idUnderCat: number) {
     this.underCatService.DeleteUnderCat(idUnderCat).subscribe(() => this.underCatService.getAllUnderCat().subscribe(res => { this.ListUnderCategories = res }));
+    alert(" UnderCategory "+this.undercategory.nameUnderCategory+" deleted with success");
   }
 }
 

@@ -1,4 +1,17 @@
-pub{
-    width: 100;
-    height: 300;
+/* .img{
+    height: 400;
+    width: 300;
+} */
+/* img
+ {
+    width:100%;
+    max-width: the size of the image;
+    height:auto;
+ } */
+
+ img {
+    
+    width:  700px;
+    height: 600px;
+    
 }

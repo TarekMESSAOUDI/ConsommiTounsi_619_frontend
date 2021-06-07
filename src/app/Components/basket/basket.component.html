@@ -1,5 +1,5 @@
 <h2>U have {{itemInCart || 0}} items in your shopping Cart &nbsp; <i class="fa fa-shopping-cart" style="font-size:48px;color:red"></i> </h2>
-<button class="btn btn-warning" style="float: right">CLEAR CART </button>
+<button class="btn btn-warning" style="float: right" (click)="removeProduct()"> CLEAR CART </button>
 <div class="container-fluid">
     <div class="row">
         <aside class="col-lg-9">
@@ -32,7 +32,7 @@
                                 <td>
                                     <div class="price-wrap"> <var class="price">DT{{i.buyingPriceProduct}}</var> <small class="text-muted"> % {{i.reduction}}</small> </div>
                                 </td>
-                                <td class="text-right d-none d-md-block"> <a href="" class="btn btn-light btn-round" data-abc="true"> Remove</a> </td>
+                                <td class="text-right d-none d-md-block"><button class="btn btn-light btn-round" (click)="getproduct(i.idProduct)"> Remove</button> </td>
                             </tr>
                         </tbody>
                     </table>
@@ -56,9 +56,15 @@
                     </dl>
                     <dl class="dlist-align">
                         <dt>Total:</dt>
-                        <dd class="text-right text-dark b ml-3"><strong>${{price*0.9}}</strong></dd>
+                        <dd class="text-right text-dark b ml-3"><strong>{{price*0.9}}</strong></dd>
                     </dl>
-                    <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a> <a href="client/product" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+
+
+                    <hr> <a href="/client/delivery" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Add Delivery </a> <a href="client/product" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+
+                  
+
+
                 </div>
             </div>
         </aside>

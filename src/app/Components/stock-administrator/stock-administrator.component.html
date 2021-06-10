@@ -9,8 +9,8 @@
             </a>
         </div>
         <div class="box box2">
-            <h5 class="pb-3">stock hold</h5>
-            <h1>+10.000</h1>
+            <h5 class="pb-3">stock total price hold </h5>
+            <h1>{{nbrr}}DT</h1>
             <p class="sm-text"></p> <a href="#">
                 <p class="bottom"></p>
             </a>
@@ -48,7 +48,7 @@
     <th>Name</th>
     <th>quatity stock</th>
     <th>validity Stock</th>
-    <th>coast stock</th>
+    <th>cost stock</th>
     <th>max Stock</th>
     <th>min stock</th>
     <th>capacity Stock</th>
@@ -61,7 +61,7 @@
     <td><h6 class="card-title">{{d.nameStock}}</h6></td>
     <td><h6 class="card-title">{{d.quantityStock}}</h6></td>
     <td><h6 class="cartd-title">{{d.validityStock}}</h6></td>
-    <td><h6 class="cartd-title">{{d.coastStock}}</h6></td>
+    <td><h6 class="cartd-title">{{d.costStock}}</h6></td>
     <td><h6 class="cartd-title">{{d.maxStock}}</h6></td>
     <td><h6 class="cartd-title">{{d.minStock}}</h6></td>
     <td><h6 class="cartd-title">{{d.capacityStock}}</h6></td>
@@ -86,3 +86,43 @@
     
     
     </div>
+
+
+
+
+
+
+
+<!--  affect  a product to a stock -->
+
+<p>affect the product to the stock :</p>
+    <div>
+
+
+        <form action="">
+        <div class="form-group">
+            
+            <label>Choose Product  </label>
+            <select  class="form-control" required id="Product"   #pdep="ngModel" name="Product" (change)="onChange($event.target.value)"
+              [(ngModel)]="product.idProduct" class="form-control">
+              <option  *ngFor="let p of productslist " [value]="p.idProduct">
+                {{p.titleProduct}}
+              </option>
+            </select>
+           
+
+            <label>Choose Stock : </label>
+            <select  class="form-control" required id="stockProduct"   #pdep="ngModel" name="stock" (change2)="onChange($event.target.value)"
+              [(ngModel)]="product.stock" class="form-control">
+              <option  *ngFor="let d of stocks" [value]="d.idStock">
+                {{d.nameStock}}
+              </option>
+            </select>
+           
+
+            <button (click)="affectProdToStock()" >confirme</button>
+          </div>
+        </form>-
+
+    </div>
+

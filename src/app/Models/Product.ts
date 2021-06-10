@@ -1,4 +1,5 @@
 import { Department } from "./Department";
+import { Stock } from "./Stock";
 import { UnderCategory } from "./UnderCategory";
 
 export class Product {
@@ -16,6 +17,7 @@ export class Product {
     likes:number;
     reduction:number;
     Department: Department;
+    stock: Stock;
 }
 
 

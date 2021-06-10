@@ -13,10 +13,12 @@ retrieveStocksurl ="http://localhost:9091/SpringMVC/servlet/retrieve-all-Stocks"
  retrieveStockbyNameUrl="http://localhost:9091/SpringMVC/servlet/retrieve-Stock-By-Name";
  addStockURL="http://localhost:9091/SpringMVC/servlet/add-stock";
  removeStockURL="http://localhost:9091/SpringMVC/servlet/remove-stock"
-affectproductToStock="http://localhost:9091/SpringMVC/servlet/allocateProductToStock"
+affectproductToStockUrl="http://localhost:9091/SpringMVC/servlet/allocateProductToStock"
 orderproductURL="http://localhost:9091/SpringMVC/servlet/orderProduct"
 updatestockURL="http://localhost:9091/SpringMVC/servlet/update-stock"
 countstock="http://localhost:9091/SpringMVC/servlet/nbstocks"
+
+coststockstat="http://localhost:9091/SpringMVC/servlet/costystocks"
 
 constructor(private stockhttp : HttpClient) { }
 
@@ -40,12 +42,12 @@ deleteStockById(departmentid:number):Observable<void>{
 getStockByName():Observable<Stock[]>{
   return this.stockhttp.get<Stock[]>(this.retrieveStockbyNameUrl);
 }
-
-affectProdToStock(stock:Stock) {
-  return this.stockhttp.post(this.affectproductToStock, Stock);
+affectProdToStock(idStock:number,idProduct:number) {
+  return this.stockhttp.put(`${this.affectproductToStockUrl}/${idStock}/${idProduct}`, {});
 }
+
 OrderProduct(stock:Stock) {
-  return this.stockhttp.post(this.orderproductURL, Stock);
+  return this.stockhttp.post(this.orderproductURL, stock);
 }
 
 
@@ -55,10 +57,14 @@ updateStock(stock:Stock): Observable<Stock>{
 
 
 
-
 getstockstat():Observable<any>{
   return this.stockhttp.get<any>(this.countstock);
 }
+
+getcostystockstat():Observable<any>{
+  return this.stockhttp.get<any>(this.coststockstat);
+}
+
 
 }
 

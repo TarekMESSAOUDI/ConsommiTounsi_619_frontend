@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Product } from 'src/app/Models/Product';
 import { Stock } from 'src/app/Models/Stock';
+import { ProductService } from 'src/app/Services/product/product.service';
 import { StockService } from 'src/app/Services/Stock/stock.service';
 
 @Component({
@@ -11,6 +13,7 @@ import { StockService } from 'src/app/Services/Stock/stock.service';
 })
 export class StockDepartmentMangerComponent implements OnInit {
 public stocks:Stock[];
+product:Product;
 
 
 
@@ -21,8 +24,13 @@ public deleteStock: Stock;
 
   constructor(private stockservice: StockService) { }
 
-  ngOnInit(): void { this.getStocks();
+  ngOnInit(): void { 
+    this.getStocks();
+    
   }
+
+
+
 
   public getStocks(): void {
     this.stockservice.getallstock().subscribe(
@@ -115,6 +123,8 @@ public deleteStock: Stock;
     container.appendChild(button);
     button.click();
   }
+
+
 
 
 }

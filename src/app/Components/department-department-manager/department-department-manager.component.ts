@@ -115,7 +115,7 @@ deleteDepartment(id:number){
 
   }
   
-  Viewdepartment(){
+  Viewdepartment(){    
     this.show=false;
     this.showdepartments=true;
     this.updatedepInt=false;

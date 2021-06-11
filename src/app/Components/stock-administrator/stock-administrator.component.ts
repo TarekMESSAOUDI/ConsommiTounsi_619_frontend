@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/Models/Product';
 import { Stock } from 'src/app/Models/Stock';
+import { ProductService } from 'src/app/Services/product/product.service';
 import { StockService } from 'src/app/Services/Stock/stock.service';
 
 @Component({
@@ -10,17 +12,31 @@ import { StockService } from 'src/app/Services/Stock/stock.service';
 })
 export class StockAdministratorComponent implements OnInit {
 stocks : Stock[];
-
+productslist :Product[];
 nameStock :string;
 nbr:number; 
+nbrr:number;
+product:  Product = new Product ();
+stock:Stock;
 
-
-  constructor( private stockservice: StockService) { }
+  constructor( private stockservice: StockService,private productService:ProductService) { }
 
   ngOnInit(): void { this.getStocks();
 
+    this.productService.getAllProducts().subscribe((res) => {
+      console.log(res);
+      this.productslist = res;
+    });
+
     this.getActivitystat();
+    this.getActivitystatcost();
+  
   }
+getProducts(){
+  this.productService.getAllProducts();
+ 
+}
+
 
   public getStocks(): void {
     this.stockservice.getallstock().subscribe(
@@ -61,4 +77,32 @@ public getActivitystat(): void {
     );
 }
 
+
+//stock total cost stats
+
+public getActivitystatcost(): void {
+  this.stockservice.getcostystockstat().subscribe(
+    (response: any) => {
+      this.nbrr = response;
+      console.log(this.nbrr);
+    },
+    );
+}
+
+onChange(value1) {
+  this.product.idProduct = value1;
+}
+
+onChange2(value) {
+  this.product.stock = value;
+}
+
+affectProdToStock(){
+  var b =Number (this.product.stock)
+  this.stockservice.affectProdToStock(b,this.product.idProduct).subscribe(() =>
+      this.stockservice.getallstock().subscribe((res) => {
+        this.stocks = res;
+      })
+    );
+  }
 }

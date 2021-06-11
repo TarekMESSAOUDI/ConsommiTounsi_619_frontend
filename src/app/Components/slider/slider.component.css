@@ -11,7 +11,9 @@
 }
 
 .carousel-item img {
-    height: 800px
+    height: 800px;
+
+    width: 1700px;
 }
 
 

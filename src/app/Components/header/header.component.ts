@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   DepartmentManager: boolean;
   Admin: boolean;
 
-  basket: number
+ 
 
 
   
@@ -90,3 +90,4 @@ nbrproductFun(){
   
 
 
+}
